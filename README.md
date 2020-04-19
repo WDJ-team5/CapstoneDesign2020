@@ -1,3 +1,14 @@
+service nginx start
+service php7.2-fpm start
+service mysql start
+service nginx restart
+service php7.2-fpm restart
+service mysql restart
+cd ../workspace/CapstoneDesign2020/
+npm run dev
+npm run watch-poll
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
