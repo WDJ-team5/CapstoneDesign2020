@@ -16,12 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::resources([
-	'class' => 'ClassesController',		// 댄스 강좌 라우터
-	'contest' => 'ContestsController',		// 댄스 경연 라우터
-	'advice' => 'AdvicesController',	// 피드백 라우터
-	'enterprise' => 'EnterprisesController',	// 기업연계 라우터
-	'myPage' => 'MyPagesController',	// 마이페이지 라우터
-]);
-Auth::routes();
