@@ -23,7 +23,7 @@ class UsersController extends Controller
             'password' => 'required|confirmed|min:6',
         ]);
 
-        $confirmCode = Str::random(60);
+        $confirmCode = \Str::random(60);
 
         $user = \App\User::create([
             'name' => $request->input('name'),
@@ -34,9 +34,7 @@ class UsersController extends Controller
 
         event(new \App\Events\UserCreated($user));
 
-        return $this->respondCreated(
-            '가입하신 메일 계정으로 가입 확인 메일을 보내드렸습니다. 가입 확인하시고 로그인해 주세요.'
-        );
+        return $this->respondCreated('가입하신 메일 계정으로 가입 확인 메일을 보내드렸습니다. 가입 확인하시고 로그인해 주세요.');
     }
 
     public function confirm($code)
@@ -52,21 +50,20 @@ class UsersController extends Controller
         $user->save();
 
         auth()->login($user);
-        flash(auth()->user()->name . '님, 환영합니다. 가입 확인되었습니다.');
 
-        return redirect('home');
+        return redirect('/');
     }
 
     protected function respondError($message)
     {
-        flash()->error($message);
+        var_dump($message);
 
         return redirect('/');
     }
 
     protected function respondCreated($message)
     {
-        flash($message);
+        var_dump($message);
 
         return redirect('/');
     }
