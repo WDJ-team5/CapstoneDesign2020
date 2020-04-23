@@ -19,7 +19,7 @@ Route::post('auth/register', [
 Route::get('auth/confirm/{code}', [
     'as' => 'users.confirm',
     'uses' => 'UsersController@confirm',
-])->where('code', '[\pL-\pN]{60}');
+]);
 
 /* User Authentication */
 Route::get('auth/login', [
