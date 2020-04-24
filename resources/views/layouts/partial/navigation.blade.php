@@ -8,7 +8,7 @@
     
     <div>
       <!-- Authentication Links -->
-      @if (Auth::guest())
+      @guest
         <a href="#">Login</a>
         <a href="#">Register</a>
       @else
@@ -18,7 +18,7 @@
         <!-- <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
           {{ csrf_field() }}
         </form> -->
-      @endif
+      @endguest
     </div>
 
   </div>
