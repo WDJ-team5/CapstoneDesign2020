@@ -17,7 +17,7 @@ class UsersController extends Controller
     }
 
     public function store(Request $request) {
-        $this->validate($request, [
+        $this->validate($request, [//수정할것
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
@@ -56,14 +56,14 @@ class UsersController extends Controller
 
     protected function respondError($message)
     {
-        var_dump($message);
+        var_dump($message);//임시
 
         return redirect('/');
     }
 
     protected function respondCreated($message)
     {
-        var_dump($message);
+        var_dump($message);//임시
 
         return redirect('/');
     }

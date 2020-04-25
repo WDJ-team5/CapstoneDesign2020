@@ -11,25 +11,14 @@ class SessionsController extends Controller
         $this->middleware('guest', ['except' => 'destroy']);
     }
 
-    /**
-     * Show the application login form.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('sessions.create');
     }
 
-    /**
-     * Handle login request to the application.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $this->validate($request, [//수정할 것
             'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
@@ -47,44 +36,24 @@ class SessionsController extends Controller
         return $this->respondCreated(auth()->user()->name . '님, 환영합니다.');
     }
 
-    /**
-     * Log the user out of the application.
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
     public function destroy()
     {
         auth()->logout();
-        flash('또 방문해 주세요.');
 
         return redirect('/');
     }
 
-    /* Helpers */
-
-    /**
-     * Make an error response.
-     *
-     * @param string $message
-     * @return \Illuminate\Http\RedirectResponse
-     */
     protected function respondError($message)
     {
-        flash()->error($message);
+        var_dump($message);//임시
 
         return back()->withInput();
     }
 
-    /**
-     * Make a success response.
-     *
-     * @param string $message
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
     protected function respondCreated($message)
     {
-        flash($message);
+        var_dump($message);//임시
 
-        return redirect()->intended('home');
+        return redirect()->intended('/');
     }
 }

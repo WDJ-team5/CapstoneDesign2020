@@ -2,7 +2,7 @@
 
 @section('content')
   <form action="{{ route('sessions.store') }}" method="POST" role="form" class="form__auth">
-    {!! csrf_field() !!}
+    @csrf
     
     <h4>로그인</h4>
 
@@ -19,11 +19,8 @@
     <div class="form-group">
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="remember" value="{{ old('remember', 1) }}" checked>
-          로그인 기억하기
-          <span class="text-danger">
-            (공용 컴퓨터에서는 사용하지 마세요!)
-          </span>
+          <input type="checkbox" name="remember" value="{{ old('remember', 0) }}">
+          로그인 기억하기(공용 컴퓨터에서는 사용하지 마세요!)
         </label>
       </div>
     </div>
@@ -35,13 +32,8 @@
     </div>
 
     <div>
-      <p class="text-center">
-        회원이 아니라면
-      </p>
-      <p class="text-center">
-        <a href="{{ route('remind.create') }}"></a>
-        비밀번호를 잊으셨나요?
-      </p>
+      <a href="#">비밀번호 찾기</a>
+      <a href="#">회원가입</a>
     </div>
   </form>
 @stop
