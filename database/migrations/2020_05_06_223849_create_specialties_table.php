@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSpecialtysTable extends Migration
+class CreateSpecialtiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -26,6 +26,6 @@ class CreateSpecialtysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specialtys');
+        Schema::dropIfExists('specialties');
     }
 }
