@@ -52,4 +52,29 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Expert');
     }
+
+    public function articles()
+    {
+        return $this->hasMany('App\Article');
+    }
+    
+    public function resumes()
+    {
+        return $this->hasMany('App\Resume');
+    }
+
+    public function auditions()
+    {
+        return $this->hasMany('App\Audition');
+    }
+
+    public function videos()
+    {
+        return $this->belongsToMany('App\Video');
+    }
+
+    public function contests()
+    {
+        return $this->belongsToMany('App\Contest');
+    }
 }

@@ -9,7 +9,8 @@ class Expert extends Model
     protected $fillable = [
         'agency',
         'feedback_status',
-        'sns'
+        'sns',
+        'specialties_id',
     ];
 
     public function user()
@@ -25,5 +26,10 @@ class Expert extends Model
     public function careers()
     {
         return $this->hasMany('App\Career');
+    }
+
+    public function articles()
+    {
+        return $this->hasMany('App\Article');
     }
 }
