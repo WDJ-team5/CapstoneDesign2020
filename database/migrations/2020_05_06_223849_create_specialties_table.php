@@ -13,10 +13,9 @@ class CreateSpecialtysTable extends Migration
      */
     public function up()
     {
-        Schema::create('specialtys', function (Blueprint $table) {
+        Schema::create('specialties', function (Blueprint $table) {
             $table->id();//분야번호
             $table->string('area');//분야
-            $table->timestamps();
         });
     }
 

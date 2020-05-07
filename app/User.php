@@ -22,6 +22,9 @@ class User extends Authenticatable
         'address',
         'call_number',
         'introduction',
+        'rank_id',
+        'company_id',
+        'expert_id',
     ];
 
     protected $hidden = [
@@ -37,11 +40,16 @@ class User extends Authenticatable
 
     public function rank()
     {
-        return $this->hasOne('App\Rank');
+        return $this->belongsTo('App\Rank');
     }
 
     public function company()
     {
         return $this->belongsTo('App\Company');
+    }
+
+    public function expert()
+    {
+        return $this->belongsTo('App\Expert');
     }
 }
