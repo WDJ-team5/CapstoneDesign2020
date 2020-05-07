@@ -11,11 +11,17 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'name',
         'email',
+        'name',
         'password',
         'confirm_code',
         'activated',
+        'profile_image',
+        'birthday',
+        'gender',
+        'address',
+        'call_number',
+        'introduction',
     ];
 
     protected $hidden = [
@@ -26,5 +32,6 @@ class User extends Authenticatable
 
     protected $casts = [
         'activated' => 'boolean',
+        'gender' => 'boolean',
     ];
 }
