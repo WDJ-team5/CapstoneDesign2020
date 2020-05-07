@@ -4,17 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Rank extends Model
+class Specialty extends Model
 {
     protected $fillable = [
-        'name',
-        'criterion_score',
+        'area',
     ];
 
     public $timestamps = false;
 
-    public function users()
+    public function expert()
     {
-        return $this->hasMany('App\User');
+        return $this->hasOne('App\Expert');
     }
 }

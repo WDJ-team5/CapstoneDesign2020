@@ -17,7 +17,9 @@ class CreateCareersTable extends Migration
             $table->id();//경력번호
             $table->string('career_name');//수상명
             $table->string('career_content');//수상내용
-            $table->timestamps();
+            $table->unsignedBigInteger('expert_id')->nullable()->default(null);//전문가번호
+
+            $table->foreign('expert_id')->references('id')->on('experts');
         });
     }
 

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class Career extends Model
 {
     protected $fillable = [
         'company_name',
@@ -13,8 +13,8 @@ class Company extends Model
 
     public $timestamps = false;
 
-    public function users()
+    public function expert()
     {
-        return $this->hasMany('App\User');
+        return $this->belongsTo('App\Expert');
     }
 }

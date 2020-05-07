@@ -24,10 +24,12 @@ class CreateUsersTable extends Migration
             $table->text('introduction');//자기소개
             $table->unsignedBigInteger('rank_id')->default(1);//랭크번호
             $table->unsignedBigInteger('company_id')->nullable();//기업번호
+            $table->unsignedBigInteger('expert_id')->nullable()->default(null);//전문가번호
             $table->timestamps();
 
             $table->foreign('rank_id')->references('id')->on('ranks');
             $table->foreign('company_id')->references('id')->on('companies');
+            $table->foreign('expert_id')->references('id')->on('experts');
         });
     }
 
