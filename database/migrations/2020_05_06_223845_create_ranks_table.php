@@ -17,7 +17,6 @@ class CreateRanksTable extends Migration
             $table->id();//랭크번호
             $table->string('name');//랭크명
             $table->unsignedBigInteger('criterion_score');//기준점수
-            $table->timestamps();
         });
     }
 

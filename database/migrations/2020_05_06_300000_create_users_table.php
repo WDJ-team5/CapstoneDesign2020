@@ -22,7 +22,12 @@ class CreateUsersTable extends Migration
             $table->string('address');//주소
             $table->string('call_number');//연락처
             $table->text('introduction');//자기소개
+            $table->unsignedBigInteger('rank_id')->default(1);//랭크번호
+            $table->unsignedBigInteger('company_id')->nullable();//기업번호
             $table->timestamps();
+
+            $table->foreign('rank_id')->references('id')->on('ranks');
+            $table->foreign('company_id')->references('id')->on('companies');
         });
     }
 
