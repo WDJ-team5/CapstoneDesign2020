@@ -34,4 +34,14 @@ class User extends Authenticatable
         'activated' => 'boolean',
         'gender' => 'boolean',
     ];
+
+    public function rank()
+    {
+        return $this->hasOne('App\Rank');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo('App\Company');
+    }
 }
