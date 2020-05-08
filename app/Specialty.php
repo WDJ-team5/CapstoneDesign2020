@@ -12,8 +12,8 @@ class Specialty extends Model
 
     public $timestamps = false;
 
-    public function expert()
+    public function experts()
     {
-        return $this->hasOne('App\Expert');
+        return $this->hasMany('App\Expert');
     }
 }

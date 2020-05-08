@@ -16,8 +16,8 @@ class CreateContestUserTable extends Migration
         Schema::create('contest_user', function (Blueprint $table) {
             $table->id();//경연번호
             $table->integer('highest_score');//최고점수
-            $table->integer('recent_score');//최근점수
-            $table->timestamps();//수강일시
+            $table->integer('accuracy');//정확도
+            $table->timestamps();//경연일시
             $table->unsignedBigInteger('user_id');//회원번호
             $table->unsignedBigInteger('contest_id');//경연영상번호
 

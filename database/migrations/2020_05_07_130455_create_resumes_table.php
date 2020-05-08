@@ -20,7 +20,7 @@ class CreateResumesTable extends Migration
             $table->boolean('result')->default(0);//합격여부
             $table->timestamps();
             $table->unsignedBigInteger('user_id');//회원번호
-            $table->unsignedBigInteger('audition_id')->nullable();//오디션번호//nullable()삭제
+            $table->unsignedBigInteger('audition_id');//오디션번호
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('audition_id')->references('id')->on('auditions');

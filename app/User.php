@@ -11,17 +11,16 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'email',
-        'name',
+        'userid',
         'password',
-        'confirm_code',
-        'activated',
-        'profile_image',
+        'name',
+        'image',
         'birthday',
         'gender',
         'address',
         'call_number',
         'introduction',
+        'class',
         'rank_id',
         'company_id',
         'expert_id',
@@ -29,12 +28,9 @@ class User extends Authenticatable
 
     protected $hidden = [
         'password',
-        'remember_token',
-        'confirm_code',
     ];
 
     protected $casts = [
-        'activated' => 'boolean',
         'gender' => 'boolean',
     ];
 
@@ -53,28 +49,29 @@ class User extends Authenticatable
         return $this->belongsTo('App\Expert');
     }
 
-    public function articles()
-    {
-        return $this->hasMany('App\Article');
-    }
-    
-    public function resumes()
-    {
-        return $this->hasMany('App\Resume');
-    }
-
     public function auditions()
     {
         return $this->hasMany('App\Audition');
     }
 
-    public function videos()
+    public function resumes()
     {
-        return $this->belongsToMany('App\Video');
+        return $this->hasMany('App\Resume');
+    }
+
+    public function lectures()
+    {
+        return $this->belongsToMany('App\lectures');
     }
 
     public function contests()
     {
         return $this->belongsToMany('App\Contest');
     }
+
+    // public function articles()
+    // {
+    //     return $this->hasMany('App\Article');
+    // }
+
 }

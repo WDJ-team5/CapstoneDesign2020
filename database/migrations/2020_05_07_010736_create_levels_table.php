@@ -16,7 +16,6 @@ class CreateLevelsTable extends Migration
         Schema::create('levels', function (Blueprint $table) {
             $table->id();//난이도번호
             $table->string('name');//난이도명
-            $table->timestamps();
         });
     }
 

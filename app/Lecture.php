@@ -4,13 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Video extends Model
+class Lecture extends Model
 {
     protected $fillable = [
-        'highest_score',
-        'recent_score',
-        'user_id',
-        'video_id',
+        'title',
+        'content',
+        'video',
+        'image',
+        'genre_id',
+        'level_id',
     ];
 
     public function users()
@@ -25,6 +27,6 @@ class Video extends Model
 
     public function level()
     {
-        return $this->belongsTo('App\level');
+        return $this->belongsTo('App\Level');
     }
 }

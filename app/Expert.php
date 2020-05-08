@@ -7,10 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Expert extends Model
 {
     protected $fillable = [
-        'agency',
-        'feedback_status',
         'sns',
         'specialties_id',
+        'company_id',
     ];
 
     public function user()
@@ -28,8 +27,13 @@ class Expert extends Model
         return $this->hasMany('App\Career');
     }
 
-    public function articles()
+    public function company()
     {
-        return $this->hasMany('App\Article');
+        return $this->belongTo('App\Company');
     }
+
+    // public function articles()
+    // {
+    //     return $this->hasMany('App\Article');
+    // }
 }

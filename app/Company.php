@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     protected $fillable = [
-        'company_name',
+        'name',
         'business_number',
     ];
 
@@ -16,5 +16,10 @@ class Company extends Model
     public function users()
     {
         return $this->hasMany('App\User');
+    }
+
+    public function experts()
+    {
+        return $this->hasMany('App\Expert');
     }
 }

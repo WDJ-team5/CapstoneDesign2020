@@ -11,6 +11,7 @@ class Contest extends Model
         'content',
         'video',
         'image',
+        'genre_id',
     ];
 
     public function users()
@@ -18,8 +19,8 @@ class Contest extends Model
         return $this->belongsToMany('App\User');
     }
 
-    public function level()
+    public function genre()
     {
-        return $this->belongsTo('App\Level');
+        return $this->belongsTo('App\Genre');
     }
 }

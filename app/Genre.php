@@ -10,9 +10,11 @@ class Genre extends Model
         'name',
     ];
 
-    public function videos()
+    public $timestamps = false;
+
+    public function lectures()
     {
-        return $this->hasMany('App\Video');
+        return $this->hasMany('App\Lecture');
     }
 
     public function contests()

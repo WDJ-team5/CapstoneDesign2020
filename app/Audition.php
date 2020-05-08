@@ -13,15 +13,17 @@ class Audition extends Model
         'end_date',
         'image',
         'max_recruitment',
+        'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
     public function resumes()
     {
         return $this->hasMany('App\Resume');
     }
-    
-    public function user()
-    {
-        return $this->belongsTo('App\User');
-    }
+
 }

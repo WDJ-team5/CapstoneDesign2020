@@ -14,9 +14,9 @@ class CreateCareersTable extends Migration
     public function up()
     {
         Schema::create('careers', function (Blueprint $table) {
-            $table->id();//경력번호
-            $table->string('career_name');//수상명
-            $table->string('career_content');//수상내용
+            $table->id();//수상번호
+            $table->string('name');//수상명
+            $table->text('content');//수상내용
             $table->unsignedBigInteger('expert_id')->nullable()->default(null);//전문가번호
 
             $table->foreign('expert_id')->references('id')->on('experts');

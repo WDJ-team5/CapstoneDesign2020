@@ -8,7 +8,7 @@ class Rank extends Model
 {
     protected $fillable = [
         'name',
-        'criterion_score',
+        'criterion',
     ];
 
     public $timestamps = false;
