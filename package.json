@@ -27,10 +27,7 @@
         "@fortawesome/fontawesome-free": "^5.13.0",
         "@smartweb/vue-flash-message": "^0.6.4",
         "bootstrap-vue": "^2.13.1",
-<<<<<<< HEAD
-=======
         "vue-axios": "^2.1.5",
->>>>>>> ahn
         "vue-router": "^3.1.6",
         "vuex": "^3.3.0"
     }

@@ -4,14 +4,6 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-<<<<<<< HEAD
-    sate:{
-        apiURL:'http://localhost:8000/api',
-        serverPath:'http//localhost:8000'
-    },
-    mutations:{},
-    actions:{}
-=======
     state: {
         apiURL: 'http://localhost:8000/api',
         serverPath: 'http://localhost:8000'
@@ -28,5 +20,4 @@ export default new Vuex.Store({
     // },
     mutations: {},
     actions: {}
->>>>>>> ahn
 })

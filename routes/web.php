@@ -2,12 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-<<<<<<< HEAD
-Route::get('/', [
-    'as' => 'home',
-    'uses' => 'HomeController@index'
-]);
-=======
 Route::get('/', function () {
     return view('layouts/app');
 });
@@ -57,4 +51,3 @@ Route::post('auth/reset', [
     'as' => 'reset.store',
     'uses' => 'PasswordsController@postReset',
 ]);
->>>>>>> ahn
