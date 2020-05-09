@@ -76978,8 +76978,6 @@ var routes = [{
   name: 'categories',
   component: function component() {
     return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
-<<<<<<< HEAD
-=======
   }
 }, {
   path: '/userlist',
@@ -77034,7 +77032,6 @@ var routes = [{
   name: 'AuditionCreate',
   component: function component() {
     return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./components/AuditionCreate.vue */ "./resources/js/components/AuditionCreate.vue"));
->>>>>>> jang
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
