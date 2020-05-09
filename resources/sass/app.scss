@@ -245,3 +245,13 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+
+// 카테고리 이미지 크기지정
+.w-150px{
+  width: 150px;
+}
+
+// 에러표시
+.invalid-feedback{
+  display: inline-block;
+}

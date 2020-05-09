@@ -5,8 +5,11 @@
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/UserSignup.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
+<<<<<<< HEAD
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\resources\\js\\components\\AuditionCreate.vue: Unexpected token, expected \";\" (117:37)\n\n\u001b[0m \u001b[90m 115 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 116 | \u001b[39m            \u001b[36mtry\u001b[39m{\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 117 | \u001b[39m                \u001b[36mconst\u001b[39m response\u001b[33m=\u001b[39mawati auditionService\u001b[33m.\u001b[39mcreateAudition(formData)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     | \u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 118 | \u001b[39m            }\u001b[36mcatch\u001b[39m{\u001b[0m\n\u001b[0m \u001b[90m 119 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 120 | \u001b[39m            }\u001b[0m\n    at Parser._raise (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:742:17)\n    at Parser.raiseWithData (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:735:17)\n    at Parser.raise (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:729:17)\n    at Parser.unexpected (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:8779:16)\n    at Parser.semicolon (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:8761:40)\n    at Parser.parseVarStatement (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11573:10)\n    at Parser.parseStatementContent (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11171:21)\n    at Parser.parseStatement (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11104:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11679:25)\n    at Parser.parseBlockBody (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11665:10)\n    at Parser.parseBlock (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11649:10)\n    at Parser.parseTryStatement (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11537:23)\n    at Parser.parseStatementContent (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11161:21)\n    at Parser.parseStatement (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11104:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11679:25)\n    at Parser.parseBlockBody (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11665:10)\n    at Parser.parseBlock (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11649:10)\n    at Parser.parseFunctionBody (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:10656:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:10639:10)\n    at withTopicForbiddingContext (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11819:12)\n    at Parser.withTopicForbiddingContext (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:10979:14)\n    at Parser.parseFunction (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:11818:10)\n    at Parser.parseExprAtom (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:9899:25)\n    at Parser.parseExprSubscripts (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:9624:23)\n    at Parser.parseMaybeUnary (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:9604:21)\n    at Parser.parseExprOps (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:9474:23)\n    at Parser.parseMaybeConditional (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:9447:23)\n    at Parser.parseMaybeAssign (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:9402:21)\n    at Parser.parseObjectProperty (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:10534:101)\n    at Parser.parseObjPropValue (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:10559:101)\n    at Parser.parseObjectMember (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:10483:10)\n    at Parser.parseObj (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:10396:25)\n    at Parser.parseExprAtom (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:10017:28)\n    at Parser.parseExprSubscripts (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:9624:23)\n    at Parser.parseMaybeUnary (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:9604:21)\n    at Parser.parseExprOps (C:\\Users\\dwg04\\Desktop\\캡스톤몇번쨰\\CapstoneDesign2020\\node_modules\\@babel\\parser\\lib\\index.js:9474:23)");
+=======
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
@@ -212,6 +215,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }()
   }
 });
+>>>>>>> 41e8457550253e09a4a58b48ecf605cef1df968f
 
 /***/ }),
 
@@ -279,6 +283,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+<<<<<<< HEAD
+  return _c("div", { attrs: { id: "form_input" } }, [
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.createAudition($event)
+=======
   return _c("div", { attrs: { id: "sign_container" } }, [
     _c(
       "form",
@@ -288,10 +302,137 @@ var render = function() {
           submit: function($event) {
             $event.preventDefault()
             return _vm.createUser($event)
+>>>>>>> 41e8457550253e09a4a58b48ecf605cef1df968f
           }
         }
       },
       [
+<<<<<<< HEAD
+        _c(
+          "div",
+          { attrs: { id: "form_header" } },
+          [
+            _c("b-form-input", {
+              attrs: { id: "title", placeholder: "제목을 입력해주세요" },
+              model: {
+                value: _vm.auditionData.title,
+                callback: function($$v) {
+                  _vm.$set(_vm.auditionData, "title", $$v)
+                },
+                expression: "auditionData.title"
+              }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "selct_area" } }, [
+          _c(
+            "div",
+            { staticClass: "select_item" },
+            [
+              _c("b-form-datepicker", {
+                staticClass: "mb-2",
+                attrs: {
+                  placeholder: "마감기한 설정",
+                  id: "example-datepicker"
+                },
+                model: {
+                  value: _vm.auditionData.date,
+                  callback: function($$v) {
+                    _vm.$set(_vm.auditionData, "date", $$v)
+                  },
+                  expression: "auditionData.date"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "select_item" }, [
+            _c(
+              "div",
+              [
+                _c("b-form-select", {
+                  attrs: { options: _vm.options },
+                  model: {
+                    value: _vm.auditionData.selected,
+                    callback: function($$v) {
+                      _vm.$set(_vm.auditionData, "selected", $$v)
+                    },
+                    expression: "auditionData.selected"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("label", { staticStyle: { "margin-left": "20px" } }, [
+            _vm._v("템플릿 선택: ")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "select_item" }, [
+            _c("input", {
+              ref: "newAuditionImage",
+              staticClass: "form-control ",
+              attrs: { type: "file", id: "image" },
+              on: { change: _vm.attachImage }
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", [_vm._v("영상과제: ")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "select_item" },
+            [
+              _c("b-form-input", {
+                attrs: { id: "video", placeholder: "링크를 삽입해주세요" },
+                model: {
+                  value: _vm.auditionData.video,
+                  callback: function($$v) {
+                    _vm.$set(_vm.auditionData, "video", $$v)
+                  },
+                  expression: "auditionData.video"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("b-form-textarea", {
+          attrs: {
+            id: "textarea-rows",
+            placeholder: "내용을 입력해주세요",
+            rows: "22"
+          },
+          model: {
+            value: _vm.auditionData.context,
+            callback: function($$v) {
+              _vm.$set(_vm.auditionData, "context", $$v)
+            },
+            expression: "auditionData.context"
+          }
+        }),
+        _vm._v(" "),
+        _c("b-button", { attrs: { type: "submit", variant: "primary" } }, [
+          _vm._v("저장")
+        ]),
+        _vm._v(" "),
+        _c(
+          "b-button",
+          { attrs: { variant: "danger" }, on: { click: _vm.cancle } },
+          [_vm._v("취소")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+=======
         _c("h2", { staticClass: "title" }, [_vm._v("기본정보를 등록하세요")]),
         _vm._v(" "),
         _c("div", [
@@ -529,6 +670,7 @@ var staticRenderFns = [
     ])
   }
 ]
+>>>>>>> 41e8457550253e09a4a58b48ecf605cef1df968f
 render._withStripped = true
 
 

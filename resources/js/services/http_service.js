@@ -9,9 +9,15 @@ export function http(){
 
 export function httpFile(){
     return axios.create({
+<<<<<<< HEAD
+        baseURL:store.state.apiURL,
+        headers:{
+            'Content-Type':'multipart/form-data'
+=======
         baseURL: store.state.apiURL,
         headers: {
             'Content-Type': 'multipart/form-data'
+>>>>>>> 41e8457550253e09a4a58b48ecf605cef1df968f
         }
     });
 }

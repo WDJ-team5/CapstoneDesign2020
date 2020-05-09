@@ -76922,7 +76922,11 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
+<<<<<<< HEAD
+    return Promise.all(/*! import() */[__webpack_require__.e(10), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
+=======
     return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
+>>>>>>> 41e8457550253e09a4a58b48ecf605cef1df968f
   }
 }, {
   path: '/userlist',
@@ -76973,10 +76977,14 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/AuditionDetail.vue */ "./resources/js/components/AuditionDetail.vue"));
   }
 }, {
-  path: '/auditioncreate/:contentId?',
+  path: '/auditioncreate',
   name: 'AuditionCreate',
   component: function component() {
+<<<<<<< HEAD
+    return Promise.all(/*! import() */[__webpack_require__.e(10), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ./components/AuditionCreate.vue */ "./resources/js/components/AuditionCreate.vue"));
+=======
     return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/AuditionCreate.vue */ "./resources/js/components/AuditionCreate.vue"));
+>>>>>>> 41e8457550253e09a4a58b48ecf605cef1df968f
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
