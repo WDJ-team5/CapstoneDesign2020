@@ -2,10 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [
-    'as' => 'home',
-    'uses' => 'HomeController@index'
-]);
+Route::get('/', function () {
+    return view('layouts/app');
+});
 
 /* User Registration */
 Route::get('auth/register', [
