@@ -14,9 +14,9 @@
 
         <div>
             <div class="input_text">
-                <h3 class="mform_stit"><span class="str">*</span>이메일</h3>
+                <h3 class="mform_stit"><span class="str">*</span>아이디</h3>
             </div>
-            <input type="text"  class="form-control" placeholder="이메일"/>
+            <input type="text"  class="form-control" placeholder="아이디"/>
         </div>
         <br/>
 

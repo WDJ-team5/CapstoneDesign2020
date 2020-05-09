@@ -7,7 +7,7 @@
             <div class="input_text">
                 <h3 class="mform_stit"><span class="str">*</span>이름</h3>
             </div>
-            <input type="username" class="form-control" placeholder="이름"/>
+            <input type="text" class="form-control" placeholder="이름"/>
         </div>
         <br/>
         
