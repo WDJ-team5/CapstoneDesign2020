@@ -165,24 +165,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 formData.append("password", this.userData.password);
                 formData.append("address", this.userData.address);
                 formData.append("call_number", this.userData.call_number);
-                _context.prev = 6;
-                _context.next = 9;
+                console.dir(formData);
+                _context.prev = 7;
+                _context.next = 10;
                 return _services_user_service__WEBPACK_IMPORTED_MODULE_1__["createUser"](formData);
 
-              case 9:
+              case 10:
                 _response = _context.sent;
                 console.log(_response);
-                console.log('으아아아아악'); // this.flashMessage.success({
+                console.log('회원가입 성공~'); // this.flashMessage.success({
                 //   message: "Category stored successfully!",
                 //   time: 5000
                 // });
 
-                _context.next = 17;
+                _context.next = 18;
                 break;
 
-              case 14:
-                _context.prev = 14;
-                _context.t0 = _context["catch"](6);
+              case 15:
+                _context.prev = 15;
+                _context.t0 = _context["catch"](7);
                 console.log(response); // switch (error.response.status) {
                 //   case 422:
                 //     this.errors = error.response.data.errors;
@@ -195,12 +196,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 //     break;
                 // }
 
-              case 17:
+              case 18:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[6, 14]]);
+        }, _callee, this, [[7, 15]]);
       }));
 
       function createUser() {
@@ -293,21 +294,145 @@ var render = function() {
       [
         _c("h2", { staticClass: "title" }, [_vm._v("기본정보를 등록하세요")]),
         _vm._v(" "),
-        _vm._m(0),
+        _c("div", [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.userData.name,
+                expression: "userData.name"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "이름", id: "name" },
+            domProps: { value: _vm.userData.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.userData, "name", $event.target.value)
+              }
+            }
+          })
+        ]),
         _vm._v(" "),
         _c("br"),
         _vm._v(" "),
-        _vm._m(1),
+        _c("div", [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.userData.userid,
+                expression: "userData.userid"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "아이디", id: "userid" },
+            domProps: { value: _vm.userData.userid },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.userData, "userid", $event.target.value)
+              }
+            }
+          })
+        ]),
         _vm._v(" "),
         _c("br"),
         _vm._v(" "),
-        _vm._m(2),
+        _c("div", [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.userData.password,
+                expression: "userData.password"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "password",
+              placeholder: "비밀번호",
+              id: "password"
+            },
+            domProps: { value: _vm.userData.password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.userData, "password", $event.target.value)
+              }
+            }
+          })
+        ]),
         _vm._v(" "),
         _vm._m(3),
         _vm._v(" "),
-        _vm._m(4),
+        _c("div", [
+          _vm._m(4),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.userData.address,
+                expression: "userData.address"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "주소", id: "address" },
+            domProps: { value: _vm.userData.address },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.userData, "address", $event.target.value)
+              }
+            }
+          })
+        ]),
         _vm._v(" "),
-        _vm._m(5),
+        _c("div", [
+          _vm._m(5),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.userData.call_number,
+                expression: "userData.call_number"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "연락처", id: "call_number" },
+            domProps: { value: _vm.userData.call_number },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.userData, "call_number", $event.target.value)
+              }
+            }
+          })
+        ]),
         _vm._v(" "),
         _vm._m(6)
       ]
@@ -319,54 +444,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "input_text" }, [
-        _c("h3", { staticClass: "mform_stit" }, [
-          _c("span", { staticClass: "str" }, [_vm._v("*")]),
-          _vm._v("이름\n        ")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "이름", id: "name" }
-      })
+    return _c("div", { staticClass: "input_text" }, [
+      _c("h3", { staticClass: "mform_stit" }, [
+        _c("span", { staticClass: "str" }, [_vm._v("*")]),
+        _vm._v("이름\n        ")
+      ])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "input_text" }, [
-        _c("h3", { staticClass: "mform_stit" }, [
-          _c("span", { staticClass: "str" }, [_vm._v("*")]),
-          _vm._v("아이디\n        ")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "아이디", id: "userid" }
-      })
+    return _c("div", { staticClass: "input_text" }, [
+      _c("h3", { staticClass: "mform_stit" }, [
+        _c("span", { staticClass: "str" }, [_vm._v("*")]),
+        _vm._v("아이디\n        ")
+      ])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "input_text" }, [
-        _c("h3", { staticClass: "mform_stit" }, [
-          _c("span", { staticClass: "str" }, [_vm._v("*")]),
-          _vm._v("비밀번호\n        ")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "password", placeholder: "비밀번호", id: "password" }
-      })
+    return _c("div", { staticClass: "input_text" }, [
+      _c("h3", { staticClass: "mform_stit" }, [
+        _c("span", { staticClass: "str" }, [_vm._v("*")]),
+        _vm._v("비밀번호\n        ")
+      ])
     ])
   },
   function() {
@@ -391,36 +495,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "input_text" }, [
-        _c("h3", { staticClass: "mform_stit" }, [
-          _c("span", { staticClass: "str" }, [_vm._v("*")]),
-          _vm._v("주소\n        ")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "주소", id: "address" }
-      })
+    return _c("div", { staticClass: "input_text" }, [
+      _c("h3", { staticClass: "mform_stit" }, [
+        _c("span", { staticClass: "str" }, [_vm._v("*")]),
+        _vm._v("주소\n        ")
+      ])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "input_text" }, [
-        _c("h3", { staticClass: "mform_stit" }, [
-          _c("span", { staticClass: "str" }, [_vm._v("*")]),
-          _vm._v("연락처\n        ")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", placeholder: "연락처", id: "call_number" }
-      })
+    return _c("div", { staticClass: "input_text" }, [
+      _c("h3", { staticClass: "mform_stit" }, [
+        _c("span", { staticClass: "str" }, [_vm._v("*")]),
+        _vm._v("연락처\n        ")
+      ])
     ])
   },
   function() {
@@ -577,7 +667,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
 
 function createUser(data) {
-  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["httpFile"])().post('/users', data);
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/users', data);
 } // export function loadCategories() {
 //     return http().get('/categories');
 // }

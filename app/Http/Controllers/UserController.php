@@ -39,24 +39,19 @@ class UserController extends Controller
         //     'image' => 'required|image|mimes:jpeg,png,jpg'
         // ]);
 
-        // dd($request->all());
-        var_dump('뚤었따!!!!!!!!!!!!!!!!!');
-        var_dump($request);
-
-        // $user = App\User::create([
-        //     'userid' => $request->userid,
-        //     'password' => $request->password,
-        //     'name' => $request->name,
-        // //    'image' =>,
-        //    'birthday' => $request->birthday,
-        //    'gender' => $request->gender,
-        //    'address' => $request->address,
-        //    'call_number' => $request->call_number,
+        $user = \App\User::create([
+            'userid' => $request->userid,
+            'password' => bcrypt($request->password),
+            'name' => $request->name,
+        //    'image' =>,
+           'address' => $request->address,
+           'call_number' => $request->call_number,
         //    'introduction' => $request->introduction,
-        // //    'class',
-        // ]);
+        //    'class',
+        ]);
 
         // return response()>json([$user, 200]);
+        return response()->json($user, 200);
 
         // $category = new Category();
         // $category->name = $request->name;
@@ -70,8 +65,6 @@ class UserController extends Controller
         // } else{
         //     return response()->json($category, 500);
         // }
-
-        
     }
 
     /**
