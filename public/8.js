@@ -354,11 +354,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control",
-<<<<<<< HEAD
-        attrs: { type: "username", placeholder: "이름" }
-=======
         attrs: { type: "text", placeholder: "이름" }
->>>>>>> jang
       })
     ])
   },
@@ -370,17 +366,13 @@ var staticRenderFns = [
       _c("div", { staticClass: "input_text" }, [
         _c("h3", { staticClass: "mform_stit" }, [
           _c("span", { staticClass: "str" }, [_vm._v("*")]),
-          _vm._v("이메일")
+          _vm._v("아이디")
         ])
       ]),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control",
-<<<<<<< HEAD
-        attrs: { type: "email", placeholder: "이메일" }
-=======
-        attrs: { type: "text", placeholder: "이메일" }
->>>>>>> jang
+        attrs: { type: "text", placeholder: "아이디" }
       })
     ])
   },
@@ -416,11 +408,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control",
-<<<<<<< HEAD
-        attrs: { type: "password2", placeholder: "비밀번호 확인" }
-=======
         attrs: { type: "password", placeholder: "비밀번호 확인" }
->>>>>>> jang
       })
     ])
   },
@@ -438,11 +426,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control",
-<<<<<<< HEAD
-        attrs: { type: "password2", placeholder: "주소" }
-=======
         attrs: { type: "text", placeholder: "주소" }
->>>>>>> jang
       })
     ])
   },
@@ -460,11 +444,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control",
-<<<<<<< HEAD
-        attrs: { type: "password2", placeholder: "연락처" }
-=======
         attrs: { type: "text", placeholder: "연락처" }
->>>>>>> jang
       })
     ])
   },

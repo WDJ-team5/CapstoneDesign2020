@@ -57,7 +57,7 @@ const routes=[
         component:()=>import('./components/AuditionDetail.vue')
     },
     {
-        path: '/auditioncreate/:contentId?',
+        path: '/auditioncreate',
         name: 'AuditionCreate',
         component:()=>import('./components/AuditionCreate.vue')
       },

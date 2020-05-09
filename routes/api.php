@@ -18,8 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-<<<<<<< HEAD
-// Route::resource('users', 'UserController');
-=======
+
+// 오디션 컨트롤러
+Route::resource('audition','AuditionController');
+
+// 테스트용 컨트롤러
 Route::resource('categories','CategoryController');
->>>>>>> jang

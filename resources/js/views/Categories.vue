@@ -44,20 +44,24 @@
       <b-modal ref="newCategoryModal" hide-footer title="새로운 카테고리를 추가">
         <div class="d-block">
           <form v-on:submit.prevent="createCategory">
+
             <div class="form-group">
               <label for="name">이름넣으삼</label>
-              <input type="email" v-model="categoryData.name" class="form-control" aria-describedby="emailHelp" id="name" placeholder="카테고리 이름을 입력">
+              <input type="text" v-model="categoryData.name" class="form-control" aria-describedby="emailHelp" id="name" placeholder="카테고리 이름을 입력">
             </div>
             
             <div class="form-group">
               <label for="image">이미지를 선택하세여</label>
-              <input type="file" v-on:change="attachImage" class="form-control" id="image">
+              <div v-if="categoryData.image.name">
+                <img src="" class="w-150px" ref="newCategoryImageDisplay" />
+              </div>
+              <input type="file" v-on:change="attachImage" ref="newCategoryImage" class="form-control " id="image">
             </div>
 
             <hr>
             <div class="text-right">
               <button type="button" class="btn btn-default" v-on:click="hideNewCategoryModal">취소</button>
-              <button type="submit" class="btn btn-primary" v-on:click="hideNewCategoryModal"><span class="fa fa-check"></span>저장</button>
+              <button type="submit" class="btn btn-primary"><span class="fa fa-check"></span>저장</button>
             </div>
 
           </form>
@@ -68,6 +72,7 @@
 </template>
 
 <script>
+import * as categoryService from '../services/category_service';
 export default {
   name:'category',
   data(){
@@ -80,18 +85,46 @@ export default {
   },
   methods:{
     attachImage(){
-      // 파일 리더
-      
+      // 첨부된 파일을 data의 image속성에 저장
+      this.categoryData.image=this.$refs.newCategoryImage.files[0];
+
+      // 첨부된 파일을 읽음
+      let reader=new FileReader();
+
+      //파일이 로드되었을 경우에 reader에 로드된 것을 newCategoryImageDisplay에 띄움
+      reader.addEventListener('load',function(){
+        this.$refs.newCategoryImageDisplay.src=reader.result;
+      }.bind(this),false);
+
+      // categoryData에 저장된 image 속성의 데이터를 읽음
+      reader.readAsDataURL(this.categoryData.image);
     },
+
+    // 모달창 숨기기
     hideNewCategoryModal(){
       this.$refs.newCategoryModal.hide();
     },
+
+    // 모달창 보이기
     showNewCategoryModal(){
       this.$refs.newCategoryModal.show();
     },
-    createCategory(){
-      console.log('폼이 섭밋됨');
+
+    // 저장버튼 클릭시
+    createCategory: async function(){
+      let formData = new FormData();
+      formData.append('name', this.categoryData.name);
+      formData.append('image', this.categoryData.image);
+
+      try{
+        const response = await categoryService.createCategory(formData);
+        console.log(response);
+
+      }catch(error){
+        alert('안된다 시발');
+      }
     }
+
   }
 }
 </script>

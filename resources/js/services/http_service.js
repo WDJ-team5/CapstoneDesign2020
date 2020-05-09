@@ -10,6 +10,7 @@ export function http(){
 // 내용
 export function httpFile(){
     return axios.create({
+        baseURL:store.state.apiURL,
         headers:{
             'Content-Type':'multipart/form-data'
         }
