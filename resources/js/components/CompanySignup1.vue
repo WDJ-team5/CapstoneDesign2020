@@ -16,7 +16,7 @@
             <div class="input_text">
                 <h3 class="mform_stit"><span class="str">*</span>이메일</h3>
             </div>
-            <input type="email"  class="form-control" placeholder="이메일"/>
+            <input type="text"  class="form-control" placeholder="이메일"/>
         </div>
         <br/>
 
@@ -31,21 +31,21 @@
             <div class="input_text">
                 <h3 class="mform_stit"><span class="str">*</span>비밀번호 확인</h3>
             </div>
-            <input type="password2" class="form-control" placeholder="비밀번호 확인"/>
+            <input type="password" class="form-control" placeholder="비밀번호 확인"/>
         </div>
 
         <div>
             <div class="input_text">
                 <h3 class="mform_stit"><span class="str">*</span>주소</h3>
             </div>
-            <input type="password2" class="form-control" placeholder="주소"/>
+            <input type="text" class="form-control" placeholder="주소"/>
         </div>
 
         <div>
             <div class="input_text">
                 <h3 class="mform_stit"><span class="str">*</span>연락처</h3>
             </div>
-            <input type="password2" class="form-control" placeholder="연락처"/>
+            <input type="text" class="form-control" placeholder="연락처"/>
         </div>
 
         <div>

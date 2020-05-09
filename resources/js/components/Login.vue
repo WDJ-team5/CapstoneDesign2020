@@ -3,7 +3,7 @@
   <form id="login_form">
     <!-- <img style="width:230px;height:55px;margin-bottom:10px;" src='../assets/images/logo.jpg'> -->
     <p id="login_title">기업,일반회원 로그인</p>
-    <input type="email" id="defaultFormLoginEmailEx" class="form-control" placeholder="이메일"/>
+      <input type="text" id="defaultFormLoginEmailEx" class="form-control" placeholder="이메일"/>
     <br/>
     <input type="password" id="defaultFormLoginPasswordEx" class="form-control" placeholder="비밀번호"/>
     

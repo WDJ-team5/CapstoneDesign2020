@@ -21,6 +21,7 @@
         </div>
       </div>
     </form>
+    
     <!-- Navbar-->
     <router-link to="/login" class="nav-link" exact>
             로그인
