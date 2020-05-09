@@ -3,6 +3,7 @@
     <b-card>
       <div class="content-detail-content-info">
         <div class="content-detail-content-info-left">
+          <h1>{{contentId}}아이디 입니다.</h1>
           <!-- 제목태그 -->
           <div style="margin-left:200px" class="content-detail-content-info-left-subject">
             <h1>{{title}}</h1>
@@ -45,8 +46,8 @@
 </template>
 
 <script>
-import data from "@/data";
-import videojs from 'video.js';
+// import data from "@/data";
+// import videojs from 'video.js';
 export default {
   name: "ContentDetail",
   data() {
@@ -54,7 +55,7 @@ export default {
     const contentId = Number(this.$route.params.contentId);
     // params로 받은 게시글 아이디를 저장
 
-    const contentData = data.Content.filter(item => item.content_id === contentId)[0]
+    // const contentData = data.Content.filter(item => item.content_id === contentId)[0]
     // 현재 게시글에 해당하는 데이터를 가져옴
     
     return {

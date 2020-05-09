@@ -1,24 +1,24 @@
 <template>
-<div id="list_container">
-    <div id="button_area">
-        <b-form-group>
-        <b-form-radio-group
-            id="btn-radios-2"
-            v-model="selected"
-            :options="options"
-            buttons
-            button-variant="outline-primary"
-            size="lg"
-            name="radio-btn-outline"
-        ></b-form-radio-group>
-        </b-form-group>
-    </div>
+    <div id="list_container">
+        <div id="button_area">
+            <b-form-group>
+            <b-form-radio-group
+                id="btn-radios-2"
+                v-model="selected"
+                :options="options"
+                buttons
+                button-variant="outline-primary"
+                size="lg"
+                name="radio-btn-outline"
+            ></b-form-radio-group>
+            </b-form-group>
+        </div>
 
-    <div id="user_area">
-        <b-table striped hover :items="items"></b-table>
-    </div>
+        <div id="user_area">
+            <b-table striped hover :items="items"></b-table>
+        </div>
 
-</div>    
+    </div>    
 </template>
 
 <script>

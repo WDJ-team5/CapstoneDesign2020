@@ -16,9 +16,24 @@
             <span>대시보드</span>
           </router-link>
 
+          <router-link to="/audition" class="nav-link" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>기업연계</span>
+          </router-link>
+
+          <router-link to="/userlist" class="nav-link" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>댄스경연</span>
+          </router-link>
+
           <router-link to="/categories" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>카테고리</span>
+          </router-link>
+
+          <router-link to="/userlist" class="nav-link" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>사용자 관리</span>
           </router-link>
           
           <a
