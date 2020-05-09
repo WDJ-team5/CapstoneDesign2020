@@ -58,9 +58,9 @@ export default {
       errors: {}
     }
   },
-  mounted() {
-    this.loadHomeContents();
-  }
+//   mounted() {
+//     this.loadHomeContents();
+//   }
 };
 </script>
 

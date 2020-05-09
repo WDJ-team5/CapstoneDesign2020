@@ -9,10 +9,8 @@ class Audition extends Model
     protected $fillable = [
         'title',
         'content',
-        'start_date',
         'end_date',
         'image',
-        'max_recruitment',
         'user_id',
     ];
 

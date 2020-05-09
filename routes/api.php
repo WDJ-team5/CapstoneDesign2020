@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('/', 'HomeController');
+
+Route::resource('users', 'UserController');
