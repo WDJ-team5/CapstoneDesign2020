@@ -1,76 +1,106 @@
 <template>
-  <div class="container-fluid">
-    <h1 class="mt-4">Dashboard</h1>
-    <ol class="breadcrumb mb-4">
-      <li class="breadcrumb-item active">Dashboard</li>
-    </ol>
-    <div class="row">
-      <div class="col-xl-3 col-md-6">
-        <div class="card bg-primary text-white mb-4">
-          <div class="card-body">Primary Card</div>
-          <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-white stretched-link" href="#">View Details</a>
-            <div class="small text-white">
-              <i class="fas fa-angle-right"></i>
+    <div class="homeContainer">
+        <h4>인기 동영상</h4>
+        <div id="popular">
+            <div id="popularMain">
+                <a href="/"><img src="images/dance1.jpg" alt="x"/></a>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-md-6">
-        <div class="card bg-warning text-white mb-4">
-          <div class="card-body">Warning Card</div>
-          <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-white stretched-link" href="#">View Details</a>
-            <div class="small text-white">
-              <i class="fas fa-angle-right"></i>
+            <div id="popularSub">
+                <div class="popular-sub-child">
+                    <a href="#"><img src="images/dance2.jpg" alt="x"/></a>
+                </div>
+                <div class="popular-sub-child">
+                    <a href="#"><img src="images/dance3.jpg" alt="x"/></a>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="col-xl-3 col-md-6">
-        <div class="card bg-success text-white mb-4">
-          <div class="card-body">Success Card</div>
-          <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-white stretched-link" href="#">View Details</a>
-            <div class="small text-white">
-              <i class="fas fa-angle-right"></i>
-            </div>
-          </div>
+        <hr />
+        <h4>기업연계</h4>
+        <hr />
+        <div class="home_list">
+            <a href="#"><img src="images/dance4.jpg" alt="x"/></a>
+            <a href="#"><img src="images/dance5.jpg" alt="x"/></a>
+            <a href="#"><img src="images/dance6.jpg" alt="x"/></a>
+            <a href="#"><img src="images/dance7.jpg" alt="x"/></a>
         </div>
-      </div>
-      <div class="col-xl-3 col-md-6">
-        <div class="card bg-danger text-white mb-4">
-          <div class="card-body">Danger Card</div>
-          <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-white stretched-link" href="#">View Details</a>
-            <div class="small text-white">
-              <i class="fas fa-angle-right"></i>
-            </div>
-          </div>
+        <hr />
+        <h4>댄스경연</h4>
+        <hr />
+        <div class="home_list">
+            <a href="#"><img src="images/dance8.jpg" alt="x"/></a>
+            <a href="#"><img src="images/dance9.jpg" alt="x"/></a>
+            <a href="#"><img src="images/dance10.jpg" alt="x"/></a>
+            <a href="#"><img src="images/dance11.jpg" alt="x"/></a>
         </div>
-      </div>
+        <hr />
+        <h4>카테고리</h4>
+        <hr />
+        <div class="home_list">
+            <a href="#"><img src="images/dance1.jpg" alt="x"/></a>
+            <a href="#"><img src="images/dance2.jpg" alt="x"/></a>
+            <a href="#"><img src="images/dance3.jpg" alt="x"/></a>
+            <a href="#"><img src="images/dance4.jpg" alt="x"/></a>
+        </div>
+        <hr />
     </div>
-    <div class="row">
-      <div class="col-xl-6">
-        <div class="card mb-4">
-          <div class="card-header">
-            <i class="fas fa-chart-area mr-1"></i>Area Chart Example
-          </div>
-          <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="40"></canvas>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-6">
-        <div class="card mb-4">
-          <div class="card-header">
-            <i class="fas fa-chart-bar mr-1"></i>Bar Chart Example
-          </div>
-          <div class="card-body">
-            <canvas id="myBarChart" width="100%" height="40"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
+
+<script>
+export default {
+  name: 'home',
+  data() {
+    return {
+      contents: [],
+      contentData: {
+        name:'',
+      },
+      editContentData: {},
+      errors: {}
+    }
+  },
+  mounted() {
+    this.loadHomeContents();
+  }
+};
+</script>
+
+<style>
+.homeContainer {
+    width: 90%;
+    margin: 0 auto;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+#popular {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+#popularMain {
+    width: 65vw;
+}
+#popularSub {
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+.popular-sub-child {
+    width: 100%;
+    height: 100%;
+}
+.home_list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.carousel-inner > .carousel-item > img {
+    /* width: 640px; height: 720px;  */
+}
+#demo {
+    width: 100%;
+}
+</style>

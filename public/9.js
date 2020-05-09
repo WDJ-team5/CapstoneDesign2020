@@ -1,6 +1,7 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[9],{
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************!*\
@@ -108,6 +109,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 >>>>>>> jang
+=======
+>>>>>>> ahn
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&":
 /*!********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Categories.vue?vue&type=template&id=53f0967b& ***!
@@ -124,6 +127,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ahn
   return _vm._m(0)
 }
 var staticRenderFns = [
@@ -139,6 +145,7 @@ var staticRenderFns = [
           _vm._v("Dashboard")
         ])
       ]),
+<<<<<<< HEAD
 =======
   return _c(
     "div",
@@ -148,11 +155,16 @@ var staticRenderFns = [
       _vm._v(" "),
       _vm._m(0),
 >>>>>>> jang
+=======
+>>>>>>> ahn
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-xl-6" }, [
           _c("div", { staticClass: "card mb-4" }, [
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ahn
             _c("div", { staticClass: "card-header" }, [
               _c("i", { staticClass: "fas fa-chart-area mr-1" }),
               _vm._v("카테고리 경영\n        ")
@@ -170,6 +182,7 @@ var staticRenderFns = [
                       _c("td", [_vm._v("사진")]),
                       _vm._v(" "),
                       _c("td", [_vm._v("액션")])
+<<<<<<< HEAD
                     ])
                   ]),
                   _vm._v(" "),
@@ -189,11 +202,33 @@ var staticRenderFns = [
                         _c("span", { staticClass: "fa fa-trash" })
                       ])
                     ])
+=======
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tbody", [
+                    _c("td", [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("장성현")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("이미지")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+                        _c("span", { staticClass: "fa fa-edit" })
+                      ]),
+                      _vm._v(" "),
+                      _c("button", { staticClass: "btn btn-primary btn-sm" }, [
+                        _c("span", { staticClass: "fa fa-trash" })
+                      ])
+                    ])
+>>>>>>> ahn
                   ])
                 ])
               ])
             ])
           ])
+<<<<<<< HEAD
 =======
             _c("div", { staticClass: "card-header d-flex" }, [
               _vm._m(1),
@@ -364,6 +399,8 @@ var staticRenderFns = [
             ])
           ])
 >>>>>>> jang
+=======
+>>>>>>> ahn
         ])
       ])
     ])
@@ -386,6 +423,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Categories.vue?vue&type=template&id=53f0967b& */ "./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&");
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 =======
 /* harmony import */ var _Categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Categories.vue?vue&type=script&lang=js& */ "./resources/js/views/Categories.vue?vue&type=script&lang=js&");
@@ -393,6 +431,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 >>>>>>> jang
+=======
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+>>>>>>> ahn
 
 var script = {}
 
@@ -400,12 +441,17 @@ var script = {}
 /* normalize component */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
   script,
 =======
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
 >>>>>>> jang
+=======
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+>>>>>>> ahn
   _Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -423,6 +469,7 @@ component.options.__file = "resources/js/views/Categories.vue"
 /***/ }),
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /***/ "./resources/js/views/Categories.vue?vue&type=script&lang=js&":
 /*!********************************************************************!*\
@@ -439,6 +486,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 >>>>>>> jang
+=======
+>>>>>>> ahn
 /***/ "./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&":
 /*!**************************************************************************!*\
   !*** ./resources/js/views/Categories.vue?vue&type=template&id=53f0967b& ***!

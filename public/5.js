@@ -114,10 +114,14 @@ var render = function() {
       staticClass: "form-control",
       attrs: {
 <<<<<<< HEAD
+<<<<<<< HEAD
         type: "email",
 =======
         type: "text",
 >>>>>>> jang
+=======
+        type: "email",
+>>>>>>> ahn
         id: "defaultFormLoginEmailEx",
         placeholder: "이메일"
       }
