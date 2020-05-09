@@ -7,7 +7,7 @@
             <div class="input_text">
                 <h3 class="mform_stit"><span class="str">*</span>회사명</h3>
             </div>
-            <input type="username" class="form-control" placeholder="회사명"/>
+            <input type="text" class="form-control" placeholder="회사명"/>
         </div>
         <br/>
         
@@ -16,7 +16,7 @@
             <div class="input_text">
                 <h3 class="mform_stit"><span class="str">*</span>회사 연락처</h3>
             </div>
-            <input type="username" class="form-control" placeholder="회사 연락처"/>
+            <input type="text" class="form-control" placeholder="회사 연락처"/>
         </div>
         <br/>
 
@@ -24,14 +24,14 @@
             <div class="input_text">
                 <h3 class="mform_stit"><span class="str">*</span>사업자 등록번호</h3>
             </div>
-            <input type="username" class="form-control" placeholder="사업자 등록번호"/>
+            <input type="text" class="form-control" placeholder="사업자 등록번호"/>
         </div>
 
         <div>
             <div class="input_text">
                 <h3 class="mform_stit"><span class="str">*</span>사원 수</h3>
             </div>
-            <input type="username" class="form-control" placeholder="사원 수"/>
+            <input type="text" class="form-control" placeholder="사원 수"/>
         </div>
 
 
