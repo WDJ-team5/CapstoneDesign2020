@@ -6,8 +6,9 @@
 
    
       <ul class="radiochk_list">
+        
           <li>
-              <input type="radio" id="radio01" class="type" name="rachk" value="0"><label for="radio01">
+              <router-link to="/usersignup" id="sign_up" class="nav-link" exact>
                   <strong class="tit">일반용 회원</strong>
                   <span class="text">
                         댄스강좌를 수강하여<br>
@@ -15,23 +16,19 @@
                         프로필을 완성하여<br>
                         댄서로 활동하고싶은 회원
                   </span>
-              </label>
+              </router-link>
           </li>
+
           <li>
-              <input type="radio" id="radio02" class="type" name="rachk" value="1"><label for="radio02">
+              <router-link to="/companysignup1" id="sign_up" class="nav-link" exact>
                   <strong class="tit">기업용 회원</strong>
                   <span class="text">
                       개인 또는 사업체 직원으로<br>
                       댄서를 찾고자 하는 회원<br>
                   </span>
-              </label>
+              </router-link>
           </li>
       </ul>
-
-    <div class="text-center mt-4">
-      <button id="back_button" class="btn btn-indigo">이전</button>
-      <button id="next_button" class="btn btn-indigo">다음</button>
-    </div>
   </div>
     
   <!-- Default form login -->
@@ -117,6 +114,7 @@ input[type='radio'] {
     vertical-align: middle;
 }
 
+/* 체크됐을때 */
 .radiochk_list li input[type="radio"]:checked + label {
     background: #fababd;
 }

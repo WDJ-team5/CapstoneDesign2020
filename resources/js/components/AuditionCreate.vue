@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import data from '@/data'
+// import data from '@/data'
 
 export default {
     name:'Create',
@@ -78,24 +78,24 @@ export default {
     methods:{
         // 저장 시
         uploadContet(){
-            let items=data.Content.sort((a,b)=>{return b.content_id-a.content_id})
-            const content_id=items[0].content_id+1
+            // let items=data.Content.sort((a,b)=>{return b.content_id-a.content_id})
+            // const content_id=items[0].content_id+1
 
-            data.Content.push({
-                content_id:content_id,
-                user_id:this.userId,
-                title:this.subject,
-                context:this.context,
-                created_at:this.createdAt,
-                date:this.date,
-                sub_image:this.sub_image,
-                video:this.video,
-                rank:this.selected,
-                updated_at:null,
-                })
-                this.$router.push({
-                path:'/board/free'
-                })
+            // data.Content.push({
+            //     content_id:content_id,
+            //     user_id:this.userId,
+            //     title:this.subject,
+            //     context:this.context,
+            //     created_at:this.createdAt,
+            //     date:this.date,
+            //     sub_image:this.sub_image,
+            //     video:this.video,
+            //     rank:this.selected,
+            //     updated_at:null,
+            //     })
+            //     this.$router.push({
+            //     path:'/board/free'
+            //     })
             },
         
         // 수정 후 저장시
