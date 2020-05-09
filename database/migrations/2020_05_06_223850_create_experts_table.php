@@ -18,7 +18,7 @@ class CreateExpertsTable extends Migration
             $table->string('sns');//sns
             $table->timestamps();
             $table->unsignedBigInteger('specialty_id');//전문분야번호
-            $table->unsignedBigInteger('company_id');//소속기업번호
+            $table->unsignedBigInteger('company_id')->nullable();//소속기업번호
 
             $table->foreign('specialty_id')->references('id')->on('specialties');
             $table->foreign('company_id')->references('id')->on('companies');
