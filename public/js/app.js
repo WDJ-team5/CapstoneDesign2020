@@ -76977,61 +76977,61 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
+    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
   }
 }, {
   path: '/userlist',
   name: 'userlist',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/UserList.vue */ "./resources/js/components/UserList.vue"));
+    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./components/UserList.vue */ "./resources/js/components/UserList.vue"));
   }
 }, {
   path: '/login',
   name: 'login',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/Login.vue */ "./resources/js/components/Login.vue"));
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./components/Login.vue */ "./resources/js/components/Login.vue"));
   }
 }, {
   path: '/signselect',
   name: 'signselect',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/SignSelect.vue */ "./resources/js/components/SignSelect.vue"));
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./components/SignSelect.vue */ "./resources/js/components/SignSelect.vue"));
   }
 }, {
   path: '/usersignup',
   name: 'usersignup',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./components/UserSignup.vue */ "./resources/js/components/UserSignup.vue"));
+    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./components/UserSignup.vue */ "./resources/js/components/UserSignup.vue"));
   }
 }, {
   path: '/companysignup1',
   name: 'companysignup1',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/CompanySignup1.vue */ "./resources/js/components/CompanySignup1.vue"));
+    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/CompanySignup1.vue */ "./resources/js/components/CompanySignup1.vue"));
   }
 }, {
   path: '/companysignup2',
   name: 'companysignup2',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/CompanySignup2.vue */ "./resources/js/components/CompanySignup2.vue"));
+    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/CompanySignup2.vue */ "./resources/js/components/CompanySignup2.vue"));
   }
 }, {
   path: '/audition',
   name: 'audition',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./components/Audition.vue */ "./resources/js/components/Audition.vue"));
+    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/Audition.vue */ "./resources/js/components/Audition.vue"));
   }
 }, {
   path: '/auditiondetail/:contentId',
   name: 'AuditionDetail',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./components/AuditionDetail.vue */ "./resources/js/components/AuditionDetail.vue"));
+    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/AuditionDetail.vue */ "./resources/js/components/AuditionDetail.vue"));
   }
 }, {
   path: '/auditioncreate/:contentId?',
   name: 'AuditionCreate',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./components/AuditionCreate.vue */ "./resources/js/components/AuditionCreate.vue"));
+    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/AuditionCreate.vue */ "./resources/js/components/AuditionCreate.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
