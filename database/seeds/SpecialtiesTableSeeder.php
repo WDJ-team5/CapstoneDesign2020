@@ -16,10 +16,6 @@ class SpecialtiesTableSeeder extends Seeder
         ]);
 
         App\Specialty::create([
-            'area' => 'hip hop',
-        ]);
-
-        App\Specialty::create([
             'area' => 'poppin',
         ]);
     }

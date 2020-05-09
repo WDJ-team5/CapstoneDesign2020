@@ -58,5 +58,21 @@ class UsersTableSeeder extends Seeder
             'company_id' => null,
             'expert_id' => 1,
         ]);
+
+        App\User::create([
+            'userid' => 'sample_04',
+            'password' => bcrypt('1234'),
+            'name' => '김아이돌',
+            'image' => null,
+            'birthday' => '1996-08-10',
+            'gender' => 1,
+            'address' => '대구광역시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 나는 김아이돌야. 전문가고 대성그룹 소속이지!',
+            'class' => 2,
+            'rank_id'=> 3,
+            'company_id' => null,
+            'expert_id' => 2,
+        ]);
     }
 }

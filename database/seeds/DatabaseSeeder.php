@@ -21,6 +21,12 @@ class DatabaseSeeder extends Seeder
         App\Specialty::truncate();
         $this->call(SpecialtiesTableSeeder::class);
 
+        App\Company::truncate();
+        $this->call(CompaniesTableSeeder::class);
+
+        App\Expert::truncate();
+        $this->call(ExpertsTableSeeder::class);
+
         App\User::truncate();
         $this->call(UsersTableSeeder::class);
 

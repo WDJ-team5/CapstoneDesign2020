@@ -8,7 +8,7 @@ class Expert extends Model
 {
     protected $fillable = [
         'sns',
-        'specialties_id',
+        'field_id',
         'company_id',
     ];
 
