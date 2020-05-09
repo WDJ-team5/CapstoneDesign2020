@@ -14,11 +14,11 @@ class CreateUsersTable extends Migration
             $table->string('password');//비밀번호
             $table->string('name');//회원이름
             $table->string('image')->nullable();//프로필사진
-            $table->date('birthday');//생년월일
-            $table->boolean('gender')->default(0);//성별
+            $table->date('birthday')->nullable();//생년월일
+            $table->boolean('gender')->nullable();//성별
             $table->string('address');//주소
             $table->string('call_number');//연락처
-            $table->text('introduction');//자기소개
+            $table->text('introduction')->nullable();//자기소개
             $table->tinyInteger('class')->default(1);//등급구분
             $table->timestamps();
             $table->unsignedBigInteger('rank_id')->default(1);//랭크번호

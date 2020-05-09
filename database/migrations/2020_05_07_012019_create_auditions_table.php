@@ -17,10 +17,8 @@ class CreateAuditionsTable extends Migration
             $table->id();//오디션번호
             $table->string('title');//오디션 제목
             $table->string('content');//오디션 내용
-            $table->date('start_date');//오디션 시작일
             $table->date('end_date');//오디션 마감일
             $table->string('image');//이미지
-            $table->tinyInteger('max_recruitment');//모집인원
             $table->timestamps();
             $table->unsignedBigInteger('user_id');//회원번호(기업)
 
