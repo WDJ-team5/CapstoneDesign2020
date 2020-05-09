@@ -48,7 +48,7 @@
             <input type="text" class="form-control" placeholder="연락처"/>
         </div>
 
-        <div>
+        <!-- <div>
             <div class="input_text">
                 <h3 class="mform_stit"><span class="str">*</span>성별</h3>
             </div>
@@ -63,9 +63,9 @@
                     ></b-form-radio-group>
                 </b-form-group>
             </div>
-        </div>
+        </div> -->
 
-        <div>
+        <!-- <div>
             <div class="input_text">
                 <h3 class="mform_stit"><span class="str">*</span>생년월일</h3>
             </div>
@@ -96,7 +96,7 @@
                 disabled-field="notEnabled"
                 ></b-form-select>
             </div>
-        </div>
+        </div> -->
 
         <div class="text-center mt-4">
             <button id="login_button" class="btn btn-indigo" type="submit">회원가입</button>

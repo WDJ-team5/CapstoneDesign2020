@@ -1,7 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[9],{
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Categories.vue?vue&type=script&lang=js& ***!
@@ -107,7 +105,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
->>>>>>> jang
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&":
 /*!********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Categories.vue?vue&type=template&id=53f0967b& ***!
@@ -123,23 +120,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid" }, [
-      _c("h1", { staticClass: "mt-4" }, [_vm._v("Dashboard")]),
-      _vm._v(" "),
-      _c("ol", { staticClass: "breadcrumb mb-4" }, [
-        _c("li", { staticClass: "breadcrumb-item active" }, [
-          _vm._v("Dashboard")
-        ])
-      ]),
-=======
   return _c(
     "div",
     { staticClass: "container-fluid" },
@@ -147,54 +127,10 @@ var staticRenderFns = [
       _c("h1", { staticClass: "mt-4" }, [_vm._v("Dashboard")]),
       _vm._v(" "),
       _vm._m(0),
->>>>>>> jang
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-xl-6" }, [
           _c("div", { staticClass: "card mb-4" }, [
-<<<<<<< HEAD
-            _c("div", { staticClass: "card-header" }, [
-              _c("i", { staticClass: "fas fa-chart-area mr-1" }),
-              _vm._v("카테고리 경영\n        ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("table", { staticClass: "table" }, [
-                _c("tr", [
-                  _c("thead", [
-                    _c("tr", [
-                      _c("td", [_vm._v("아이디")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("이름")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("사진")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("액션")])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tbody", [
-                    _c("td", [_vm._v("1")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("장성현")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("이미지")]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("button", { staticClass: "btn btn-primary btn-sm" }, [
-                        _c("span", { staticClass: "fa fa-edit" })
-                      ]),
-                      _vm._v(" "),
-                      _c("button", { staticClass: "btn btn-primary btn-sm" }, [
-                        _c("span", { staticClass: "fa fa-trash" })
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-=======
             _c("div", { staticClass: "card-header d-flex" }, [
               _vm._m(1),
               _vm._v(" "),
@@ -363,7 +299,6 @@ var staticRenderFns = [
               ])
             ])
           ])
->>>>>>> jang
         ])
       ])
     ])
@@ -385,27 +320,17 @@ render._withStripped = true
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Categories.vue?vue&type=template&id=53f0967b& */ "./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&");
-<<<<<<< HEAD
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-=======
 /* harmony import */ var _Categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Categories.vue?vue&type=script&lang=js& */ "./resources/js/views/Categories.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
->>>>>>> jang
 
-var script = {}
 
 
 /* normalize component */
 
-<<<<<<< HEAD
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
-=======
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
->>>>>>> jang
   _Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -422,8 +347,6 @@ component.options.__file = "resources/js/views/Categories.vue"
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./resources/js/views/Categories.vue?vue&type=script&lang=js&":
 /*!********************************************************************!*\
   !*** ./resources/js/views/Categories.vue?vue&type=script&lang=js& ***!
@@ -438,7 +361,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
->>>>>>> jang
 /***/ "./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&":
 /*!**************************************************************************!*\
   !*** ./resources/js/views/Categories.vue?vue&type=template&id=53f0967b& ***!

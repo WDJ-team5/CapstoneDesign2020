@@ -113,11 +113,7 @@ var render = function() {
     _c("input", {
       staticClass: "form-control",
       attrs: {
-<<<<<<< HEAD
-        type: "email",
-=======
         type: "text",
->>>>>>> jang
         id: "defaultFormLoginEmailEx",
         placeholder: "이메일"
       }

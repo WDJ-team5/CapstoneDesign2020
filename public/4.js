@@ -175,7 +175,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("input", {
             staticClass: "form-control",
-            attrs: { type: "username", placeholder: "회사명" }
+            attrs: { type: "text", placeholder: "회사명" }
           })
         ]),
         _vm._v(" "),
@@ -191,7 +191,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("input", {
             staticClass: "form-control",
-            attrs: { type: "username", placeholder: "회사 연락처" }
+            attrs: { type: "text", placeholder: "회사 연락처" }
           })
         ]),
         _vm._v(" "),
@@ -207,7 +207,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("input", {
             staticClass: "form-control",
-            attrs: { type: "username", placeholder: "사업자 등록번호" }
+            attrs: { type: "text", placeholder: "사업자 등록번호" }
           })
         ]),
         _vm._v(" "),
@@ -221,7 +221,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("input", {
             staticClass: "form-control",
-            attrs: { type: "username", placeholder: "사원 수" }
+            attrs: { type: "text", placeholder: "사원 수" }
           })
         ]),
         _vm._v(" "),

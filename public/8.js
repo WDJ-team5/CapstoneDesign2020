@@ -217,292 +217,116 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "sign_container" } }, [
-    _c("form", { attrs: { id: "sign_form" } }, [
-      _c("h2", { staticClass: "title" }, [_vm._v("기본정보를 등록하세요")]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _vm._m(3),
-      _vm._v(" "),
-      _vm._m(4),
-      _vm._v(" "),
-      _vm._m(5),
-      _vm._v(" "),
-      _c("div", [
-        _vm._m(6),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c(
-              "b-form-group",
-              { attrs: { id: "gender_group" } },
-              [
-                _c("b-form-radio-group", {
-                  attrs: {
-                    options: _vm.options,
-                    plain: "",
-                    name: "plain-inline"
-                  },
-                  model: {
-                    value: _vm.gender,
-                    callback: function($$v) {
-                      _vm.gender = $$v
-                    },
-                    expression: "gender"
-                  }
-                })
-              ],
-              1
-            )
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _vm._m(7),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c(
-          "div",
-          { attrs: { id: "birth_box" } },
-          [
-            _c("b-form-select", {
-              staticClass: "mb-3 birth",
-              attrs: {
-                options: _vm.options,
-                "value-field": "item",
-                "text-field": "name",
-                "disabled-field": "notEnabled"
-              },
-              model: {
-                value: _vm.selected,
-                callback: function($$v) {
-                  _vm.selected = $$v
-                },
-                expression: "selected"
-              }
-            }),
-            _vm._v(" "),
-            _c("b-form-select", {
-              staticClass: "mb-3 birth",
-              attrs: {
-                options: _vm.options,
-                "value-field": "item",
-                "text-field": "name",
-                "disabled-field": "notEnabled"
-              },
-              model: {
-                value: _vm.selected,
-                callback: function($$v) {
-                  _vm.selected = $$v
-                },
-                expression: "selected"
-              }
-            }),
-            _vm._v(" "),
-            _c("b-form-select", {
-              staticClass: "mb-3 birth",
-              attrs: {
-                options: _vm.options,
-                "value-field": "item",
-                "text-field": "name",
-                "disabled-field": "notEnabled"
-              },
-              model: {
-                value: _vm.selected,
-                callback: function($$v) {
-                  _vm.selected = $$v
-                },
-                expression: "selected"
-              }
-            })
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(8)
-    ])
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "input_text" }, [
-        _c("h3", { staticClass: "mform_stit" }, [
-          _c("span", { staticClass: "str" }, [_vm._v("*")]),
-          _vm._v("이름")
+    return _c("div", { attrs: { id: "sign_container" } }, [
+      _c("form", { attrs: { id: "sign_form" } }, [
+        _c("h2", { staticClass: "title" }, [_vm._v("기본정보를 등록하세요")]),
+        _vm._v(" "),
+        _c("div", [
+          _c("div", { staticClass: "input_text" }, [
+            _c("h3", { staticClass: "mform_stit" }, [
+              _c("span", { staticClass: "str" }, [_vm._v("*")]),
+              _vm._v("이름")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "이름" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", [
+          _c("div", { staticClass: "input_text" }, [
+            _c("h3", { staticClass: "mform_stit" }, [
+              _c("span", { staticClass: "str" }, [_vm._v("*")]),
+              _vm._v("아이디")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "아이디" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", [
+          _c("div", { staticClass: "input_text" }, [
+            _c("h3", { staticClass: "mform_stit" }, [
+              _c("span", { staticClass: "str" }, [_vm._v("*")]),
+              _vm._v("비밀번호")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "password", placeholder: "비밀번호" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("div", { staticClass: "input_text" }, [
+            _c("h3", { staticClass: "mform_stit" }, [
+              _c("span", { staticClass: "str" }, [_vm._v("*")]),
+              _vm._v("비밀번호 확인")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "password", placeholder: "비밀번호 확인" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("div", { staticClass: "input_text" }, [
+            _c("h3", { staticClass: "mform_stit" }, [
+              _c("span", { staticClass: "str" }, [_vm._v("*")]),
+              _vm._v("주소")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "주소" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("div", { staticClass: "input_text" }, [
+            _c("h3", { staticClass: "mform_stit" }, [
+              _c("span", { staticClass: "str" }, [_vm._v("*")]),
+              _vm._v("연락처")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "연락처" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "text-center mt-4" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-indigo",
+              attrs: { id: "login_button", type: "submit" }
+            },
+            [_vm._v("회원가입")]
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-<<<<<<< HEAD
-        attrs: { type: "username", placeholder: "이름" }
-=======
-        attrs: { type: "text", placeholder: "이름" }
->>>>>>> jang
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "input_text" }, [
-        _c("h3", { staticClass: "mform_stit" }, [
-          _c("span", { staticClass: "str" }, [_vm._v("*")]),
-          _vm._v("이메일")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-<<<<<<< HEAD
-        attrs: { type: "email", placeholder: "이메일" }
-=======
-        attrs: { type: "text", placeholder: "이메일" }
->>>>>>> jang
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "input_text" }, [
-        _c("h3", { staticClass: "mform_stit" }, [
-          _c("span", { staticClass: "str" }, [_vm._v("*")]),
-          _vm._v("비밀번호")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "password", placeholder: "비밀번호" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "input_text" }, [
-        _c("h3", { staticClass: "mform_stit" }, [
-          _c("span", { staticClass: "str" }, [_vm._v("*")]),
-          _vm._v("비밀번호 확인")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-<<<<<<< HEAD
-        attrs: { type: "password2", placeholder: "비밀번호 확인" }
-=======
-        attrs: { type: "password", placeholder: "비밀번호 확인" }
->>>>>>> jang
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "input_text" }, [
-        _c("h3", { staticClass: "mform_stit" }, [
-          _c("span", { staticClass: "str" }, [_vm._v("*")]),
-          _vm._v("주소")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-<<<<<<< HEAD
-        attrs: { type: "password2", placeholder: "주소" }
-=======
-        attrs: { type: "text", placeholder: "주소" }
->>>>>>> jang
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "input_text" }, [
-        _c("h3", { staticClass: "mform_stit" }, [
-          _c("span", { staticClass: "str" }, [_vm._v("*")]),
-          _vm._v("연락처")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-<<<<<<< HEAD
-        attrs: { type: "password2", placeholder: "연락처" }
-=======
-        attrs: { type: "text", placeholder: "연락처" }
->>>>>>> jang
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input_text" }, [
-      _c("h3", { staticClass: "mform_stit" }, [
-        _c("span", { staticClass: "str" }, [_vm._v("*")]),
-        _vm._v("성별")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input_text" }, [
-      _c("h3", { staticClass: "mform_stit" }, [
-        _c("span", { staticClass: "str" }, [_vm._v("*")]),
-        _vm._v("생년월일")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center mt-4" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-indigo",
-          attrs: { id: "login_button", type: "submit" }
-        },
-        [_vm._v("회원가입")]
-      )
     ])
   }
 ]

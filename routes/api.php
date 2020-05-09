@@ -18,8 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-<<<<<<< HEAD
-// Route::resource('users', 'UserController');
-=======
 Route::resource('categories','CategoryController');
->>>>>>> jang
