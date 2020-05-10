@@ -31,72 +31,6 @@ module.exports = __webpack_require__(/*! ./lib/axios */ "./node_modules/axios/li
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// import data from '@/data'
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Audition',
-  data: function data() {
-    // 게시판 최신 순 정렬
-    // let items = data.Content.sort((a,b) => {return b.content_id - a.content_id})
-    // 유저 네임 속성 추가(게시판의 유저아이디와 데이터의 유저아이디가 동일 할 경우에)
-    // items = items.map(contentItem => {return {...contentItem, user_name: data.User.filter(userItem => userItem.user_id === contentItem.user_id)[0].name}})
-    return {
-      // 게시글의 보여주고싶은 필드 보이도록 설정
-      fields: [{
-        key: 'content_id',
-        label: '글번호'
-      }, {
-        key: 'title',
-        label: '제목'
-      }, {
-        key: 'created_at',
-        label: '작성일'
-      }, {
-        key: 'user_name',
-        label: '글쓴이'
-      }],
-      items: [{
-        content_id: 1,
-        user_id: 1,
-        title: '빅 엔터테인먼트 공개 오디션',
-        context: '아직 미정입니다',
-        date: '2019-03-29',
-        rank: 'A랭크 이상',
-        created_at: '2019-01-01 13:11:42',
-        updated_at: null,
-        video: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0',
-        sub_image: 'https://www.jjilbo.com/news/photo/201506/122901_48168_3522.jpg'
-      }]
-=======
 
 
 var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
@@ -183,7 +117,6 @@ module.exports = function xhrAdapter(config) {
 
       // Clean up request
       request = null;
->>>>>>> 41e8457550253e09a4a58b48ecf605cef1df968f
     };
 
     // Handle timeout

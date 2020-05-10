@@ -18,48 +18,48 @@ const routes=[
     {
         path:'/userlist',
         name:'userlist',
-        component:()=>import('./components/UserList.vue')
+        component:()=>import('./views/UserList.vue')
     },
     {
         path:'/login',
         name:'login',
-        component:()=>import('./components/Login.vue')
+        component:()=>import('./views/auth/Login.vue')
     },
     {
         path:'/signselect',
         name:'signselect',
-        component:()=>import('./components/SignSelect.vue')
+        component:()=>import('./views/auth/SignSelect.vue')
     },
     {
         path:'/usersignup',
         name:'usersignup',
-        component:()=>import('./components/UserSignup.vue')
+        component:()=>import('./views/auth/UserSignup.vue')
     },
     {
         path:'/companysignup1',
         name:'companysignup1',
-        component:()=>import('./components/CompanySignup1.vue')
+        component:()=>import('./views/auth/CompanySignup1.vue')
     },
     {
         path:'/companysignup2',
         name:'companysignup2',
-        component:()=>import('./components/CompanySignup2.vue')
+        component:()=>import('./views/auth/CompanySignup2.vue')
     },
 
     {
         path:'/audition',
         name:'audition',
-        component:()=>import('./components/Audition.vue')
+        component:()=>import('./views/audition/Audition.vue')
     },
     {
         path: '/auditiondetail/:contentId',
         name: 'AuditionDetail',
-        component:()=>import('./components/AuditionDetail.vue')
+        component:()=>import('./views/audition/AuditionDetail.vue')
     },
     {
         path: '/auditioncreate',
         name: 'AuditionCreate',
-        component:()=>import('./components/AuditionCreate.vue')
+        component:()=>import('./views/audition/AuditionCreate.vue')
       },
 ]
 
