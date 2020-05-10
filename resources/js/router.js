@@ -60,7 +60,22 @@ const routes=[
         path: '/auditioncreate',
         name: 'AuditionCreate',
         component:()=>import('./views/audition/AuditionCreate.vue')
-      },
+    },
+    {
+        path:'/expert/list',
+        name:'ExpertList',
+        component:()=>import('./views/Advice/ExpertList.vue')
+    },
+    {
+        path:'/advice/list',
+        name:'AdviceList',
+        component:()=>import('./views/Advice/AdviceList.vue')
+    },
+    {
+        path:'/advice/detail/:contentId',
+        name:'AdviceDetail',
+        component:()=>import('./views/Advice/AdviceDetail.vue')
+    }
 ]
 
 const router=new Router({
