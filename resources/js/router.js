@@ -61,16 +61,13 @@ const routes=[
         path: '/auditioncreate',
         name: 'AuditionCreate',
         component:()=>import('./views/audition/AuditionCreate.vue')
-<<<<<<< HEAD
-      },
+    },
 
     //   댄스강좌
-      {
+    {
         path:'/lecture',
         name:'lecture',
         component:()=>import('./views/lecture/Lecture.vue')
-    },
-=======
     },
     {
         path:'/expert/list',
@@ -87,7 +84,6 @@ const routes=[
         name:'AdviceDetail',
         component:()=>import('./views/Advice/AdviceDetail.vue')
     }
->>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
 ]
 
 const router=new Router({
