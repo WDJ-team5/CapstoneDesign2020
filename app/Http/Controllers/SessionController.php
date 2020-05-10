@@ -89,6 +89,7 @@ class SessionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        auth()->logout();
+        return response()->json('로그아웃 성공함', 200);
     }
 }

@@ -29,5 +29,5 @@ Route::resource('/', 'HomeController');
 
 Route::resource('users', 'UserController');
 
-Route::resource('session', 'SessionController');
+Route::resource('sessions', 'SessionController');
 

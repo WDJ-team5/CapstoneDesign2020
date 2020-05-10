@@ -3,9 +3,21 @@
   <form id="login_form" v-on:submit.prevent="createSession">
     <!-- <img style="width:230px;height:55px;margin-bottom:10px;" src='../assets/images/logo.jpg'> -->
     <p id="login_title">기업,일반회원 로그인</p>
-    <input type="text" id="defaultFormLoginEmailEx" v-model="sessionData.userid" class="form-control" placeholder="아이디" />
+    <input
+      type="text"
+      id="defaultFormLoginEmailEx"
+      v-model="sessionData.userid"
+      class="form-control"
+      placeholder="아이디"
+    />
     <br />
-    <input type="password" id="defaultFormLoginPasswordEx" v-model="sessionData.password" class="form-control" placeholder="비밀번호" />
+    <input
+      type="password"
+      id="defaultFormLoginPasswordEx"
+      v-model="sessionData.password"
+      class="form-control"
+      placeholder="비밀번호"
+    />
 
     <div class="text-center mt-4">
       <button id="login_button" class="btn btn-indigo" type="submit">Login</button>
@@ -35,39 +47,40 @@ export default {
       sessionData: {
         userid: "",
         password: ""
-      },
-      methods: {
-        createSession: async function() { //request!
-          let formData = new FormData();
-          formData.append("name", this.sessionData.userid);
-          formData.append("userid", this.userData.password);
-          console.dir(formData);
-          try {
-            const response = await sessionService.createSession(formData);
-            console.log(response);
-            console.log("로그인 성공~!");
-            // this.flashMessage.success({
-            //   message: "Category stored successfully!",
-            //   time: 5000
-            // });
-          } catch (error) {
-            console.log(response);
-            console.log(error);
-            // switch (error.response.status) {
-            //   case 422:
-            //     this.errors = error.response.data.errors;
-            //     break;
-            //   default:
-            //     this.flashMessage.error({
-            //       message: "Some error occurred, Please try again!",
-            //       time: 5000
-            //     });
-            //     break;
-            // }
-          }
-        }
       }
     };
+  },
+  methods: {
+    createSession: async function() {
+      //request!
+      let formData = new FormData();
+      formData.append("userid", this.sessionData.userid);
+      formData.append("password", this.sessionData.password);
+      console.dir(formData);
+      try {
+        const response = await sessionService.createSession(formData);
+        console.log(response);
+        console.log("로그인 성공~!");
+        // this.flashMessage.success({
+        //   message: "Category stored successfully!",
+        //   time: 5000
+        // });
+      } catch (error) {
+        console.log(response);
+        console.log(error);
+        // switch (error.response.status) {
+        //   case 422:
+        //     this.errors = error.response.data.errors;
+        //     break;
+        //   default:
+        //     this.flashMessage.error({
+        //       message: "Some error occurred, Please try again!",
+        //       time: 5000
+        //     });
+        //     break;
+        // }
+      }
+    }
   }
 };
 </script>

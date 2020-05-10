@@ -27,6 +27,15 @@ class DatabaseSeeder extends Seeder
         App\Expert::truncate();
         $this->call(ExpertsTableSeeder::class);
 
+        App\Level::truncate();
+        $this->call(LevelsTableSeeder::class);
+
+        App\Genre::truncate();
+        $this->call(GenresTableSeeder::class);
+
+        App\Lecture::truncate();
+        $this->call(LecturesTableSeeder::class);
+
         App\User::truncate();
         $this->call(UsersTableSeeder::class);
 
