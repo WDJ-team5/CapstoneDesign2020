@@ -30,6 +30,24 @@ class DatabaseSeeder extends Seeder
         App\User::truncate();
         $this->call(UsersTableSeeder::class);
 
+        App\Article::truncate();
+        $this->call(ArticlesTableSeeder::class);
+
+        App\Genre::truncate();
+        $this->call(GenresTableSeeder::class);
+
+        App\Level::truncate();
+        $this->call(LevelsTableSeeder::class);
+
+        App\Lecture::truncate();
+        $this->call(LecturesTableSeeder::class);
+
+        App\Contest::truncate();
+        $this->call(ContestsTableSeeder::class);
+
+        App\Audition::truncate();
+        $this->call(AuditionsTableSeeder::class);
+
         if(config('database.default') !== 'sqlite') {
             DB::statement('SET FOREIGN_KEY_CHECKS = 1');
         }

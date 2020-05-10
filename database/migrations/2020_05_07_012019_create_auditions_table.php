@@ -22,7 +22,7 @@ class CreateAuditionsTable extends Migration
             $table->string('image');//이미지
             $table->tinyInteger('max_recruitment');//모집인원
             $table->timestamps();
-            $table->unsignedBigInteger('user_id');//회원번호(기업)
+            $table->unsignedBigInteger('user_id')->nullable();//회원번호(기업)
 
             $table->foreign('user_id')->references('id')->on('users');
         });
