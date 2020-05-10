@@ -47,6 +47,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Audition',
@@ -163,7 +167,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.hovereffect:hover img {\n     opacity: 0.6;\n     filter: alpha(opacity=60);\n     transform: translate3d(0,0,0);\n}\n.hovereffect:hover .overlay:before\n      {\n     opacity: 1;\n     filter: alpha(opacity=100);\n     transform: translate3d(0,0,0);\n}\n#items{\n     width: 1800px;\n     display: inline-block;\n     margin:0;\n     padding:0;\n}\n#item{\n     width: 400px;\n     height: 500px;\n     float: left;\n     color: black;\n     background-color: white;\n     border: 1px solid #ced4da;\n     margin: 0 0 0 0;\n     padding: 0 0 0 0;\n     margin-left: 20px;\n     margin-top: 10px;\n     border-radius:5px;\n}\n#card-image{\n     margin-top:3px;\n     border-radius:5px;\n     width: 350px;\n     height: 400px;\n}\n", ""]);
+exports.push([module.i, "\n.hovereffect:hover img {\n    opacity: 0.6;\n    filter: alpha(opacity=60);\n    transform: translate3d(0,0,0);\n}\n.hovereffect:hover .overlay:before {\n    opacity: 1;\n    filter: alpha(opacity=100);\n    transform: translate3d(0,0,0);\n}\n#container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    margin-bottom: 70px;\n}\n#audition-all {\n    width: 1100px;\n    display: inline-block;\n    margin-top:40px;\n    padding:0;\n}\n#audition-set {\n    width: 250px;\n    height: 370px;\n    float: left;\n    color: black;\n    background-color: white;\n    border: 1px solid #ced4da;\n    padding: 0 0 0 0;\n    margin-left: 20px;\n    margin-top: 60px;\n    border-radius:5px;\n}\n.card-image-box {\n    width: 250px;\n    height: 260px;\n}\n.card-image-box > img {\n    width: 100%;\n    height:100%;\n}\n.audition-info {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.audition-title {\n    font-size:25px;\n    font-weight:100;\n}\n.audition-add-btn {\n    margin-top:60px;\n    width:200px;\n    height:60px;\n    margin-top:50px;\n}\n\n\n", ""]);
 
 // exports
 
@@ -217,79 +221,94 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { attrs: { id: "container" } },
     [
       _c(
-        "b-list-group",
-        { attrs: { id: "items" } },
-        _vm._l(_vm.auditions, function(audition, index) {
-          return _c(
-            "b-list-group-item",
-            {
-              key: index,
-              staticClass: "flex-column align-items-start",
-              attrs: { id: "item", href: "#", active: "" },
-              on: {
-                click: function($event) {
-                  return _vm.rowClick(audition)
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "hovereffect" }, [
-                _c("img", {
-                  attrs: {
-                    id: "card-image",
-                    src:
-                      _vm.$store.state.serverPath +
-                      "/storage/" +
-                      audition.image,
-                    alt: audition.title
+        "div",
+        [
+          _c(
+            "b-list-group",
+            { attrs: { id: "audition-all" } },
+            _vm._l(_vm.auditions, function(audition, index) {
+              return _c(
+                "b-list-group-item",
+                {
+                  key: index,
+                  staticClass: "flex-column align-items-start",
+                  attrs: { id: "audition-set", href: "#", active: "" },
+                  on: {
+                    click: function($event) {
+                      return _vm.rowClick(audition)
+                    }
                   }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "div",
-                  [
-                    _c("b-badge", { attrs: { pill: "", variant: "primary" } }, [
-                      _vm._v("마감일:  " + _vm._s(audition.date))
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("b-badge", { attrs: { pill: "", variant: "success" } }, [
-                      _vm._v("랭크: " + _vm._s(audition.selected))
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticStyle: { "margin-top": "12px" } }, [
-                  _c(
-                    "h5",
-                    {
-                      staticClass: "mb-1",
-                      attrs: { sytle: "margin-top:10px" }
-                    },
-                    [_vm._v(_vm._s(audition.title))]
-                  )
-                ])
-              ])
-            ]
+                },
+                [
+                  _c("div", { staticClass: "hovereffect card-image-box" }, [
+                    _c("img", {
+                      attrs: {
+                        id: "card-image",
+                        src:
+                          _vm.$store.state.serverPath +
+                          "/storage/" +
+                          audition.image,
+                        alt: audition.title
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "audition-info" }, [
+                    _c("div", { staticStyle: { "margin-top": "12px" } }, [
+                      _c("h5", { staticClass: "audition-title" }, [
+                        _vm._v(_vm._s(audition.title))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c(
+                          "b-badge",
+                          { attrs: { pill: "", variant: "primary" } },
+                          [
+                            _vm._v(
+                              "마감일: 2020년 5월 15일" + _vm._s(audition.date)
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c(
+                          "b-badge",
+                          { attrs: { pill: "", variant: "success" } },
+                          [
+                            _vm._v(
+                              "랭크: B랭크 이상 지원가능" +
+                                _vm._s(audition.selected)
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ]
+              )
+            }),
+            1
           )
-        }),
+        ],
         1
       ),
       _vm._v(" "),
       _c(
         "b-button",
         {
-          staticStyle: { "margin-top": "10px", width: "200px", height: "60px" },
+          staticClass: "audition-add-btn",
           attrs: { variant: "dark" },
           on: { click: _vm.writeContent }
         },

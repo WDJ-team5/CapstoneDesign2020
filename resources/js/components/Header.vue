@@ -101,8 +101,8 @@ export default {
     deleteSession: async function() {
       try {
         const response = await sessionService.deleteSession();
-        console.log(response);
-        console.log("로그아웃 됨");
+        // console.log(response);
+        // console.log("로그아웃 됨");
 
         location.href="/";
 

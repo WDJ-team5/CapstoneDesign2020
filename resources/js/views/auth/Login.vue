@@ -50,11 +50,11 @@ export default {
       let formData = new FormData();
       formData.append("userid", this.sessionData.userid);
       formData.append("password", this.sessionData.password);
-      console.dir(formData);
+      // console.dir(formData);
       try {
         const response = await sessionService.createSession(formData);
-        console.log(response);
-        console.log('로그인 중 성공~');
+        // console.log(response);
+        // console.log('로그인 중 성공~');
 
         location.href="/";
 
