@@ -8,7 +8,7 @@
             <span class="str">*</span>이름
           </h3>
         </div>
-        <input type="text" class="form-control" placeholder="이름" id="name" />
+        <input type="text" class="form-control" placeholder="이름" v-model="userData.name" id="name" />
       </div>
       <br />
 
@@ -18,7 +18,7 @@
             <span class="str">*</span>아이디
           </h3>
         </div>
-        <input type="text" class="form-control" placeholder="아이디" id="userid" />
+        <input type="text" class="form-control" placeholder="아이디" v-model="userData.userid" id="userid" />
       </div>
       <br />
 
@@ -28,7 +28,7 @@
             <span class="str">*</span>비밀번호
           </h3>
         </div>
-        <input type="password" class="form-control" placeholder="비밀번호" id="password" />
+        <input type="password" class="form-control" placeholder="비밀번호" v-model="userData.password" id="password" />
       </div>
 
       <div>
@@ -46,7 +46,7 @@
             <span class="str">*</span>주소
           </h3>
         </div>
-        <input type="text" class="form-control" placeholder="주소" id="address" />
+        <input type="text" class="form-control" placeholder="주소" v-model="userData.address" id="address" />
       </div>
 
       <div>
@@ -55,7 +55,7 @@
             <span class="str">*</span>연락처
           </h3>
         </div>
-        <input type="text" class="form-control" placeholder="연락처" id="call_number" />
+        <input type="text" class="form-control" placeholder="연락처" v-model="userData.call_number" id="call_number" />
       </div>
 
       <!-- <div>
@@ -139,17 +139,18 @@ export default {
       formData.append("password", this.userData.password);
       formData.append("address", this.userData.address);
       formData.append("call_number", this.userData.call_number);
-
+      console.dir(formData);
       try {
         const response = await userService.createUser(formData);
         console.log(response);
-        console.log('으아아아아악');
+        console.log('회원가입 성공~');
         // this.flashMessage.success({
         //   message: "Category stored successfully!",
         //   time: 5000
         // });
       } catch (error) {
         console.log(response);
+        console.log(error);
         // switch (error.response.status) {
         //   case 422:
         //     this.errors = error.response.data.errors;

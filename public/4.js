@@ -81,6 +81,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
 //
 //
 //
@@ -124,6 +138,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -135,6 +150,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+=======
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "user",
@@ -165,6 +182,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 formData.append("password", this.userData.password);
                 formData.append("address", this.userData.address);
                 formData.append("call_number", this.userData.call_number);
+<<<<<<< HEAD
                 _context.prev = 6;
                 _context.next = 9;
                 return _services_user_service__WEBPACK_IMPORTED_MODULE_1__["createUser"](formData);
@@ -173,10 +191,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _response = _context.sent;
                 console.log(_response);
                 console.log('으아아아아악'); // this.flashMessage.success({
+=======
+                console.dir(formData);
+                _context.prev = 7;
+                _context.next = 10;
+                return _services_user_service__WEBPACK_IMPORTED_MODULE_1__["createUser"](formData);
+
+              case 10:
+                _response = _context.sent;
+                console.log(_response);
+                console.log('회원가입 성공~'); // this.flashMessage.success({
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
                 //   message: "Category stored successfully!",
                 //   time: 5000
                 // });
 
+<<<<<<< HEAD
                 _context.next = 17;
                 break;
 
@@ -184,6 +214,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.prev = 14;
                 _context.t0 = _context["catch"](6);
                 console.log(response); // switch (error.response.status) {
+=======
+                _context.next = 19;
+                break;
+
+              case 15:
+                _context.prev = 15;
+                _context.t0 = _context["catch"](7);
+                console.log(response);
+                console.log(_context.t0); // switch (error.response.status) {
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
                 //   case 422:
                 //     this.errors = error.response.data.errors;
                 //     break;
@@ -195,12 +235,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 //     break;
                 // }
 
+<<<<<<< HEAD
               case 17:
+=======
+              case 19:
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
               case "end":
                 return _context.stop();
             }
           }
+<<<<<<< HEAD
         }, _callee, this, [[6, 14]]);
+=======
+        }, _callee, this, [[7, 15]]);
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
       }));
 
       function createUser() {
@@ -293,6 +341,7 @@ var render = function() {
       [
         _c("h2", { staticClass: "title" }, [_vm._v("기본정보를 등록하세요")]),
         _vm._v(" "),
+<<<<<<< HEAD
         _vm._m(0),
         _vm._v(" "),
         _c("br"),
@@ -308,6 +357,147 @@ var render = function() {
         _vm._m(4),
         _vm._v(" "),
         _vm._m(5),
+=======
+        _c("div", [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.userData.name,
+                expression: "userData.name"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "이름", id: "name" },
+            domProps: { value: _vm.userData.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.userData, "name", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.userData.userid,
+                expression: "userData.userid"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "아이디", id: "userid" },
+            domProps: { value: _vm.userData.userid },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.userData, "userid", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("div", [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.userData.password,
+                expression: "userData.password"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "password",
+              placeholder: "비밀번호",
+              id: "password"
+            },
+            domProps: { value: _vm.userData.password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.userData, "password", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _c("div", [
+          _vm._m(4),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.userData.address,
+                expression: "userData.address"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "주소", id: "address" },
+            domProps: { value: _vm.userData.address },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.userData, "address", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _vm._m(5),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.userData.call_number,
+                expression: "userData.call_number"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "연락처", id: "call_number" },
+            domProps: { value: _vm.userData.call_number },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.userData, "call_number", $event.target.value)
+              }
+            }
+          })
+        ]),
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
         _vm._v(" "),
         _vm._m(6)
       ]
@@ -319,6 +509,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+<<<<<<< HEAD
     return _c("div", [
       _c("div", { staticClass: "input_text" }, [
         _c("h3", { staticClass: "mform_stit" }, [
@@ -331,12 +522,20 @@ var staticRenderFns = [
         staticClass: "form-control",
         attrs: { type: "text", placeholder: "이름", id: "name" }
       })
+=======
+    return _c("div", { staticClass: "input_text" }, [
+      _c("h3", { staticClass: "mform_stit" }, [
+        _c("span", { staticClass: "str" }, [_vm._v("*")]),
+        _vm._v("이름\n        ")
+      ])
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+<<<<<<< HEAD
     return _c("div", [
       _c("div", { staticClass: "input_text" }, [
         _c("h3", { staticClass: "mform_stit" }, [
@@ -349,6 +548,24 @@ var staticRenderFns = [
         staticClass: "form-control",
         attrs: { type: "text", placeholder: "아이디", id: "userid" }
       })
+=======
+    return _c("div", { staticClass: "input_text" }, [
+      _c("h3", { staticClass: "mform_stit" }, [
+        _c("span", { staticClass: "str" }, [_vm._v("*")]),
+        _vm._v("아이디\n        ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input_text" }, [
+      _c("h3", { staticClass: "mform_stit" }, [
+        _c("span", { staticClass: "str" }, [_vm._v("*")]),
+        _vm._v("비밀번호\n        ")
+      ])
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
     ])
   },
   function() {
@@ -359,12 +576,17 @@ var staticRenderFns = [
       _c("div", { staticClass: "input_text" }, [
         _c("h3", { staticClass: "mform_stit" }, [
           _c("span", { staticClass: "str" }, [_vm._v("*")]),
+<<<<<<< HEAD
           _vm._v("비밀번호\n        ")
+=======
+          _vm._v("비밀번호 확인\n        ")
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
         ])
       ]),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control",
+<<<<<<< HEAD
         attrs: { type: "password", placeholder: "비밀번호", id: "password" }
       })
     ])
@@ -383,6 +605,8 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control",
+=======
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
         attrs: { type: "password", placeholder: "비밀번호 확인" }
       })
     ])
@@ -391,6 +615,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+<<<<<<< HEAD
     return _c("div", [
       _c("div", { staticClass: "input_text" }, [
         _c("h3", { staticClass: "mform_stit" }, [
@@ -403,12 +628,20 @@ var staticRenderFns = [
         staticClass: "form-control",
         attrs: { type: "text", placeholder: "주소", id: "address" }
       })
+=======
+    return _c("div", { staticClass: "input_text" }, [
+      _c("h3", { staticClass: "mform_stit" }, [
+        _c("span", { staticClass: "str" }, [_vm._v("*")]),
+        _vm._v("주소\n        ")
+      ])
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+<<<<<<< HEAD
     return _c("div", [
       _c("div", { staticClass: "input_text" }, [
         _c("h3", { staticClass: "mform_stit" }, [
@@ -421,6 +654,13 @@ var staticRenderFns = [
         staticClass: "form-control",
         attrs: { type: "text", placeholder: "연락처", id: "call_number" }
       })
+=======
+    return _c("div", { staticClass: "input_text" }, [
+      _c("h3", { staticClass: "mform_stit" }, [
+        _c("span", { staticClass: "str" }, [_vm._v("*")]),
+        _vm._v("연락처\n        ")
+      ])
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
     ])
   },
   function() {
@@ -490,10 +730,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
 
 function createUser(data) {
+<<<<<<< HEAD
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["httpFile"])().post('/users', data);
+=======
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/users', data);
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
 } // export function loadCategories() {
 //     return http().get('/categories');
 // }
+
+/***/ }),
+
+<<<<<<< HEAD
+/***/ "./resources/js/views/auth/UserSignup.vue":
+/*!************************************************!*\
+  !*** ./resources/js/views/auth/UserSignup.vue ***!
+  \************************************************/
+=======
+/***/ "./resources/js/store.js":
+/*!*******************************!*\
+  !*** ./resources/js/store.js ***!
+  \*******************************/
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+=======
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
+  state: {
+    apiURL: 'http://localhost:8000/api',
+    serverPath: 'http://localhost:8000' // apiURL: 'http://127.0.0.1:8000/api',
+    // serverPath: 'http://127.0.0.1:8000'
+
+  },
+  // state: {
+  //     apiURL: 'http://192.168.0.6:8000/api',
+  //     serverPath: 'http://192.168.0.6:8000'
+  // },
+  // state: {
+  //     apiURL: 'http://localhost:9000/api',
+  //     serverPath: 'http://localhost:9000'
+  // },
+  mutations: {},
+  actions: {}
+}));
 
 /***/ }),
 
@@ -506,6 +795,7 @@ function createUser(data) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+>>>>>>> 0cace812b16184f53eb55cb7cd3befcff07d3b56
 /* harmony import */ var _UserSignup_vue_vue_type_template_id_f11f0c0a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserSignup.vue?vue&type=template&id=f11f0c0a& */ "./resources/js/views/auth/UserSignup.vue?vue&type=template&id=f11f0c0a&");
 /* harmony import */ var _UserSignup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserSignup.vue?vue&type=script&lang=js& */ "./resources/js/views/auth/UserSignup.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _UserSignup_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserSignup.vue?vue&type=style&index=0&lang=css& */ "./resources/js/views/auth/UserSignup.vue?vue&type=style&index=0&lang=css&");

@@ -24,6 +24,10 @@ Route::resource('audition','AuditionController');
 
 // 테스트용 컨트롤러
 Route::resource('categories','CategoryController');
+
 Route::resource('/', 'HomeController');
 
 Route::resource('users', 'UserController');
+
+Route::resource('sessions', 'SessionController');
+
