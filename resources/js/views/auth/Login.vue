@@ -61,6 +61,9 @@ export default {
         const response = await sessionService.createSession(formData);
         console.log(response);
         console.log("로그인 성공~!");
+        this.$router.push({
+          path: `/`,
+        })
         // this.flashMessage.success({
         //   message: "Category stored successfully!",
         //   time: 5000

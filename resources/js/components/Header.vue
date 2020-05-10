@@ -22,8 +22,10 @@
       </div>
     </form>
     <!-- Navbar-->
-    <router-link to="/login" class="nav-link" exact>로그인</router-link>
     <div v-if="sessionData.state">
+      <router-link to="/login" class="nav-link" exact>로그인</router-link>
+    </div>
+    <div v-if="!sessionData.state">
       <a v-on:click="destroySession">로그아웃</a>
     </div>
     <ul class="navbar-nav ml-auto ml-md-0">
@@ -49,23 +51,52 @@
 </template>
 
 <script>
-import * as userService from "../services/session.service";
+import * as sessionService from "../services/session.service";
 
 export default {
   data() {
     return {
       sessionData: {
-        state: 'true',
+        state: "true"
       }
     };
   },
+  mounted() {
+    this.sessionData.state = true;
+    this.checkSession();
+  },
   methods: {
     destroySession: async function() {
-      this.sessionData.state = false;
+      this.sessionData.state = !this.sessionData.state;
       try {
-        const response = await userService.destroySession();
+        const response = await sessionService.destroySession();
         console.log(response);
-        console.log('로그아웃 성공함');
+        console.log("로그아웃 성공함");
+        // this.flashMessage.success({
+        //   message: "Category stored successfully!",
+        //   time: 5000
+        // });
+      } catch (error) {
+        console.log(response);
+        console.log(error);
+        // switch (error.response.status) {
+        //   case 422:
+        //     this.errors = error.response.data.errors;
+        //     break;
+        //   default:
+        //     this.flashMessage.error({
+        //       message: "Some error occurred, Please try again!",
+        //       time: 5000
+        //     });
+        //     break;
+        // }
+      }
+    },
+    checkSession: async function() {
+      try {
+        const response = await sessionService.checkSession();
+        console.dir(response);
+        console.log("니나노나노나나니나");
         // this.flashMessage.success({
         //   message: "Category stored successfully!",
         //   time: 5000

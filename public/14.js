@@ -89,16 +89,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 7:
                 _response = _context.sent;
                 console.log(_response);
-                console.log("로그인 성공~!"); // this.flashMessage.success({
+                console.log("로그인 성공~!");
+                this.$router.push({
+                  path: "/"
+                }); // this.flashMessage.success({
                 //   message: "Category stored successfully!",
                 //   time: 5000
                 // });
 
-                _context.next = 16;
+                _context.next = 17;
                 break;
 
-              case 12:
-                _context.prev = 12;
+              case 13:
+                _context.prev = 13;
                 _context.t0 = _context["catch"](4);
                 console.log(response);
                 console.log(_context.t0); // switch (error.response.status) {
@@ -113,12 +116,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 //     break;
                 // }
 
-              case 16:
+              case 17:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[4, 12]]);
+        }, _callee, this, [[4, 13]]);
       }));
 
       function createSession() {
@@ -326,6 +329,98 @@ var staticRenderFns = [
 render._withStripped = true
 
 
+
+/***/ }),
+
+/***/ "./resources/js/services/http_service.js":
+/*!***********************************************!*\
+  !*** ./resources/js/services/http_service.js ***!
+  \***********************************************/
+/*! exports provided: http, httpFile */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "http", function() { return http; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "httpFile", function() { return httpFile; });
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store */ "./resources/js/store.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function http() {
+  return axios__WEBPACK_IMPORTED_MODULE_1___default.a.create({
+    baseURL: _store__WEBPACK_IMPORTED_MODULE_0__["default"].state.apiURL
+  });
+}
+function httpFile() {
+  return axios__WEBPACK_IMPORTED_MODULE_1___default.a.create({
+    baseURL: _store__WEBPACK_IMPORTED_MODULE_0__["default"].state.apiURL,
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/services/session.service.js":
+/*!**************************************************!*\
+  !*** ./resources/js/services/session.service.js ***!
+  \**************************************************/
+/*! exports provided: createSession, destroySession */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSession", function() { return createSession; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroySession", function() { return destroySession; });
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
+
+function createSession(data) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/sessions', data);
+}
+function destroySession() {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])()["delete"]('/sessions/1');
+} // export function loadCategories() {
+//     return http().get('/categories');
+// }
+
+/***/ }),
+
+/***/ "./resources/js/store.js":
+/*!*******************************!*\
+  !*** ./resources/js/store.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
+  state: {
+    apiURL: 'http://localhost:8000/api',
+    serverPath: 'http://localhost:8000' // apiURL: 'http://127.0.0.1:8000/api',
+    // serverPath: 'http://127.0.0.1:8000'
+
+  },
+  // state: {
+  //     apiURL: 'http://192.168.0.6:8000/api',
+  //     serverPath: 'http://192.168.0.6:8000'
+  // },
+  // state: {
+  //     apiURL: 'http://localhost:9000/api',
+  //     serverPath: 'http://localhost:9000'
+  // },
+  mutations: {},
+  actions: {}
+}));
 
 /***/ }),
 

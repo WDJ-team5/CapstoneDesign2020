@@ -2138,14 +2138,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       sessionData: {
-        state: 'true'
+        state: "true"
       }
     };
+  },
+  mounted: function mounted() {
+    this.sessionData.state = true;
+    this.checkSession();
   },
   methods: {
     destroySession: function () {
@@ -2156,7 +2162,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                this.sessionData.state = false;
+                this.sessionData.state = !this.sessionData.state;
                 _context.prev = 1;
                 _context.next = 4;
                 return _services_session_service__WEBPACK_IMPORTED_MODULE_1__["destroySession"]();
@@ -2164,7 +2170,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 4:
                 _response = _context.sent;
                 console.log(_response);
-                console.log('로그아웃 성공함'); // this.flashMessage.success({
+                console.log("로그아웃 성공함"); // this.flashMessage.success({
                 //   message: "Category stored successfully!",
                 //   time: 5000
                 // });
@@ -2201,6 +2207,59 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return destroySession;
+    }(),
+    checkSession: function () {
+      var _checkSession = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _response2;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return _services_session_service__WEBPACK_IMPORTED_MODULE_1__["checkSession"]();
+
+              case 3:
+                _response2 = _context2.sent;
+                console.dir(_response2);
+                console.log("니나노나노나나니나"); // this.flashMessage.success({
+                //   message: "Category stored successfully!",
+                //   time: 5000
+                // });
+
+                _context2.next = 12;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](0);
+                console.log(response);
+                console.log(_context2.t0); // switch (error.response.status) {
+                //   case 422:
+                //     this.errors = error.response.data.errors;
+                //     break;
+                //   default:
+                //     this.flashMessage.error({
+                //       message: "Some error occurred, Please try again!",
+                //       time: 5000
+                //     });
+                //     break;
+                // }
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 8]]);
+      }));
+
+      function checkSession() {
+        return _checkSession.apply(this, arguments);
+      }
+
+      return checkSession;
     }()
   }
 });
@@ -63928,21 +63987,28 @@ var render = function() {
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _c(
-        "router-link",
-        { staticClass: "nav-link", attrs: { to: "/login", exact: "" } },
-        [_vm._v("로그인")]
-      ),
-      _vm._v(" "),
       _vm.sessionData.state
+        ? _c(
+            "div",
+            [
+              _c(
+                "router-link",
+                { staticClass: "nav-link", attrs: { to: "/login", exact: "" } },
+                [_vm._v("로그인")]
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.sessionData.state
         ? _c("div", [
             _c("a", { on: { click: _vm.destroySession } }, [_vm._v("로그아웃")])
           ])
         : _vm._e(),
       _vm._v(" "),
       _vm._m(2)
-    ],
-    1
+    ]
   )
 }
 var staticRenderFns = [
@@ -80771,79 +80837,79 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
+    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
   }
 }, {
   path: '/userlist',
   name: 'userlist',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/UserList.vue */ "./resources/js/views/UserList.vue"));
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/UserList.vue */ "./resources/js/views/UserList.vue"));
   }
 }, {
   path: '/login',
   name: 'login',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/views/auth/Login.vue"));
+    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/views/auth/Login.vue"));
   }
 }, {
   path: '/signselect',
   name: 'signselect',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/auth/SignSelect.vue */ "./resources/js/views/auth/SignSelect.vue"));
+    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/auth/SignSelect.vue */ "./resources/js/views/auth/SignSelect.vue"));
   }
 }, {
   path: '/usersignup',
   name: 'usersignup',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/auth/UserSignup.vue */ "./resources/js/views/auth/UserSignup.vue"));
+    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/auth/UserSignup.vue */ "./resources/js/views/auth/UserSignup.vue"));
   }
 }, {
   path: '/companysignup1',
   name: 'companysignup1',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup1.vue */ "./resources/js/views/auth/CompanySignup1.vue"));
+    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup1.vue */ "./resources/js/views/auth/CompanySignup1.vue"));
   }
 }, {
   path: '/companysignup2',
   name: 'companysignup2',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup2.vue */ "./resources/js/views/auth/CompanySignup2.vue"));
+    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup2.vue */ "./resources/js/views/auth/CompanySignup2.vue"));
   }
 }, {
   path: '/audition',
   name: 'audition',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/audition/Audition.vue */ "./resources/js/views/audition/Audition.vue"));
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/audition/Audition.vue */ "./resources/js/views/audition/Audition.vue"));
   }
 }, {
   path: '/auditiondetail/:contentId',
   name: 'AuditionDetail',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionDetail.vue */ "./resources/js/views/audition/AuditionDetail.vue"));
+    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionDetail.vue */ "./resources/js/views/audition/AuditionDetail.vue"));
   }
 }, {
   path: '/auditioncreate',
   name: 'AuditionCreate',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
+    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
   }
 }, {
   path: '/expert/list',
   name: 'ExpertList',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/Advice/ExpertList.vue */ "./resources/js/views/Advice/ExpertList.vue"));
+    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/Advice/ExpertList.vue */ "./resources/js/views/Advice/ExpertList.vue"));
   }
 }, {
   path: '/advice/list',
   name: 'AdviceList',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
+    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
   }
 }, {
   path: '/advice/detail/:contentId',
   name: 'AdviceDetail',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));
+    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -80889,15 +80955,19 @@ function httpFile() {
 /*!**************************************************!*\
   !*** ./resources/js/services/session.service.js ***!
   \**************************************************/
-/*! exports provided: createSession, destroySession */
+/*! exports provided: checkSession, createSession, destroySession */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkSession", function() { return checkSession; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSession", function() { return createSession; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroySession", function() { return destroySession; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
 
+function checkSession() {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/sessions/1');
+}
 function createSession(data) {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/sessions', data);
 }

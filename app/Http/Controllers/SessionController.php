@@ -44,7 +44,9 @@ class SessionController extends Controller
             return response()->json('아이디 또는 비밀번호가 맞지 않습니다.');
         }
 
-        return response()->json('로그인 성공함', 200);
+        $result = auth()->check();
+        return response()->json($result, 200);
+        // return response()->json('로그인 성공함', 200);
     }
 
     /**
@@ -55,7 +57,8 @@ class SessionController extends Controller
      */
     public function show($id)
     {
-        //
+        $result = auth()->check();
+        return response()->json($result, 200);
     }
 
     /**
