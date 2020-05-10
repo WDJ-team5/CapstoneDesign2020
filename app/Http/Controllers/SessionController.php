@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class SessionController extends Controller
 {
 
     public function __construct()
@@ -40,37 +40,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required|min:3',
-        //     'image' => 'required|image|mimes:jpeg,png,jpg'
-        // ]);
+        if(!auth()->attempt($request->only('userid', 'password'))) {
+            return response()->json('아이디 또는 비밀번호가 맞지 않습니다.');
+        }
 
-        $user = \App\User::create([
-            'userid' => $request->userid,
-            'password' => bcrypt($request->password),
-            'name' => $request->name,
-        //    'image' =>,
-           'address' => $request->address,
-           'call_number' => $request->call_number,
-        //    'introduction' => $request->introduction,
-        //    'class',
-        ]);
-
-        // return response()>json([$user, 200]);
-        return response()->json($user, 200);
-
-        // $category = new Category();
-        // $category->name = $request->name;
-
-        // $path = $request->file('image')->store('categories_images');
-
-        // $category->image = $path;
-
-        // if($category->save()){
-        //     return response()->json($category, 200);
-        // } else{
-        //     return response()->json($category, 500);
-        // }
+        return response()->json('로그인 성공함', 200);
     }
 
     /**

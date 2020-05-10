@@ -9,9 +9,9 @@ export function http(){
 
 export function httpFile(){
     return axios.create({
-        baseURL:store.state.apiURL,
-        headers:{
-            'Content-Type':'multipart/form-data'
+        baseURL: store.state.apiURL,
+        headers: {
+            'Content-Type': 'multipart/form-data'
         }
     });
 }
