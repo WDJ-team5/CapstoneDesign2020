@@ -1,28 +1,32 @@
 <template>
-  <div>
+  <div id="container">
     <!-- <h1>{{items.user_id}}</h1> -->
     <!-- <b-table striped hover :auditions="auditions" @row-clicked="rowClick"></b-table> -->
-    <b-list-group id="items" >
-        <b-list-group-item  id="item" href="#" active class="flex-column align-items-start" @click="rowClick(audition)" v-for="(audition,index) in auditions" :key="index">
-            <div class="hovereffect">
-                <!-- <img id="card-image" :src="audition.image"> -->
-                <img id="card-image" :src="`${$store.state.serverPath}/storage/${audition.image}`" :alt="audition.title">
-            </div>
-            <div>
-                <div>
-                    <b-badge pill variant="primary">마감일:  {{audition.date}}</b-badge>
-                </div>
-                <div>
-                    <b-badge pill variant="success">랭크: {{audition.selected}}</b-badge>
-                </div>
-                <div style="margin-top:12px">
-                    <h5 sytle="margin-top:10px" class="mb-1">{{audition.title}}</h5>
-                </div>
-            </div>
-        </b-list-group-item>
-    </b-list-group>
+    <div>
+        <b-list-group id="audition-all" >
 
-    <b-button style="margin-top:10px;width:200px;height:60px" variant="dark" @click="writeContent">오디션 공고 등록</b-button>
+            <b-list-group-item  id="audition-set" href="#" active class="flex-column align-items-start" @click="rowClick(audition)" v-for="(audition,index) in auditions" :key="index">
+                <div class="hovereffect card-image-box">
+                    <!-- <img id="card-image" :src="audition.image"> -->
+                    <img id="card-image" :src="`${$store.state.serverPath}/storage/${audition.image}`" :alt="audition.title">
+                </div>
+                <div class="audition-info">
+                    <div style="margin-top:12px">
+                        <h5 class="audition-title">{{audition.title}}</h5>
+                    </div>
+                    <div>
+                        <b-badge pill variant="primary">마감일: 2020년 5월 15일{{audition.date}}</b-badge>
+                    </div>
+                    <div>
+                        <b-badge pill variant="success">랭크: B랭크 이상 지원가능{{audition.selected}}</b-badge>
+                    </div>
+                </div>
+            </b-list-group-item>
+
+        </b-list-group>
+    </div>
+
+    <b-button class="audition-add-btn" variant="dark" @click="writeContent">오디션 공고 등록</b-button>
   </div>
     
 </template>
@@ -114,47 +118,74 @@ export default {
     
 <style>
 
-
     .hovereffect:hover img {
         opacity: 0.6;
         filter: alpha(opacity=60);
         -webkit-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
-        }
+    }
 
-        .hovereffect:hover .overlay:before
-         {
+    .hovereffect:hover .overlay:before {
         opacity: 1;
         filter: alpha(opacity=100);
         -webkit-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
-        }
+    }
 
-    #items{
-        width: 1800px;
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 70px;
+    }
+
+    #audition-all {
+        width: 1100px;
         display: inline-block;
-        margin:0;
+        margin-top:40px;
         padding:0;
     }
 
-   #item{
-        width: 400px;
-        height: 500px;
+    #audition-set {
+        width: 250px;
+        height: 370px;
         float: left;
         color: black;
         background-color: white;
         border: 1px solid #ced4da;
-        margin: 0 0 0 0;
         padding: 0 0 0 0;
         margin-left: 20px;
-        margin-top: 10px;
+        margin-top: 60px;
         border-radius:5px;
     }
 
-    #card-image{
-        margin-top:3px;
-        border-radius:5px;
-        width: 350px;
-        height: 400px;
+    .card-image-box {
+        width: 250px;
+        height: 260px;
     }
+
+    .card-image-box > img {
+        width: 100%;
+        height:100%;
+    }
+
+    .audition-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .audition-title {
+        font-size:25px;
+        font-weight:100;
+    }
+
+    .audition-add-btn {
+        margin-top:60px;
+        width:200px;
+        height:60px;
+        margin-top:50px;
+    }
+    
+
 </style>
