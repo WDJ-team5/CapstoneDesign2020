@@ -1,21 +1,22 @@
 <template>
   <div>
-    <h1>{{items.user_id}}</h1>
-    <!-- <b-table striped hover :items="items" :fields="fields" @row-clicked="rowClick"></b-table> -->
+    <!-- <h1>{{items.user_id}}</h1> -->
+    <!-- <b-table striped hover :auditions="auditions" @row-clicked="rowClick"></b-table> -->
     <b-list-group id="items" >
-        <b-list-group-item @click="rowClick(items)" id="item" href="#" active class="flex-column align-items-start" v-for="(items) in items" :key="items.name">
+        <b-list-group-item  id="item" href="#" active class="flex-column align-items-start" @click="rowClick(audition)" v-for="(audition,index) in auditions" :key="index">
             <div class="hovereffect">
-                <img id="card-image" :src="items.sub_image">
+                <!-- <img id="card-image" :src="audition.image"> -->
+                <img id="card-image" :src="`${$store.state.serverPath}/storage/${audition.image}`" :alt="audition.title">
             </div>
             <div>
                 <div>
-                    <b-badge pill variant="primary">마감일:  {{items.date}}</b-badge>
+                    <b-badge pill variant="primary">마감일:  {{audition.date}}</b-badge>
                 </div>
                 <div>
-                    <b-badge pill variant="success">{{items.rank}}</b-badge>
+                    <b-badge pill variant="success">랭크: {{audition.selected}}</b-badge>
                 </div>
                 <div style="margin-top:12px">
-                    <h5 sytle="margin-top:10px" class="mb-1">{{items.title}}</h5>
+                    <h5 sytle="margin-top:10px" class="mb-1">{{audition.title}}</h5>
                 </div>
             </div>
         </b-list-group-item>
@@ -27,7 +28,7 @@
 </template>
 
 <script>
-// import data from '@/data'
+import * as auditionService from '../../services/audition_service';
 
 export default {
     name:'Audition',
@@ -40,46 +41,68 @@ export default {
         
         return {
             // 게시글의 보여주고싶은 필드 보이도록 설정
-            fields:[
-                {
-                    key:'content_id',
-                    label:'글번호'
-                },
-                {
-                    key:'title',
-                    label:'제목'
-                },
-                {
-                    key:'created_at',
-                    label:'작성일'
-                },
-                {
-                    key:'user_name',
-                    label:'글쓴이' 
-                }
-            ],
-            items: [
-                {
-                    content_id:1,
-                    user_id:1,
-                    title:'빅 엔터테인먼트 공개 오디션',
-                    context:'아직 미정입니다',
-                    date:'2019-03-29',
-                    rank:'A랭크 이상',
-                    created_at:'2019-01-01 13:11:42',
-                    updated_at:null,
-                    video:'https://www.youtube.com/embed/zpOULjyy-n8?rel=0',
-                    sub_image:'https://www.jjilbo.com/news/photo/201506/122901_48168_3522.jpg'
-                }
-        ]
-        };
+            // fields:[
+            //     {
+            //         key:'content_id',
+            //         label:'글번호'
+            //     },
+            //     {
+            //         key:'title',
+            //         label:'제목'
+            //     },
+            //     {
+            //         key:'created_at',
+            //         label:'작성일'
+            //     },
+            //     {
+            //         key:'user_name',
+            //         label:'글쓴이' 
+            //     }
+            // ],
+        
+            auditions:[],
+            auditionData:{
+                id:'',
+                title:'',
+                context: '',
+                userId: 1,
+                date:'',
+                image:'',
+                selected:'',
+                video:'',
+            },
+
+            errors:{}
+        }
     },
+
+    mounted(){
+        this.loadAudition();
+    },
+
     methods:{
-        rowClick(item, index, e) {
+        loadAudition: async function(){
+            try{
+                const response=await auditionService.loadAudition();
+                this.auditions.unshift(response.data);
+                this.auditions=response.data.data; 
+                console.log(this.auditions);
+            }catch(error){
+                this.flashMessage.error({
+                    message: '에러가 발생했습니다!',
+                    time:5000
+                });
+            }
+        },
+
+        // 오디션 클릭시
+        rowClick(audition, index, e) {
             this.$router.push({
-                path: `/auditiondetail//${item.content_id}`
+                path: `/auditiondetail/${audition.id}`
             })
         },
+
+        // 오디션 생성
         writeContent(){
             this.$router.push({
                 path:'/auditioncreate'

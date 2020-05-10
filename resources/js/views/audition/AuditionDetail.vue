@@ -3,17 +3,16 @@
     <b-card>
       <div class="content-detail-content-info">
         <div class="content-detail-content-info-left">
-          <h1>{{contentId}}아이디 입니다.</h1>
           <!-- 제목태그 -->
           <div style="margin-left:200px" class="content-detail-content-info-left-subject">
-            <h1>{{title}}</h1>
+            <h1>{{audition.title}}</h1>
           </div>
           <div style="margin-left:200px">
             <b-button variant="primary">
-              마감일:  <b-badge variant="light">{{date}}</b-badge>
+              마감일:  <b-badge variant="light">d</b-badge>
             </b-button>
             <b-button variant="warning">
-              랭크: {{rank}}
+              랭크: d
             </b-button>
           </div>
         </div>
@@ -22,34 +21,33 @@
       <!-- 글 본문 태그 -->
       <div class="content-detail-content">
         <div>
-          <img id="sub_image" :src="sub_image">
+          <img id="sub_image" v-if="state" :src="`${$store.state.serverPath}/storage/${audition.image}`" :alt="audition.title">
           <div id="text_area">
             <h1>영상과제</h1>
-            <b-embed
+            <!-- <b-embed
               type="iframe"
               aspect="16by9"
-              v-bind:src="video"
+              v-bind:src="auditions.video"
               allowfullscreen
-            ></b-embed>
-            <!-- <video ref="videoPlayer" class="video-js"></video> -->
+            ></b-embed> -->
           </div>
         </div>
         
       </div>
 
       <div class="content-detail-button">
-        <b-button variant="primary" @click="updateData">수정</b-button>
-        <b-button variant="danger" @click="deleteData">삭제</b-button>
+        <b-button variant="primary">수정</b-button>
+        <b-button variant="danger">삭제</b-button>
       </div>
     </b-card>
   </div>
 </template>
 
 <script>
-// import data from "@/data";
-// import videojs from 'video.js';
+import * as auditionService from '../../services/audition_service';
+
 export default {
-  name: "ContentDetail",
+  name: "AuditionDetail",
   data() {
 
     const contentId = Number(this.$route.params.contentId);
@@ -59,41 +57,64 @@ export default {
     // 현재 게시글에 해당하는 데이터를 가져옴
     
     return {
-      contentId: contentId,
-      title: contentData.title,
-      context: contentData.context,
-      date:contentData.date,
-      rank:contentData.rank,
-      sub_image:contentData.sub_image,
-      video:contentData.video,
-      user: data.User.filter(item => item.user_id === contentData.user_id)[0]
-        .name,
-        // 현재 contentData와 일치하는 유저 객체를 가져와서 해당 객체의 name속성을 가져옴
-      created: contentData.created_at,
-      images:['https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260']
+      audition:[],
+      auditionData:{
+                id:'',
+                title:'',
+                context: '',
+                userId: 1,
+                date:'',
+                image:'',
+                selected:'',
+                video:'',
+            },
+      cid:contentId,
+      state:false
     };
+    
   },
 
-  methods: {
-    // 삭제를 수행하는 함수
-    deleteData() {
-      const content_index = data.Content.findIndex(item => item.content_id === this.contentId);
-      // findIndex: 조건이 만족할 경우 index를 반환해줌
-
-      data.Content.splice(content_index, 1)
-      // 데이터 삭제 수행
-      
-      this.$router.push({
-        path: '/board/free'
-      })
+  mounted(){
+        this.loadDetailAudition();
     },
 
+  methods: {
+
+    // 데이터 로드
+    loadDetailAudition: async function(){
+            try{
+                const response=await auditionService.loadDetailAudition(this.cid);
+                this.audition=response.data;
+                this.state=true;
+              
+            }catch(error){
+                this.flashMessage.error({
+                    message: 'ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ',
+                    time:5000
+                });
+            }
+        },
+
+    // 삭제를 수행하는 함수
+    // deleteData() {
+    //   const content_index = data.Content.findIndex(item => item.content_id === this.contentId);
+    //   // findIndex: 조건이 만족할 경우 index를 반환해줌
+
+    //   data.Content.splice(content_index, 1)
+    //   // 데이터 삭제 수행
+      
+    //   this.$router.push({
+    //     path: '/board/free'
+    //   })
+    // },
+
     // 수정을 수행하는 함수
-    updateData() {
-      this.$router.push({
-        path: `/board/free/create/${this.contentId}`
-      })
-    }
+    // updateData() {
+    //   this.$router.push({
+    //     path: `/board/free/create/${this.contentId}`
+    //   })
+    // }
+
   }
 };
 

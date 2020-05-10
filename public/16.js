@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[16],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionDetail.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************!*\
@@ -63,6 +63,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AuditionDetail",
@@ -72,7 +73,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     // 현재 게시글에 해당하는 데이터를 가져옴
 
     return {
-      audition: [],
       auditionData: {
         id: '',
         title: '',
@@ -83,17 +83,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         selected: '',
         video: ''
       },
-      cid: contentId,
-      state: false
+      cid: contentId
     };
   },
   mounted: function mounted() {
-    this.loadDetailAudition();
+    this.loadAudition();
   },
   methods: {
     // 데이터 로드
-    loadDetailAudition: function () {
-      var _loadDetailAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    loadAudition: function () {
+      var _loadAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -101,36 +100,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["loadDetailAudition"](this.cid);
+                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["loadAudition"]();
 
               case 3:
                 response = _context.sent;
-                this.audition = response.data;
-                this.state = true;
-                _context.next = 11;
+                this.auditions = response.data.data;
+                _context.next = 10;
                 break;
 
-              case 8:
-                _context.prev = 8;
+              case 7:
+                _context.prev = 7;
                 _context.t0 = _context["catch"](0);
                 this.flashMessage.error({
-                  message: 'ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ',
+                  message: '에러가 발생했습니다!',
                   time: 5000
                 });
 
-              case 11:
+              case 10:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[0, 8]]);
+        }, _callee, this, [[0, 7]]);
       }));
 
-      function loadDetailAudition() {
-        return _loadDetailAudition.apply(this, arguments);
+      function loadAudition() {
+        return _loadAudition.apply(this, arguments);
       }
 
-      return loadDetailAudition;
+      return loadAudition;
     }() // 삭제를 수행하는 함수
     // deleteData() {
     //   const content_index = data.Content.findIndex(item => item.content_id === this.contentId);
@@ -224,13 +222,15 @@ var render = function() {
       _c("b-card", [
         _c("div", { staticClass: "content-detail-content-info" }, [
           _c("div", { staticClass: "content-detail-content-info-left" }, [
+            _c("h1", [_vm._v(_vm._s(_vm.cid))]),
+            _vm._v(" "),
             _c(
               "div",
               {
                 staticClass: "content-detail-content-info-left-subject",
                 staticStyle: { "margin-left": "200px" }
               },
-              [_c("h1", [_vm._v(_vm._s(_vm.audition.title))])]
+              [_c("h1", [_vm._v("d")])]
             ),
             _vm._v(" "),
             _c(
@@ -260,19 +260,6 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "content-detail-content" }, [
           _c("div", [
-            _vm.state
-              ? _c("img", {
-                  attrs: {
-                    id: "sub_image",
-                    src:
-                      _vm.$store.state.serverPath +
-                      "/storage/" +
-                      _vm.audition.image,
-                    alt: _vm.audition.title
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" "),
             _c("div", { attrs: { id: "text_area" } }, [
               _c("h1", [_vm._v("영상과제")])
             ])
@@ -305,14 +292,13 @@ render._withStripped = true
 /*!***************************************************!*\
   !*** ./resources/js/services/audition_service.js ***!
   \***************************************************/
-/*! exports provided: createAudition, loadAudition, loadDetailAudition */
+/*! exports provided: createAudition, loadAudition */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAudition", function() { return createAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadAudition", function() { return loadAudition; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDetailAudition", function() { return loadDetailAudition; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
  // 오디션 생성
 
@@ -322,12 +308,6 @@ function createAudition(data) {
 
 function loadAudition() {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/audition');
-} // 오디션 상세보기 로드
-
-function loadDetailAudition(data) {
-  var anything = "/audition/" + data;
-  console.log(anything);
-  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get(anything);
 }
 
 /***/ }),

@@ -46,6 +46,7 @@ const routes=[
         component:()=>import('./views/auth/CompanySignup2.vue')
     },
 
+    // 오디션
     {
         path:'/audition',
         name:'audition',
@@ -61,6 +62,13 @@ const routes=[
         name: 'AuditionCreate',
         component:()=>import('./views/audition/AuditionCreate.vue')
       },
+
+    //   댄스강좌
+      {
+        path:'/lecture',
+        name:'lecture',
+        component:()=>import('./views/lecture/Lecture.vue')
+    },
 ]
 
 const router=new Router({

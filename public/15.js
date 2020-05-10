@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[15],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/Audition.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************!*\
@@ -137,7 +137,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     // 오디션 클릭시
     rowClick: function rowClick(audition, index, e) {
       this.$router.push({
-        path: "/auditiondetail/".concat(audition.id)
+        path: "/auditiondetail//".concat(audition.id)
       });
     },
     // 오디션 생성
@@ -243,7 +243,7 @@ var render = function() {
                       _vm.$store.state.serverPath +
                       "/storage/" +
                       audition.image,
-                    alt: audition.title
+                    alt: audition.name
                   }
                 })
               ]),
@@ -310,14 +310,13 @@ render._withStripped = true
 /*!***************************************************!*\
   !*** ./resources/js/services/audition_service.js ***!
   \***************************************************/
-/*! exports provided: createAudition, loadAudition, loadDetailAudition */
+/*! exports provided: createAudition, loadAudition */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAudition", function() { return createAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadAudition", function() { return loadAudition; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDetailAudition", function() { return loadDetailAudition; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
  // 오디션 생성
 
@@ -327,12 +326,6 @@ function createAudition(data) {
 
 function loadAudition() {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/audition');
-} // 오디션 상세보기 로드
-
-function loadDetailAudition(data) {
-  var anything = "/audition/" + data;
-  console.log(anything);
-  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get(anything);
 }
 
 /***/ }),
