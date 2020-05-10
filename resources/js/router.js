@@ -61,15 +61,22 @@ const routes=[
         path: '/auditioncreate',
         name: 'AuditionCreate',
         component:()=>import('./views/audition/AuditionCreate.vue')
+<<<<<<< HEAD
       },
+=======
+    },
+>>>>>>> 587c3eabd2973ede1dbcdc9095b45d00b26f1a74
 
     //   댄스강좌
-      {
+    {
         path:'/lecture',
         name:'lecture',
         component:()=>import('./views/lecture/Lecture.vue')
     },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 587c3eabd2973ede1dbcdc9095b45d00b26f1a74
     {
         path:'/expert/list',
         name:'ExpertList',

@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    // protected $fillable = [
-    //     'title',
-    //     'content',
-    //     'video',
-    //     'answer',
-    //     'answer_date',
-    //     'max_recruitment',
-    //     'user_id',
-    //     'answer_id',
-    // ];
+    protected $fillable = [
+        'title',
+        'content',
+        // 'video',
+        // 'answer',
+        // 'answer_date',
+        // 'max_recruitment',
+        // 'user_id',
+        // 'answer_id',
+    ];
 
     // public function user()
     // {

@@ -14,8 +14,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $home = 'aaa';
-        return response()->json(['sss']);
+        $auditions = \App\Audition::orderBy('created_at', 'desc')->find([1, 2, 3, 4]);
+        $articles = \App\Article::orderBy('created_at', 'desc')->find([1, 2, 3, 4]);
+        $contests = \App\Contest::orderBy('created_at', 'desc')->find([1, 2, 3, 4]);
+        $lectures = \App\Lecture::orderBy('created_at', 'desc')->find([1, 2, 3, 4]);
+        return response()->json([$auditions, $articles, $contests, $lectures]);
     }
 
     /**
