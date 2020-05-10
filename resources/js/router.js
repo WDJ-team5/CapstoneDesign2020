@@ -61,11 +61,7 @@ const routes=[
         path: '/auditioncreate',
         name: 'AuditionCreate',
         component:()=>import('./views/audition/AuditionCreate.vue')
-<<<<<<< HEAD
       },
-=======
-    },
->>>>>>> 587c3eabd2973ede1dbcdc9095b45d00b26f1a74
 
     //   댄스강좌
     {
@@ -73,10 +69,11 @@ const routes=[
         name:'lecture',
         component:()=>import('./views/lecture/Lecture.vue')
     },
-<<<<<<< HEAD
-
-=======
->>>>>>> 587c3eabd2973ede1dbcdc9095b45d00b26f1a74
+    {
+        path:'/lecturePlay/:id',
+        name:'LecturePlay',
+        component:()=>import('./views/lecture/LecturePlay.vue')
+    },
     {
         path:'/expert/list',
         name:'ExpertList',
@@ -91,7 +88,7 @@ const routes=[
         path:'/advice/detail/:contentId',
         name:'AdviceDetail',
         component:()=>import('./views/Advice/AdviceDetail.vue')
-    }
+    },
 ]
 
 const router=new Router({

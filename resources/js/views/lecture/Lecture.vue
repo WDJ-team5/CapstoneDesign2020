@@ -2,7 +2,7 @@
   <div>
     <!-- <b-table striped hover :items="items" :fields="fields" @row-clicked="rowClick"></b-table> -->
     <b-list-group id="items" >
-        <b-list-group-item id="item" href="#" active class="flex-column align-items-start" v-for="(lecture,index) in lectures" :key="index">
+        <b-list-group-item id="item" href="#" active class="flex-column align-items-start" @click="rowClick(lecture)" v-for="(lecture,index) in lectures" :key="index">
             <div class="hovereffect">
                 <img id="card-image" :src="`${$store.state.serverPath}/storage/${lecture.image}`" :alt="lecture.title">
             </div>
@@ -58,11 +58,11 @@ export default {
                 });
             }
         },
-        // rowClick(item, index, e) {
-        //     this.$router.push({
-        //         path: `/lecturedetail//${item.content_id}`
-        //     })
-        // },
+        rowClick(item, index, e) {
+            this.$router.push({
+                path: `/lecturePlay/${item.id}`
+            })
+        },
         // writeContent(){
         //     this.$router.push({
         //         path:'/lecturecreate'

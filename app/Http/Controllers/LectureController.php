@@ -47,7 +47,8 @@ class LectureController extends Controller
      */
     public function show($id)
     {
-        //
+        $result=Lecture::find($id);
+        return response()->json($result);
     }
 
     /**

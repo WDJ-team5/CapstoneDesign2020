@@ -14,7 +14,7 @@ class LecturesTableSeeder extends Seeder
         App\Lecture::create([
             'title' => '매우쉬운 아이돌 댄스',
             'content' => '이거슨 쉬운 아이돌 댄스입니다잉',
-            'video' => '나중에 넣어',
+            'video' => 'sample3',
             'image' => 'LectureImg/01.jpg',
             'genre_id' => 1,
             'level_id' => 1,
