@@ -34,11 +34,11 @@ class AuditionController extends Controller
      */
     public function store(Request $request)
     {
-        // 유효성검사
-        $request->validate([
-            'title'=>'required|min:6',
-            'context'=>'required|min:10',
-        ]);
+        // // 유효성검사
+        // $request->validate([
+        //     'title'=>'required|min:6',
+        //     'context'=>'required|min:10',
+        // ]);
         
         dd($request->all());
     }

@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import * as auditionService from '../services/audition_service';
+import * as auditionService from '../../services/audition_service';
 export default {
     name:'AuditionCreate',
     data() {
