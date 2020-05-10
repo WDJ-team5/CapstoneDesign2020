@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class SessionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +40,11 @@ class SessionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(!auth()->attempt($request->only('userid', 'password'))) {
+            return response()->json('아이디 또는 비밀번호가 맞지 않습니다.');
+        }
+
+        return response()->json('로그인 성공함', 200);
     }
 
     /**

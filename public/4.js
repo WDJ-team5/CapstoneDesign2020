@@ -181,89 +181,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "sign_container" } }, [
-      _c("form", { attrs: { id: "sign_form" } }, [
-        _c("h2", { staticClass: "title" }, [_vm._v("기업정보를 등록하세요")]),
-        _vm._v(" "),
-        _c("div", [
-          _c("div", { staticClass: "input_text" }, [
-            _c("h3", { staticClass: "mform_stit" }, [
-              _c("span", { staticClass: "str" }, [_vm._v("*")]),
-              _vm._v("회사명")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "회사명" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("div", [
-          _c("div", { staticClass: "input_text" }, [
-            _c("h3", { staticClass: "mform_stit" }, [
-              _c("span", { staticClass: "str" }, [_vm._v("*")]),
-              _vm._v("회사 연락처")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "회사 연락처" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("div", [
-          _c("div", { staticClass: "input_text" }, [
-            _c("h3", { staticClass: "mform_stit" }, [
-              _c("span", { staticClass: "str" }, [_vm._v("*")]),
-              _vm._v("사업자 등록번호")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "사업자 등록번호" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("div", { staticClass: "input_text" }, [
-            _c("h3", { staticClass: "mform_stit" }, [
-              _c("span", { staticClass: "str" }, [_vm._v("*")]),
-              _vm._v("사원 수")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "사원 수" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "text-center mt-4" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-indigo",
-              attrs: { id: "login_button", type: "submit" }
-            },
-            [_vm._v("회원가입")]
-          )
-        ])
-=======
   return _c(
     "div",
     { attrs: { id: "content" } },
@@ -351,7 +268,6 @@ var staticRenderFns = [
           ],
           1
         )
->>>>>>> 41e8457550253e09a4a58b48ecf605cef1df968f
       ])
     ],
     1

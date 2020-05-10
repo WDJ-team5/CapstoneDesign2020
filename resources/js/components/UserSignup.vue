@@ -150,6 +150,7 @@ export default {
         // });
       } catch (error) {
         console.log(response);
+        console.log(error);
         // switch (error.response.status) {
         //   case 422:
         //     this.errors = error.response.data.errors;

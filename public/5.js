@@ -219,42 +219,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
-  return _c("form", { attrs: { id: "login_form" } }, [
-    _c("p", { attrs: { id: "login_title" } }, [_vm._v("기업,일반회원 로그인")]),
-    _vm._v(" "),
-    _c("input", {
-      staticClass: "form-control",
-      attrs: {
-        type: "text",
-        id: "defaultFormLoginEmailEx",
-        placeholder: "이메일"
-      }
-    }),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c("input", {
-      staticClass: "form-control",
-      attrs: {
-        type: "password",
-        id: "defaultFormLoginPasswordEx",
-        placeholder: "비밀번호"
-      }
-    }),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "text-center mt-4" },
-      [
-        _c("p", { attrs: { id: "sign_text" } }, [
-          _vm._v("미나오도 회원이 아니신가요?\n    ")
-        ]),
-=======
   return _c("div", { attrs: { id: "sign_container" } }, [
     _c("form", { attrs: { id: "sign_form" } }, [
       _c("h2", { staticClass: "title" }, [_vm._v("기본정보를 등록하세요")]),
@@ -279,7 +243,6 @@ var render = function() {
         _vm._m(6),
         _vm._v(" "),
         _c("br"),
->>>>>>> 41e8457550253e09a4a58b48ecf605cef1df968f
         _vm._v(" "),
         _c(
           "div",
