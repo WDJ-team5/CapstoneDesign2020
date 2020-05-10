@@ -131,6 +131,58 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return loadDetailAudition;
+    }(),
+    deleteAudition: function () {
+      var _deleteAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(audition) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (window.confirm("\uC0AD\uC81C\uD560\uAC70\uC5D0\uC694? ".concat(audition.title))) {
+                  _context2.next = 2;
+                  break;
+                }
+
+                return _context2.abrupt("return");
+
+              case 2:
+                _context2.prev = 2;
+                _context2.next = 5;
+                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["deleteAudition"](audition.id);
+
+              case 5:
+                // this.audition=this.audition.filter(obj=>{
+                //   return obj.id != audition.id;
+                // });
+                history.back();
+                this.flashMessage.success({
+                  message: '삭제성공',
+                  time: 5000
+                });
+                _context2.next = 12;
+                break;
+
+              case 9:
+                _context2.prev = 9;
+                _context2.t0 = _context2["catch"](2);
+                this.flashMessage.error({
+                  message: _context2.t0.response.data.message,
+                  time: 5000
+                });
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[2, 9]]);
+      }));
+
+      function deleteAudition(_x) {
+        return _deleteAudition.apply(this, arguments);
+      }
+
+      return deleteAudition;
     }() // 삭제를 수행하는 함수
     // deleteData() {
     //   const content_index = data.Content.findIndex(item => item.content_id === this.contentId);
@@ -285,7 +337,18 @@ var render = function() {
           [
             _c("b-button", { attrs: { variant: "primary" } }, [_vm._v("수정")]),
             _vm._v(" "),
-            _c("b-button", { attrs: { variant: "danger" } }, [_vm._v("삭제")])
+            _c(
+              "b-button",
+              {
+                attrs: { variant: "danger" },
+                on: {
+                  click: function($event) {
+                    return _vm.deleteAudition(_vm.audition)
+                  }
+                }
+              },
+              [_vm._v("삭제")]
+            )
           ],
           1
         )
@@ -305,7 +368,7 @@ render._withStripped = true
 /*!***************************************************!*\
   !*** ./resources/js/services/audition_service.js ***!
   \***************************************************/
-/*! exports provided: createAudition, loadAudition, loadDetailAudition */
+/*! exports provided: createAudition, loadAudition, loadDetailAudition, deleteAudition */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -313,6 +376,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAudition", function() { return createAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadAudition", function() { return loadAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDetailAudition", function() { return loadDetailAudition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteAudition", function() { return deleteAudition; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
  // 오디션 생성
 
@@ -328,6 +392,10 @@ function loadDetailAudition(data) {
   var anything = "/audition/" + data;
   console.log(anything);
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get(anything);
+} // 오디션 삭제하기
+
+function deleteAudition(id) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])()["delete"]("audition/".concat(id));
 }
 
 /***/ }),
