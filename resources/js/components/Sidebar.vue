@@ -36,6 +36,16 @@
             <span>사용자 관리</span>
           </router-link>
           
+          <router-link to="/expert/list" class="nav-link" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>피드백 전문가</span>
+          </router-link>
+
+          <router-link to="/advice/list" class="nav-link" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>내 피드백 활동</span>
+          </router-link>
+          
           <a
             class="nav-link collapsed"
             href="#"
