@@ -28,11 +28,15 @@ class User extends Authenticatable
 
     protected $hidden = [
         'password',
+        'last_login',
+        'confirm_code',
     ];
 
     protected $casts = [
         'gender' => 'boolean',
     ];
+
+    protected $dates = ['last_login'];
 
     public function rank()
     {

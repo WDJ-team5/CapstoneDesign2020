@@ -37,7 +37,7 @@
 
       <div class="content-detail-button">
         <b-button variant="primary">수정</b-button>
-        <b-button variant="danger">삭제</b-button>
+        <b-button variant="danger" v-on:click="deleteAudition(audition)">삭제</b-button>
       </div>
     </b-card>
   </div>
@@ -94,6 +94,27 @@ export default {
                 });
             }
         },
+        deleteAudition: async function(audition){
+          if(!window.confirm(`삭제할거에요? ${audition.title}`)){
+            return;
+          }
+          try{
+            await auditionService.deleteAudition(audition.id);
+            // this.audition=this.audition.filter(obj=>{
+            //   return obj.id != audition.id;
+            // });
+            history.back();
+            this.flashMessage.success({
+                    message: '삭제성공',
+                    time:5000
+            });
+          }catch(error){
+              this.flashMessage.error({
+                message:error.response.data.message,
+                time:5000
+              });
+          }
+        }
 
     // 삭제를 수행하는 함수
     // deleteData() {
