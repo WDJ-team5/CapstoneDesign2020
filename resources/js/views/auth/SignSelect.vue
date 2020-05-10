@@ -1,12 +1,14 @@
 <template>
   <!-- Material form login -->
-  <div id="select_container">
-    <h2 class="title">회원 종류를 선택해주세요</h2>
-    <p class="mainform_txt type01">본인의 포지션을 선택하고 알맞은 서비스를 이용하세요.</p>
+  <div id="select_container" class="aligner">
 
-   
+    <div class="aligner-item">
+        <h2 class="title">회원 종류를 선택해주세요</h2>
+        <p class="mainform_txt type01">본인의 포지션을 선택하고 알맞은 서비스를 이용하세요.</p>
+    </div>
+
+    <div class="aligner-item">
       <ul class="radiochk_list">
-        
           <li>
               <router-link to="/usersignup" id="sign_up" class="nav-link" exact>
                   <strong class="tit">일반용 회원</strong>
@@ -29,6 +31,7 @@
               </router-link>
           </li>
       </ul>
+    </div>
   </div>
     
   <!-- Default form login -->
@@ -42,18 +45,32 @@ export default {
 </script>
 
 <style scoped>
+.title{
+    width: 500px;
+    text-align: center;
+}
+.aligner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aligner-item{
+  margin: 0 auto;
+}
+
 h2{
   font-weight: bold;
 }
 
 /* 부제목 */
 .mainform_txt.type01 {
-    margin: 19px -150px 0;
-    text-align: center;
     line-height: 1.33;
+    text-align: center;
 }
 
 .mainform_txt {
+    width: 500px;
     margin-top: 21px;
     color: #666666;
     font-size: 18px;
@@ -77,10 +94,8 @@ li{
 
 .radiochk_list {
     overflow: hidden;
-    width: 600px;
+    width: 500px;
     list-style: none;
-    margin-left: 33%;
-    margin-top: 2%;
 }
 
 .radiochk_list .tit {
@@ -105,8 +120,6 @@ li{
 input[type='radio'] {
     display: none;
     position: absolute;
-    left: -10000px;
-    top: -10000px;
     width: 23px;
     height: 23px;
     margin: 0;
@@ -127,7 +140,7 @@ input[type='radio'] {
     padding: 86px 0 0;
     box-sizing: border-box;
     background: #e7e7e7;
-    text-align: center;
+    
 }
 
 input[type="radio"] + label {

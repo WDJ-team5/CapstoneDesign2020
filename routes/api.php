@@ -22,6 +22,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // 오디션 컨트롤러
 Route::resource('audition','AuditionController');
 
+// 강좌 컨트롤러
+Route::resource('lecture','LectureController');
+
 // 테스트용 컨트롤러
 Route::resource('categories','CategoryController');
 

@@ -7,12 +7,12 @@
 
           <router-link to="/audition" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>기업연계</span>
+            <span>오디션</span>
           </router-link>
 
-          <router-link to="/userlist" class="nav-link" exact>
+          <router-link to="/lecture" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>댄스경연</span>
+            <span>댄스강좌</span>
           </router-link>
 
           <router-link to="/categories" class="nav-link" exact>

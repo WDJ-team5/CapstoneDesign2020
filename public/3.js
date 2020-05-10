@@ -1,9 +1,16 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
+<<<<<<< HEAD
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************/
+=======
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/Audition.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/Audition.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -47,6 +54,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -66,9 +74,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AuditionCreate',
+=======
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Audition',
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
   data: function data() {
+    // 게시판 최신 순 정렬
+    // let items = data.Content.sort((a,b) => {return b.content_id - a.content_id})
+    // 유저 네임 속성 추가(게시판의 유저아이디와 데이터의 유저아이디가 동일 할 경우에)
+    // items = items.map(contentItem => {return {...contentItem, user_name: data.User.filter(userItem => userItem.user_id === contentItem.user_id)[0].name}})
     return {
+<<<<<<< HEAD
       auditionData: {
+=======
+      // 게시글의 보여주고싶은 필드 보이도록 설정
+      // fields:[
+      //     {
+      //         key:'content_id',
+      //         label:'글번호'
+      //     },
+      //     {
+      //         key:'title',
+      //         label:'제목'
+      //     },
+      //     {
+      //         key:'created_at',
+      //         label:'작성일'
+      //     },
+      //     {
+      //         key:'user_name',
+      //         label:'글쓴이' 
+      //     }
+      // ],
+      auditions: [],
+      auditionData: {
+        id: '',
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
         title: '',
         context: '',
         userId: 1,
@@ -77,6 +119,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         selected: '',
         video: ''
       },
+<<<<<<< HEAD
       errors: {},
       // subject: '',
       // context: '',
@@ -133,10 +176,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     createAudition: function () {
       var _createAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var formData, response;
+=======
+      errors: {}
+    };
+  },
+  mounted: function mounted() {
+    this.loadAudition();
+  },
+  methods: {
+    loadAudition: function () {
+      var _loadAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+<<<<<<< HEAD
                 formData = new FormData();
                 formData.append('title', this.auditionData.title);
                 formData.append('date', this.auditionData.date);
@@ -170,10 +226,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.abrupt("break", 23);
 
               case 23:
+=======
+                _context.prev = 0;
+                _context.next = 3;
+                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["loadAudition"]();
+
+              case 3:
+                response = _context.sent;
+                this.auditions.unshift(response.data);
+                this.auditions = response.data.data;
+                console.log(this.auditions);
+                _context.next = 12;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](0);
+                this.flashMessage.error({
+                  message: '에러가 발생했습니다!',
+                  time: 5000
+                });
+
+              case 12:
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
               case "end":
                 return _context.stop();
             }
           }
+<<<<<<< HEAD
         }, _callee, this, [[6, 13]]);
       }));
 
@@ -225,6 +305,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     cancle: function cancle() {
       this.$router.push({
         path: '/board/free'
+=======
+        }, _callee, this, [[0, 9]]);
+      }));
+
+      function loadAudition() {
+        return _loadAudition.apply(this, arguments);
+      }
+
+      return loadAudition;
+    }(),
+    // 오디션 클릭시
+    rowClick: function rowClick(audition, index, e) {
+      this.$router.push({
+        path: "/auditiondetail/".concat(audition.id)
+      });
+    },
+    // 오디션 생성
+    writeContent: function writeContent() {
+      this.$router.push({
+        path: '/auditioncreate'
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
       });
     }
   }
@@ -232,10 +333,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css& ***!
   \************************************************************************************************************************************************************************************************************************************************************************************/
+=======
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/Audition.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/Audition.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -244,22 +352,37 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n#form_input{\n        width: 1400px;\n        margin-left: 160px;\n        margin-top: 20px;\n}\n#select_area{\n    width: 2200px;\n    float: left;\n    margin:0;\n    padding:0;\n}\n.select_item{\n    width: 300px;\n    display: inline-block;\n    margin: 0 0 0 0;\n    padding: 0 0 0 0;\n}\n\n/* 제목 */\n#title{\n    height: 60px;\n}\n\n/* 날짜 */\n.b-form-datepicker {\n    width: 300px;\n    margin:0 0 0 0;\n}\n\n", ""]);
+=======
+exports.push([module.i, "\n.hovereffect:hover img {\n     opacity: 0.6;\n     filter: alpha(opacity=60);\n     transform: translate3d(0,0,0);\n}\n.hovereffect:hover .overlay:before\n      {\n     opacity: 1;\n     filter: alpha(opacity=100);\n     transform: translate3d(0,0,0);\n}\n#items{\n     width: 1800px;\n     display: inline-block;\n     margin:0;\n     padding:0;\n}\n#item{\n     width: 400px;\n     height: 500px;\n     float: left;\n     color: black;\n     background-color: white;\n     border: 1px solid #ced4da;\n     margin: 0 0 0 0;\n     padding: 0 0 0 0;\n     margin-left: 20px;\n     margin-top: 10px;\n     border-radius:5px;\n}\n#card-image{\n     margin-top:3px;\n     border-radius:5px;\n     width: 350px;\n     height: 400px;\n}\n", ""]);
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 
 // exports
 
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css& ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************/
+=======
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/Audition.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/Audition.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
+<<<<<<< HEAD
 var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionCreate.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&");
+=======
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Audition.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/Audition.vue?vue&type=style&index=0&lang=css&");
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -281,10 +404,17 @@ if(false) {}
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c& ***!
   \*********************************************************************************************************************************************************************************************************************/
+=======
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/Audition.vue?vue&type=template&id=139d5580&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/Audition.vue?vue&type=template&id=139d5580& ***!
+  \***************************************************************************************************************************************************************************************************************/
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -296,6 +426,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+<<<<<<< HEAD
   return _c("div", { attrs: { id: "form_input" } }, [
     _c(
       "form",
@@ -430,6 +561,91 @@ var render = function() {
       1
     )
   ])
+=======
+  return _c(
+    "div",
+    [
+      _c(
+        "b-list-group",
+        { attrs: { id: "items" } },
+        _vm._l(_vm.auditions, function(audition, index) {
+          return _c(
+            "b-list-group-item",
+            {
+              key: index,
+              staticClass: "flex-column align-items-start",
+              attrs: { id: "item", href: "#", active: "" },
+              on: {
+                click: function($event) {
+                  return _vm.rowClick(audition)
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "hovereffect" }, [
+                _c("img", {
+                  attrs: {
+                    id: "card-image",
+                    src:
+                      _vm.$store.state.serverPath +
+                      "/storage/" +
+                      audition.image,
+                    alt: audition.title
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "div",
+                  [
+                    _c("b-badge", { attrs: { pill: "", variant: "primary" } }, [
+                      _vm._v("마감일:  " + _vm._s(audition.date))
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("b-badge", { attrs: { pill: "", variant: "success" } }, [
+                      _vm._v("랭크: " + _vm._s(audition.selected))
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticStyle: { "margin-top": "12px" } }, [
+                  _c(
+                    "h5",
+                    {
+                      staticClass: "mb-1",
+                      attrs: { sytle: "margin-top:10px" }
+                    },
+                    [_vm._v(_vm._s(audition.title))]
+                  )
+                ])
+              ])
+            ]
+          )
+        }),
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-button",
+        {
+          staticStyle: { "margin-top": "10px", width: "200px", height: "60px" },
+          attrs: { variant: "dark" },
+          on: { click: _vm.writeContent }
+        },
+        [_vm._v("오디션 공고 등록")]
+      )
+    ],
+    1
+  )
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -442,13 +658,18 @@ render._withStripped = true
 /*!***************************************************!*\
   !*** ./resources/js/services/audition_service.js ***!
   \***************************************************/
+<<<<<<< HEAD
 /*! exports provided: createAudition, loadAudition */
+=======
+/*! exports provided: createAudition, loadAudition, loadDetailAudition */
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAudition", function() { return createAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadAudition", function() { return loadAudition; });
+<<<<<<< HEAD
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
 
 function createAudition(data) {
@@ -456,22 +677,53 @@ function createAudition(data) {
 }
 function loadAudition() {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/audition');
+=======
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDetailAudition", function() { return loadDetailAudition; });
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
+ // 오디션 생성
+
+function createAudition(data) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["httpFile"])().post('/audition', data);
+} // 오디션 리스트 로드
+
+function loadAudition() {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/audition');
+} // 오디션 상세보기 로드
+
+function loadDetailAudition(data) {
+  var anything = "/audition/" + data;
+  console.log(anything);
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get(anything);
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 }
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/js/views/audition/AuditionCreate.vue":
 /*!********************************************************!*\
   !*** ./resources/js/views/audition/AuditionCreate.vue ***!
   \********************************************************/
+=======
+/***/ "./resources/js/views/audition/Audition.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/views/audition/Audition.vue ***!
+  \**************************************************/
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony import */ var _AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AuditionCreate.vue?vue&type=template&id=4188269c& */ "./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c&");
 /* harmony import */ var _AuditionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuditionCreate.vue?vue&type=script&lang=js& */ "./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AuditionCreate.vue?vue&type=style&index=0&lang=css& */ "./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&");
+=======
+/* harmony import */ var _Audition_vue_vue_type_template_id_139d5580___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Audition.vue?vue&type=template&id=139d5580& */ "./resources/js/views/audition/Audition.vue?vue&type=template&id=139d5580&");
+/* harmony import */ var _Audition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Audition.vue?vue&type=script&lang=js& */ "./resources/js/views/audition/Audition.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Audition.vue?vue&type=style&index=0&lang=css& */ "./resources/js/views/audition/Audition.vue?vue&type=style&index=0&lang=css&");
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -482,9 +734,15 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+<<<<<<< HEAD
   _AuditionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__["render"],
   _AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+=======
+  _Audition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Audition_vue_vue_type_template_id_139d5580___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Audition_vue_vue_type_template_id_139d5580___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
   false,
   null,
   null,
@@ -494,20 +752,32 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
+<<<<<<< HEAD
 component.options.__file = "resources/js/views/audition/AuditionCreate.vue"
+=======
+component.options.__file = "resources/js/views/audition/Audition.vue"
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************!*\
   !*** ./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************/
+=======
+/***/ "./resources/js/views/audition/Audition.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/views/audition/Audition.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionCreate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
@@ -517,11 +787,23 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************************************************!*\
   !*** ./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css& ***!
   \*****************************************************************************************/
+=======
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Audition.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/Audition.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/audition/Audition.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/views/audition/Audition.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************/
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionCreate.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
@@ -533,15 +815,35 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************************************!*\
   !*** ./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c& ***!
   \***************************************************************************************/
+=======
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Audition.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/Audition.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/views/audition/Audition.vue?vue&type=template&id=139d5580&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/views/audition/Audition.vue?vue&type=template&id=139d5580& ***!
+  \*********************************************************************************/
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionCreate.vue?vue&type=template&id=4188269c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c&");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+=======
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_template_id_139d5580___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Audition.vue?vue&type=template&id=139d5580& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/Audition.vue?vue&type=template&id=139d5580&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_template_id_139d5580___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_template_id_139d5580___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+>>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 
 
 

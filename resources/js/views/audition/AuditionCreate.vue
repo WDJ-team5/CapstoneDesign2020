@@ -25,9 +25,9 @@
                     <b-form-input id="video" v-model="auditionData.video" placeholder="링크를 삽입해주세요"></b-form-input>
                 </div>
             </div>
-            <!-- <div v-if="auditionData.image.name">
+            <div v-if="auditionData.image.name">
                 <img class="w-150px" src="" ref="newAuditionImageDisplay">
-            </div> -->
+            </div>
             <b-form-textarea
                 id="textarea-rows"
                 v-model="auditionData.context"
@@ -104,9 +104,9 @@ export default {
 
             let reader = new FileReader();
 
-            // reader.addEventListener('load',function(){
-            //     this.$refs.newAuditionImageDisplay.src=reader.result;
-            // }.bind(this),false);
+            reader.addEventListener('load',function(){
+                this.$refs.newAuditionImageDisplay.src=reader.result;
+            }.bind(this),false);
 
             reader.readAsDataURL(this.auditionData.image);
         },
@@ -123,6 +123,14 @@ export default {
             try{
                 const response=await auditionService.createAudition(formData);
                 console.log(response);
+
+                this.flashMessage.success({
+                    message: '성공했다 !!!!!!!',
+                    time:5000
+                });
+
+                history.back();
+                
             }catch(error){
                 console.log(error.response.status);
                 switch (error.response.status) {
@@ -131,8 +139,10 @@ export default {
                         break;
                 
                     default:
-                        alert('문제가 발생했어용!!');
-                        break;
+                        this.flashMessage.error({
+                            message: '문제가 발생!',
+                            time:5000
+                        });
                 }
             }
         },

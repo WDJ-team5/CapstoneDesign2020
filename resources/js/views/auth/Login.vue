@@ -1,37 +1,45 @@
 <template>
   <!-- Material form login -->
   <form id="login_form" v-on:submit.prevent="createSession">
-    <!-- <img style="width:230px;height:55px;margin-bottom:10px;" src='../assets/images/logo.jpg'> -->
-    <p id="login_title">기업,일반회원 로그인</p>
-    <input
-      type="text"
-      id="defaultFormLoginEmailEx"
-      v-model="sessionData.userid"
-      class="form-control"
-      placeholder="아이디"
-    />
-    <br />
-    <input
-      type="password"
-      id="defaultFormLoginPasswordEx"
-      v-model="sessionData.password"
-      class="form-control"
-      placeholder="비밀번호"
-    />
+    <div class="aligner">
+        <img id="logo" class="aligner-item" src='/storage/logo.jpg'>
+        <!-- 폼박스 -->
+        <div id="form-box" class="aligner-item">
+          <p id="login_title">기업,일반회원 로그인</p>
+          <input
+            type="text"
+            id="email"
+            v-model="sessionData.userid"
+            class="form-control"
+            placeholder="아이디"
+          />
+          <br />
+          <input
+            type="password"
+            id="password"
+            v-model="sessionData.password"
+            class="form-control"
+            placeholder="비밀번호"
+          />
+        </div>
 
-    <div class="text-center mt-4">
-      <button id="login_button" class="btn btn-indigo" type="submit">Login</button>
-    </div>
+        <!-- 로그인 버튼 -->
+        <div id="button-box" class="aligner-item">
+          <button id="login_button" class="btn btn-indigo" type="submit">로그인</button>
+        </div>
+      
+      <!-- 텍스트박스 -->
+      <div id="text-box" class="aligner-item">
+        <a class="login_link" href="#">아이디 찾기</a>
+        <a class="login_link" href="#">비밀번호 찾기</a>
+      </div>
 
-    <div class="text-center mt-4">
-      <a class="login_link" href="#">아이디 찾기</a>
-      <a class="login_link" href="#">비밀번호 찾기</a>
+      <div class="aligner-item">
+        <p id="sign_text">미나오도 회원이 아니신가요?</p>
+        <router-link to="/signselect" id="sign_up" class="nav-link" exact>회원가입</router-link>
+      </div>
     </div>
-
-    <div class="text-center mt-4">
-      <p id="sign_text">미나오도 회원이 아니신가요?</p>
-      <router-link to="/signselect" id="sign_up" class="nav-link" exact>회원가입</router-link>
-    </div>
+    
   </form>
   <!-- Default form login -->
   <!-- Material form login -->
@@ -89,8 +97,21 @@ export default {
 </script>
 
 <style scoped>
+#logo{
+  width:230px;
+  height:55px;
+  margin-bottom:10px;
+}
+.aligner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 #login_form {
   margin-top: 100px;
+}
+.aligner-item{
+  margin: 0 auto;
 }
 
 #login_title {
@@ -99,24 +120,23 @@ export default {
   text-align: center;
 }
 
-#defaultFormLoginEmailEx {
+#email {
   width: 310px;
   height: 60px;
-  margin-left: 41%;
   border: 1px solid #666666;
 }
 
-#defaultFormLoginPasswordEx {
+#password {
   width: 310px;
   height: 60px;
-  margin-left: 41%;
   border: 1px solid #666666;
 }
 
 #login_button {
-  width: 310px;
+  width: 300px;
   height: 60px;
   background: #ed1c24;
+  margin-top: 20px;
   color: white;
 }
 
@@ -129,7 +149,6 @@ export default {
 #sign_text {
   margin-top: 63px;
   color: #141414;
-  text-align: center;
   display: inline-block;
 }
 
