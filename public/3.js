@@ -310,7 +310,7 @@ render._withStripped = true
 /*!***************************************************!*\
   !*** ./resources/js/services/audition_service.js ***!
   \***************************************************/
-/*! exports provided: createAudition, loadAudition, loadDetailAudition */
+/*! exports provided: createAudition, loadAudition, loadDetailAudition, deleteAudition */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -318,6 +318,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAudition", function() { return createAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadAudition", function() { return loadAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDetailAudition", function() { return loadDetailAudition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteAudition", function() { return deleteAudition; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
  // 오디션 생성
 
@@ -333,6 +334,10 @@ function loadDetailAudition(data) {
   var anything = "/audition/" + data;
   console.log(anything);
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get(anything);
+} // 오디션 삭제하기
+
+function deleteAudition(id) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])()["delete"]("audition/".concat(id));
 }
 
 /***/ }),

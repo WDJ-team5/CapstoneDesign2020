@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Audition;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AuditionController extends Controller
 {
@@ -57,9 +57,12 @@ class AuditionController extends Controller
 
         if($audition->save()){
             // return response()->json($audition,200);
-            return response()->json('장성현 보고있나?',200);
+            return response()->json($audition,200);
         }else{
-            return response()->json($audition,500);
+            return response()->json([
+                'message'=>'문제가 발생했습니다',
+                'status_code'=>500
+            ],500);
         }
 
 
@@ -109,8 +112,20 @@ class AuditionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Audition $audition)
     {
-        //
+        if($audition->delete()){
+            Storage::delete($audition->image);
+            return response()->json([
+                'message'=>'오디션 공고가 삭제되었습니다.',
+                'status_code'=>200
+            ],200);
+        }else{
+            return response()->json([
+                'message'=>'문제가 발생했습니다',
+                'status_code'=>500
+            ],500);
+        }
     }
+        
 }
