@@ -455,30 +455,18 @@ render._withStripped = true
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./resources/js/services/user.service.js":
-/*!***********************************************!*\
-  !*** ./resources/js/services/user.service.js ***!
-  \***********************************************/
-/*! exports provided: createUser */
-=======
 /***/ "./resources/js/services/audition_service.js":
 /*!***************************************************!*\
   !*** ./resources/js/services/audition_service.js ***!
   \***************************************************/
 /*! exports provided: createAudition, loadAudition, loadDetailAudition */
->>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-<<<<<<< HEAD
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createUser", function() { return createUser; });
-=======
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAudition", function() { return createAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadAudition", function() { return loadAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDetailAudition", function() { return loadDetailAudition; });
->>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
  // 오디션 생성
 
@@ -486,12 +474,6 @@ function createAudition(data) {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["httpFile"])().post('/audition', data);
 } // 오디션 리스트 로드
 
-<<<<<<< HEAD
-/***/ "./resources/js/views/auth/UserSignup.vue":
-/*!************************************************!*\
-  !*** ./resources/js/views/auth/UserSignup.vue ***!
-  \************************************************/
-=======
 function loadAudition() {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/audition');
 } // 오디션 상세보기 로드
@@ -508,7 +490,6 @@ function loadDetailAudition(data) {
 /*!********************************************************!*\
   !*** ./resources/js/views/audition/AuditionCreate.vue ***!
   \********************************************************/
->>>>>>> 0ac58b75f35e9ea475e790797f2ba1b4cae05197
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

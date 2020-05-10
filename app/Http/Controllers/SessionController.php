@@ -19,7 +19,12 @@ class SessionController extends Controller
      */
     public function index()
     {
-        //
+        $confirmCode = \App\Session::first();
+
+        if($confirmCode) {
+            return response()->json(false, 200);
+        }
+        return response()->json(true, 200);
     }
 
     /**
@@ -44,9 +49,23 @@ class SessionController extends Controller
             return response()->json('아이디 또는 비밀번호가 맞지 않습니다.');
         }
 
-        $result = auth()->check();
-        return response()->json($result, 200);
-        // return response()->json('로그인 성공함', 200);
+        $confirmCode = \Str::random(60);
+
+        $user = \App\User::whereUserid($request->userid)->first();
+
+        $user->confirm_code = $confirmCode;
+        $user->save();
+
+        \App\Session::create([
+            'last_login' => $user->last_login,
+            'confirm_code' => $user->confirm_code,
+        ]);
+
+        if($user) {
+            return response()->json('로그인 성공', 200);
+        }
+
+        return response()->json('로그인 성공????', 200);
     }
 
     /**
@@ -57,8 +76,7 @@ class SessionController extends Controller
      */
     public function show($id)
     {
-        $result = auth()->check();
-        return response()->json($result, 200);
+        //
     }
 
     /**
@@ -92,7 +110,10 @@ class SessionController extends Controller
      */
     public function destroy($id)
     {
-        auth()->logout();
-        return response()->json('로그아웃 성공함', 200);
+        // \App\Session::first()->delete();
+        \App\Session::truncate();
+
+        return response()->json('세션 삭제함', 200);
+
     }
 }

@@ -2,32 +2,20 @@
   <!-- Material form login -->
   <form id="login_form" v-on:submit.prevent="createSession">
     <div class="aligner">
-        <img id="logo" class="aligner-item" src='/storage/logo.jpg'>
-        <!-- 폼박스 -->
-        <div id="form-box" class="aligner-item">
-          <p id="login_title">기업,일반회원 로그인</p>
-          <input
-            type="text"
-            id="email"
-            v-model="sessionData.userid"
-            class="form-control"
-            placeholder="아이디"
-          />
-          <br />
-          <input
-            type="password"
-            id="password"
-            v-model="sessionData.password"
-            class="form-control"
-            placeholder="비밀번호"
-          />
-        </div>
+      <img id="logo" class="aligner-item" src="/storage/logo.jpg" />
+      <!-- 폼박스 -->
+      <div id="form-box" class="aligner-item">
+        <p id="login_title">기업,일반회원 로그인</p>
+        <input type="text" id="userid" class="form-control" v-model="sessionData.userid" placeholder="아이디" />
+        <br />
+        <input type="password" id="password" class="form-control" v-model="sessionData.password" placeholder="비밀번호" />
+      </div>
 
-        <!-- 로그인 버튼 -->
-        <div id="button-box" class="aligner-item">
-          <button id="login_button" class="btn btn-indigo" type="submit">로그인</button>
-        </div>
-      
+      <!-- 로그인 버튼 -->
+      <div id="button-box" class="aligner-item">
+        <button id="login_button" class="btn btn-indigo" type="submit">로그인</button>
+      </div>
+
       <!-- 텍스트박스 -->
       <div id="text-box" class="aligner-item">
         <a class="login_link" href="#">아이디 찾기</a>
@@ -39,7 +27,6 @@
         <router-link to="/signselect" id="sign_up" class="nav-link" exact>회원가입</router-link>
       </div>
     </div>
-    
   </form>
   <!-- Default form login -->
   <!-- Material form login -->
@@ -53,14 +40,13 @@ export default {
   data() {
     return {
       sessionData: {
-        userid: "",
-        password: ""
+        userid: '',
+        password: '',
       }
     };
   },
   methods: {
-    createSession: async function() {
-      //request!
+    createSession: async function() {//request!
       let formData = new FormData();
       formData.append("userid", this.sessionData.userid);
       formData.append("password", this.sessionData.password);
@@ -68,10 +54,10 @@ export default {
       try {
         const response = await sessionService.createSession(formData);
         console.log(response);
-        console.log("로그인 성공~!");
-        this.$router.push({
-          path: `/`,
-        })
+        console.log('로그인 중 성공~');
+
+        location.href="/";
+
         // this.flashMessage.success({
         //   message: "Category stored successfully!",
         //   time: 5000
@@ -97,12 +83,12 @@ export default {
 </script>
 
 <style scoped>
-#logo{
-  width:230px;
-  height:55px;
-  margin-bottom:10px;
+#logo {
+  width: 230px;
+  height: 55px;
+  margin-bottom: 10px;
 }
-.aligner{
+.aligner {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,7 +96,7 @@ export default {
 #login_form {
   margin-top: 100px;
 }
-.aligner-item{
+.aligner-item {
   margin: 0 auto;
 }
 
