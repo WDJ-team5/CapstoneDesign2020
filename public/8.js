@@ -154,50 +154,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
-  return _c("div", { attrs: { id: "select_container" } }, [
-    _c("h2", { staticClass: "title" }, [_vm._v("회원 종류를 선택해주세요")]),
-    _vm._v(" "),
-    _c("p", { staticClass: "mainform_txt type01" }, [
-      _vm._v("본인의 포지션을 선택하고 알맞은 서비스를 이용하세요.")
-    ]),
-    _vm._v(" "),
-    _c("ul", { staticClass: "radiochk_list" }, [
-      _c(
-        "li",
-        [
-          _c(
-            "router-link",
-            {
-              staticClass: "nav-link",
-              attrs: { to: "/usersignup", id: "sign_up", exact: "" }
-            },
-            [
-              _c("strong", { staticClass: "tit" }, [_vm._v("일반용 회원")]),
-              _vm._v(" "),
-              _c("span", { staticClass: "text" }, [
-                _vm._v("\n                      댄스강좌를 수강하여"),
-                _c("br"),
-                _vm._v(
-                  "\n                      댄스 실력을 향상시키고싶은 회원"
-                ),
-                _c("br"),
-                _vm._v("\n                      프로필을 완성하여"),
-                _c("br"),
-                _vm._v(
-                  "\n                      댄서로 활동하고싶은 회원\n                "
-                )
-              ])
-            ]
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "li",
-        [
-=======
   return _vm._m(0)
 }
 var staticRenderFns = [
@@ -270,7 +226,6 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "text-center mt-4" }, [
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
           _c(
             "button",
             {

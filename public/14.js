@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[14],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************!*\
@@ -454,10 +454,10 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
-    apiURL: 'http://localhost:8000/api',
-    serverPath: 'http://localhost:8000' // apiURL: 'http://127.0.0.1:8000/api',
-    // serverPath: 'http://127.0.0.1:8000'
-
+    // apiURL: 'http://localhost:8000/api',
+    // serverPath: 'http://localhost:8000'
+    apiURL: 'http://127.0.0.1:8000/api',
+    serverPath: 'http://127.0.0.1:8000'
   },
   // state: {
   //     apiURL: 'http://192.168.0.6:8000/api',

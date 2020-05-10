@@ -76922,23 +76922,19 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
-<<<<<<< HEAD
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
-=======
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
   }
 }, {
   path: '/userlist',
   name: 'userlist',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/UserList.vue */ "./resources/js/views/UserList.vue"));
+    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/UserList.vue */ "./resources/js/views/UserList.vue"));
   }
 }, {
   path: '/login',
   name: 'login',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/views/auth/Login.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/views/auth/Login.vue"));
   }
 }, {
   path: '/signselect',
@@ -76950,11 +76946,7 @@ var routes = [{
   path: '/usersignup',
   name: 'usersignup',
   component: function component() {
-<<<<<<< HEAD
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./components/UserSignup.vue */ "./resources/js/components/UserSignup.vue"));
-=======
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ./views/auth/UserSignup.vue */ "./resources/js/views/auth/UserSignup.vue"));
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./views/auth/UserSignup.vue */ "./resources/js/views/auth/UserSignup.vue"));
   }
 }, {
   path: '/companysignup1',
@@ -76972,11 +76964,7 @@ var routes = [{
   path: '/audition',
   name: 'audition',
   component: function component() {
-<<<<<<< HEAD
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/Audition.vue */ "./resources/js/components/Audition.vue"));
-=======
-    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/audition/Audition.vue */ "./resources/js/views/audition/Audition.vue"));
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/Audition.vue */ "./resources/js/views/audition/Audition.vue"));
   }
 }, {
   path: '/auditiondetail/:contentId',
@@ -76988,11 +76976,7 @@ var routes = [{
   path: '/auditioncreate',
   name: 'AuditionCreate',
   component: function component() {
-<<<<<<< HEAD
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./components/AuditionCreate.vue */ "./resources/js/components/AuditionCreate.vue"));
-=======
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -77107,8 +77091,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

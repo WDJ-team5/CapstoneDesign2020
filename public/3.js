@@ -1,21 +1,23 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
-<<<<<<< HEAD
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Audition.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Audition.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************/
-=======
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/UserList.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/UserList.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************/
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _services_audition_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/audition_service */ "./resources/js/services/audition_service.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -39,159 +41,225 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
 //
 //
 //
 //
 //
-// import data from '@/data'
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Audition',
-=======
-/* harmony default export */ __webpack_exports__["default"] = ({
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+  name: 'AuditionCreate',
   data: function data() {
-    // 게시판 최신 순 정렬
-    // let items = data.Content.sort((a,b) => {return b.content_id - a.content_id})
-    // 유저 네임 속성 추가(게시판의 유저아이디와 데이터의 유저아이디가 동일 할 경우에)
-    // items = items.map(contentItem => {return {...contentItem, user_name: data.User.filter(userItem => userItem.user_id === contentItem.user_id)[0].name}})
     return {
-<<<<<<< HEAD
-      // 게시글의 보여주고싶은 필드 보이도록 설정
-      fields: [{
-        key: 'content_id',
-        label: '글번호'
+      auditionData: {
+        title: '',
+        context: '',
+        userId: 1,
+        date: '',
+        image: '',
+        selected: '',
+        video: ''
+      },
+      errors: {},
+      // subject: '',
+      // context: '',
+      // userId: 1,
+      // date:'',
+      // createdAt: '2019-04-17 11:32:42',
+      // updatedAt: null,
+      // updateObject:null,
+      // updateMode:this.$route.params.contentId>0?true:false,
+      // selectedFile:null,
+      // selected: null,
+      // sub_image:null,
+      // video:null,
+      options: [{
+        value: null,
+        text: '랭크 설정'
       }, {
-        key: 'title',
-        label: '제목'
+        value: 'A랭크 이상',
+        text: 'A랭크 이상'
       }, {
-        key: 'created_at',
-        label: '작성일'
+        value: 'B랭크 이상',
+        text: 'B랭크 이상'
       }, {
-        key: 'user_name',
-        label: '글쓴이'
-      }],
-      items: [{
-        content_id: 1,
-        user_id: 1,
-        title: '빅 엔터테인먼트 공개 오디션',
-        context: '아직 미정입니다',
-        date: '2019-03-29',
-        rank: 'A랭크 이상',
-        created_at: '2019-01-01 13:11:42',
-        updated_at: null,
-        video: 'https://www.youtube.com/embed/zpOULjyy-n8?rel=0',
-        sub_image: 'https://www.jjilbo.com/news/photo/201506/122901_48168_3522.jpg'
+        value: 'C랭크 이상',
+        text: 'C랭크 이상'
+      }, {
+        value: '랭크무관',
+        text: '랭크무관'
       }]
     };
   },
+  created: function created() {// if (this.$route.params.contentId > 0) {
+    //     const contentId = Number(this.$route.params.contentId)
+    //     this.updateObject = data.Content.filter(item => item.content_id === contentId)[0]
+    //     this.subject = this.updateObject.title;
+    //     this.context = this.updateObject.context;
+    //     this.date = this.updateObject.date;
+    //     this.selected = this.updateObject.rank;
+    //     this.sub_image=this.updateObject.sub_image;
+    //     this.video=this.updateObject.video;
+    // }
+  },
   methods: {
-    rowClick: function rowClick(item, index, e) {
-      this.$router.push({
-        path: "/auditiondetail//".concat(item.content_id)
-      });
+    // 사진첨부
+    attachImage: function attachImage() {
+      this.auditionData.image = this.$refs.newAuditionImage.files[0];
+      var reader = new FileReader(); // reader.addEventListener('load',function(){
+      //     this.$refs.newAuditionImageDisplay.src=reader.result;
+      // }.bind(this),false);
+
+      reader.readAsDataURL(this.auditionData.image);
     },
-    writeContent: function writeContent() {
+    //오디션 만들기
+    createAudition: function () {
+      var _createAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var formData, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                formData = new FormData();
+                formData.append('title', this.auditionData.title);
+                formData.append('date', this.auditionData.date);
+                formData.append('context', this.auditionData.context);
+                formData.append('image', this.auditionData.image);
+                formData.append('selected', this.auditionData.selected);
+                _context.prev = 6;
+                _context.next = 9;
+                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["createAudition"](formData);
+
+              case 9:
+                response = _context.sent;
+                console.log(response);
+                _context.next = 23;
+                break;
+
+              case 13:
+                _context.prev = 13;
+                _context.t0 = _context["catch"](6);
+                console.log(_context.t0.response.status);
+                _context.t1 = _context.t0.response.status;
+                _context.next = _context.t1 === 422 ? 19 : 21;
+                break;
+
+              case 19:
+                this.errors = _context.t0.response.data.errors;
+                return _context.abrupt("break", 23);
+
+              case 21:
+                alert('문제가 발생했어용!!');
+                return _context.abrupt("break", 23);
+
+              case 23:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[6, 13]]);
+      }));
+
+      function createAudition() {
+        return _createAudition.apply(this, arguments);
+      }
+
+      return createAudition;
+    }(),
+    // 저장 시
+    uploadContet: function uploadContet() {// let items=data.Content.sort((a,b)=>{return b.content_id-a.content_id})
+      // const content_id=items[0].content_id+1
+      // data.Content.push({
+      //     content_id:content_id,
+      //     user_id:this.userId,
+      //     title:this.subject,
+      //     context:this.context,
+      //     created_at:this.createdAt,
+      //     date:this.date,
+      //     sub_image:this.sub_image,
+      //     video:this.video,
+      //     rank:this.selected,
+      //     updated_at:null,
+      //     })
+      //     this.$router.push({
+      //     path:'/board/free'
+      //     })
+    },
+    // 수정 후 저장시
+    // updateContent(){
+    //     this.updateObject.title=this.subject;
+    //     this.updateObject.context=this.context;
+    //     this.updateObject.date = this.date;
+    //     this.updateObject.rank = this.selected;
+    //     this.updateObject.sub_image=this.sub_image;
+    //     this.updateObject.video=this.video;
+    //     this.$router.push({
+    //         path:'/board/free'
+    //     })
+    // },
+    // uploadImage(e){
+    //     let file=e.target.files;
+    //     let reader=new FileReader();
+    //     reader.readAsDataURL(file[0]);
+    //     reader.onload=e=>{
+    //         this.sub_image=e.target.result;
+    //     }
+    // },
+    cancle: function cancle() {
       this.$router.push({
-        path: '/auditioncreate'
+        path: '/board/free'
       });
     }
-=======
-      selected: 'radio1',
-      options: [{
-        text: '일반회원',
-        value: 'user'
-      }, {
-        text: '기업회원',
-        value: 'company_user'
-      }],
-      items: [{
-        No: 40,
-        이름: '좡성현',
-        허가여부: 'Y',
-        랭크: 'A',
-        등급: '연습생',
-        수정하기: ''
-      }, {
-        No: 21,
-        이름: '즈앙성혀언',
-        허가여부: 'Y',
-        랭크: 'A',
-        등급: '연습생',
-        수정하기: ''
-      }, {
-        No: 89,
-        이름: '즈앙서엉혀언',
-        허가여부: 'N',
-        랭크: 'A',
-        등급: '연습생',
-        수정하기: ''
-      }, {
-        No: 38,
-        이름: '즈앙스엉히으언',
-        허가여부: 'N',
-        랭크: 'A',
-        등급: '연습생',
-        수정하기: ''
-      }]
-    };
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
   }
 });
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Audition.vue?vue&type=style&index=0&lang=css&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Audition.vue?vue&type=style&index=0&lang=css& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************/
-=======
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/UserList.vue?vue&type=style&index=0&lang=css&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/UserList.vue?vue&type=style&index=0&lang=css& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************/
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-<<<<<<< HEAD
-exports.push([module.i, "\n.hovereffect:hover img {\n     opacity: 0.6;\n     filter: alpha(opacity=60);\n     transform: translate3d(0,0,0);\n}\n.hovereffect:hover .overlay:before\n      {\n     opacity: 1;\n     filter: alpha(opacity=100);\n     transform: translate3d(0,0,0);\n}\n#items{\n     width: 1800px;\n     display: inline-block;\n     margin:0;\n     padding:0;\n}\n#item{\n     width: 400px;\n     height: 500px;\n     float: left;\n     color: black;\n     background-color: white;\n     border: 1px solid #ced4da;\n     margin: 0 0 0 0;\n     padding: 0 0 0 0;\n     margin-left: 20px;\n     margin-top: 10px;\n     border-radius:5px;\n}\n#card-image{\n     margin-top:3px;\n     border-radius:5px;\n     width: 350px;\n     height: 400px;\n}\n", ""]);
-=======
-exports.push([module.i, "\n#list_container{\n    margin-top: 2%;\n}\n#button_area{\n    float: left;\n    margin-left: 1%;\n}\n", ""]);
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+exports.push([module.i, "\n#form_input{\n        width: 1400px;\n        margin-left: 160px;\n        margin-top: 20px;\n}\n#select_area{\n    width: 2200px;\n    float: left;\n    margin:0;\n    padding:0;\n}\n.select_item{\n    width: 300px;\n    display: inline-block;\n    margin: 0 0 0 0;\n    padding: 0 0 0 0;\n}\n\n/* 제목 */\n#title{\n    height: 60px;\n}\n\n/* 날짜 */\n.b-form-datepicker {\n    width: 300px;\n    margin:0 0 0 0;\n}\n\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Audition.vue?vue&type=style&index=0&lang=css&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Audition.vue?vue&type=style&index=0&lang=css& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************/
-=======
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/UserList.vue?vue&type=style&index=0&lang=css&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/UserList.vue?vue&type=style&index=0&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************/
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-<<<<<<< HEAD
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Audition.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Audition.vue?vue&type=style&index=0&lang=css&");
-=======
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./UserList.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/UserList.vue?vue&type=style&index=0&lang=css&");
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionCreate.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -205,7 +273,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -213,17 +281,10 @@ if(false) {}
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Audition.vue?vue&type=template&id=54465d90&":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Audition.vue?vue&type=template&id=54465d90& ***!
-  \***********************************************************************************************************************************************************************************************************/
-=======
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/UserList.vue?vue&type=template&id=6d878aa8&":
-/*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/UserList.vue?vue&type=template&id=6d878aa8& ***!
-  \******************************************************************************************************************************************************************************************************/
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c& ***!
+  \*********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -235,124 +296,140 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
-  return _c(
-    "div",
-    [
-      _c("h1", [_vm._v(_vm._s(_vm.items.user_id))]),
-      _vm._v(" "),
-      _c(
-        "b-list-group",
-        { attrs: { id: "items" } },
-        _vm._l(_vm.items, function(items) {
-          return _c(
-            "b-list-group-item",
-            {
-              key: items.name,
-              staticClass: "flex-column align-items-start",
-              attrs: { id: "item", href: "#", active: "" },
-              on: {
-                click: function($event) {
-                  return _vm.rowClick(items)
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "hovereffect" }, [
-                _c("img", { attrs: { id: "card-image", src: items.sub_image } })
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c(
-                  "div",
-                  [
-                    _c("b-badge", { attrs: { pill: "", variant: "primary" } }, [
-                      _vm._v("마감일:  " + _vm._s(items.date))
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("b-badge", { attrs: { pill: "", variant: "success" } }, [
-                      _vm._v(_vm._s(items.rank))
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticStyle: { "margin-top": "12px" } }, [
-                  _c(
-                    "h5",
-                    {
-                      staticClass: "mb-1",
-                      attrs: { sytle: "margin-top:10px" }
-                    },
-                    [_vm._v(_vm._s(items.title))]
-                  )
-                ])
-              ])
-            ]
-          )
-        }),
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-button",
-        {
-          staticStyle: { "margin-top": "10px", width: "200px", height: "60px" },
-          attrs: { variant: "dark" },
-          on: { click: _vm.writeContent }
-        },
-        [_vm._v("오디션 공고 등록")]
-      )
-    ],
-    1
-  )
-=======
-  return _c("div", { attrs: { id: "list_container" } }, [
+  return _c("div", { attrs: { id: "form_input" } }, [
     _c(
-      "div",
-      { attrs: { id: "button_area" } },
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.createAudition($event)
+          }
+        }
+      },
       [
         _c(
-          "b-form-group",
+          "div",
+          { attrs: { id: "form_header" } },
           [
-            _c("b-form-radio-group", {
-              attrs: {
-                id: "btn-radios-2",
-                options: _vm.options,
-                buttons: "",
-                "button-variant": "outline-primary",
-                size: "lg",
-                name: "radio-btn-outline"
-              },
+            _c("b-form-input", {
+              attrs: { id: "title", placeholder: "제목을 입력해주세요" },
               model: {
-                value: _vm.selected,
+                value: _vm.auditionData.title,
                 callback: function($$v) {
-                  _vm.selected = $$v
+                  _vm.$set(_vm.auditionData, "title", $$v)
                 },
-                expression: "selected"
+                expression: "auditionData.title"
               }
             })
           ],
           1
+        ),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "selct_area" } }, [
+          _c(
+            "div",
+            { staticClass: "select_item" },
+            [
+              _c("b-form-datepicker", {
+                staticClass: "mb-2",
+                attrs: {
+                  placeholder: "마감기한 설정",
+                  id: "example-datepicker"
+                },
+                model: {
+                  value: _vm.auditionData.date,
+                  callback: function($$v) {
+                    _vm.$set(_vm.auditionData, "date", $$v)
+                  },
+                  expression: "auditionData.date"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "select_item" }, [
+            _c(
+              "div",
+              [
+                _c("b-form-select", {
+                  attrs: { options: _vm.options },
+                  model: {
+                    value: _vm.auditionData.selected,
+                    callback: function($$v) {
+                      _vm.$set(_vm.auditionData, "selected", $$v)
+                    },
+                    expression: "auditionData.selected"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("label", { staticStyle: { "margin-left": "20px" } }, [
+            _vm._v("템플릿 선택: ")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "select_item" }, [
+            _c("input", {
+              ref: "newAuditionImage",
+              staticClass: "form-control ",
+              attrs: { type: "file", id: "image" },
+              on: { change: _vm.attachImage }
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", [_vm._v("영상과제: ")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "select_item" },
+            [
+              _c("b-form-input", {
+                attrs: { id: "video", placeholder: "링크를 삽입해주세요" },
+                model: {
+                  value: _vm.auditionData.video,
+                  callback: function($$v) {
+                    _vm.$set(_vm.auditionData, "video", $$v)
+                  },
+                  expression: "auditionData.video"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("b-form-textarea", {
+          attrs: {
+            id: "textarea-rows",
+            placeholder: "내용을 입력해주세요",
+            rows: "22"
+          },
+          model: {
+            value: _vm.auditionData.context,
+            callback: function($$v) {
+              _vm.$set(_vm.auditionData, "context", $$v)
+            },
+            expression: "auditionData.context"
+          }
+        }),
+        _vm._v(" "),
+        _c("b-button", { attrs: { type: "submit", variant: "primary" } }, [
+          _vm._v("저장")
+        ]),
+        _vm._v(" "),
+        _c(
+          "b-button",
+          { attrs: { variant: "danger" }, on: { click: _vm.cancle } },
+          [_vm._v("취소")]
         )
       ],
       1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { attrs: { id: "user_area" } },
-      [_c("b-table", { attrs: { striped: "", hover: "", items: _vm.items } })],
-      1
     )
   ])
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -361,32 +438,109 @@ render._withStripped = true
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./resources/js/components/Audition.vue":
-/*!**********************************************!*\
-  !*** ./resources/js/components/Audition.vue ***!
-  \**********************************************/
-=======
-/***/ "./resources/js/views/UserList.vue":
-/*!*****************************************!*\
-  !*** ./resources/js/views/UserList.vue ***!
-  \*****************************************/
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+/***/ "./resources/js/services/audition_service.js":
+/*!***************************************************!*\
+  !*** ./resources/js/services/audition_service.js ***!
+  \***************************************************/
+/*! exports provided: createAudition, loadAudition */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAudition", function() { return createAudition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadAudition", function() { return loadAudition; });
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
+
+function createAudition(data) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["httpFile"])().post('/audition', data);
+}
+function loadAudition() {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/audition');
+}
+
+/***/ }),
+
+/***/ "./resources/js/services/http_service.js":
+/*!***********************************************!*\
+  !*** ./resources/js/services/http_service.js ***!
+  \***********************************************/
+/*! exports provided: http, httpFile */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "http", function() { return http; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "httpFile", function() { return httpFile; });
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store */ "./resources/js/store.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function http() {
+  return axios__WEBPACK_IMPORTED_MODULE_1___default.a.create({
+    baseURL: _store__WEBPACK_IMPORTED_MODULE_0__["default"].state.apiURL
+  });
+}
+function httpFile() {
+  return axios__WEBPACK_IMPORTED_MODULE_1___default.a.create({
+    baseURL: _store__WEBPACK_IMPORTED_MODULE_0__["default"].state.apiURL,
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/store.js":
+/*!*******************************!*\
+  !*** ./resources/js/store.js ***!
+  \*******************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-<<<<<<< HEAD
-/* harmony import */ var _Audition_vue_vue_type_template_id_54465d90___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Audition.vue?vue&type=template&id=54465d90& */ "./resources/js/components/Audition.vue?vue&type=template&id=54465d90&");
-/* harmony import */ var _Audition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Audition.vue?vue&type=script&lang=js& */ "./resources/js/components/Audition.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Audition.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/Audition.vue?vue&type=style&index=0&lang=css&");
-=======
-/* harmony import */ var _UserList_vue_vue_type_template_id_6d878aa8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserList.vue?vue&type=template&id=6d878aa8& */ "./resources/js/views/UserList.vue?vue&type=template&id=6d878aa8&");
-/* harmony import */ var _UserList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserList.vue?vue&type=script&lang=js& */ "./resources/js/views/UserList.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _UserList_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserList.vue?vue&type=style&index=0&lang=css& */ "./resources/js/views/UserList.vue?vue&type=style&index=0&lang=css&");
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
+  state: {
+    apiURL: 'http://localhost:8000/api',
+    serverPath: 'http://localhost:8000' // apiURL: 'http://127.0.0.1:8000/api',
+    // serverPath: 'http://127.0.0.1:8000'
+
+  },
+  // state: {
+  //     apiURL: 'http://192.168.0.6:8000/api',
+  //     serverPath: 'http://192.168.0.6:8000'
+  // },
+  // state: {
+  //     apiURL: 'http://localhost:9000/api',
+  //     serverPath: 'http://localhost:9000'
+  // },
+  mutations: {},
+  actions: {}
+}));
+
+/***/ }),
+
+/***/ "./resources/js/views/audition/AuditionCreate.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/views/audition/AuditionCreate.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AuditionCreate.vue?vue&type=template&id=4188269c& */ "./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c&");
+/* harmony import */ var _AuditionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuditionCreate.vue?vue&type=script&lang=js& */ "./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AuditionCreate.vue?vue&type=style&index=0&lang=css& */ "./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -396,15 +550,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-<<<<<<< HEAD
-  _Audition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Audition_vue_vue_type_template_id_54465d90___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Audition_vue_vue_type_template_id_54465d90___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-=======
-  _UserList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _UserList_vue_vue_type_template_id_6d878aa8___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _UserList_vue_vue_type_template_id_6d878aa8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+  _AuditionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -414,98 +562,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-<<<<<<< HEAD
-component.options.__file = "resources/js/components/Audition.vue"
-=======
-component.options.__file = "resources/js/views/UserList.vue"
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+component.options.__file = "resources/js/views/audition/AuditionCreate.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./resources/js/components/Audition.vue?vue&type=script&lang=js&":
-/*!***********************************************************************!*\
-  !*** ./resources/js/components/Audition.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************/
-=======
-/***/ "./resources/js/views/UserList.vue?vue&type=script&lang=js&":
-/*!******************************************************************!*\
-  !*** ./resources/js/views/UserList.vue?vue&type=script&lang=js& ***!
-  \******************************************************************/
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+/***/ "./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-<<<<<<< HEAD
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Audition.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Audition.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionCreate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/Audition.vue?vue&type=style&index=0&lang=css&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/Audition.vue?vue&type=style&index=0&lang=css& ***!
-  \*******************************************************************************/
-=======
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./UserList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/UserList.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/views/UserList.vue?vue&type=style&index=0&lang=css&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/views/UserList.vue?vue&type=style&index=0&lang=css& ***!
-  \**************************************************************************/
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+/***/ "./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-<<<<<<< HEAD
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Audition.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Audition.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionCreate.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/components/Audition.vue?vue&type=template&id=54465d90&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/components/Audition.vue?vue&type=template&id=54465d90& ***!
-  \*****************************************************************************/
-=======
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./UserList.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/UserList.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/views/UserList.vue?vue&type=template&id=6d878aa8&":
-/*!************************************************************************!*\
-  !*** ./resources/js/views/UserList.vue?vue&type=template&id=6d878aa8& ***!
-  \************************************************************************/
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+/***/ "./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c& ***!
+  \***************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-<<<<<<< HEAD
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_template_id_54465d90___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Audition.vue?vue&type=template&id=54465d90& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Audition.vue?vue&type=template&id=54465d90&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_template_id_54465d90___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionCreate.vue?vue&type=template&id=4188269c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Audition_vue_vue_type_template_id_54465d90___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-=======
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_template_id_6d878aa8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./UserList.vue?vue&type=template&id=6d878aa8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/UserList.vue?vue&type=template&id=6d878aa8&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_template_id_6d878aa8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_template_id_6d878aa8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
->>>>>>> bc27a9f2187896a902a28319b9cd0604cb80117a
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
