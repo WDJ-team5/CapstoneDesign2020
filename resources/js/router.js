@@ -62,9 +62,8 @@ const routes=[
         name: 'AuditionCreate',
         component:()=>import('./views/audition/AuditionCreate.vue')
       },
-
     //   댄스강좌
-      {
+    {
         path:'/lecture',
         name:'lecture',
         component:()=>import('./views/lecture/Lecture.vue')

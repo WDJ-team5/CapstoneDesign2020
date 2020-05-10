@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Home;
 use Illuminate\Http\Request;
+use App\Lecture;
 
-class HomeController extends Controller
+class LectureController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $auditions = \App\Audition::orderBy('created_at', 'desc')->find([1, 2, 3, 4]);
-        $articles = \App\Article::orderBy('created_at', 'desc')->find([1, 2, 3, 4]);
-        $contests = \App\Contest::orderBy('created_at', 'desc')->find([1, 2, 3, 4]);
-        $lectures = \App\Lecture::orderBy('created_at', 'desc')->find([1, 2, 3, 4]);
-        return response()->json([$auditions, $articles, $contests, $lectures]);
+        $lecture= Lecture::orderBy('created_at','desc')->paginate();
+        return response()->json($lecture,200);
     }
 
     /**
@@ -45,10 +42,10 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Home $home)
+    public function show($id)
     {
         //
     }
@@ -56,10 +53,10 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Home $home)
+    public function edit($id)
     {
         //
     }
@@ -68,10 +65,10 @@ class HomeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Home $home)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -79,10 +76,10 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Home $home)
+    public function destroy($id)
     {
         //
     }

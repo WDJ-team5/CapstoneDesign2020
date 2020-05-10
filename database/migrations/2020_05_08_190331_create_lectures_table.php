@@ -20,8 +20,8 @@ class CreateLecturesTable extends Migration
             $table->string('video');//강의동영상
             $table->string('image');//강의썸네일이미지
             $table->timestamps();//강의등록일
-            $table->unsignedBigInteger('genre_id');//장르번호
-            $table->unsignedBigInteger('level_id');//난이도번호
+            $table->unsignedBigInteger('genre_id')->nullable();//장르번호
+            $table->unsignedBigInteger('level_id')->nullable();//난이도번호
 
             $table->foreign('genre_id')->references('id')->on('genres');
             $table->foreign('level_id')->references('id')->on('levels');

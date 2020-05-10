@@ -20,7 +20,7 @@ class CreateContestsTable extends Migration
             $table->string('video');//경연동영상
             $table->string('image');//썸네일이미지
             $table->timestamps();//등록일
-            $table->unsignedBigInteger('genre_id');//장르번호
+            $table->unsignedBigInteger('genre_id')->nullable();//장르번호
 
             $table->foreign('genre_id')->references('id')->on('genres');
         });
