@@ -138,7 +138,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return loadAudition;
     }(),
-    // 오디션 클릭시
+    // 오디션 클릭시    
     rowClick: function rowClick(audition, index, e) {
       this.$router.push({
         path: "/auditiondetail/".concat(audition.id)

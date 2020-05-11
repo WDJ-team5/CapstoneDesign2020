@@ -69,7 +69,11 @@ const routes=[
         name:'lecture',
         component:()=>import('./views/lecture/Lecture.vue')
     },
-
+    {
+        path:'/lecturePlay/:id',
+        name:'LecturePlay',
+        component:()=>import('./views/lecture/LecturePlay.vue')
+    },
     {
         path:'/expert/list',
         name:'ExpertList',
@@ -84,7 +88,7 @@ const routes=[
         path:'/advice/detail/:contentId',
         name:'AdviceDetail',
         component:()=>import('./views/Advice/AdviceDetail.vue')
-    }
+    },
 ]
 
 const router=new Router({

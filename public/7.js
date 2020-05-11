@@ -102,12 +102,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return loadLecture;
-    }() // rowClick(item, index, e) {
-    //     this.$router.push({
-    //         path: `/lecturedetail//${item.content_id}`
-    //     })
-    // },
-    // writeContent(){
+    }(),
+    rowClick: function rowClick(item, index, e) {
+      this.$router.push({
+        path: "/lecturePlay/".concat(item.id)
+      });
+    } // writeContent(){
     //     this.$router.push({
     //         path:'/lecturecreate'
     //     })
@@ -194,7 +194,12 @@ var render = function() {
             {
               key: index,
               staticClass: "flex-column align-items-start",
-              attrs: { id: "item", href: "#", active: "" }
+              attrs: { id: "item", href: "#", active: "" },
+              on: {
+                click: function($event) {
+                  return _vm.rowClick(lecture)
+                }
+              }
             },
             [
               _c("div", { staticClass: "hovereffect" }, [
@@ -269,17 +274,23 @@ render._withStripped = true
 /*!**************************************************!*\
   !*** ./resources/js/services/lecture_service.js ***!
   \**************************************************/
-/*! exports provided: loadLecture */
+/*! exports provided: loadLecture, loadLectureData */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadLecture", function() { return loadLecture; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadLectureData", function() { return loadLectureData; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
  // 댄스강좌 리스트 로드
 
 function loadLecture() {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/lecture');
+} // 댄스강좌 하나 로드
+
+function loadLectureData(data) {
+  var anything = "/lecture/" + data;
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get(anything);
 }
 
 /***/ }),

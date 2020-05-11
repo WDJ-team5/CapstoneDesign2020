@@ -14,7 +14,9 @@
  
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
+  <!-- <script src="js/calculation.js"></script> -->
 </head>
 
 <body>

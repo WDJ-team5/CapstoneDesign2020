@@ -1,26 +1,30 @@
 <template>
-  <div>
+  <div id="container">
     <!-- <b-table striped hover :items="items" :fields="fields" @row-clicked="rowClick"></b-table> -->
-    <b-list-group id="items" >
-        <b-list-group-item id="item" href="#" active class="flex-column align-items-start" v-for="(lecture,index) in lectures" :key="index">
-            <div class="hovereffect">
-                <img id="card-image" :src="`${$store.state.serverPath}/storage/${lecture.image}`" :alt="lecture.title">
-            </div>
-            <div>
-                <div>
-                    <b-badge pill variant="primary">장르: </b-badge>
-                </div>
-                <div>
-                    <b-badge pill variant="success">난이도: </b-badge>
-                </div>
-                <div style="margin-top:12px">
-                    <h5 sytle="margin-top:10px" class="mb-1">{{lecture.title}}</h5>
-                </div>
-            </div>
-        </b-list-group-item>
-    </b-list-group>
+    <div>
+        <b-list-group id="lecture-all" >
 
-    <b-button style="margin-top:10px;width:200px;height:60px" variant="dark">댄스강의 등록</b-button>
+            <b-list-group-item id="lecture-set" href="#" active class="flex-column align-items-start" v-for="(lecture,index) in lectures" :key="index">
+                <div class="hovereffect card-image-box">
+                    <img id="card-image" :src="`${$store.state.serverPath}/storage/${lecture.image}`" :alt="lecture.title">
+                </div>
+                <div class="lecture-info">
+                    <div style="margin-top:12px">
+                        <h5 sytle="lecture-title" class="mb-1">{{lecture.title}}</h5>
+                    </div>
+                    <div>
+                        <b-badge pill variant="primary">장르: </b-badge>
+                    </div>
+                    <div>
+                        <b-badge pill variant="success">난이도: </b-badge>
+                    </div>
+                </div>
+            </b-list-group-item>
+
+        </b-list-group>
+    </div>
+
+    <b-button class="lecture-add-btn" variant="dark">댄스강의 등록</b-button>
   </div>
     
 </template>
@@ -58,11 +62,11 @@ export default {
                 });
             }
         },
-        // rowClick(item, index, e) {
-        //     this.$router.push({
-        //         path: `/lecturedetail//${item.content_id}`
-        //     })
-        // },
+        rowClick(item, index, e) {
+            this.$router.push({
+                path: `/lecturePlay/${item.id}`
+            })
+        },
         // writeContent(){
         //     this.$router.push({
         //         path:'/lecturecreate'
@@ -90,31 +94,59 @@ export default {
         transform: translate3d(0,0,0);
         }
 
-    #items{
-        width: 1800px;
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 70px;
+    }
+
+    #lecture-all {
+        width: 1100px;
         display: inline-block;
-        margin:0;
+        margin-top:40px;
         padding:0;
     }
 
-   #item{
-        width: 400px;
-        height: 500px;
+    #lecture-set {
+        width: 250px;
+        height: 250px;
         float: left;
         color: black;
         background-color: white;
         border: 1px solid #ced4da;
-        margin: 0 0 0 0;
         padding: 0 0 0 0;
         margin-left: 20px;
-        margin-top: 10px;
+        margin-top: 60px;
         border-radius:5px;
     }
 
-    #card-image{
-        margin-top:3px;
-        border-radius:5px;
-        width: 350px;
-        height: 400px;
+    .card-image-box {
+        width: 250px;
+        height: 150px;
     }
+
+    .card-image-box > img {
+        width: 100%;
+        height:100%;
+    }
+
+    .lecture-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lecture-title {
+        font-size:25px;
+        font-weight:100;
+    }
+
+    .lecture-add-btn {
+        margin-top:60px;
+        width:200px;
+        height:60px;
+        margin-top:50px;
+    }
+    
 </style>
