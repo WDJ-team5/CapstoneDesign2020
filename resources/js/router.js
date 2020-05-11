@@ -61,12 +61,33 @@ const routes=[
         path: '/auditioncreate',
         name: 'AuditionCreate',
         component:()=>import('./views/audition/AuditionCreate.vue')
-      },
+    },
+
     //   댄스강좌
     {
         path:'/lecture',
         name:'lecture',
         component:()=>import('./views/lecture/Lecture.vue')
+    },
+    {
+        path:'/lecturePlay/:id',
+        name:'LecturePlay',
+        component:()=>import('./views/lecture/LecturePlay.vue')
+    },
+    {
+        path:'/expert/list',
+        name:'ExpertList',
+        component:()=>import('./views/Advice/ExpertList.vue')
+    },
+    {
+        path:'/advice/list',
+        name:'AdviceList',
+        component:()=>import('./views/Advice/AdviceList.vue')
+    },
+    {
+        path:'/advice/detail/:contentId',
+        name:'AdviceDetail',
+        component:()=>import('./views/Advice/AdviceDetail.vue')
     },
 ]
 

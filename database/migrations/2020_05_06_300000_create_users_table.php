@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->text('introduction')->nullable();//자기소개
             $table->tinyInteger('class')->default(1);//등급구분
             $table->timestamps();
+            $table->timestamp('last_login')->nullable();
+            $table->string('confirm_code', 60)->nullable();	
             $table->unsignedBigInteger('rank_id')->default(1);//랭크번호
             $table->unsignedBigInteger('company_id')->nullable();//기업번호
             $table->unsignedBigInteger('expert_id')->nullable();//전문가번호

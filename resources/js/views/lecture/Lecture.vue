@@ -62,11 +62,11 @@ export default {
                 });
             }
         },
-        // rowClick(item, index, e) {
-        //     this.$router.push({
-        //         path: `/lecturedetail//${item.content_id}`
-        //     })
-        // },
+        rowClick(item, index, e) {
+            this.$router.push({
+                path: `/lecturePlay/${item.id}`
+            })
+        },
         // writeContent(){
         //     this.$router.push({
         //         path:'/lecturecreate'

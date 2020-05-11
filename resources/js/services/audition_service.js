@@ -16,3 +16,8 @@ export function loadDetailAudition(data) {
     console.log(anything);
     return http().get(anything);
 }
+
+// 오디션 삭제하기
+export function deleteAudition(id){
+    return http().delete(`audition/${id}`);
+}

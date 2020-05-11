@@ -2151,43 +2151,55 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: "session",
   data: function data() {
     return {
       sessionData: {
-        state: 'true'
+        state: ""
       }
     };
   },
+  mounted: function mounted() {
+    this.checkSession();
+  },
   methods: {
-    destroySession: function () {
-      var _destroySession = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    checkSession: function () {
+      var _checkSession = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var _response;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                this.sessionData.state = false;
-                _context.prev = 1;
-                _context.next = 4;
-                return _services_session_service__WEBPACK_IMPORTED_MODULE_1__["destroySession"]();
+                _context.prev = 0;
+                _context.next = 3;
+                return _services_session_service__WEBPACK_IMPORTED_MODULE_1__["checkSession"]();
 
-              case 4:
+              case 3:
                 _response = _context.sent;
-                console.log(_response);
-                console.log('로그아웃 성공함'); // this.flashMessage.success({
+                console.log(_response.data);
+                this.sessionData.state = _response.data;
+
+                if (_response.data) {
+                  console.log("로그아웃 유지 중");
+                } else {
+                  console.log("로그인 유지 중");
+                } // this.flashMessage.success({
                 //   message: "Category stored successfully!",
                 //   time: 5000
                 // });
+
 
                 _context.next = 13;
                 break;
 
               case 9:
                 _context.prev = 9;
-                _context.t0 = _context["catch"](1);
+                _context.t0 = _context["catch"](0);
                 console.log(response);
                 console.log(_context.t0); // switch (error.response.status) {
                 //   case 422:
@@ -2206,14 +2218,68 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.stop();
             }
           }
-        }, _callee, this, [[1, 9]]);
+        }, _callee, this, [[0, 9]]);
       }));
 
-      function destroySession() {
-        return _destroySession.apply(this, arguments);
+      function checkSession() {
+        return _checkSession.apply(this, arguments);
       }
 
-      return destroySession;
+      return checkSession;
+    }(),
+    deleteSession: function () {
+      var _deleteSession = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _response2;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return _services_session_service__WEBPACK_IMPORTED_MODULE_1__["deleteSession"]();
+
+              case 3:
+                _response2 = _context2.sent;
+                // console.log(response);
+                // console.log("로그아웃 됨");
+                location.href = "/"; // this.flashMessage.success({
+                //   message: "Category stored successfully!",
+                //   time: 5000
+                // });
+
+                _context2.next = 11;
+                break;
+
+              case 7:
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](0);
+                console.log(response);
+                console.log(_context2.t0); // switch (error.response.status) {
+                //   case 422:
+                //     this.errors = error.response.data.errors;
+                //     break;
+                //   default:
+                //     this.flashMessage.error({
+                //       message: "Some error occurred, Please try again!",
+                //       time: 5000
+                //     });
+                //     break;
+                // }
+
+              case 11:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 7]]);
+      }));
+
+      function deleteSession() {
+        return _deleteSession.apply(this, arguments);
+      }
+
+      return deleteSession;
     }()
   }
 });
@@ -68379,21 +68445,28 @@ var render = function() {
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _c(
-        "router-link",
-        { staticClass: "nav-link", attrs: { to: "/login", exact: "" } },
-        [_vm._v("로그인")]
-      ),
-      _vm._v(" "),
       _vm.sessionData.state
+        ? _c(
+            "div",
+            [
+              _c(
+                "router-link",
+                { staticClass: "nav-link", attrs: { to: "/login", exact: "" } },
+                [_vm._v("로그인")]
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.sessionData.state
         ? _c("div", [
-            _c("a", { on: { click: _vm.destroySession } }, [_vm._v("로그아웃")])
+            _c("a", { on: { click: _vm.deleteSession } }, [_vm._v("로그아웃")])
           ])
         : _vm._e(),
       _vm._v(" "),
       _vm._m(2)
-    ],
-    1
+    ]
   )
 }
 var staticRenderFns = [
@@ -85368,7 +85441,7 @@ var routes = [{
   path: '/signselect',
   name: 'signselect',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/auth/SignSelect.vue */ "./resources/js/views/auth/SignSelect.vue"));
+    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/auth/SignSelect.vue */ "./resources/js/views/auth/SignSelect.vue"));
   }
 }, {
   path: '/usersignup',
@@ -85380,13 +85453,13 @@ var routes = [{
   path: '/companysignup1',
   name: 'companysignup1',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup1.vue */ "./resources/js/views/auth/CompanySignup1.vue"));
+    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup1.vue */ "./resources/js/views/auth/CompanySignup1.vue"));
   }
 }, {
   path: '/companysignup2',
   name: 'companysignup2',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup2.vue */ "./resources/js/views/auth/CompanySignup2.vue"));
+    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup2.vue */ "./resources/js/views/auth/CompanySignup2.vue"));
   }
 }, // 오디션
 {
@@ -85412,7 +85485,31 @@ var routes = [{
   path: '/lecture',
   name: 'lecture',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/lecture/Lecture.vue */ "./resources/js/views/lecture/Lecture.vue"));
+    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/lecture/Lecture.vue */ "./resources/js/views/lecture/Lecture.vue"));
+  }
+}, {
+  path: '/lecturePlay/:id',
+  name: 'LecturePlay',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/lecture/LecturePlay.vue */ "./resources/js/views/lecture/LecturePlay.vue"));
+  }
+}, {
+  path: '/expert/list',
+  name: 'ExpertList',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/Advice/ExpertList.vue */ "./resources/js/views/Advice/ExpertList.vue"));
+  }
+}, {
+  path: '/advice/list',
+  name: 'AdviceList',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
+  }
+}, {
+  path: '/advice/detail/:contentId',
+  name: 'AdviceDetail',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -85476,19 +85573,23 @@ function httpFile() {
 /*!**************************************************!*\
   !*** ./resources/js/services/session.service.js ***!
   \**************************************************/
-/*! exports provided: createSession, destroySession */
+/*! exports provided: checkSession, createSession, deleteSession */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkSession", function() { return checkSession; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSession", function() { return createSession; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroySession", function() { return destroySession; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSession", function() { return deleteSession; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
 
+function checkSession() {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/sessions');
+}
 function createSession(data) {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/sessions', data);
 }
-function destroySession() {
+function deleteSession() {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])()["delete"]('/sessions/1');
 } // export function loadCategories() {
 //     return http().get('/categories');
@@ -85637,8 +85738,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\캡스톤프로젝트\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\캡스톤프로젝트\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+
+__webpack_require__(/*! C:\teamProject\git\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\teamProject\git\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

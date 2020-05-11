@@ -99,7 +99,7 @@ export default {
             }
         },
 
-        // 오디션 클릭시
+        // 오디션 클릭시    
         rowClick(audition, index, e) {
             this.$router.push({
                 path: `/auditiondetail/${audition.id}`
