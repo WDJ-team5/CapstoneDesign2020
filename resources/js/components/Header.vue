@@ -1,54 +1,101 @@
 <template>
-  <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Minaodo</a>
-    <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
-      <i class="fas fa-bars"></i>
-    </button>
-    <!-- Navbar Search-->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input
-          class="form-control"
-          type="text"
-          placeholder="Search for..."
-          aria-label="Search"
-          aria-describedby="basic-addon2"
-        />
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
+
+
+  <div id="header">
+    <div class="LoginNav">
+      <!-- 로그인네비게이션-->
+      <div class="LoginNavGroup">
+
+        <div v-if="sessionData.state">
+          <router-link to="/login" class="NavLink" exact>로그인</router-link>
         </div>
-      </div>
-    </form>
-    <!-- Navbar-->
-    <div v-if="sessionData.state">
-      <router-link to="/login" class="nav-link" exact>로그인</router-link>
-    </div>
-    <div v-if="!sessionData.state">
-      <a v-on:click="deleteSession">로그아웃</a>
+        <div v-if="!sessionData.state">
+          <a v-on:click="deleteSession">로그아웃</a>
+        </div>
+
+        <ul class="navbar-nav ml-auto ml-md-0">
+          <li class="nav-item dropdown">
+            <a
+              class="dropdown-toggle"
+              id="userDropdown"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user fa-fw"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="#">Settings</a>
+              <a class="dropdown-item" href="#">Activity Log</a>
+            </div>
+          </li>
+        </ul>
+      </div>    
     </div>
 
-    <ul class="navbar-nav ml-auto ml-md-0">
-      <li class="nav-item dropdown">
-        <a
-          class="nav-link dropdown-toggle"
-          id="userDropdown"
-          href="#"
-          role="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <i class="fas fa-user fa-fw"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item" href="#">Activity Log</a>
-        </div>
-      </li>
-    </ul>
-  </nav>
+    <nav class="ServiceNav">
+      <a class="LogoImg">
+        <em>
+          <router-link to="/#" exact>
+          <img src="../../../public/images/logo.jpg" width="200px" height="41px">
+          </router-link>
+        </em>
+      </a>
+      <ul class="ServiceNavGroup">
+        <li>
+          <router-link to="/lecture" class="NavLink" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>댄스강좌</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/#" class="NavLink" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>댄스경연</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/expert/list" class="NavLink" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>피드백</span>
+            <ul class="navbar-nav ml-auto ml-md-0">
+              <li class="nav-item dropdown">
+                <a
+                  class="dropdown-toggle"
+                  id="userDropdown"
+                  href="#"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user fa-fw"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                  <router-link to="/advice/list" class="dropdown-item" exact>내 피드백 활동
+                  </router-link>
+                </div>
+              </li>
+            </ul>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/audition" class="NavLink" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>오디션</span>
+          </router-link>
+        </li>
+      </ul>
+    </nav>
+
+
+
+  </div>
+
+
+
 </template>
 <script>
 import * as sessionService from "../services/session.service";
@@ -129,3 +176,68 @@ export default {
   }
 };
 </script>
+
+<style>
+
+    #header {
+      width: 100%;
+      height: auto;
+      box-sizing: border-box;
+      z-index: 5;
+      display: block;
+    }
+
+    .LoginNav {
+      height: 35px;
+      font-size: 13px;
+      color: #6c738a;
+      z-index: 4;
+      border-bottom: 1px solid rgb(157, 156, 156);
+    }
+
+    .LoginNavGroup {
+      margin-right: 140px;
+      display: flex;
+      float: right;
+    }
+
+    .ServiceNav {
+      margin-top: 10px;
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      padding: .5rem 1rem;
+    }
+
+    .LogoImg {
+      margin-left: 120px;
+      margin-top: 10px;
+    }
+
+    .ServiceNavGroup {
+      margin-top:8px;
+      margin-right: 120px;
+      display: flex;
+      float: right;
+      list-style: none;
+    }
+
+    .ServiceNabGroup {
+      margin-left : 35px;
+    }
+
+    li > a {
+      color: black;
+      text-decoration: none;
+    }
+
+    .NavLink {
+      display: flex;
+      padding: 0.5rem 1rem;
+    }
+
+
+
+
+</style>

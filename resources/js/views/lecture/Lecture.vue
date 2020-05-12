@@ -5,7 +5,7 @@
         <b-list-group id="lecture-all" >
 
             <b-list-group-item id="lecture-set" href="#" active class="flex-column align-items-start" v-for="(lecture,index) in lectures" :key="index">
-                <div class="hovereffect card-image-box">
+                <div class="hovereffect lecture-image-box">
                     <img id="card-image" :src="`${$store.state.serverPath}/storage/${lecture.image}`" :alt="lecture.title">
                 </div>
                 <div class="lecture-info">
@@ -121,12 +121,12 @@ export default {
         border-radius:5px;
     }
 
-    .card-image-box {
+    .lecture-image-box {
         width: 250px;
         height: 150px;
     }
 
-    .card-image-box > img {
+    .lecture-image-box > img {
         width: 100%;
         height:100%;
     }

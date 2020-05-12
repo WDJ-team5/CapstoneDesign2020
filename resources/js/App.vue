@@ -3,7 +3,7 @@
     <Header />
 
     <div id="layoutSidenav">
-      <Sidebar />
+      <!-- <Sidebar /> -->
 
       <div id="layoutSidenav_content">
         <main>
@@ -31,3 +31,9 @@ export default {
   }
 };
 </script>
+
+<style>
+    #layoutSidenav_content {
+      margin-top:40px;
+    }
+</style>
