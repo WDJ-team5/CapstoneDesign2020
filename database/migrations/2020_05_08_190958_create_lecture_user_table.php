@@ -15,8 +15,8 @@ class CreateLectureUserTable extends Migration
     {
         Schema::create('lecture_user', function (Blueprint $table) {
             $table->id();//수강번호
-            $table->integer('accuracy');//정확도
-            $table->boolean('clear');//수료여부
+            $table->integer('accuracy')->default(0);//정확도
+            $table->boolean('clear')->default(0);//수료여부
             $table->timestamps();//수강일시
             $table->unsignedBigInteger('user_id');//회원번호
             $table->unsignedBigInteger('lecture_id');//강의영상번호

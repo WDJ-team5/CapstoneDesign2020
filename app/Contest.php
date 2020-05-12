@@ -14,9 +14,9 @@ class Contest extends Model
         'genre_id',
     ];
 
-    public function users()
+    public function contestUsers()
     {
-        return $this->belongsToMany('App\User');
+        return $this->hasMany('App\ContestUser');
     }
 
     public function genre()
