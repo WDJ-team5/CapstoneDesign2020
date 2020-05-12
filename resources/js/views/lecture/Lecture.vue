@@ -4,7 +4,7 @@
     <div>
         <b-list-group id="lecture-all" >
 
-            <b-list-group-item id="lecture-set" href="#" active class="flex-column align-items-start" v-for="(lecture,index) in lectures" :key="index">
+            <b-list-group-item id="lecture-set" href="#" active class="flex-column align-items-start" @click="rowClick(lecture)" v-for="(lecture,index) in lectures" :key="index">
                 <div class="hovereffect card-image-box">
                     <img id="card-image" :src="`${$store.state.serverPath}/storage/${lecture.image}`" :alt="lecture.title">
                 </div>

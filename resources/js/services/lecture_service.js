@@ -8,5 +8,5 @@ export function loadLecture() {
 // 댄스강좌 하나 로드
 export function loadLectureData(data){
     let anything = "/lecture/"+data;
-    return http().get(anything)
+    return http().get(anything);
 }

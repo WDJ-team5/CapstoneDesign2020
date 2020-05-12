@@ -202,7 +202,12 @@ var render = function() {
                 {
                   key: index,
                   staticClass: "flex-column align-items-start",
-                  attrs: { id: "lecture-set", href: "#", active: "" }
+                  attrs: { id: "lecture-set", href: "#", active: "" },
+                  on: {
+                    click: function($event) {
+                      return _vm.rowClick(lecture)
+                    }
+                  }
                 },
                 [
                   _c("div", { staticClass: "hovereffect card-image-box" }, [
