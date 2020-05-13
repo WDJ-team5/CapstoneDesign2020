@@ -14,10 +14,65 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_audition_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/audition_service */ "./resources/js/services/audition_service.js");
 
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -70,26 +125,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       auditionData: {
         title: '',
-        context: '',
+        content: '',
         userId: 1,
         date: '',
         image: '',
         selected: '',
         video: ''
       },
+      editAuditionData: {
+        title: '',
+        content: '',
+        image: ''
+      },
+      cid: '',
       errors: {},
-      // subject: '',
-      // context: '',
-      // userId: 1,
-      // date:'',
-      // createdAt: '2019-04-17 11:32:42',
-      // updatedAt: null,
-      // updateObject:null,
-      // updateMode:this.$route.params.contentId>0?true:false,
-      // selectedFile:null,
-      // selected: null,
-      // sub_image:null,
-      // video:null,
+      state: false,
       options: [{
         value: null,
         text: '랭크 설정'
@@ -108,16 +158,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }]
     };
   },
-  created: function created() {// if (this.$route.params.contentId > 0) {
-    //     const contentId = Number(this.$route.params.contentId)
-    //     this.updateObject = data.Content.filter(item => item.content_id === contentId)[0]
-    //     this.subject = this.updateObject.title;
-    //     this.context = this.updateObject.context;
-    //     this.date = this.updateObject.date;
-    //     this.selected = this.updateObject.rank;
-    //     this.sub_image=this.updateObject.sub_image;
-    //     this.video=this.updateObject.video;
-    // }
+  created: function created() {
+    if (this.$route.params.contentId > 0) {
+      this.cid = Number(this.$route.params.contentId);
+      this.loadDetailAudition();
+    }
   },
   methods: {
     // 사진첨부
@@ -132,6 +177,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     //오디션 만들기
     createAudition: function () {
       var _createAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _console;
+
         var formData, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -140,16 +187,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 formData = new FormData();
                 formData.append('title', this.auditionData.title);
                 formData.append('date', this.auditionData.date);
-                formData.append('context', this.auditionData.context);
+                formData.append('content', this.auditionData.content);
                 formData.append('image', this.auditionData.image);
                 formData.append('selected', this.auditionData.selected);
-                _context.prev = 6;
-                _context.next = 9;
+
+                (_console = console).log.apply(_console, _toConsumableArray(formData));
+
+                _context.prev = 7;
+                _context.next = 10;
                 return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["createAudition"](formData);
 
-              case 9:
+              case 10:
                 response = _context.sent;
-                console.log(response);
                 this.flashMessage.success({
                   message: '성공했다 !!!!!!!',
                   time: 5000
@@ -160,7 +209,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 15:
                 _context.prev = 15;
-                _context.t0 = _context["catch"](6);
+                _context.t0 = _context["catch"](7);
                 console.log(_context.t0.response.status);
                 _context.t1 = _context.t0.response.status;
                 _context.next = _context.t1 === 422 ? 21 : 23;
@@ -181,7 +230,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.stop();
             }
           }
-        }, _callee, this, [[6, 15]]);
+        }, _callee, this, [[7, 15]]);
       }));
 
       function createAudition() {
@@ -189,6 +238,113 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return createAudition;
+    }(),
+    // 수정 데이터 로드
+    loadDetailAudition: function () {
+      var _loadDetailAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["loadDetailAudition"](this.cid);
+
+              case 3:
+                response = _context2.sent;
+                this.editAuditionData = response.data;
+                this.state = true;
+                _context2.next = 11;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](0);
+                this.flashMessage.error({
+                  message: 'ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ',
+                  time: 5000
+                });
+
+              case 11:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[0, 8]]);
+      }));
+
+      function loadDetailAudition() {
+        return _loadDetailAudition.apply(this, arguments);
+      }
+
+      return loadDetailAudition;
+    }(),
+    // 사진첨부
+    editAttachImage: function editAttachImage() {
+      this.editAuditionData.image = this.$refs.editAuditionImage.files[0];
+      var reader = new FileReader();
+      reader.addEventListener('load', function () {
+        this.$refs.editAuditionImageDisplay.src = reader.result;
+      }.bind(this), false);
+      reader.readAsDataURL(this.editAuditionData.image);
+    },
+    // 수정사항 저장
+    updateAudition: function () {
+      var _updateAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _console2, _console3;
+
+        var formData, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                formData = new FormData();
+
+                (_console2 = console).log.apply(_console2, _toConsumableArray(formData));
+
+                formData.append('title', this.editAuditionData.title);
+                formData.append('content', this.editAuditionData.content);
+                formData.append('image', this.editAuditionData.image);
+                formData.append('_method', 'put');
+
+                (_console3 = console).log.apply(_console3, _toConsumableArray(formData));
+
+                _context3.prev = 7;
+                _context3.next = 10;
+                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["updateAudition"](this.editAuditionData.id, formData);
+
+              case 10:
+                response = _context3.sent;
+                this.flashMessage.success({
+                  message: '성공했다 !!!!!!!',
+                  time: 5000
+                });
+                history.back();
+                _context3.next = 18;
+                break;
+
+              case 15:
+                _context3.prev = 15;
+                _context3.t0 = _context3["catch"](7);
+                this.flashMessage.error({
+                  message: _context3.t0.response.status,
+                  time: 5000
+                });
+
+              case 18:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[7, 15]]);
+      }));
+
+      function updateAudition() {
+        return _updateAudition.apply(this, arguments);
+      }
+
+      return updateAudition;
     }(),
     // 저장 시
     uploadContet: function uploadContet() {// let items=data.Content.sort((a,b)=>{return b.content_id-a.content_id})
@@ -304,148 +460,296 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "form_input" } }, [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.createAudition($event)
-          }
-        }
-      },
-      [
-        _c(
-          "div",
-          { attrs: { id: "form_header" } },
-          [
-            _c("b-form-input", {
-              attrs: { id: "title", placeholder: "제목을 입력해주세요" },
-              model: {
-                value: _vm.auditionData.title,
-                callback: function($$v) {
-                  _vm.$set(_vm.auditionData, "title", $$v)
-                },
-                expression: "auditionData.title"
+    _vm.cid
+      ? _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.updateAudition($event)
               }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "selct_area" } }, [
-          _c(
-            "div",
-            { staticClass: "select_item" },
-            [
-              _c("b-form-datepicker", {
-                staticClass: "mb-2",
-                attrs: {
-                  placeholder: "마감기한 설정",
-                  id: "example-datepicker"
-                },
-                model: {
-                  value: _vm.auditionData.date,
-                  callback: function($$v) {
-                    _vm.$set(_vm.auditionData, "date", $$v)
-                  },
-                  expression: "auditionData.date"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "select_item" }, [
+            }
+          },
+          [
             _c(
               "div",
+              { attrs: { id: "form_header" } },
               [
-                _c("b-form-select", {
-                  attrs: { options: _vm.options },
+                _c("b-form-input", {
+                  attrs: { id: "title", placeholder: "제목을 입력해주세요" },
                   model: {
-                    value: _vm.auditionData.selected,
+                    value: _vm.editAuditionData.title,
                     callback: function($$v) {
-                      _vm.$set(_vm.auditionData, "selected", $$v)
+                      _vm.$set(_vm.editAuditionData, "title", $$v)
                     },
-                    expression: "auditionData.selected"
+                    expression: "editAuditionData.title"
                   }
                 })
               ],
               1
+            ),
+            _vm._v(" "),
+            _c("div", { attrs: { id: "selct_area" } }, [
+              _c(
+                "div",
+                { staticClass: "select_item" },
+                [
+                  _c("b-form-datepicker", {
+                    staticClass: "mb-2",
+                    attrs: {
+                      placeholder: "마감기한 설정",
+                      id: "example-datepicker"
+                    },
+                    model: {
+                      value: _vm.editAuditionData.date,
+                      callback: function($$v) {
+                        _vm.$set(_vm.editAuditionData, "date", $$v)
+                      },
+                      expression: "editAuditionData.date"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "select_item" }, [
+                _c(
+                  "div",
+                  [
+                    _c("b-form-select", {
+                      attrs: { options: _vm.options },
+                      model: {
+                        value: _vm.editAuditionData.selected,
+                        callback: function($$v) {
+                          _vm.$set(_vm.editAuditionData, "selected", $$v)
+                        },
+                        expression: "editAuditionData.selected"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("label", { staticStyle: { "margin-left": "20px" } }, [
+                _vm._v("템플릿 선택: ")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "select_item" }, [
+                _c("input", {
+                  ref: "editAuditionImage",
+                  staticClass: "form-control ",
+                  attrs: { type: "file", id: "image" },
+                  on: { change: _vm.editAttachImage }
+                })
+              ]),
+              _vm._v(" "),
+              _c("label", [_vm._v("영상과제: ")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "select_item" },
+                [
+                  _c("b-form-input", {
+                    attrs: { id: "video", placeholder: "링크를 삽입해주세요" },
+                    model: {
+                      value: _vm.editAuditionData.video,
+                      callback: function($$v) {
+                        _vm.$set(_vm.editAuditionData, "video", $$v)
+                      },
+                      expression: "editAuditionData.video"
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _vm.state
+                ? _c("img", {
+                    ref: "editAuditionImageDisplay",
+                    staticClass: "w-150px",
+                    attrs: {
+                      src:
+                        _vm.$store.state.serverPath +
+                        "/storage/" +
+                        _vm.editAuditionData.image
+                    }
+                  })
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("b-form-textarea", {
+              attrs: {
+                id: "textarea-rows",
+                placeholder: "내용을 입력해주세요",
+                rows: "22"
+              },
+              model: {
+                value: _vm.editAuditionData.content,
+                callback: function($$v) {
+                  _vm.$set(_vm.editAuditionData, "content", $$v)
+                },
+                expression: "editAuditionData.content"
+              }
+            }),
+            _vm._v(" "),
+            _c("b-button", { attrs: { type: "submit", variant: "primary" } }, [
+              _vm._v("수정완료")
+            ]),
+            _vm._v(" "),
+            _c(
+              "b-button",
+              { attrs: { variant: "danger" }, on: { click: _vm.cancle } },
+              [_vm._v("취소")]
             )
-          ]),
-          _vm._v(" "),
-          _c("label", { staticStyle: { "margin-left": "20px" } }, [
-            _vm._v("템플릿 선택: ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "select_item" }, [
-            _c("input", {
-              ref: "newAuditionImage",
-              staticClass: "form-control ",
-              attrs: { type: "file", id: "image" },
-              on: { change: _vm.attachImage }
-            })
-          ]),
-          _vm._v(" "),
-          _c("label", [_vm._v("영상과제: ")]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "select_item" },
-            [
-              _c("b-form-input", {
-                attrs: { id: "video", placeholder: "링크를 삽입해주세요" },
-                model: {
-                  value: _vm.auditionData.video,
-                  callback: function($$v) {
-                    _vm.$set(_vm.auditionData, "video", $$v)
-                  },
-                  expression: "auditionData.video"
-                }
-              })
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _vm.auditionData.image.name
-          ? _c("div", [
-              _c("img", {
-                ref: "newAuditionImageDisplay",
-                staticClass: "w-150px",
-                attrs: { src: "" }
-              })
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c("b-form-textarea", {
-          attrs: {
-            id: "textarea-rows",
-            placeholder: "내용을 입력해주세요",
-            rows: "22"
-          },
-          model: {
-            value: _vm.auditionData.context,
-            callback: function($$v) {
-              _vm.$set(_vm.auditionData, "context", $$v)
-            },
-            expression: "auditionData.context"
-          }
-        }),
-        _vm._v(" "),
-        _c("b-button", { attrs: { type: "submit", variant: "primary" } }, [
-          _vm._v("저장")
-        ]),
-        _vm._v(" "),
-        _c(
-          "b-button",
-          { attrs: { variant: "danger" }, on: { click: _vm.cancle } },
-          [_vm._v("취소")]
+          ],
+          1
         )
-      ],
-      1
-    )
+      : _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.createAudition($event)
+              }
+            }
+          },
+          [
+            _c(
+              "div",
+              { attrs: { id: "form_header" } },
+              [
+                _c("b-form-input", {
+                  attrs: { id: "title", placeholder: "제목을 입력해주세요" },
+                  model: {
+                    value: _vm.auditionData.title,
+                    callback: function($$v) {
+                      _vm.$set(_vm.auditionData, "title", $$v)
+                    },
+                    expression: "auditionData.title"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { attrs: { id: "selct_area" } }, [
+              _c(
+                "div",
+                { staticClass: "select_item" },
+                [
+                  _c("b-form-datepicker", {
+                    staticClass: "mb-2",
+                    attrs: {
+                      placeholder: "마감기한 설정",
+                      id: "example-datepicker"
+                    },
+                    model: {
+                      value: _vm.auditionData.date,
+                      callback: function($$v) {
+                        _vm.$set(_vm.auditionData, "date", $$v)
+                      },
+                      expression: "auditionData.date"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "select_item" }, [
+                _c(
+                  "div",
+                  [
+                    _c("b-form-select", {
+                      attrs: { options: _vm.options },
+                      model: {
+                        value: _vm.auditionData.selected,
+                        callback: function($$v) {
+                          _vm.$set(_vm.auditionData, "selected", $$v)
+                        },
+                        expression: "auditionData.selected"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("label", { staticStyle: { "margin-left": "20px" } }, [
+                _vm._v("템플릿 선택: ")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "select_item" }, [
+                _c("input", {
+                  ref: "newAuditionImage",
+                  staticClass: "form-control ",
+                  attrs: { type: "file", id: "image" },
+                  on: { change: _vm.attachImage }
+                })
+              ]),
+              _vm._v(" "),
+              _c("label", [_vm._v("영상과제: ")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "select_item" },
+                [
+                  _c("b-form-input", {
+                    attrs: { id: "video", placeholder: "링크를 삽입해주세요" },
+                    model: {
+                      value: _vm.auditionData.video,
+                      callback: function($$v) {
+                        _vm.$set(_vm.auditionData, "video", $$v)
+                      },
+                      expression: "auditionData.video"
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _vm.auditionData.image.name
+              ? _c("div", [
+                  _c("img", {
+                    ref: "newAuditionImageDisplay",
+                    staticClass: "w-150px",
+                    attrs: { src: "" }
+                  })
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("b-form-textarea", {
+              attrs: {
+                id: "textarea-rows",
+                placeholder: "내용을 입력해주세요",
+                rows: "22"
+              },
+              model: {
+                value: _vm.auditionData.content,
+                callback: function($$v) {
+                  _vm.$set(_vm.auditionData, "content", $$v)
+                },
+                expression: "auditionData.content"
+              }
+            }),
+            _vm._v(" "),
+            _c("b-button", { attrs: { type: "submit", variant: "primary" } }, [
+              _vm._v("저장")
+            ]),
+            _vm._v(" "),
+            _c(
+              "b-button",
+              { attrs: { variant: "danger" }, on: { click: _vm.cancle } },
+              [_vm._v("취소")]
+            )
+          ],
+          1
+        )
   ])
 }
 var staticRenderFns = []
@@ -459,7 +763,7 @@ render._withStripped = true
 /*!***************************************************!*\
   !*** ./resources/js/services/audition_service.js ***!
   \***************************************************/
-/*! exports provided: createAudition, loadAudition, loadDetailAudition, deleteAudition */
+/*! exports provided: createAudition, loadAudition, loadDetailAudition, deleteAudition, updateAudition */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -468,6 +772,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadAudition", function() { return loadAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDetailAudition", function() { return loadDetailAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteAudition", function() { return deleteAudition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateAudition", function() { return updateAudition; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
  // 오디션 생성
 
@@ -487,6 +792,10 @@ function loadDetailAudition(data) {
 
 function deleteAudition(id) {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])()["delete"]("audition/".concat(id));
+} // 오디션 업데이트하기
+
+function updateAudition(id, data) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["httpFile"])().post("audition/".concat(id), data);
 }
 
 /***/ }),

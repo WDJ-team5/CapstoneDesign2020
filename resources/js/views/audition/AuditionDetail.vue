@@ -5,7 +5,7 @@
         <div class="content-detail-content-info-left">
           <!-- 제목태그 -->
           <div style="margin-left:200px" class="content-detail-content-info-left-subject">
-            <h1>{{audition.title}}</h1>
+            <h1>{{auditions.title}}</h1>
           </div>
           <div style="margin-left:200px">
             <b-button variant="primary">
@@ -21,7 +21,7 @@
       <!-- 글 본문 태그 -->
       <div class="content-detail-content">
         <div>
-          <img id="sub_image" v-if="state" :src="`${$store.state.serverPath}/storage/${audition.image}`" :alt="audition.title">
+          <img id="sub_image" v-if="state" :src="`${$store.state.serverPath}/storage/${auditions.image}`" :alt="auditions.title">
           <div id="text_area">
             <h1>영상과제</h1>
             <!-- <b-embed
@@ -36,8 +36,8 @@
       </div>
 
       <div class="content-detail-button">
-        <b-button variant="primary">수정</b-button>
-        <b-button variant="danger" v-on:click="deleteAudition(audition)">삭제</b-button>
+        <b-button variant="primary" v-on:click="editAudition(auditions)">수정</b-button>
+        <b-button variant="danger" v-on:click="deleteAudition(auditions)">삭제</b-button>
       </div>
     </b-card>
   </div>
@@ -57,11 +57,11 @@ export default {
     // 현재 게시글에 해당하는 데이터를 가져옴
     
     return {
-      audition:[],
+      auditions:[],
       auditionData:{
                 id:'',
                 title:'',
-                context: '',
+                content: '',
                 userId: 1,
                 date:'',
                 image:'',
@@ -84,7 +84,7 @@ export default {
     loadDetailAudition: async function(){
             try{
                 const response=await auditionService.loadDetailAudition(this.cid);
-                this.audition=response.data;
+                this.auditions=response.data;
                 this.state=true;
               
             }catch(error){
@@ -94,12 +94,12 @@ export default {
                 });
             }
         },
-        deleteAudition: async function(audition){
-          if(!window.confirm(`삭제할거에요? ${audition.title}`)){
+        deleteAudition: async function(auditions){
+          if(!window.confirm(`삭제할거에요? ${auditions.title}`)){
             return;
           }
           try{
-            await auditionService.deleteAudition(audition.id);
+            await auditionService.deleteAudition(auditions.id);
             // this.audition=this.audition.filter(obj=>{
             //   return obj.id != audition.id;
             // });
@@ -114,6 +114,11 @@ export default {
                 time:5000
               });
           }
+        },
+        editAudition(auditions){
+          this.$router.push({
+                path: `/auditioncreate/${auditions.id}`
+            })
         }
 
     // 삭제를 수행하는 함수

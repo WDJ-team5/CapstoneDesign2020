@@ -72,11 +72,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     // 현재 게시글에 해당하는 데이터를 가져옴
 
     return {
-      audition: [],
+      auditions: [],
       auditionData: {
         id: '',
         title: '',
-        context: '',
+        content: '',
         userId: 1,
         date: '',
         image: '',
@@ -105,7 +105,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 response = _context.sent;
-                this.audition = response.data;
+                this.auditions = response.data;
                 this.state = true;
                 _context.next = 11;
                 break;
@@ -133,12 +133,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return loadDetailAudition;
     }(),
     deleteAudition: function () {
-      var _deleteAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(audition) {
+      var _deleteAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(auditions) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (window.confirm("\uC0AD\uC81C\uD560\uAC70\uC5D0\uC694? ".concat(audition.title))) {
+                if (window.confirm("\uC0AD\uC81C\uD560\uAC70\uC5D0\uC694? ".concat(auditions.title))) {
                   _context2.next = 2;
                   break;
                 }
@@ -148,7 +148,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 _context2.prev = 2;
                 _context2.next = 5;
-                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["deleteAudition"](audition.id);
+                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["deleteAudition"](auditions.id);
 
               case 5:
                 // this.audition=this.audition.filter(obj=>{
@@ -183,7 +183,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return deleteAudition;
-    }() // 삭제를 수행하는 함수
+    }(),
+    editAudition: function editAudition(auditions) {
+      this.$router.push({
+        path: "/auditioncreate/".concat(auditions.id)
+      });
+    } // 삭제를 수행하는 함수
     // deleteData() {
     //   const content_index = data.Content.findIndex(item => item.content_id === this.contentId);
     //   // findIndex: 조건이 만족할 경우 index를 반환해줌
@@ -282,7 +287,7 @@ var render = function() {
                 staticClass: "content-detail-content-info-left-subject",
                 staticStyle: { "margin-left": "200px" }
               },
-              [_c("h1", [_vm._v(_vm._s(_vm.audition.title))])]
+              [_c("h1", [_vm._v(_vm._s(_vm.auditions.title))])]
             ),
             _vm._v(" "),
             _c(
@@ -319,8 +324,8 @@ var render = function() {
                     src:
                       _vm.$store.state.serverPath +
                       "/storage/" +
-                      _vm.audition.image,
-                    alt: _vm.audition.title
+                      _vm.auditions.image,
+                    alt: _vm.auditions.title
                   }
                 })
               : _vm._e(),
@@ -335,7 +340,18 @@ var render = function() {
           "div",
           { staticClass: "content-detail-button" },
           [
-            _c("b-button", { attrs: { variant: "primary" } }, [_vm._v("수정")]),
+            _c(
+              "b-button",
+              {
+                attrs: { variant: "primary" },
+                on: {
+                  click: function($event) {
+                    return _vm.editAudition(_vm.auditions)
+                  }
+                }
+              },
+              [_vm._v("수정")]
+            ),
             _vm._v(" "),
             _c(
               "b-button",
@@ -343,7 +359,7 @@ var render = function() {
                 attrs: { variant: "danger" },
                 on: {
                   click: function($event) {
-                    return _vm.deleteAudition(_vm.audition)
+                    return _vm.deleteAudition(_vm.auditions)
                   }
                 }
               },
@@ -368,7 +384,7 @@ render._withStripped = true
 /*!***************************************************!*\
   !*** ./resources/js/services/audition_service.js ***!
   \***************************************************/
-/*! exports provided: createAudition, loadAudition, loadDetailAudition, deleteAudition */
+/*! exports provided: createAudition, loadAudition, loadDetailAudition, deleteAudition, updateAudition */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -377,6 +393,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadAudition", function() { return loadAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDetailAudition", function() { return loadDetailAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteAudition", function() { return deleteAudition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateAudition", function() { return updateAudition; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
  // 오디션 생성
 
@@ -396,6 +413,10 @@ function loadDetailAudition(data) {
 
 function deleteAudition(id) {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])()["delete"]("audition/".concat(id));
+} // 오디션 업데이트하기
+
+function updateAudition(id, data) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["httpFile"])().post("audition/".concat(id), data);
 }
 
 /***/ }),

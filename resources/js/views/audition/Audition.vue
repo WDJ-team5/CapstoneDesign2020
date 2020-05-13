@@ -68,7 +68,7 @@ export default {
             auditionData:{
                 id:'',
                 title:'',
-                context: '',
+                content: '',
                 userId: 1,
                 date:'',
                 image:'',

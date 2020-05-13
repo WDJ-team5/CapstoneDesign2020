@@ -21,3 +21,9 @@ export function loadDetailAudition(data) {
 export function deleteAudition(id){
     return http().delete(`audition/${id}`);
 }
+
+// 오디션 업데이트하기
+export function updateAudition(id,data){
+    return httpFile().post(`audition/${id}`,data);
+}
+
