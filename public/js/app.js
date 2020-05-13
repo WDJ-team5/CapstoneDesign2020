@@ -2314,6 +2314,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -68599,6 +68600,19 @@ var render = function() {
                   _vm._v(" "),
                   _c("span", [_vm._v("내 피드백 활동")])
                 ]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "nav-link",
+                  attrs: { to: "/mypage/profile", exact: "" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("마이페이지")])
+                ]
               )
             ],
             1
@@ -85350,7 +85364,7 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
+    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
   }
 }, {
   path: '/userlist',
@@ -85432,6 +85446,44 @@ var routes = [{
   component: function component() {
     return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));
   }
+}, // 마이페이지
+{
+  path: '/mypage',
+  name: 'mypage',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
+  },
+  children: [{
+    path: 'profile',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
+    }
+  }, {
+    path: 'lecture',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
+    }
+  }, {
+    path: 'apply',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
+    }
+  }, {
+    path: 'companyinfo',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
+    }
+  }, {
+    path: 'auditionlist',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
+    }
+  }, {
+    path: 'profileedit',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
+    }
+  }]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes

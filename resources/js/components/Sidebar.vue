@@ -34,6 +34,11 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>내 피드백 활동</span>
           </router-link>
+
+          <router-link to="/mypage/profile" class="nav-link" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>마이페이지</span>
+          </router-link>
           
         </div>
       </div>

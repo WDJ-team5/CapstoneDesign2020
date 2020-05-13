@@ -83,7 +83,41 @@ const routes=[
         path:'/advice/detail/:contentId',
         name:'AdviceDetail',
         component:()=>import('./views/Advice/AdviceDetail.vue')
-    }
+    },
+
+    // 마이페이지
+    {
+        path: '/mypage',
+        name: 'mypage',
+        component:()=>import('./views/mypage/Mypage.vue'),
+        
+        children: [
+            {
+                path: 'profile',
+                component:()=>import('./views/mypage/Profile.vue')
+            },
+            {
+                path: 'lecture',
+                component:()=>import('./views/mypage/Lecture.vue')
+            },
+            {
+                path: 'apply',
+                component:()=>import('./views/mypage/Apply.vue')
+            },
+            {
+                path: 'companyinfo',
+                component:()=>import('./views/mypage/CompanyInfo.vue')
+            },
+            {
+                path: 'auditionlist',
+                component:()=>import('./views/mypage/AuditionList.vue')
+            },
+            {
+                path: 'profileedit',
+                component:()=>import('./views/mypage/ProfileEdit.vue')
+            }
+        ]
+    },
 ]
 
 const router=new Router({
