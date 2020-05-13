@@ -223,8 +223,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -314,7 +312,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nh1[data-v-952fb620] {\n    font-size: 1.5rem;\n    font-weight: bold;\n    margin : 20px 20px 20px 20px;\n}\n.expert[data-v-952fb620] {\n  display: block;\n  width: 100%;\n  height: auto;\n  margin-bottom:30px;\n}\n.expert-set[data-v-952fb620]{\n  margin-bottom: 50px;\n}\n.expert-imgList[data-v-952fb620] {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n}\n.expert-profile[data-v-952fb620] {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n}\n\n", ""]);
+exports.push([module.i, "\n.expert[data-v-952fb620] {\n  display: block;\n  width: 100%;\n  height: auto;\n  margin-bottom:30px;\n}\n.expert-set[data-v-952fb620]{\n  margin-bottom: 50px;\n}\n.expert-imgList[data-v-952fb620] {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n}\n.expert-profile[data-v-952fb620] {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n}\n\n", ""]);
 
 // exports
 
@@ -601,8 +599,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "expert" }, [
-    _c("h1", [_vm._v("피드백 전문가")]),
-    _vm._v(" "),
     _c("div", { staticClass: "expert-set" }, [
       _c(
         "div",

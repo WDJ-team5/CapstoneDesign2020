@@ -138,7 +138,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return loadAudition;
     }(),
-    // 오디션 클릭시
+    // 오디션 클릭시    
     rowClick: function rowClick(audition, index, e) {
       this.$router.push({
         path: "/auditiondetail/".concat(audition.id)
@@ -167,7 +167,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.hovereffect:hover img {\n    opacity: 0.6;\n    filter: alpha(opacity=60);\n    transform: translate3d(0,0,0);\n}\n.hovereffect:hover .overlay:before {\n    opacity: 1;\n    filter: alpha(opacity=100);\n    transform: translate3d(0,0,0);\n}\n#container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    margin-bottom: 70px;\n}\n#audition-all {\n    width: 1100px;\n    display: inline-block;\n    margin-top:40px;\n    padding:0;\n}\n#audition-set {\n    width: 250px;\n    height: 370px;\n    float: left;\n    color: black;\n    background-color: white;\n    border: 1px solid #ced4da;\n    padding: 0 0 0 0;\n    margin-left: 20px;\n    margin-top: 60px;\n    border-radius:5px;\n}\n.card-image-box {\n    width: 250px;\n    height: 260px;\n}\n.card-image-box > img {\n    width: 100%;\n    height:100%;\n}\n.audition-info {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.audition-title {\n    font-size:25px;\n    font-weight:100;\n}\n.audition-add-btn {\n    margin-top:60px;\n    width:200px;\n    height:60px;\n    margin-top:50px;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.hovereffect:hover img {\n    opacity: 0.6;\n    filter: alpha(opacity=60);\n    transform: translate3d(0,0,0);\n}\n.hovereffect:hover .overlay:before {\n    opacity: 1;\n    filter: alpha(opacity=100);\n    transform: translate3d(0,0,0);\n}\n#container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    margin-bottom: 70px;\n}\n#audition-all {\n    width: 1100px;\n    display: inline-block;\n    margin-top:40px;\n    padding:0;\n}\n#audition-set {\n    width: 250px;\n    height: 370px;\n    float: left;\n    color: black;\n    background-color: white;\n    border: 1px solid #ced4da;\n    padding: 0 0 0 0;\n    margin-left: 20px;\n    margin-top: 60px;\n    border-radius:5px;\n}\n.audition-image-box {\n    width: 250px;\n    height: 260px;\n}\n.audition-image-box > img {\n    width: 100%;\n    height:100%;\n}\n.audition-info {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.audition-title {\n    font-size:25px;\n    font-weight:100;\n}\n.audition-add-btn {\n    margin-top:60px;\n    width:200px;\n    height:60px;\n    margin-top:50px;\n}\n\n\n", ""]);
 
 // exports
 
@@ -243,7 +243,7 @@ var render = function() {
                   }
                 },
                 [
-                  _c("div", { staticClass: "hovereffect card-image-box" }, [
+                  _c("div", { staticClass: "hovereffect audition-image-box" }, [
                     _c("img", {
                       attrs: {
                         id: "card-image",
