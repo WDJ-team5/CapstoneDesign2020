@@ -41,13 +41,15 @@ class AuditionController extends Controller
             // 'title'=>'required|min:6',
             // 'context'=>'required|min:10',
             'image' => 'required|image|mimes:jpeg,png,jpg'
-
         ]);
         
         $audition=new \App\Audition();
 
         // 제목 저장
         $audition->title=$request->title;
+
+        // 본문 저장
+        $audition->content=$request->content;
 
         // 이미지 파일 경로설정
         $path=$request->file('image')->store('auditon_image');
@@ -101,9 +103,33 @@ class AuditionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Audition $audition)
     {
-        //
+        
+        $audition->title=$request->title;
+        $audition->content=$request->content;
+        $oldPath=$audition->image;
+
+        if($request->hasFile('image')){
+            $path=$request->file('image')->store('auditon_image');
+            $audition->image=$path;
+
+            Storage::delete($oldPath);
+        }else{
+            $audition->image=$oldPath;
+
+        }
+
+        
+        if($audition->save()){
+            return response()->json($audition,200);
+        }else{
+            Storage::delete($path);
+            return response()->json([
+                'message'=>'문제가 발생했습니다',
+                'status_code'=>500
+            ],500);
+        }
     }
 
     /**

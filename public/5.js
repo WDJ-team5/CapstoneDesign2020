@@ -68,9 +68,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   name: 'AuditionCreate',
   data: function data() {
     return {
+<<<<<<< HEAD
+=======
+      auditions: [],
+>>>>>>> d58a464ff40f8784410eb2e39325d61fefe9e148
       auditionData: {
         title: '',
-        context: '',
+        content: '',
         userId: 1,
         date: '',
         image: '',
@@ -149,7 +153,60 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 9:
                 response = _context.sent;
+<<<<<<< HEAD
                 console.log(response);
+=======
+                this.auditions = response.data;
+                this.state = true;
+                _context.next = 11;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](0);
+                this.flashMessage.error({
+                  message: 'ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ',
+                  time: 5000
+                });
+
+              case 11:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 8]]);
+      }));
+
+      function loadDetailAudition() {
+        return _loadDetailAudition.apply(this, arguments);
+      }
+
+      return loadDetailAudition;
+    }(),
+    deleteAudition: function () {
+      var _deleteAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(auditions) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (window.confirm("\uC0AD\uC81C\uD560\uAC70\uC5D0\uC694? ".concat(auditions.title))) {
+                  _context2.next = 2;
+                  break;
+                }
+
+                return _context2.abrupt("return");
+
+              case 2:
+                _context2.prev = 2;
+                _context2.next = 5;
+                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["deleteAudition"](auditions.id);
+
+              case 5:
+                // this.audition=this.audition.filter(obj=>{
+                //   return obj.id != audition.id;
+                // });
+                history.back();
+>>>>>>> d58a464ff40f8784410eb2e39325d61fefe9e148
                 this.flashMessage.success({
                   message: '성공했다 !!!!!!!',
                   time: 5000
@@ -188,6 +245,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return _createAudition.apply(this, arguments);
       }
 
+<<<<<<< HEAD
       return createAudition;
     }(),
     // 저장 시
@@ -220,6 +278,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     //     this.$router.push({
     //         path:'/board/free'
     //     })
+=======
+      return deleteAudition;
+    }(),
+    editAudition: function editAudition(auditions) {
+      this.$router.push({
+        path: "/auditioncreate/".concat(auditions.id)
+      });
+    } // 삭제를 수행하는 함수
+    // deleteData() {
+    //   const content_index = data.Content.findIndex(item => item.content_id === this.contentId);
+    //   // findIndex: 조건이 만족할 경우 index를 반환해줌
+    //   data.Content.splice(content_index, 1)
+    //   // 데이터 삭제 수행
+    //   this.$router.push({
+    //     path: '/board/free'
+    //   })
+>>>>>>> d58a464ff40f8784410eb2e39325d61fefe9e148
     // },
     // uploadImage(e){
     //     let file=e.target.files;
@@ -303,6 +378,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+<<<<<<< HEAD
   return _c("div", { attrs: { id: "form_input" } }, [
     _c(
       "form",
@@ -357,6 +433,24 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "select_item" }, [
+=======
+  return _c(
+    "div",
+    { attrs: { id: "content" } },
+    [
+      _c("b-card", [
+        _c("div", { staticClass: "content-detail-content-info" }, [
+          _c("div", { staticClass: "content-detail-content-info-left" }, [
+            _c(
+              "div",
+              {
+                staticClass: "content-detail-content-info-left-subject",
+                staticStyle: { "margin-left": "200px" }
+              },
+              [_c("h1", [_vm._v(_vm._s(_vm.auditions.title))])]
+            ),
+            _vm._v(" "),
+>>>>>>> d58a464ff40f8784410eb2e39325d61fefe9e148
             _c(
               "div",
               [
@@ -409,6 +503,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
+<<<<<<< HEAD
         _vm.auditionData.image.name
           ? _c("div", [
               _c("img", {
@@ -416,6 +511,25 @@ var render = function() {
                 staticClass: "w-150px",
                 attrs: { src: "" }
               })
+=======
+        _c("div", { staticClass: "content-detail-content" }, [
+          _c("div", [
+            _vm.state
+              ? _c("img", {
+                  attrs: {
+                    id: "sub_image",
+                    src:
+                      _vm.$store.state.serverPath +
+                      "/storage/" +
+                      _vm.auditions.image,
+                    alt: _vm.auditions.title
+                  }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { attrs: { id: "text_area" } }, [
+              _c("h1", [_vm._v("영상과제")])
+>>>>>>> d58a464ff40f8784410eb2e39325d61fefe9e148
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -439,9 +553,42 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c(
+<<<<<<< HEAD
           "b-button",
           { attrs: { variant: "danger" }, on: { click: _vm.cancle } },
           [_vm._v("취소")]
+=======
+          "div",
+          { staticClass: "content-detail-button" },
+          [
+            _c(
+              "b-button",
+              {
+                attrs: { variant: "primary" },
+                on: {
+                  click: function($event) {
+                    return _vm.editAudition(_vm.auditions)
+                  }
+                }
+              },
+              [_vm._v("수정")]
+            ),
+            _vm._v(" "),
+            _c(
+              "b-button",
+              {
+                attrs: { variant: "danger" },
+                on: {
+                  click: function($event) {
+                    return _vm.deleteAudition(_vm.auditions)
+                  }
+                }
+              },
+              [_vm._v("삭제")]
+            )
+          ],
+          1
+>>>>>>> d58a464ff40f8784410eb2e39325d61fefe9e148
         )
       ],
       1
@@ -459,7 +606,7 @@ render._withStripped = true
 /*!***************************************************!*\
   !*** ./resources/js/services/audition_service.js ***!
   \***************************************************/
-/*! exports provided: createAudition, loadAudition, loadDetailAudition, deleteAudition */
+/*! exports provided: createAudition, loadAudition, loadDetailAudition, deleteAudition, updateAudition */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -468,6 +615,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadAudition", function() { return loadAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDetailAudition", function() { return loadDetailAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteAudition", function() { return deleteAudition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateAudition", function() { return updateAudition; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
  // 오디션 생성
 
@@ -487,6 +635,10 @@ function loadDetailAudition(data) {
 
 function deleteAudition(id) {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])()["delete"]("audition/".concat(id));
+} // 오디션 업데이트하기
+
+function updateAudition(id, data) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["httpFile"])().post("audition/".concat(id), data);
 }
 
 /***/ }),

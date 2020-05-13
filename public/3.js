@@ -61,6 +61,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     });
     return {
+<<<<<<< HEAD
       currentPage: 1,
       perPage: 10,
       // bootstrap b-table 필드 
@@ -78,10 +79,89 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         label: "답변"
       }],
       items: items
+=======
+      // 게시글의 보여주고싶은 필드 보이도록 설정
+      // fields:[
+      //     {
+      //         key:'content_id',
+      //         label:'글번호'
+      //     },
+      //     {
+      //         key:'title',
+      //         label:'제목'
+      //     },
+      //     {
+      //         key:'created_at',
+      //         label:'작성일'
+      //     },
+      //     {
+      //         key:'user_name',
+      //         label:'글쓴이' 
+      //     }
+      // ],
+      auditions: [],
+      auditionData: {
+        id: '',
+        title: '',
+        content: '',
+        userId: 1,
+        date: '',
+        image: '',
+        selected: '',
+        video: ''
+      },
+      errors: {}
+>>>>>>> d58a464ff40f8784410eb2e39325d61fefe9e148
     };
   },
   methods: {
+<<<<<<< HEAD
     rowClick: function rowClick(item, index, e) {
+=======
+    loadAudition: function () {
+      var _loadAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["loadAudition"]();
+
+              case 3:
+                response = _context.sent;
+                this.auditions.unshift(response.data);
+                this.auditions = response.data.data;
+                console.log(this.auditions);
+                _context.next = 12;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](0);
+                this.flashMessage.error({
+                  message: '에러가 발생했습니다!',
+                  time: 5000
+                });
+
+              case 12:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 9]]);
+      }));
+
+      function loadAudition() {
+        return _loadAudition.apply(this, arguments);
+      }
+
+      return loadAudition;
+    }(),
+    // 오디션 클릭시
+    rowClick: function rowClick(audition, index, e) {
+>>>>>>> d58a464ff40f8784410eb2e39325d61fefe9e148
       this.$router.push({
         path: "/advice/detail/".concat(item.content_id)
       });
@@ -237,7 +317,52 @@ render._withStripped = true
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/js/views/Advice/AdviceList.vue":
+=======
+/***/ "./resources/js/services/audition_service.js":
+/*!***************************************************!*\
+  !*** ./resources/js/services/audition_service.js ***!
+  \***************************************************/
+/*! exports provided: createAudition, loadAudition, loadDetailAudition, deleteAudition, updateAudition */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAudition", function() { return createAudition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadAudition", function() { return loadAudition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadDetailAudition", function() { return loadDetailAudition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteAudition", function() { return deleteAudition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateAudition", function() { return updateAudition; });
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
+ // 오디션 생성
+
+function createAudition(data) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["httpFile"])().post('/audition', data);
+} // 오디션 리스트 로드
+
+function loadAudition() {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/audition');
+} // 오디션 상세보기 로드
+
+function loadDetailAudition(data) {
+  var anything = "/audition/" + data;
+  console.log(anything);
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get(anything);
+} // 오디션 삭제하기
+
+function deleteAudition(id) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])()["delete"]("audition/".concat(id));
+} // 오디션 업데이트하기
+
+function updateAudition(id, data) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["httpFile"])().post("audition/".concat(id), data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/views/audition/Audition.vue":
+>>>>>>> d58a464ff40f8784410eb2e39325d61fefe9e148
 /*!**************************************************!*\
   !*** ./resources/js/views/Advice/AdviceList.vue ***!
   \**************************************************/
