@@ -15,9 +15,9 @@ class Lecture extends Model
         'level_id',
     ];
 
-    public function users()
+    public function lectureUsers()
     {
-        return $this->belongsToMany('App\User');
+        return $this->hasMany('App\LectureUser');
     }
 
     public function genre()

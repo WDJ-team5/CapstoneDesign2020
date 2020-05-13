@@ -1,8 +1,6 @@
 <template>
   <div class="expert">
 
-    <h1>피드백 전문가</h1>
-
     <div class="expert-set">
       <div id="container" class="expert-imgList kpop">
         <ExpertItem v-on:active="active1" />
@@ -91,12 +89,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-  h1 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin : 20px 20px 20px 20px;
-    }
 
   .expert {
     display: block;

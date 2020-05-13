@@ -6,7 +6,7 @@
         <b-list-group id="audition-all" >
 
             <b-list-group-item  id="audition-set" href="#" active class="flex-column align-items-start" @click="rowClick(audition)" v-for="(audition,index) in auditions" :key="index">
-                <div class="hovereffect card-image-box">
+                <div class="hovereffect audition-image-box">
                     <!-- <img id="card-image" :src="audition.image"> -->
                     <img id="card-image" :src="`${$store.state.serverPath}/storage/${audition.image}`" :alt="audition.title">
                 </div>
@@ -99,7 +99,7 @@ export default {
             }
         },
 
-        // 오디션 클릭시
+        // 오디션 클릭시    
         rowClick(audition, index, e) {
             this.$router.push({
                 path: `/auditiondetail/${audition.id}`
@@ -159,12 +159,12 @@ export default {
         border-radius:5px;
     }
 
-    .card-image-box {
+    .audition-image-box {
         width: 250px;
         height: 260px;
     }
 
-    .card-image-box > img {
+    .audition-image-box > img {
         width: 100%;
         height:100%;
     }

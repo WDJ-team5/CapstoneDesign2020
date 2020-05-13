@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>내 피드백 활동</h1>
     <b-table striped hover :items="items" :per-page="perPage" :current-page="currentPage" :fields="fields"
       @row-clicked="rowClick">
       
@@ -94,12 +93,5 @@ export default {
 
 
 <style scoped>
-
-  h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin : 20px 20px 20px 20px;
-  }
-
 
 </style>>

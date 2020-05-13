@@ -28,11 +28,15 @@ class User extends Authenticatable
 
     protected $hidden = [
         'password',
+        'last_login',
+        'confirm_code',
     ];
 
     protected $casts = [
         'gender' => 'boolean',
     ];
+
+    protected $dates = ['last_login'];
 
     public function rank()
     {
@@ -59,14 +63,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Resume');
     }
 
-    public function lectures()
+    public function lectureUsers()
     {
-        return $this->belongsToMany('App\lectures');
+        return $this->hasMany('App\LectureUser');
     }
 
-    public function contests()
+    public function contestUsers()
     {
-        return $this->belongsToMany('App\Contest');
+        return $this->hasMany('App\ContestUser');
     }
 
     // public function articles()

@@ -4,3 +4,9 @@ import{http,httpFile} from './http_service';
 export function loadLecture() {
     return http().get('/lecture');
 }
+
+// 댄스강좌 하나 로드
+export function loadLectureData(data){
+    let anything = "/lecture/"+data;
+    return http().get(anything);
+}
