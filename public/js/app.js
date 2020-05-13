@@ -2427,6 +2427,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -68895,6 +68896,19 @@ var render = function() {
                   _vm._v(" "),
                   _c("span", [_vm._v("내 피드백 활동")])
                 ]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "nav-link",
+                  attrs: { to: "/mypage/profile", exact: "" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("마이페이지")])
+                ]
               )
             ],
             1
@@ -85694,10 +85708,14 @@ var routes = [{
   name: 'categories',
   component: function component() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
 =======
     return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
 >>>>>>> 60ece09e2185a40f575c218a385924dc1d170f2d
+=======
+    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
+>>>>>>> ahn
   }
 }, {
   path: '/userlist',
@@ -85832,6 +85850,44 @@ var routes = [{
 >>>>>>> 60ece09e2185a40f575c218a385924dc1d170f2d
 >>>>>>> d58a464ff40f8784410eb2e39325d61fefe9e148
   }
+}, // 마이페이지
+{
+  path: '/mypage',
+  name: 'mypage',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
+  },
+  children: [{
+    path: 'profile',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
+    }
+  }, {
+    path: 'lecture',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
+    }
+  }, {
+    path: 'apply',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
+    }
+  }, {
+    path: 'companyinfo',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
+    }
+  }, {
+    path: 'auditionlist',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
+    }
+  }, {
+    path: 'profileedit',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
+    }
+  }]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes
