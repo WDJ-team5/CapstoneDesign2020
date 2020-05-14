@@ -87,6 +87,12 @@
             <span>오디션</span>
           </router-link>
         </li>
+        <li>
+          <router-link to="/mypage/profile" class="NavLink" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>마이페이지</span>
+          </router-link>
+        </li>
       </ul>
     </nav>
 
@@ -235,6 +241,14 @@ export default {
     .NavLink {
       display: flex;
       padding: 0.5rem 1rem;
+      font-weight: 700;
+      font-size: 2vh;
+    }
+    
+    .NavLink:hover {
+      color: #f86941;
+      text-decoration: none;
+      transition:all 0.5s ease;
     }
 
 

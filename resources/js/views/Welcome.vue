@@ -6,14 +6,18 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <agile class="main" ref="main" :options="options1" :as-nav-for="asNavFor1">
-                            <div class="slide" v-for="(slide, index) in slides" :key="index" :class="`slide--${index}`"><img :src="slide" /></div>
+                            <div class="slide slide_main" v-for="(slide, index) in slides" :key="index" :class="`slide--${index}`">
+                                <a href="#">
+                                    <img :src="slide" />
+                                </a>
+                            </div>
                         </agile>
                     </div>
                     <div class="col-xs-12">
                         <agile class="thumbnails" ref="thumbnails" :options="options2" :as-nav-for="asNavFor2">
-                          <div class="slide slide--thumbniail" v-for="(slide, index) in slides" :key="index" :class="`slide--${index}`" @click="$refs.thumbnails.goTo(index)">
-                            <img :src="slide" />
-                          </div>
+                            <div class="slide slide--thumbniail" v-for="(slide, index) in slides" :key="index" :class="`slide--${index}`" @click="$refs.thumbnails.goTo(index)">
+                                <img :src="slide" />
+                            </div>
                               <template slot="prevButton">
                                 <i class="fas fa-angle-left"> &lt; </i>
                               </template>
@@ -188,6 +192,12 @@ div > a > img {
 }
 #popularMain {
     width: 65vw;
+    overflow: hidden;
+}
+#popularMain > a > img:hover {
+    transition: .3s;
+    opacity: 0.75;
+    transform: scale(1.5);
 }
 #popularSub {
     width: 35vw;
@@ -199,11 +209,25 @@ div > a > img {
 .popular-sub-child {
     width: 100%;
     height: 100%;
+    overflow: hidden;
+}
+.popular-sub-child > a > img:hover {
+    transition: .3s;
+    opacity: 0.75;
+    transform: scale(1.5);
 }
 .home_list {
     width: 100%;
     display: flex;
     flex-direction: row;
+}
+.home_list > a {
+    overflow: hidden;
+}
+.home_list > a > img:hover {
+    opacity: 0.75;
+    transform: scale(1.5);
+    transition: .3s;
 }
 
 /* ===== carousel css ===== */
@@ -274,11 +298,9 @@ div > a > img {
 .section--demo-4 .thumbnails .agile__nav-button--prev {
     left: -45px;
 }
-
 .section--demo-4 .thumbnails .agile__nav-button--next {
     right: -45px;
 }
-
 .section--demo-4 .slide {
     align-items: center;
     box-sizing: border-box;
@@ -304,5 +326,10 @@ div > a > img {
     object-fit: cover;
     object-position: center;
     width: 100%;
+}
+
+.slide:hover {
+    transition: opacity .3s;
+    opacity: .75;
 }
 </style>
