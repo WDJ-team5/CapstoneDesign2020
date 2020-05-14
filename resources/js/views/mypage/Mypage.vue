@@ -103,7 +103,7 @@ a {
     display: flex;
 }
 .mypage_profile {
-    width: 35%;
+    width: 30%;
     min-height: 65vh;
     display: flex;
     flex-flow: column;
@@ -122,14 +122,16 @@ a {
     height: 5vh;
     text-align: center;
     align-items: center;
-    border-top: 1px solid #f5f5f5;
+    border-top: 1px solid #e7e7e7;
 }
 #routerView {
     background-color: #f5f5f5;
 }
 .mypage_nav_link > a:hover {
-    color: red;
+    color: #f86941;
+    font-weight: 700;
     text-decoration: none;
+    transition:all 0.8s ease;
 }
 .profile_info {
     width: fit-content;
@@ -138,7 +140,7 @@ a {
     display: flex;
 }
 .mypage_header {
-    width: 65%;
+    width: 70%;
 }
 .mypage_header_content {
     height: 133px;
@@ -152,7 +154,7 @@ a {
 }
 .profile_link:hover {
     background-color: #f5f5f5;
-    transition:all 0.3s ease;
+    transition:all 0.5s ease;
 }
 .profile_link:visited {
     background-color: #f5f5f5;
