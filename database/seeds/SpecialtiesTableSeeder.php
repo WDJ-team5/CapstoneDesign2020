@@ -18,5 +18,13 @@ class SpecialtiesTableSeeder extends Seeder
         App\Specialty::create([
             'area' => 'poppin',
         ]);
+
+        App\Specialty::create([
+            'area' => 'B-boying',
+        ]);
+
+        App\Specialty::create([
+            'area' => 'hiphop',
+        ]);
     }
 }

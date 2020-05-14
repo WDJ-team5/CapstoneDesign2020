@@ -2427,6 +2427,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -68889,6 +68890,19 @@ var render = function() {
                   _vm._v(" "),
                   _c("span", [_vm._v("내 피드백 활동")])
                 ]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "nav-link",
+                  attrs: { to: "/mypage/profile", exact: "" }
+                },
+                [
+                  _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("마이페이지")])
+                ]
               )
             ],
             1
@@ -85687,6 +85701,10 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 842b7d24a9919c8ae98613fc747a74af1128b787
     return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
   }
 }, {
@@ -85711,7 +85729,7 @@ var routes = [{
   path: '/usersignup',
   name: 'usersignup',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/auth/UserSignup.vue */ "./resources/js/views/auth/UserSignup.vue"));
+    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/auth/UserSignup.vue */ "./resources/js/views/auth/UserSignup.vue"));
   }
 }, {
   path: '/companysignup1',
@@ -85730,19 +85748,19 @@ var routes = [{
   path: '/audition',
   name: 'audition',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/audition/Audition.vue */ "./resources/js/views/audition/Audition.vue"));
+    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/audition/Audition.vue */ "./resources/js/views/audition/Audition.vue"));
   }
 }, {
   path: '/auditiondetail/:contentId',
   name: 'AuditionDetail',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionDetail.vue */ "./resources/js/views/audition/AuditionDetail.vue"));
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionDetail.vue */ "./resources/js/views/audition/AuditionDetail.vue"));
   }
 }, {
   path: '/auditioncreate/:contentId?',
   name: 'AuditionCreate',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
   }
 }, //   댄스강좌
 {
@@ -85767,14 +85785,60 @@ var routes = [{
   path: '/advice/list',
   name: 'AdviceList',
   component: function component() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 842b7d24a9919c8ae98613fc747a74af1128b787
     return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
   }
 }, {
   path: '/advice/detail/:contentId',
   name: 'AdviceDetail',
   component: function component() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 842b7d24a9919c8ae98613fc747a74af1128b787
     return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));
   }
+}, // 마이페이지
+{
+  path: '/mypage',
+  name: 'mypage',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
+  },
+  children: [{
+    path: 'profile',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
+    }
+  }, {
+    path: 'lecture',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
+    }
+  }, {
+    path: 'apply',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
+    }
+  }, {
+    path: 'companyinfo',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
+    }
+  }, {
+    path: 'auditionlist',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
+    }
+  }, {
+    path: 'profileedit',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
+    }
+  }]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes
@@ -86002,8 +86066,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 842b7d24a9919c8ae98613fc747a74af1128b787
 
 
 /***/ })
