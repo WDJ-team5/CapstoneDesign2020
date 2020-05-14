@@ -36,15 +36,19 @@ class LectureUserController extends Controller
     {
         $confirmCode = \App\Session::first();
 
-        $user = \App\User::whereConfirmCode($confirmCode)->first();
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
+        $accuracy = $request->accuracy;
+        $user_id = $user->id;
+        $lecture_id = $request->lecture_id;
 
-        \App\LectureUser::create([
-            'user_id'=> $user->id,
-            'lecture_id' => $request->id,
+        $score = \App\LectureUser::create([
+            'accuracy' => $accuracy,
+            'user_id' => $user_id,
+            'lecture_id' => $lecture_id,
         ]);
 
-        return response()->json('수강 시작전 미리 데이터 만들기', 200);
+        return response()->json($score, 200);
     }
 
     /**

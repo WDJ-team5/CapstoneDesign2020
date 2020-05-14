@@ -288,13 +288,14 @@ render._withStripped = true
 /*!**************************************************!*\
   !*** ./resources/js/services/lecture_service.js ***!
   \**************************************************/
-/*! exports provided: loadLecture, loadLectureData */
+/*! exports provided: loadLecture, loadLectureData, createScore */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadLecture", function() { return loadLecture; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadLectureData", function() { return loadLectureData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createScore", function() { return createScore; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
  // 댄스강좌 리스트 로드
 
@@ -305,6 +306,10 @@ function loadLecture() {
 function loadLectureData(data) {
   var anything = "/lecture/" + data;
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get(anything);
+} // 댄스점수 데이터 생성
+
+function createScore(data) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/lectureUsers', data);
 }
 
 /***/ }),
