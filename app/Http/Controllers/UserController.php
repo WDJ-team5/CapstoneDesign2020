@@ -51,7 +51,13 @@ class UserController extends Controller
 
     public function show($id)
     {
-        //
+        $session = \App\Session::find(1)->first();
+
+        $confirm_code = $session->confirm_code;
+
+        $user = \App\User;;
+
+        return response()->json($user, 200);
     }
 
     public function edit($id)
