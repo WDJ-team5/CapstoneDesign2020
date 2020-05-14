@@ -207,7 +207,7 @@ var render = function() {
       _c("div", { staticClass: "aligner" }, [
         _c("img", {
           staticClass: "aligner-item",
-          attrs: { id: "logo", src: "/storage/logo.jpg" }
+          attrs: { id: "logo", src: "images/logo.jpg" }
         }),
         _vm._v(" "),
         _c("div", { staticClass: "aligner-item", attrs: { id: "form-box" } }, [
