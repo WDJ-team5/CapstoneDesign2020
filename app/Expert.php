@@ -32,8 +32,8 @@ class Expert extends Model
         return $this->belongTo('App\Company');
     }
 
-    // public function articles()
-    // {
-    //     return $this->hasMany('App\Article');
-    // }
+    public function articles()
+    {
+        return $this->hasMany('App\Article');
+    }
 }
