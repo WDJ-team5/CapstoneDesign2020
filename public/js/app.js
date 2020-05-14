@@ -2198,14 +2198,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "session",
@@ -2480,7 +2472,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }]
       },
-      slides: ["https://images.unsplash.com/photo-1453831362806-3d5577f014a4?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ", "https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ", "https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ", "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ", "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ", "https://images.unsplash.com/photo-1472926373053-51b220987527?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ", "https://images.unsplash.com/photo-1497534547324-0ebb3f052e88?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"] // vue-agile
+      slides: ["images/dance_main1.png", "images/dance_main2.png", "images/dance_main3.png", "images/dance_main4.png", "images/dance_main5.png", "images/dance_main6.png", "images/dance_main7.png"] // vue-agile
 
     };
   },
@@ -48111,7 +48103,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#header {\n  width: 100%;\n  height: auto;\n  box-sizing: border-box;\n  z-index: 5;\n  display: block;\n}\n.LoginNav {\n  height: 35px;\n  font-size: 13px;\n  color: #6c738a;\n  z-index: 4;\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\n  margin-right: 140px;\n  display: flex;\n  float: right;\n}\n.ServiceNav {\n  margin-top: 10px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  padding: .5rem 1rem;\n}\n.LogoImg {\n  margin-left: 120px;\n  margin-top: 10px;\n}\n.ServiceNavGroup {\n  margin-top:8px;\n  margin-right: 120px;\n  display: flex;\n  float: right;\n  list-style: none;\n}\n.ServiceNabGroup {\n  margin-left : 35px;\n}\nli > a {\n  color: black;\n  text-decoration: none;\n}\n.NavLink {\n  display: flex;\n  padding: 0.5rem 1rem;\n  font-weight: 700;\n  font-size: 2vh;\n}\n.NavLink:hover {\n  color: #f86941;\n  text-decoration: none;\n  transition:all 0.5s ease;\n}\n\n\n\n\n", ""]);
+exports.push([module.i, "\n#header {\n  width: 100%;\n  height: auto;\n  box-sizing: border-box;\n  z-index: 5;\n  display: block;\n}\n.LoginNav {\n  height: 35px;\n  font-size: 13px;\n  color: #6c738a;\n  z-index: 4;\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\n  margin-right: 140px;\n  display: flex;\n  float: right;\n}\n.ServiceNav {\n  margin-top: 10px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  padding: .5rem 1rem;\n}\n.LogoImg {\n  margin-left: 120px;\n  margin-top: 10px;\n}\n.ServiceNavGroup {\n  margin-top:8px;\n  margin-right: 120px;\n  display: flex;\n  float: right;\n  list-style: none;\n}\n.ServiceNabGroup {\n  margin-left : 35px;\n}\nli > a {\n  color: black;\n  text-decoration: none;\n  transition: color .9s;\n}\n.NavLink {\n  display: flex;\n  padding: 0.5rem 1rem;\n  font-weight: 700;\n  font-size: 2vh;\n}\n.NavLink:hover {\n  color: #f86941;\n  text-decoration: none;\n  transition:all 0.5s ease;\n}\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48130,7 +48122,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.homeContainer {\r\n    width: 100%;\n}\n.homeContainerChild {\r\n  width: 90%;\r\n    margin: 0 auto;\n}\ndiv > a > img {\r\n    width: 100%;\r\n    height: 100%;\n}\n#popular {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n#popularMain {\r\n    width: 65vw;\r\n    overflow: hidden;\n}\n#popularMain > a > img:hover {\r\n    transition: .3s;\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\n}\n#popularSub {\r\n    width: 35vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 0;\r\n    padding: 0;\n}\n.popular-sub-child {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\n}\n.popular-sub-child > a > img:hover {\r\n    transition: .3s;\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\n}\n.home_list {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n.home_list > a {\r\n    overflow: hidden;\n}\n.home_list > a > img:hover {\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\r\n    transition: .3s;\n}\r\n\r\n/* ===== carousel css ===== */\n.fas fa-chevron-left {\r\n  visibility: visible;\n}\n.fas fa-chevron-right {\r\n  visibility: visible;\n}\n.col-xs-12 {\r\n  width: 100%;\n}\n.section--demo-4 .main {\r\n    margin-bottom: 30px;\n}\n.section--demo-4 .thumbnails {\r\n    margin: 0 -5px;\r\n    width: calc(100% + 10px);\n}\n.section--demo-4 .agile__actions {\r\n    position: static;\n}\n.section--demo-4 .agile__nav-button {\r\n    background: transparent;\r\n    border: none;\r\n    color: #ccc;\r\n    cursor: pointer;\r\n    font-size: 24px;\r\n    transition-duration: .3s;\n}\n.section--demo-4 .agile__nav-button:hover {\r\n    color: #888;\n}\n.section--demo-4 .agile__dot {\r\n    margin: 0 10px;\n}\n.section--demo-4 .agile__dot button {\r\n    background-color: #eee;\r\n    border: none;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    display: block;\r\n    height: 10px;\r\n    font-size: 0;\r\n    line-height: 0;\r\n    margin: 0;\r\n    padding: 0;\r\n    transition-duration: .3s;\r\n    width: 10px;\n}\n.section--demo-4 .agile__dot--current button, .section--demo-4 .agile__dot:hover button {\r\n    background-color: #888;\n}\n.section--demo-4 .thumbnails .agile__nav-button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\n}\n.section--demo-4 .thumbnails .agile__nav-button--prev {\r\n    left: -45px;\n}\n.section--demo-4 .thumbnails .agile__nav-button--next {\r\n    right: -45px;\n}\n.section--demo-4 .slide {\r\n    align-items: center;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    display: flex;\r\n    height: 450px;\r\n    justify-content: center;\n}\n.section--demo-4 .slide--thumbniail {\r\n    cursor: pointer;\r\n    height: 100px;\r\n    padding: 0 5px;\r\n    transition: opacity .3s;\n}\n.section--demo-4 .slide--thumbniail:hover {\r\n    opacity: .75;\n}\n.section--demo-4 .slide img {\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: center;\r\n       object-position: center;\r\n    width: 100%;\n}\n.slide:hover {\r\n    transition: opacity .3s;\r\n    opacity: .75;\n}\r\n", ""]);
+exports.push([module.i, "\n.homeContainer {\r\n    width: 100%;\n}\n.homeContainerChild {\r\n  width: 90%;\r\n    margin: 0 auto;\n}\ndiv > a > img {\r\n    width: 100%;\r\n    height: 100%;\r\n    transform: scale(1.0);\r\n    transition: transform .5s;\n}\n#popular {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n#popularMain {\r\n    width: 65vw;\r\n    overflow: hidden;\n}\n#popularMain > a > img:hover {\r\n    transition: .3s;\r\n    opacity: 0.75;\r\n    transform: scale(1.5) translateZ(0);\n}\n#popularSub {\r\n    width: 35vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 0;\r\n    padding: 0;\n}\n.popular-sub-child {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\n}\n.popular-sub-child > a > img:hover {\r\n    transition: .3s;\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\n}\n.home_list {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n.home_list > a {\r\n    overflow: hidden;\n}\n.home_list > a > img:hover {\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\r\n    transition: .3s;\n}\r\n\r\n/* ===== carousel css ===== */\n.fas fa-chevron-left {\r\n  visibility: visible;\n}\n.fas fa-chevron-right {\r\n  visibility: visible;\n}\n.col-xs-12 {\r\n  width: 100%;\n}\n.section--demo-4 .main {\r\n    margin-bottom: 30px;\n}\n.section--demo-4 .thumbnails {\r\n    margin: 0 -5px;\r\n    width: calc(100% + 10px);\n}\n.section--demo-4 .agile__actions {\r\n    position: static;\n}\n.section--demo-4 .agile__nav-button {\r\n    background: transparent;\r\n    border: none;\r\n    color: #ccc;\r\n    cursor: pointer;\r\n    font-size: 24px;\r\n    transition-duration: .3s;\n}\n.section--demo-4 .agile__nav-button:hover {\r\n    color: #888;\n}\n.section--demo-4 .agile__dot {\r\n    margin: 0 10px;\n}\n.section--demo-4 .agile__dot button {\r\n    background-color: #eee;\r\n    border: none;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    display: block;\r\n    height: 10px;\r\n    font-size: 0;\r\n    line-height: 0;\r\n    margin: 0;\r\n    padding: 0;\r\n    transition-duration: .3s;\r\n    width: 10px;\n}\n.section--demo-4 .agile__dot--current button, .section--demo-4 .agile__dot:hover button {\r\n    background-color: #888;\n}\n.section--demo-4 .thumbnails .agile__nav-button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\n}\n.section--demo-4 .thumbnails .agile__nav-button--prev {\r\n    left: -45px;\n}\n.section--demo-4 .thumbnails .agile__nav-button--next {\r\n    right: -45px;\n}\n.section--demo-4 .slide {\r\n    align-items: center;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    display: flex;\r\n    height: 550px;\r\n    justify-content: center;\n}\n.section--demo-4 .slide--thumbniail {\r\n    cursor: pointer;\r\n    height: 100px;\r\n    padding: 0 5px;\r\n    transition: opacity .3s;\n}\n.section--demo-4 .slide--thumbniail:hover {\r\n    opacity: .75;\n}\n.section--demo-4 .slide img {\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: center;\r\n       object-position: center;\r\n    width: 100%;\n}\n.slide:hover {\r\n    transition: opacity .3s;\r\n    opacity: .75;\n}\r\n", ""]);
 
 // exports
 
@@ -85734,11 +85726,7 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
-<<<<<<< HEAD
-    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
-=======
     return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
->>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
   }
 }, {
   path: '/userlist',
@@ -85818,11 +85806,7 @@ var routes = [{
   path: '/advice/list',
   name: 'AdviceList',
   component: function component() {
-<<<<<<< HEAD
-    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
-=======
     return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
->>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
   }
 }, {
   path: '/advice/detail/:contentId',
@@ -86095,13 +86079,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! C:\teamProject\git\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\teamProject\git\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
 __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
 
 
 /***/ })

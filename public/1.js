@@ -149,8 +149,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _loadLectureData = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var _this2 = this;
 
-        var _response;
-
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -160,8 +159,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _services_lecture_service__WEBPACK_IMPORTED_MODULE_1__["loadLectureData"](this.id);
 
               case 3:
-                _response = _context.sent;
-                this.filename = _response.data.video;
+                response = _context.sent;
+                this.filename = response.data.video;
                 this.video = "videos/" + this.filename + ".mp4";
                 axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("videoDatas/" + this.filename + ".json").then(function (response) {
                   return _this2.videoData = response.data;
@@ -313,17 +312,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }(),
     endedVideo: function () {
       var _endedVideo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-<<<<<<< HEAD
         var _console, tmp, formData, res;
-=======
-        var _console, tmp, _formData, _response2;
->>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-<<<<<<< HEAD
                 if (!this.start) {
                   _context4.next = 23;
                   break;
@@ -350,54 +344,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 res = _context4.sent;
                 // const res = await lectureService.createScore();
                 console.log(res);
-=======
-                if (this.start) {
-                  tmp = this.totalScore / this.finalCount;
-                  this.finalScore = tmp.toFixed(2);
-                  this.ended = true; // console.log(typeof(this.finalScore));
-
-                  _formData = new FormData();
-
-                  _formData.append("accuracy", this.finalScore);
-
-                  _formData.append("lecture_id", this.id);
-
-                  (_console = console).log.apply(_console, _toConsumableArray(_formData));
-
-                  this.finalScore = tmp.toFixed(2) + "%";
-                  window.cancelAnimationFrame(this.loop);
-                  this.modalChange();
-                }
-
-                _context4.prev = 1;
-                _context4.next = 4;
-                return _services_lecture_service__WEBPACK_IMPORTED_MODULE_1__["createScore"](formData);
-
-              case 4:
-                _response2 = _context4.sent;
-                // console.log(response);
->>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
                 console.log("가따옴"); // this.flashMessage.success({
                 //   message: "Category stored successfully!",
                 //   time: 5000
                 // });
 
-<<<<<<< HEAD
                 _context4.next = 23;
                 break;
 
               case 20:
                 _context4.prev = 20;
                 _context4.t0 = _context4["catch"](12);
-=======
-                _context4.next = 12;
-                break;
-
-              case 8:
-                _context4.prev = 8;
-                _context4.t0 = _context4["catch"](1);
-                console.log(response);
->>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
                 console.log(_context4.t0); // switch (error.response.status) {
                 //   case 422:
                 //     this.errors = error.response.data.errors;
@@ -410,20 +367,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 //     break;
                 // }
 
-<<<<<<< HEAD
               case 23:
-=======
-              case 12:
->>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
               case "end":
                 return _context4.stop();
             }
           }
-<<<<<<< HEAD
         }, _callee4, this, [[12, 20]]);
-=======
-        }, _callee4, this, [[1, 8]]);
->>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
       }));
 
       function endedVideo() {
@@ -449,11 +398,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-<<<<<<< HEAD
 exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* html, body {\r\n        overflow: hidden;\r\n        width:100%;\r\n        height: 100%;\r\n        margin: 0;\r\n        z-index: 1000000;\r\n    } */\n#container {\r\n  width: 100%;\r\n  height: 100%;\n}\n#canvas {\r\n  position: relative;\n}\n#webCam {\r\n  position: fixed;\r\n  right: 0;\r\n  top: 0;\r\n  width: 25%;\r\n  height: 40%;\r\n  background-color: black;\r\n  transform: rotateY(180deg);\r\n  -webkit-transform: rotateY(180deg);\r\n  -moz-transform: rotateY(180deg);\r\n  z-index: 100000;\n}\n#source-video {\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  width: 75%;\r\n  height: 100%;\r\n  background-color: black;\r\n  z-index: 100000;\n}\r\n/* #canvas{ */\n#pannel {\r\n  position: fixed;\r\n  right: 0;\r\n  bottom: 0;\r\n  width: 25%;\r\n  height: 60%;\r\n  background: brown;\n}\n#preview_btn {\r\n  position: absolute;\r\n  bottom: 10px;\r\n  left: 20px;\n}\n#end_btn {\r\n  position: absolute;\r\n  bottom: 10px;\r\n  right: 20px;\n}\n#modal {\r\n  position: relative;\r\n  width: 100%;\r\n  height: 100%;\r\n  z-index: 100001;\r\n  display: none;\n}\n#modal h2 {\r\n  margin: 0;\n}\n#modal button {\r\n  display: inline-block;\r\n  width: 100px;\r\n  margin-left: calc(100% - 100px - 10px);\n}\n#modal .modal_content {\r\n  position: relative;\r\n  width: 300px;\r\n  margin: 100px auto;\r\n  padding: 20px 10px;\r\n  background: #fff;\r\n  border: 2px solid #666;\n}\n#modal .modal_layer {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: rgba(0, 0, 0, 0.5);\r\n  z-index: -1;\n}\r\n", ""]);
-=======
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* html, body {\r\n        overflow: hidden;\r\n        width:100%;\r\n        height: 100%;\r\n        margin: 0;\r\n        z-index: 1000000;\r\n    } */\n#container {\r\n  width: 100%;\r\n  height: 100%;\n}\n#canvas {\r\n  position: relative;\n}\n#webCam {\r\n  position: fixed;\r\n  right: 0;\r\n  top: 0;\r\n  width: 25%;\r\n  height: 40%;\r\n  background-color: black;\r\n  transform: rotateY(180deg);\r\n  -webkit-transform: rotateY(180deg);\r\n  -moz-transform: rotateY(180deg);\r\n  z-index: 100000;\n}\n#source-video {\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  width: 75%;\r\n  height: 100%;\r\n  background-color: black;\r\n  z-index: 100000;\n}\r\n/* #canvas{ */\n#pannel {\r\n  position: fixed;\r\n  right: 0;\r\n  bottom: 0;\r\n  width: 25%;\r\n  height: 60%;\r\n  background: brown;\n}\n#preview_btn {\r\n  position: absolute;\r\n  bottom: 10px;\r\n  left: 20px;\n}\n#end_btn {\r\n  position: absolute;\r\n  bottom: 10px;\r\n  right: 20px;\n}\n#modal {\r\n  position: relative;\r\n  width: 100%;\r\n  height: 100%;\r\n  z-index: 100001;\r\n  display: none;\n}\n#modal h2 {\r\n  margin: 0;\n}\n#modal button {\r\n  display: inline-block;\r\n  width: 100px;\r\n  margin-left: calc(100% - 100px - 10px);\n}\n#modal .modal_content {\r\n  position: relative;\r\n  width: 300px;\r\n  margin: 100px auto;\r\n  padding: 20px 10px;\r\n  background: #fff;\r\n  border: 2px solid #666;\n}\n#modal .modal_layer {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: rgba(0, 0, 0, 0.5);\r\n  z-index: -1;\n}\r\n", ""]);
->>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
 
 // exports
 
