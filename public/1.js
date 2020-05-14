@@ -16,10 +16,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -70,11 +89,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     return {
       id: lectureId,
-      filename: '',
-      video: '',
+      filename: "",
+      video: "",
       videoData: null,
-      webcam: '',
-      modalDisplay: 'none',
+      webcam: "",
+      modalDisplay: "none",
       videoControls: false,
       ready: true,
       net: null,
@@ -130,7 +149,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _loadLectureData = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var _this2 = this;
 
-        var response;
+        var _response;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -140,8 +160,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _services_lecture_service__WEBPACK_IMPORTED_MODULE_1__["loadLectureData"](this.id);
 
               case 3:
-                response = _context.sent;
-                this.filename = response.data.video;
+                _response = _context.sent;
+                this.filename = _response.data.video;
                 this.video = "videos/" + this.filename + ".mp4";
                 axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("videoDatas/" + this.filename + ".json").then(function (response) {
                   return _this2.videoData = response.data;
@@ -169,10 +189,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return loadLectureData;
     }(),
     modalChange: function modalChange() {
-      if (this.modalDisplay == 'none') {
-        this.modalDisplay = 'block';
+      if (this.modalDisplay == "none") {
+        this.modalDisplay = "block";
       } else {
-        this.modalDisplay = 'none';
+        this.modalDisplay = "none";
       }
     },
     modeChange: function modeChange() {
@@ -261,7 +281,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   this.danceData.push({
                     time: time,
-                    'score': tmp
+                    score: tmp
                   });
                   tmp = 0;
 
@@ -291,15 +311,77 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return webcamReady;
     }(),
-    endedVideo: function endedVideo() {
-      if (this.start) {
-        var tmp = this.totalScore / this.finalCount;
-        this.finalScore = tmp.toFixed(2) + "%";
-        this.ended = true;
-        window.cancelAnimationFrame(this.loop);
-        this.modalChange();
+    endedVideo: function () {
+      var _endedVideo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var _console, tmp, _formData, _response2;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                if (this.start) {
+                  tmp = this.totalScore / this.finalCount;
+                  this.finalScore = tmp.toFixed(2);
+                  this.ended = true; // console.log(typeof(this.finalScore));
+
+                  _formData = new FormData();
+
+                  _formData.append("accuracy", this.finalScore);
+
+                  _formData.append("lecture_id", this.id);
+
+                  (_console = console).log.apply(_console, _toConsumableArray(_formData));
+
+                  this.finalScore = tmp.toFixed(2) + "%";
+                  window.cancelAnimationFrame(this.loop);
+                  this.modalChange();
+                }
+
+                _context4.prev = 1;
+                _context4.next = 4;
+                return _services_lecture_service__WEBPACK_IMPORTED_MODULE_1__["createScore"](formData);
+
+              case 4:
+                _response2 = _context4.sent;
+                // console.log(response);
+                console.log("가따옴"); // this.flashMessage.success({
+                //   message: "Category stored successfully!",
+                //   time: 5000
+                // });
+
+                _context4.next = 12;
+                break;
+
+              case 8:
+                _context4.prev = 8;
+                _context4.t0 = _context4["catch"](1);
+                console.log(response);
+                console.log(_context4.t0); // switch (error.response.status) {
+                //   case 422:
+                //     this.errors = error.response.data.errors;
+                //     break;
+                //   default:
+                //     this.flashMessage.error({
+                //       message: "Some error occurred, Please try again!",
+                //       time: 5000
+                //     });
+                //     break;
+                // }
+
+              case 12:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[1, 8]]);
+      }));
+
+      function endedVideo() {
+        return _endedVideo.apply(this, arguments);
       }
-    }
+
+      return endedVideo;
+    }()
   }
 });
 
@@ -317,7 +399,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* html, body {\n    overflow: hidden;\n    width:100%;\n    height: 100%;\n    margin: 0;\n    z-index: 1000000;\n} */\n#container{\n    width: 100%;\n    height: 100%;\n}\n#canvas{\n    position:relative;\n}\n#webCam{\n    position: fixed;\n    right:0;\n    top:0;\n    width:25%;\n    height:40%;\n    background-color: black;\n    transform: rotateY(180deg);\n    -webkit-transform:rotateY(180deg);\n    -moz-transform:rotateY(180deg);\n    z-index: 100000;\n}\n#source-video{\n    position: fixed;\n    left:0;\n    top:0;\n    width:75%;\n    height:100%;\n    background-color: black;\n    z-index: 100000;\n}\n/* #canvas{ */\n#pannel{\n    position: fixed;\n    right: 0;\n    bottom: 0;\n    width: 25%;\n    height: 60%;\n    background: brown;\n}\n#preview_btn{\n    position: absolute;\n    bottom:10px;\n    left:20px;\n}\n#end_btn{\n    position: absolute;\n    bottom:10px;\n    right: 20px;\n}\n#modal{\n    position:relative;\n    width: 100%;\n    height: 100%;\n    z-index:100001;\n    display: none;\n}\n#modal h2{\n    margin:0;\n}\n#modal button{\n    display:inline-block;\n    width:100px;\n    margin-left:calc(100% - 100px - 10px);\n}\n#modal .modal_content{\n    position: relative;\n    width:300px;\n    margin:100px auto;\n    padding:20px 10px;\n    background: #fff;\n    border:2px solid #666;\n}\n#modal .modal_layer{\n    position: fixed;\n    top:0;\n    left:0;\n    width:100%;\n    height:100%;\n    background:rgba(0, 0, 0, 0.5);\n    z-index: -1;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* html, body {\r\n        overflow: hidden;\r\n        width:100%;\r\n        height: 100%;\r\n        margin: 0;\r\n        z-index: 1000000;\r\n    } */\n#container {\r\n  width: 100%;\r\n  height: 100%;\n}\n#canvas {\r\n  position: relative;\n}\n#webCam {\r\n  position: fixed;\r\n  right: 0;\r\n  top: 0;\r\n  width: 25%;\r\n  height: 40%;\r\n  background-color: black;\r\n  transform: rotateY(180deg);\r\n  -webkit-transform: rotateY(180deg);\r\n  -moz-transform: rotateY(180deg);\r\n  z-index: 100000;\n}\n#source-video {\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  width: 75%;\r\n  height: 100%;\r\n  background-color: black;\r\n  z-index: 100000;\n}\r\n/* #canvas{ */\n#pannel {\r\n  position: fixed;\r\n  right: 0;\r\n  bottom: 0;\r\n  width: 25%;\r\n  height: 60%;\r\n  background: brown;\n}\n#preview_btn {\r\n  position: absolute;\r\n  bottom: 10px;\r\n  left: 20px;\n}\n#end_btn {\r\n  position: absolute;\r\n  bottom: 10px;\r\n  right: 20px;\n}\n#modal {\r\n  position: relative;\r\n  width: 100%;\r\n  height: 100%;\r\n  z-index: 100001;\r\n  display: none;\n}\n#modal h2 {\r\n  margin: 0;\n}\n#modal button {\r\n  display: inline-block;\r\n  width: 100px;\r\n  margin-left: calc(100% - 100px - 10px);\n}\n#modal .modal_content {\r\n  position: relative;\r\n  width: 300px;\r\n  margin: 100px auto;\r\n  padding: 20px 10px;\r\n  background: #fff;\r\n  border: 2px solid #666;\n}\n#modal .modal_layer {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: rgba(0, 0, 0, 0.5);\r\n  z-index: -1;\n}\r\n", ""]);
 
 // exports
 
@@ -570,13 +652,14 @@ exports.getData = function (pose) {
 /*!**************************************************!*\
   !*** ./resources/js/services/lecture_service.js ***!
   \**************************************************/
-/*! exports provided: loadLecture, loadLectureData */
+/*! exports provided: loadLecture, loadLectureData, createScore */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadLecture", function() { return loadLecture; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadLectureData", function() { return loadLectureData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createScore", function() { return createScore; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
  // 댄스강좌 리스트 로드
 
@@ -587,6 +670,10 @@ function loadLecture() {
 function loadLectureData(data) {
   var anything = "/lecture/" + data;
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get(anything);
+} // 댄스점수 데이터 생성
+
+function createScore(data) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/lectureUsers', data);
 }
 
 /***/ }),
