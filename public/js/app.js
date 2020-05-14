@@ -85701,7 +85701,7 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
+    return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
   }
 }, {
   path: '/userlist',
@@ -85713,13 +85713,13 @@ var routes = [{
   path: '/login',
   name: 'login',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/views/auth/Login.vue"));
+    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/views/auth/Login.vue"));
   }
 }, {
   path: '/signselect',
   name: 'signselect',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/auth/SignSelect.vue */ "./resources/js/views/auth/SignSelect.vue"));
+    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/auth/SignSelect.vue */ "./resources/js/views/auth/SignSelect.vue"));
   }
 }, {
   path: '/usersignup',
@@ -85731,13 +85731,13 @@ var routes = [{
   path: '/companysignup1',
   name: 'companysignup1',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup1.vue */ "./resources/js/views/auth/CompanySignup1.vue"));
+    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup1.vue */ "./resources/js/views/auth/CompanySignup1.vue"));
   }
 }, {
   path: '/companysignup2',
   name: 'companysignup2',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup2.vue */ "./resources/js/views/auth/CompanySignup2.vue"));
+    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup2.vue */ "./resources/js/views/auth/CompanySignup2.vue"));
   }
 }, // 오디션
 {
@@ -85762,7 +85762,7 @@ var routes = [{
   path: '/auditionapply',
   name: 'AuditionAppply',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionApply.vue */ "./resources/js/views/audition/AuditionApply.vue"));
+    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionApply.vue */ "./resources/js/views/audition/AuditionApply.vue"));
   }
 }, //   댄스강좌
 {
@@ -85787,7 +85787,7 @@ var routes = [{
   path: '/advice/list',
   name: 'AdviceList',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
+    return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
   }
 }, {
   path: '/advice/detail/:contentId',
@@ -85800,37 +85800,37 @@ var routes = [{
   path: '/mypage',
   name: 'mypage',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
+    return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
   },
   children: [{
     path: 'profile',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
+      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
     }
   }, {
     path: 'lecture',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
+      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
     }
   }, {
     path: 'apply',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
+      return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
     }
   }, {
     path: 'companyinfo',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
+      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
     }
   }, {
     path: 'auditionlist',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
+      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
     }
   }, {
     path: 'profileedit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
+      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
     }
   }]
 }];
