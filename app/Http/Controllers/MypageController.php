@@ -32,8 +32,14 @@ class MypageController extends Controller
     }
 
     public function loadMyLecture() {
-        
 
-        return response()->json('어서와', 200);
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        $result = \App\LectureUser::join('lectures','lecture_id','=','lectures.id')
+        ->whereUserId($user->id)->first();
+
+        return response()->json($result, 200);
     }
 }
