@@ -73,9 +73,9 @@ class User extends Authenticatable
         return $this->hasMany('App\ContestUser');
     }
 
-    // public function articles()
-    // {
-    //     return $this->hasMany('App\Article');
-    // }
+    public function articles()
+    {
+        return $this->hasMany('App\Article');
+    }
 
 }

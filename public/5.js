@@ -63,6 +63,93 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AuditionDetail",
@@ -74,14 +161,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       auditions: [],
       auditionData: {
+<<<<<<< HEAD
         id: '',
         title: '',
         content: '',
+=======
+        id: "",
+        title: "",
+        content: "",
+>>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
         userId: 1,
-        date: '',
-        image: '',
-        selected: '',
-        video: ''
+        date: "",
+        image: "",
+        selected: "",
+        video: "https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
       },
       cid: contentId,
       state: false
@@ -114,7 +207,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.prev = 8;
                 _context.t0 = _context["catch"](0);
                 this.flashMessage.error({
-                  message: 'ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ',
+                  message: "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
                   time: 5000
                 });
 
@@ -156,7 +249,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 // });
                 history.back();
                 this.flashMessage.success({
+<<<<<<< HEAD
                   message: '삭제성공',
+=======
+                  message: "삭제성공",
+>>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
                   time: 5000
                 });
                 _context2.next = 12;
@@ -222,7 +319,11 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n#text_area[data-v-9bb2291e]{\r\n  width: 900px;\r\n  height: 600px;\r\n  border: 1px solid #ced4da;\r\n  margin-left: 700px;\r\n  margin-top: 40px;\n}\n#sub_image[data-v-9bb2291e]{\r\n  width: 600px;\r\n  height: 600px;\r\n  margin-left: 30px;\r\n  float: left;\n}\n.content-detail-content-info[data-v-9bb2291e] {\r\n  border: 1px solid #ced4da;\r\n  display: flex;\r\n  justify-content: space-between;\n}\n.content-detail-content-info-left[data-v-9bb2291e] {\r\n  width: 1420px;\r\n  /* display: flex;\r\n  flex-direction: row; */\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 1rem;\n}\n.content-detail-content-info-right[data-v-9bb2291e] {\r\n  width: 300px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding: 1rem;\n}\n.content-detail-content[data-v-9bb2291e] {\r\n  border: 1px solid #ced4da;\r\n  margin-top: 1rem;\r\n  padding-top: 1rem;\r\n  min-height: 700px;\n}\n.content-detail-button[data-v-9bb2291e] {\r\n  margin-top: 1rem;\r\n  padding: 2rem;\n}\n.content-detail-comment[data-v-9bb2291e] {\r\n  border: 1px solid #ced4da;\r\n  margin-top: 1rem;\r\n  padding: 2rem;\n}\r\n", ""]);
+=======
+exports.push([module.i, "\ndiv[data-v-9bb2291e] {\r\n  margin: 0;\r\n  padding: 0;\r\n  border: 0;\r\n  outline: 0;\n}\n.hr_line[data-v-9bb2291e] {\r\n    height: 1px;\r\n    margin: 39px 0 40px;\r\n    border: none;\r\n    background: #666666;\r\n    font-size: 0;\r\n    line-height: 0;\n}\ntable[data-v-9bb2291e]{\r\n  border-collapse: collapse;\r\n  border-spacing: 0;\r\n  \r\n  padding: 0;\r\n  border: 0;\r\n  outline: 0;\n}\ntbody[data-v-9bb2291e]{\r\n    display: table-row-group;\r\n    vertical-align: middle;\r\n    border-collapse: collapse;\r\n    border-spacing: 0;\n}\ntr[data-v-9bb2291e]{\r\n  display: table-row;\r\n  vertical-align: inherit;\r\n  margin: 0;\r\n  padding: 0;\r\n  border: 0;\r\n  outline: 0;\n}\ntr:first-child th[data-v-9bb2291e], .auditiondetails_tblinfo tr:first-child td[data-v-9bb2291e] {\r\n    padding-top: 54px;\n}\n.auditiondetails_tblinfo th[data-v-9bb2291e] {\r\n    padding-top: 21px;\r\n    font-size: 14px;\r\n    font-weight: bold;\r\n    text-align: left;\n}\nth[data-v-9bb2291e]{\r\n  margin: 0;\r\n  padding: 0;\r\n  border: 0;\r\n  outline: 0;\r\n  display: table-cell;\r\n  vertical-align: inherit;\n}\ntd[data-v-9bb2291e] {\r\n    padding-top: 54px;\n}\n#detail_box[data-v-9bb2291e]{\r\n  padding: 0 31px 0 29px;\n}\n.auditiondetails_tblinfo td[data-v-9bb2291e] {\r\n    padding-top: 21px;\r\n    font-size: 14px;\r\n    font-weight: normal;\r\n    text-align: left;\n}\ncolgroup[data-v-9bb2291e] {\r\n    display: table-column-group;\n}\nelement.style[data-v-9bb2291e] {\r\n    width: 110px;\n}\ncol[data-v-9bb2291e] {\r\n    display: table-column;\n}\r\n\r\n/* 본문 내용 */\ndl[data-v-9bb2291e] {\r\n    display: block;\r\n    -webkit-margin-before: 1em;\r\n            margin-block-start: 1em;\r\n    -webkit-margin-after: 1em;\r\n            margin-block-end: 1em;\n}\r\n\r\n/* 본문제목 */\n.auditiondetails_introduction dt[data-v-9bb2291e] {\r\n    color: #666666;\r\n    font-size: 18px;\r\n    font-weight: bold;\n}\n.auditiondetails_introduction dd[data-v-9bb2291e] {\r\n    margin-top: 29px;\r\n    font-size: 14px;\r\n    line-height: 1.71;\n}\n#content[data-v-9bb2291e] {\r\n  width: 1200px;\r\n  margin: 5px auto 0;\r\n  padding-bottom: 152px;\n}\r\n\r\n/* 제목박스 */\n#auditiondetails_boxtit[data-v-9bb2291e] {\r\n  overflow: hidden;\r\n  margin-top: 5px;\r\n  padding: 18px 31px 18px 27px;\r\n  box-sizing: border-box;\r\n  background: #ed1c24;\n}\n.auditiondetails_boxtit .text[data-v-9bb2291e] {\r\n    float: left;\r\n    color: #fff;\r\n    font-size: 14px;\r\n    font-weight: bold;\n}\r\n\r\n/* 영상과제 텍스트 */\n.auditiondetails_total[data-v-9bb2291e] {\r\n    color: #666666;\r\n    font-size: 18px;\r\n    font-weight: bold;\n}\n#video_result[data-v-9bb2291e]{\r\n  -webkit-margin-before: 1em;\r\n          margin-block-start: 1em;\n}\r\n\r\n/* 제목박스 텍스트 */\n#auditiondetails_boxtit .text[data-v-9bb2291e] {\r\n  float: left;\r\n  color: #fff;\r\n  font-size: 14px;\r\n  font-weight: bold;\n}\n.auditiondetails_recruitment[data-v-9bb2291e] {\r\n  font-size: 24px;\r\n  font-weight: bold;\r\n  text-align: center;\r\n  margin-top: 20px;\n}\n#auditiondetails_dayimg[data-v-9bb2291e] {\r\n  position: relative;\r\n  margin-top: 30px;\r\n  font-size: 0;\r\n  line-height: 0;\n}\n#auditiondetails_dayimg img[data-v-9bb2291e] {\r\n  width: 100%;\r\n  height: 800px;\n}\n.auditiondetails_dayimg .text[data-v-9bb2291e] {\r\n  position: absolute;\r\n  left: 0;\r\n  bottom: 0;\r\n  width: 150px;\r\n  height: 56px;\r\n  padding-top: 0px;\r\n  box-sizing: border-box;\r\n  background: #ed1c24;\r\n  color: #fff;\r\n  font-size: 24px;\r\n  font-weight: bold;\r\n  text-align: center;\r\n  line-height: 56px;\n}\n#button_area[data-v-9bb2291e]{\r\n  position: relative;\r\n  margin-top: 30px;\r\n  font-size: 0;\r\n  line-height: 0;\r\n  text-align: center;\n}\nbutton[data-v-9bb2291e] {\r\n    display: inline-block;\r\n    width: 152px;\r\n    height: 48px;\r\n    border: none;\r\n    background: #ed1c24;\r\n    color: #fff;\r\n    font-size: 16px;\r\n    line-height: 1;\n}\r\n\r\n", ""]);
+>>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
 
 // exports
 
@@ -274,6 +375,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+<<<<<<< HEAD
   return _c(
     "div",
     { attrs: { id: "content" } },
@@ -335,10 +437,68 @@ var render = function() {
             ])
           ])
         ]),
+=======
+  return _c("div", { attrs: { id: "content" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("p", { staticClass: "auditiondetails_recruitment" }, [
+      _vm._v(_vm._s(_vm.auditions.title))
+    ]),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "auditiondetails_dayimg" } }, [
+      _vm.state
+        ? _c("img", {
+            attrs: {
+              src:
+                _vm.$store.state.serverPath + "/storage/" + _vm.auditions.image,
+              alt: _vm.auditions.title
+            }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _c("p", { staticClass: "text" }, [_vm._v("채용시 마감")])
+    ]),
+    _vm._v(" "),
+    _c("hr", { staticClass: "hr_line" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      { attrs: { id: "detail_box" } },
+      [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("hr", { staticClass: "hr_line" }),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c("hr", { staticClass: "hr_line" }),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "auditiondetails_total",
+            attrs: { id: "video_result" }
+          },
+          [_vm._v("영상과제")]
+        ),
+        _vm._v(" "),
+        _c("b-embed", {
+          attrs: {
+            type: "iframe",
+            aspect: "16by9",
+            src: _vm.auditionData.video,
+            allowfullscreen: ""
+          }
+        }),
+        _vm._v(" "),
+        _c("hr", { staticClass: "hr_line" }),
+        _vm._v(" "),
+        _vm._m(3),
+>>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "content-detail-button" },
+          { attrs: { id: "button_area" } },
           [
             _c(
               "b-button",
@@ -356,7 +516,8 @@ var render = function() {
             _c(
               "b-button",
               {
-                attrs: { variant: "danger" },
+                staticStyle: { "margin-left": "5px" },
+                attrs: { variant: "primary" },
                 on: {
                   click: function($event) {
                     return _vm.deleteAudition(_vm.auditions)
@@ -373,7 +534,153 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "auditiondetails_boxtit" } }, [
+      _c("p", { staticClass: "text" }, [
+        _vm._v("\n      오디션 상세보기\n    ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("table", { staticClass: "auditiondetails_tblinfo" }, [
+      _c("colgroup", [
+        _c("col", { staticStyle: { width: "110px" } }),
+        _vm._v(" "),
+        _c("col", { staticStyle: { width: "310px" } }),
+        _vm._v(" "),
+        _c("col", { staticStyle: { width: "110px" } }),
+        _vm._v(" "),
+        _c("col")
+      ]),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("p", { staticClass: "auditiondetails_total" }, [_vm._v("기업정보")]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", [_vm._v("감독")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("메가폰코리아")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("접수기간")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("채용시 마감 ~ 채용시 마감")])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", [_vm._v("장르")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("메가폰픽")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("오디션 기간")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("협의 후 결정 ~ 협의 후 결정")])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", [_vm._v("제작유형")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Megaphone Pick")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("예상 촬영 기간")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("미정 ~ 미정")])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", [_vm._v("제작사")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("메가폰코리아")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("촬영장소")]),
+          _vm._v(" "),
+          _c("td")
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", [_vm._v("캐스팅 담당자")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("메가폰픽")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("페이")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("협의 후 결정")])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", [_vm._v("담당자 이메일")]),
+          _vm._v(" "),
+          _c("td", { attrs: { colspan: "3" } }, [_vm._v("비공개")])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", [_vm._v("담당자 연락처")]),
+          _vm._v(" "),
+          _c("td", { attrs: { colspan: "3" } }, [_vm._v("비공개")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("dl", { staticClass: "auditiondetails_introduction" }, [
+      _c("dt", [_vm._v("오디션 소개")]),
+      _vm._v(" "),
+      _c("dd", [
+        _vm._v(
+          "\n          오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다."
+        ),
+        _c("br"),
+        _vm._v(
+          "\n          오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다."
+        ),
+        _c("br"),
+        _vm._v(
+          "\n          오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다."
+        ),
+        _c("br"),
+        _vm._v(
+          "\n          오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다."
+        ),
+        _c("br"),
+        _c("br"),
+        _vm._v(
+          "\n          오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다."
+        ),
+        _c("br"),
+        _vm._v(
+          "\n          오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다."
+        ),
+        _c("br"),
+        _c("br"),
+        _vm._v(
+          "\n          오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다."
+        ),
+        _c("br"),
+        _vm._v(
+          "\n          오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다."
+        ),
+        _c("br")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "button_area" } }, [
+      _c("button", { attrs: { type: "button" } }, [_vm._v("지원하기")])
+    ])
+  }
+]
 render._withStripped = true
 
 

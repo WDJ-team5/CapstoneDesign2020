@@ -18,5 +18,13 @@ class GenresTableSeeder extends Seeder
         App\Genre::create([
             'name' => 'poppin',
         ]);
+
+        App\Genre::create([
+            'name' => 'B-boying',
+        ]);
+
+        App\Genre::create([
+            'name' => 'hiphop',
+        ]);
     }
 }
