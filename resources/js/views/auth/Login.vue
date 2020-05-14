@@ -2,7 +2,7 @@
   <!-- Material form login -->
   <form id="login_form" v-on:submit.prevent="createSession">
     <div class="aligner">
-      <img id="logo" class="aligner-item" src="/storage/logo.jpg" />
+      <img id="logo" class="aligner-item" src="images/logo.jpg" />
       <!-- 폼박스 -->
       <div id="form-box" class="aligner-item">
         <p id="login_title">기업,일반회원 로그인</p>
