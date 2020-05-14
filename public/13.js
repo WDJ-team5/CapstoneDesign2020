@@ -1,69 +1,21 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[13],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Categories.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Advice/AdviceList.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Advice/AdviceList.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _services_category_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/category_service */ "./resources/js/services/category_service.js");
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.js */ "./resources/js/views/Advice/index.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -93,85 +45,65 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'category',
+  name: "AdviceList",
   data: function data() {
+    var contentItems = _index_js__WEBPACK_IMPORTED_MODULE_0__["default"].Content.sort(function (a, b) {
+      return b.content_id - a.content_id;
+    }); // 내림차순
+
+
+    var items = contentItems.map(function (contentItem) {
+      return _objectSpread(_objectSpread({}, contentItem), {}, {
+        user_name: _index_js__WEBPACK_IMPORTED_MODULE_0__["default"].User.filter(function (userItem) {
+          return contentItem.user_id === userItem.user_id;
+        })[0].name
+      });
+    });
     return {
-      categoryData: {
-        name: '',
-        image: ''
-      }
+      currentPage: 1,
+      perPage: 10,
+      // bootstrap b-table 필드 
+      fields: [{
+        key: "content_id",
+        label: "번호"
+      }, {
+        key: "title",
+        label: "제목"
+      }, {
+        key: "created_at",
+        label: "작성일"
+      }, {
+        key: "reply",
+        label: "답변"
+      }],
+      items: items
     };
   },
   methods: {
-    attachImage: function attachImage() {
-      // 첨부된 파일을 data의 image속성에 저장
-      this.categoryData.image = this.$refs.newCategoryImage.files[0]; // 첨부된 파일을 읽음
-
-      var reader = new FileReader(); //파일이 로드되었을 경우에 reader에 로드된 것을 newCategoryImageDisplay에 띄움
-
-      reader.addEventListener('load', function () {
-        this.$refs.newCategoryImageDisplay.src = reader.result;
-      }.bind(this), false); // categoryData에 저장된 image 속성의 데이터를 읽음
-
-      reader.readAsDataURL(this.categoryData.image);
+    rowClick: function rowClick(item, index, e) {
+      this.$router.push({
+        path: "/advice/detail/".concat(item.content_id)
+      });
     },
-    // 모달창 숨기기
-    hideNewCategoryModal: function hideNewCategoryModal() {
-      this.$refs.newCategoryModal.hide();
-    },
-    // 모달창 보이기
-    showNewCategoryModal: function showNewCategoryModal() {
-      this.$refs.newCategoryModal.show();
-    },
-    // 저장버튼 클릭시
-    createCategory: function () {
-      var _createCategory = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var formData, response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                formData = new FormData();
-                formData.append('name', this.categoryData.name);
-                formData.append('image', this.categoryData.image);
-                _context.prev = 3;
-                _context.next = 6;
-                return _services_category_service__WEBPACK_IMPORTED_MODULE_1__["createCategory"](formData);
-
-              case 6:
-                response = _context.sent;
-                console.log(response);
-                _context.next = 13;
-                break;
-
-              case 10:
-                _context.prev = 10;
-                _context.t0 = _context["catch"](3);
-                alert('안된다 시발');
-
-              case 13:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this, [[3, 10]]);
-      }));
-
-      function createCategory() {
-        return _createCategory.apply(this, arguments);
-      }
-
-      return createCategory;
-    }()
+    writeContent: function writeContent() {
+      this.$router.push({
+        path: "/board/create"
+      });
+    }
+  },
+  computed: {
+    rows: function rows() {
+      return this.items.length;
+    }
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Categories.vue?vue&type=template&id=53f0967b& ***!
-  \********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Advice/AdviceList.vue?vue&type=template&id=0d2105be&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Advice/AdviceList.vue?vue&type=template&id=0d2105be&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -185,238 +117,86 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container-fluid" },
     [
-      _c("h1", { staticClass: "mt-4" }, [_vm._v("Dashboard")]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-xl-6" }, [
-          _c("div", { staticClass: "card mb-4" }, [
-            _c("div", { staticClass: "card-header d-flex" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary btn-sm ml-auto",
-                  on: { click: _vm.showNewCategoryModal }
-                },
-                [_c("span", { staticClass: "fa fa-plus" }), _vm._v("만들기")]
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(2)
-          ])
+      _c("b-table", {
+        attrs: {
+          striped: "",
+          hover: "",
+          items: _vm.items,
+          "per-page": _vm.perPage,
+          "current-page": _vm.currentPage,
+          fields: _vm.fields
+        },
+        on: { "row-clicked": _vm.rowClick },
+        scopedSlots: _vm._u([
+          {
+            key: "cell(reply)",
+            fn: function(data) {
+              return [
+                data.item.reply === true
+                  ? _c("b-badge", { attrs: { variant: "primary" } }, [
+                      _vm._v("답변완료")
+                    ])
+                  : _c("b-badge", { attrs: { variant: "secondary" } }, [
+                      _vm._v("미답변")
+                    ])
+              ]
+            }
+          }
         ])
-      ]),
+      }),
+      _vm._v(" "),
+      _c("b-pagination", {
+        attrs: {
+          "total-rows": _vm.rows,
+          "per-page": _vm.perPage,
+          align: "center"
+        },
+        model: {
+          value: _vm.currentPage,
+          callback: function($$v) {
+            _vm.currentPage = $$v
+          },
+          expression: "currentPage"
+        }
+      }),
       _vm._v(" "),
       _c(
-        "b-modal",
-        {
-          ref: "newCategoryModal",
-          attrs: { "hide-footer": "", title: "새로운 카테고리를 추가" }
-        },
+        "b-table-column",
         [
-          _c("div", { staticClass: "d-block" }, [
-            _c(
-              "form",
-              {
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.createCategory($event)
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "name" } }, [
-                    _vm._v("이름넣으삼")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.categoryData.name,
-                        expression: "categoryData.name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      "aria-describedby": "emailHelp",
-                      id: "name",
-                      placeholder: "카테고리 이름을 입력"
-                    },
-                    domProps: { value: _vm.categoryData.name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.categoryData, "name", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "image" } }, [
-                    _vm._v("이미지를 선택하세여")
-                  ]),
-                  _vm._v(" "),
-                  _vm.categoryData.image.name
-                    ? _c("div", [
-                        _c("img", {
-                          ref: "newCategoryImageDisplay",
-                          staticClass: "w-150px",
-                          attrs: { src: "" }
-                        })
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("input", {
-                    ref: "newCategoryImage",
-                    staticClass: "form-control ",
-                    attrs: { type: "file", id: "image" },
-                    on: { change: _vm.attachImage }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-right" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-default",
-                      attrs: { type: "button" },
-                      on: { click: _vm.hideNewCategoryModal }
-                    },
-                    [_vm._v("취소")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "submit" }
-                    },
-                    [_c("span", { staticClass: "fa fa-check" }), _vm._v("저장")]
-                  )
-                ])
-              ]
-            )
-          ])
-        ]
+          _vm.reply == true
+            ? _c("b-badge", { attrs: { variant: "primary" } }, [
+                _vm._v("답변완료")
+              ])
+            : _c("b-badge", { attrs: { variant: "secondary" } }, [
+                _vm._v("미답변")
+              ])
+        ],
+        1
       )
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ol", { staticClass: "breadcrumb mb-4" }, [
-      _c("li", { staticClass: "breadcrumb-item active" }, [_vm._v("Dashboard")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", [
-      _c("i", { staticClass: "fas fa-chart-area mr-1" }),
-      _vm._v("카테고리 경영\n          ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
-      _c("table", { staticClass: "table" }, [
-        _c("tr", [
-          _c("thead", [
-            _c("tr", [
-              _c("td", [_vm._v("아이디")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("이름")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("사진")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("액션")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tbody", [
-            _c("td", [_vm._v("1")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("장성현")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("이미지")]),
-            _vm._v(" "),
-            _c("td", [
-              _c("button", { staticClass: "btn btn-primary btn-sm" }, [
-                _c("span", { staticClass: "fa fa-edit" })
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "btn btn-primary btn-sm" }, [
-                _c("span", { staticClass: "fa fa-trash" })
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
 
 /***/ }),
 
-/***/ "./resources/js/services/category_service.js":
-/*!***************************************************!*\
-  !*** ./resources/js/services/category_service.js ***!
-  \***************************************************/
-/*! exports provided: createCategory, loadCategories */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createCategory", function() { return createCategory; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadCategories", function() { return loadCategories; });
-/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
-
-function createCategory(data) {
-  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["httpFile"])().post('/categories', data);
-}
-function loadCategories() {
-  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/categories');
-}
-
-/***/ }),
-
-/***/ "./resources/js/views/Categories.vue":
-/*!*******************************************!*\
-  !*** ./resources/js/views/Categories.vue ***!
-  \*******************************************/
+/***/ "./resources/js/views/Advice/AdviceList.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/views/Advice/AdviceList.vue ***!
+  \**************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Categories.vue?vue&type=template&id=53f0967b& */ "./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&");
-/* harmony import */ var _Categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Categories.vue?vue&type=script&lang=js& */ "./resources/js/views/Categories.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _AdviceList_vue_vue_type_template_id_0d2105be_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdviceList.vue?vue&type=template&id=0d2105be&scoped=true& */ "./resources/js/views/Advice/AdviceList.vue?vue&type=template&id=0d2105be&scoped=true&");
+/* harmony import */ var _AdviceList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdviceList.vue?vue&type=script&lang=js& */ "./resources/js/views/Advice/AdviceList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -425,52 +205,296 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _AdviceList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdviceList_vue_vue_type_template_id_0d2105be_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdviceList_vue_vue_type_template_id_0d2105be_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "0d2105be",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/Categories.vue"
+component.options.__file = "resources/js/views/Advice/AdviceList.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/views/Categories.vue?vue&type=script&lang=js&":
-/*!********************************************************************!*\
-  !*** ./resources/js/views/Categories.vue?vue&type=script&lang=js& ***!
-  \********************************************************************/
+/***/ "./resources/js/views/Advice/AdviceList.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/views/Advice/AdviceList.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Categories.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Categories_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdviceList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdviceList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Advice/AdviceList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdviceList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/views/Categories.vue?vue&type=template&id=53f0967b& ***!
-  \**************************************************************************/
+/***/ "./resources/js/views/Advice/AdviceList.vue?vue&type=template&id=0d2105be&scoped=true&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/views/Advice/AdviceList.vue?vue&type=template&id=0d2105be&scoped=true& ***!
+  \*********************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Categories.vue?vue&type=template&id=53f0967b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Categories.vue?vue&type=template&id=53f0967b&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdviceList_vue_vue_type_template_id_0d2105be_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AdviceList.vue?vue&type=template&id=0d2105be&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Advice/AdviceList.vue?vue&type=template&id=0d2105be&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdviceList_vue_vue_type_template_id_0d2105be_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Categories_vue_vue_type_template_id_53f0967b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdviceList_vue_vue_type_template_id_0d2105be_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/views/Advice/index.js":
+/*!********************************************!*\
+  !*** ./resources/js/views/Advice/index.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  User: [{
+    user_id: 1,
+    name: "인성",
+    img: "../../images/profile.png",
+    created_at: "2018-09-11"
+  }, {
+    user_id: 2,
+    name: "탁우",
+    img: "../../images/profile.png",
+    created_at: "2018-09-12"
+  }, {
+    user_id: 3,
+    name: "준우",
+    img: "../../images/profile.png",
+    created_at: "2018-09-13"
+  }, {
+    user_id: 4,
+    name: "채우",
+    img: "../../images/profile.png",
+    created_at: "2018-09-14"
+  }, {
+    user_id: 5,
+    name: "예나",
+    img: "../../images/profile.png",
+    created_at: "2018-09-15"
+  }],
+  Expert: [{
+    expert_id: 1,
+    name: "김상헌",
+    content: '안녕하세요',
+    major: '야구응원댄스',
+    awards: 'KBO 우수단장상',
+    sns: '없음',
+    company: '허니크루',
+    img: "../../images/expert_1.png",
+    created_at: "2020-09-15"
+  }, {
+    expert_id: 2,
+    name: "구자욱",
+    content: '안녕하세요',
+    major: '좌익수',
+    awards: 'KBO 신인상',
+    sns: '없음',
+    company: '삼성라이온즈',
+    img: "../../images/expert_1.png",
+    created_at: "2020-09-15"
+  }, {
+    expert_id: 3,
+    name: "상수",
+    content: '안녕하세요',
+    major: '유격수',
+    awards: 'KBO 최다도루상',
+    sns: '없음',
+    company: '삼성라이온즈',
+    img: "../../images/expert_1.png",
+    created_at: "2020-09-15"
+  }, {
+    expert_id: 4,
+    name: "헌곤",
+    content: '안녕하세요',
+    major: '우익수',
+    awards: 'KBO 최다홈런상',
+    sns: '없음',
+    company: '삼성라이온즈',
+    img: "../../images/expert_1.png",
+    created_at: "2020-09-15"
+  }],
+  Content: [_defineProperty({
+    content_id: 1,
+    user_id: 5,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-15",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 2,
+    user_id: 1,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-11",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 3,
+    user_id: 3,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-12",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 4,
+    user_id: 2,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-13",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 5,
+    user_id: 4,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-14",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 6,
+    user_id: 5,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-15",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 7,
+    user_id: 1,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-11",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 8,
+    user_id: 3,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-12",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 9,
+    user_id: 2,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-13",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 10,
+    user_id: 4,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-14",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 11,
+    user_id: 5,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-15",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 12,
+    user_id: 1,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-11",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 13,
+    user_id: 3,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-12",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 14,
+    user_id: 2,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-13",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "알려드릴 것이 없습니다. 하산하세요"
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 15,
+    user_id: 4,
+    title: "게시판 제목",
+    context: "게시판 내용",
+    created_at: "2020-09-14",
+    updated_at: null,
+    reply: false,
+    expert_id: 1,
+    reply_context: null
+  }, "updated_at", "2020-05-09"), _defineProperty({
+    content_id: 16,
+    user_id: 5,
+    title: "안녕하세요. 상헌 전문가님",
+    context: "안녕하세요. 김상수 선수 응원가 안무 연습 중인데요, 삼성의 승리를 위해 안타안타~ 하는 부분이 어려워요.. ",
+    created_at: "2020-09-15",
+    updated_at: null,
+    reply: true,
+    expert_id: 1,
+    reply_context: "네, 안녕하세요. 피드백 신청 감사합니다. 말씀해 주신 부분은 팔을 곧게 펴고 추는 게 좋습니다."
+  }, "updated_at", "2020-05-09")]
+});
 
 /***/ })
 

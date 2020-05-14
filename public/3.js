@@ -51,9 +51,53 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Audition',
+  name: "Audition",
   data: function data() {
     // 게시판 최신 순 정렬
     // let items = data.Content.sort((a,b) => {return b.content_id - a.content_id})
@@ -76,19 +120,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       //     },
       //     {
       //         key:'user_name',
-      //         label:'글쓴이' 
+      //         label:'글쓴이'
       //     }
       // ],
       auditions: [],
       auditionData: {
-        id: '',
-        title: '',
-        content: '',
+        id: "",
+        title: "",
+        content: "",
         userId: 1,
-        date: '',
-        image: '',
-        selected: '',
-        video: ''
+        date: "",
+        image: "",
+        selected: "",
+        video: ""
       },
       errors: {}
     };
@@ -120,7 +164,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.prev = 9;
                 _context.t0 = _context["catch"](0);
                 this.flashMessage.error({
-                  message: '에러가 발생했습니다!',
+                  message: "에러가 발생했습니다!",
                   time: 5000
                 });
 
@@ -147,7 +191,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     // 오디션 생성
     writeContent: function writeContent() {
       this.$router.push({
-        path: '/auditioncreate'
+        path: "/auditioncreate"
       });
     }
   }
@@ -167,7 +211,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.hovereffect:hover img {\n    opacity: 0.6;\n    filter: alpha(opacity=60);\n    transform: translate3d(0,0,0);\n}\n.hovereffect:hover .overlay:before {\n    opacity: 1;\n    filter: alpha(opacity=100);\n    transform: translate3d(0,0,0);\n}\n#container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    margin-bottom: 70px;\n}\n#audition-all {\n    width: 1100px;\n    display: inline-block;\n    margin-top:40px;\n    padding:0;\n}\n#audition-set {\n    width: 250px;\n    height: 370px;\n    float: left;\n    color: black;\n    background-color: white;\n    border: 1px solid #ced4da;\n    padding: 0 0 0 0;\n    margin-left: 20px;\n    margin-top: 60px;\n    border-radius:5px;\n}\n.card-image-box {\n    width: 250px;\n    height: 260px;\n}\n.card-image-box > img {\n    width: 100%;\n    height:100%;\n}\n.audition-info {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.audition-title {\n    font-size:25px;\n    font-weight:100;\n}\n.audition-add-btn {\n    margin-top:60px;\n    width:200px;\n    height:60px;\n    margin-top:50px;\n}\n\n\n", ""]);
+exports.push([module.i, "\ndiv,\r\nh2,\r\nul {\r\n  padding: 0;\r\n  border: 0;\r\n  outline: 0;\n}\nli{\r\n    list-style: none;\n}\nh2 {\r\n  display: block;\r\n  -webkit-margin-before: 0.83em;\r\n          margin-block-start: 0.83em;\r\n  -webkit-margin-after: 0.83em;\r\n          margin-block-end: 0.83em;\r\n  -webkit-margin-start: 0px;\r\n          margin-inline-start: 0px;\r\n  -webkit-margin-end: 0px;\r\n          margin-inline-end: 0px;\n}\na {\r\n  color: #333333;\r\n  text-decoration: none;\n}\n.audition_list li .link {\r\n  display: block;\n}\n.audition_list li .imgbox {\r\n  width: 100%;\r\n  height: 400px;\r\n  overflow: hidden;\n}\n.audition_list li .imgbox:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  background-color: rgba(95, 95, 95, 0.6);\n}\n.audition_list li .imgbox img {\r\n  width: 100%;\r\n  height: auto;\n}\r\n\r\n/* 오디션 간략정보 */\n.audition_list li .d_dayinfo {\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n  width: 440px;\r\n  height: 400px;\r\n  padding: 61px 30px 0 75px;\r\n  box-sizing: border-box;\r\n  background-color: rgba(255, 255, 255, 0.8);\n}\r\n\r\n/* 기간정보 */\n.audition_list li .d_dayinfo .day {\r\n  width: 150px;\r\n  height: 56px;\r\n  padding-top: 0;\r\n  box-sizing: border-box;\r\n  background: #ed1c24;\r\n  color: #fff;\r\n  font-size: 24px;\r\n  font-weight: bold;\r\n  text-align: center;\r\n  line-height: 56px;\n}\r\n\r\n/* 오디션 리스트 기업정보 */\ntable {\r\n  border-collapse: collapse;\r\n  border-spacing: 0;\n}\ncolgroup {\r\n  display: table-column-group;\n}\nthead {\r\n  display: table-header-group;\r\n  vertical-align: middle;\n}\nth {\r\n  display: table-cell;\r\n  vertical-align: inherit;\r\n  text-align: -internal-center;\n}\ntr {\r\n  display: table-row;\r\n  vertical-align: inherit;\n}\n.audition_list li .d_dayinfo .info tbody th {\r\n  color: #141414;\r\n  font-size: 14px;\r\n  font-weight: bold;\r\n  line-height: 2;\n}\n.audition_list li .d_dayinfo .info thead th {\r\n  padding-bottom: 15px;\r\n  color: #141414;\r\n  font-size: 20px;\r\n  font-weight: bold;\n}\n.audition_list li .d_dayinfo .info {\r\n  width: 100%;\r\n  margin-top: 30px;\n}\np {\r\n  display: block;\r\n  -webkit-margin-before: 1em;\r\n          margin-block-start: 1em;\r\n  -webkit-margin-after: 1em;\r\n          margin-block-end: 1em;\r\n  -webkit-margin-start: 0px;\r\n          margin-inline-start: 0px;\r\n  -webkit-margin-end: 0px;\r\n          margin-inline-end: 0px;\n}\r\n\r\n/* 오디션 페이지 박스 */\n.common_contentbox {\r\n  overflow: hidden;\r\n  width: 1600px;\r\n  margin: 0 auto;\r\n  padding-bottom: 150px;\n}\r\n\r\n/* 오디션 페이지 텍스트 */\n.common_contentbox > .title {\r\n  margin: 0 0 0 0;\r\n  color: #ed1b24;\r\n  font-size: 28px;\r\n  font-weight: bold;\r\n  margin-left: 5%;\n}\r\n\r\n/* 오디션 페이지 리스트 */\nul {\r\n  display: block;\r\n  -webkit-margin-before: 1em;\r\n          margin-block-start: 1em;\r\n  -webkit-margin-after: 1em;\r\n          margin-block-end: 1em;\r\n  -webkit-margin-start: 0px;\r\n          margin-inline-start: 0px;\r\n  -webkit-margin-end: 0px;\r\n          margin-inline-end: 0px;\r\n  -webkit-padding-start: 40px;\r\n          padding-inline-start: 40px;\n}\n.audition_list li {\r\n  position: relative;\r\n  margin-top: 20px;\n}\n.audition_list li:first-child {\r\n  margin-top: 60px;\n}\nbutton {\r\n    display: inline-block;\r\n    width: 152px;\r\n    height: 48px;\r\n    border: none;\r\n    background: #ed1c24;\r\n    color: #fff;\r\n    font-size: 16px;\r\n    line-height: 1;\n}\n#button_area{\r\n  position: relative;\r\n  margin-top: 30px;\r\n  font-size: 0;\r\n  line-height: 0;\r\n  text-align: center;\n}\n.hovereffect:hover img {\r\n        opacity: 0.6;\r\n        filter: alpha(opacity=60);\r\n        transform: translate3d(0,0,0);\n}\r\n    \r\n\r\n/* .hovereffect:hover img {\r\n        opacity: 0.6;\r\n        filter: alpha(opacity=60);\r\n        -webkit-transform: translate3d(0,0,0);\r\n        transform: translate3d(0,0,0);\r\n    }\r\n\r\n    .hovereffect:hover .overlay:before {\r\n        opacity: 1;\r\n        filter: alpha(opacity=100);\r\n        -webkit-transform: translate3d(0,0,0);\r\n        transform: translate3d(0,0,0);\r\n    }\r\n\r\n    #container {\r\n        display: flex;\r\n        flex-direction: column;\r\n        align-items: center;\r\n        margin-bottom: 70px;\r\n    }\r\n\r\n    #audition-all {\r\n        width: 1100px;\r\n        display: inline-block;\r\n        margin-top:40px;\r\n        padding:0;\r\n    }\r\n\r\n    #audition-set {\r\n        width: 250px;\r\n        height: 370px;\r\n        float: left;\r\n        color: black;\r\n        background-color: white;\r\n        border: 1px solid #ced4da;\r\n        padding: 0 0 0 0;\r\n        margin-left: 20px;\r\n        margin-top: 60px;\r\n        border-radius:5px;\r\n    }\r\n\r\n    .audition-image-box {\r\n        width: 250px;\r\n        height: 260px;\r\n    }\r\n\r\n    .audition-image-box > img {\r\n        width: 100%;\r\n        height:100%;\r\n    }\r\n\r\n    .audition-info {\r\n        display: flex;\r\n        flex-direction: column;\r\n        align-items: center;\r\n    }\r\n\r\n    .audition-title {\r\n        font-size:25px;\r\n        font-weight:100;\r\n    }\r\n\r\n    .audition-add-btn {\r\n        margin-top:60px;\r\n        width:200px;\r\n        height:60px;\r\n        margin-top:50px;\r\n    } */\r\n", ""]);
 
 // exports
 
@@ -219,31 +263,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "container" } },
-    [
-      _c(
-        "div",
-        [
-          _c(
-            "b-list-group",
-            { attrs: { id: "audition-all" } },
-            _vm._l(_vm.auditions, function(audition, index) {
-              return _c(
-                "b-list-group-item",
-                {
-                  key: index,
-                  staticClass: "flex-column align-items-start",
-                  attrs: { id: "audition-set", href: "#", active: "" },
-                  on: {
-                    click: function($event) {
-                      return _vm.rowClick(audition)
-                    }
+  return _c("div", { attrs: { id: "container" } }, [
+    _c(
+      "div",
+      { staticClass: "common_contentbox" },
+      [
+        _c("h2", { staticClass: "title" }, [_vm._v("오디션")]),
+        _vm._v(" "),
+        _vm._l(_vm.auditions, function(audition, index) {
+          return _c("ul", { key: index, staticClass: "audition_list" }, [
+            _c(
+              "li",
+              {
+                on: {
+                  click: function($event) {
+                    return _vm.rowClick(audition)
                   }
-                },
-                [
-                  _c("div", { staticClass: "hovereffect card-image-box" }, [
+                }
+              },
+              [
+                _c("a", { staticClass: "link", attrs: { href: "#" } }, [
+                  _c("div", { staticClass: "imgbox hovereffect" }, [
                     _c("img", {
                       attrs: {
                         id: "card-image",
@@ -256,69 +296,71 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "audition-info" }, [
-                    _c("div", { staticStyle: { "margin-top": "12px" } }, [
-                      _c("h5", { staticClass: "audition-title" }, [
-                        _vm._v(_vm._s(audition.title))
-                      ])
-                    ]),
+                  _c("div", { staticClass: "d_dayinfo" }, [
+                    _c("p", { staticClass: "day" }, [_vm._v("~랭크이상")]),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c(
-                          "b-badge",
-                          { attrs: { pill: "", variant: "primary" } },
-                          [
-                            _vm._v(
-                              "마감일: 2020년 5월 15일" + _vm._s(audition.date)
-                            )
-                          ]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c(
-                          "b-badge",
-                          { attrs: { pill: "", variant: "success" } },
-                          [
-                            _vm._v(
-                              "랭크: B랭크 이상 지원가능" +
-                                _vm._s(audition.selected)
-                            )
-                          ]
-                        )
-                      ],
-                      1
-                    )
+                    _c("table", { staticClass: "info" }, [
+                      _vm._m(0, true),
+                      _vm._v(" "),
+                      _c("thead", [
+                        _c("tr", [
+                          _c("th", { attrs: { colspan: "2" } }, [
+                            _vm._v(_vm._s(audition.title))
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(1, true)
+                    ])
                   ])
-                ]
-              )
-            }),
-            1
+                ])
+              ]
+            )
+          ])
+        }),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "button_area" } }, [
+          _c(
+            "button",
+            { attrs: { type: "button" }, on: { click: _vm.writeContent } },
+            [_vm._v("오디션 공고등록")]
           )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-button",
-        {
-          staticClass: "audition-add-btn",
-          attrs: { variant: "dark" },
-          on: { click: _vm.writeContent }
-        },
-        [_vm._v("오디션 공고 등록")]
-      )
-    ],
-    1
-  )
+        ])
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("colgroup", [
+      _c("col", { staticStyle: { width: "100px" } }),
+      _vm._v(" "),
+      _c("col")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tbody", [
+      _c("tr", [
+        _c("th", [_vm._v("마감일")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("2020년 5월 13일 까지")])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", [_vm._v("기업명")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("YG 엔터테인먼트")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
