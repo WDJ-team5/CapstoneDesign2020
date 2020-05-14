@@ -12,12 +12,12 @@ class CompaniesTableSeeder extends Seeder
     public function run()
     {
         App\Company::create([
-            'name' => 'YJP',
+            'company_name' => 'YJP',
             'business_number' => '28199210'
         ]);
 
         App\Company::create([
-            'name' => '대성그룹',
+            'company_name' => '대성그룹',
             'business_number' => '39019281'
         ]);
     }

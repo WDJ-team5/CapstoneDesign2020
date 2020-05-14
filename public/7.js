@@ -14,6 +14,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_lecture_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/lecture_service */ "./resources/js/services/lecture_service.js");
 
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -68,7 +80,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     loadLecture: function () {
       var _loadLecture = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var response;
+        var _console, response;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -81,7 +94,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 response = _context.sent;
                 this.lectures.unshift(response.data);
                 this.lectures = response.data.data;
-                console.log(this.lectures);
+
+                (_console = console).log.apply(_console, _toConsumableArray(this.lectures));
+
                 _context.next = 12;
                 break;
 
@@ -241,7 +256,7 @@ var render = function() {
                         _c(
                           "b-badge",
                           { attrs: { pill: "", variant: "primary" } },
-                          [_vm._v("장르: ")]
+                          [_vm._v("장르: " + _vm._s(lecture.genre_name))]
                         )
                       ],
                       1
@@ -253,7 +268,7 @@ var render = function() {
                         _c(
                           "b-badge",
                           { attrs: { pill: "", variant: "success" } },
-                          [_vm._v("난이도: ")]
+                          [_vm._v("난이도: " + _vm._s(lecture.level_name))]
                         )
                       ],
                       1

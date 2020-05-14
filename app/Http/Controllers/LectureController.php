@@ -14,7 +14,11 @@ class LectureController extends Controller
      */
     public function index()
     {
-        $lecture= Lecture::orderBy('created_at','desc')->paginate();
+        $lecture = \App\lecture::join('genres','genre_id','=','genres.id')
+        ->join('levels','level_id','=','levels.id')
+        ->orderBy('created_at','desc')
+        ->paginate();
+        // $lecture= Lecture::orderBy('created_at','desc')->paginate();
         return response()->json($lecture,200);
     }
 

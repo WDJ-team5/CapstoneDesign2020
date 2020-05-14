@@ -15,7 +15,7 @@ class CreateRanksTable extends Migration
     {
         Schema::create('ranks', function (Blueprint $table) {
             $table->id();//랭크번호
-            $table->string('name');//랭크명
+            $table->string('rank_name');//랭크명
             $table->unsignedBigInteger('criterion');//기준점수
         });
     }

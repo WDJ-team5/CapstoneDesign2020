@@ -214,12 +214,12 @@ export default {
         let tmp = this.totalScore / this.finalCount;
         this.finalScore = Math.round(tmp*100)/100;
         this.ended = true;
-        console.log(this.finalScore);
+        // console.log(this.finalScore);
 
         let formData = new FormData();
         formData.append("accuracy", this.finalScore);
         formData.append("lecture_id", this.id);
-        console.log(...formData);
+        // console.log(...formData);
         this.finalScore = tmp.toFixed(2) + "%";
         window.cancelAnimationFrame(this.loop);
         this.modalChange();
@@ -228,7 +228,7 @@ export default {
         const res = await lectureService.createScore(formData);
         // const res = await lectureService.createScore();
         console.log(res);
-        console.log("가따옴");
+        console.log("플레이 데이터 저장 성공");
 
         // this.flashMessage.success({
         //   message: "Category stored successfully!",

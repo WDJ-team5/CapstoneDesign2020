@@ -35,3 +35,7 @@ Route::resource('users', 'UserController');
 Route::resource('sessions', 'SessionController');
 
 Route::resource('lectureUsers', 'lectureUserController');
+
+Route::get('/loadProfile', 'MypageController@loadProfile');
+
+Route::get('/loadMyLecture', 'MypageController@loadMyLecture');

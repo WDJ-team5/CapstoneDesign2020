@@ -41,11 +41,17 @@ class LectureUserController extends Controller
         $accuracy = $request->accuracy;
         $user_id = $user->id;
         $lecture_id = $request->lecture_id;
+        if($accuracy >= 85) {
+            $clear = 1;
+        } else {
+            $clear = 0;
+        }
 
         $score = \App\LectureUser::create([
             'accuracy' => $accuracy,
             'user_id' => $user_id,
             'lecture_id' => $lecture_id,
+            'clear' => $clear,
         ]);
 
         return response()->json($score, 200);
