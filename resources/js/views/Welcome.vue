@@ -127,13 +127,13 @@ export default {
             ]
           },
           slides: [
-            "https://images.unsplash.com/photo-1453831362806-3d5577f014a4?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
-            "https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
-            "https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
-            "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
-            "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
-            "https://images.unsplash.com/photo-1472926373053-51b220987527?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
-            "https://images.unsplash.com/photo-1497534547324-0ebb3f052e88?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+            "images/dance_main1.png",
+            "images/dance_main2.png",
+            "images/dance_main3.png",
+            "images/dance_main4.png",
+            "images/dance_main5.png",
+            "images/dance_main6.png",
+            "images/dance_main7.png",
           ]
           // vue-agile
       };
@@ -184,6 +184,8 @@ window.addEventListener('resize', function handleResize(event) {
 div > a > img {
     width: 100%;
     height: 100%;
+    transform: scale(1.0);
+    transition: transform .5s;
 }
 #popular {
     width: 100%;
@@ -197,7 +199,7 @@ div > a > img {
 #popularMain > a > img:hover {
     transition: .3s;
     opacity: 0.75;
-    transform: scale(1.5);
+    transform: scale(1.5) translateZ(0);
 }
 #popularSub {
     width: 35vw;
@@ -306,7 +308,7 @@ div > a > img {
     box-sizing: border-box;
     color: #fff;
     display: flex;
-    height: 450px;
+    height: 550px;
     justify-content: center;
 }
 

@@ -1,6 +1,4 @@
 <template>
-
-
   <div id="header">
     <div class="LoginNav">
       <!-- 로그인네비게이션-->
@@ -95,13 +93,7 @@
         </li>
       </ul>
     </nav>
-
-
-
   </div>
-
-
-
 </template>
 <script>
 import * as sessionService from "../services/session.service";
@@ -184,7 +176,6 @@ export default {
 </script>
 
 <style>
-
     #header {
       width: 100%;
       height: auto;
@@ -236,6 +227,7 @@ export default {
     li > a {
       color: black;
       text-decoration: none;
+      transition: color .9s;
     }
 
     .NavLink {

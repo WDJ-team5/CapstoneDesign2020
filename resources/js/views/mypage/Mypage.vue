@@ -88,8 +88,7 @@ export default {
 <style>
 a {
     color: black;
-}
-.mypage_container {
+    transition: all .9s;
 }
 .mypage_wrap {
     width: 90%;
@@ -114,8 +113,6 @@ a {
 #profileImg {
     width: 266px;
     margin-top: -133px;
-}
-.mypage_navigation {
 }
 .mypage_nav_link{
     display: flex;
@@ -154,7 +151,7 @@ a {
 }
 .profile_link:hover {
     background-color: #f5f5f5;
-    transition:all 0.5s ease;
+    transition:all 0.8s ease;
 }
 .profile_link:visited {
     background-color: #f5f5f5;
