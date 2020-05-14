@@ -9,7 +9,7 @@ class Expert extends Model
     protected $fillable = [
         'sns',
         'field_id',
-        'company_id',
+        'expert_company_id',
     ];
 
     public function user()

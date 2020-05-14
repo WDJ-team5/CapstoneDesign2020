@@ -74,7 +74,6 @@ const routes=[
         name:'lecture',
         component:()=>import('./views/lecture/Lecture.vue')
     },
-
     {
         path:'/lecturePlay/:id',
         name:'LecturePlay',

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class LectureUserController extends Controller
+class feedbackController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,27 +34,7 @@ class LectureUserController extends Controller
      */
     public function store(Request $request)
     {
-        $confirmCode = \App\Session::first();
-
-        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
-
-        $accuracy = $request->accuracy;
-        $user_id = $user->id;
-        $lecture_id = $request->lecture_id;
-        if($accuracy >= 85) {
-            $clear = 1;
-        } else {
-            $clear = 0;
-        }
-
-        $score = \App\LectureUser::create([
-            'accuracy' => $accuracy,
-            'user_id' => $user_id,
-            'lecture_id' => $lecture_id,
-            'clear' => $clear,
-        ]);
-
-        return response()->json($score, 200);
+        //
     }
 
     /**
@@ -88,8 +68,7 @@ class LectureUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        return response()->json('수강 끝난 후 점수 데이터 추가', 200);
+        //
     }
 
     /**

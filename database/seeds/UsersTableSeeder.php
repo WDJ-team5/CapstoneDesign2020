@@ -236,7 +236,7 @@ class UsersTableSeeder extends Seeder
             'expert_id' => 12,
         ]);
 
-        //기업용 계정
+        //기업용
         App\User::create([
             'userid' => 'company_01',
             'password' => bcrypt('1234'),

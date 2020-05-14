@@ -12,19 +12,19 @@ class GenresTableSeeder extends Seeder
     public function run()
     {
         App\Genre::create([
-            'name' => 'idol',
+            'genre_name' => 'idol',
         ]);
 
         App\Genre::create([
-            'name' => 'poppin',
+            'genre_name' => 'poppin',
         ]);
 
         App\Genre::create([
-            'name' => 'B-boying',
+            'genre_name' => 'B-boying',
         ]);
 
         App\Genre::create([
-            'name' => 'hiphop',
+            'genre_name' => 'hiphop',
         ]);
     }
 }

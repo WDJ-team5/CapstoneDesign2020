@@ -13,10 +13,10 @@
                         <h5 sytle="lecture-title" class="mb-1">{{lecture.title}}</h5>
                     </div>
                     <div>
-                        <b-badge pill variant="primary">장르: </b-badge>
+                        <b-badge pill variant="primary">장르: {{lecture.genre_name}}</b-badge>
                     </div>
                     <div>
-                        <b-badge pill variant="success">난이도: </b-badge>
+                        <b-badge pill variant="success">난이도: {{lecture.level_name}}</b-badge>
                     </div>
                 </div>
             </b-list-group-item>
@@ -54,7 +54,7 @@ export default {
                 const response=await lectureService.loadLecture();
                 this.lectures.unshift(response.data);
                 this.lectures=response.data.data; 
-                console.log(this.lectures);
+                console.log(...this.lectures);
             }catch(error){
                 this.flashMessage.error({
                     message: '에러가 발생했습니다!',
