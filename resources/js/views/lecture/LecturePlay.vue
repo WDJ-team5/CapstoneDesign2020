@@ -212,10 +212,9 @@ export default {
     endedVideo: async function() {
       if (this.start) {
         let tmp = this.totalScore / this.finalCount;
-        this.finalScore = tmp.toFixed(2);
+        this.finalScore = Math.round(tmp*100)/100;
         this.ended = true;
-
-        // console.log(typeof(this.finalScore));
+        console.log(this.finalScore);
 
         let formData = new FormData();
         formData.append("accuracy", this.finalScore);
@@ -224,11 +223,11 @@ export default {
         this.finalScore = tmp.toFixed(2) + "%";
         window.cancelAnimationFrame(this.loop);
         this.modalChange();
-      }
-
+      
       try {
-        const response = await lectureService.createScore(formData);
-        // console.log(response);
+        const res = await lectureService.createScore(formData);
+        // const res = await lectureService.createScore();
+        console.log(res);
         console.log("가따옴");
 
         // this.flashMessage.success({
@@ -236,7 +235,6 @@ export default {
         //   time: 5000
         // });
       } catch (error) {
-        console.log(response);
         console.log(error);
         // switch (error.response.status) {
         //   case 422:
@@ -250,6 +248,7 @@ export default {
         //     break;
         // }
       }
+    }
     }
   }
 };

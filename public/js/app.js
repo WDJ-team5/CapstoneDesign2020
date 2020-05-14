@@ -397,6 +397,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "session",
@@ -549,6 +555,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -5406,7 +5416,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#header {\n  width: 100%;\n  height: auto;\n  box-sizing: border-box;\n  z-index: 5;\n  display: block;\n}\n.LoginNav {\n  height: 35px;\n  font-size: 13px;\n  color: #6c738a;\n  z-index: 4;\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\n  margin-right: 140px;\n  display: flex;\n  float: right;\n}\n.ServiceNav {\n  margin-top: 10px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  padding: .5rem 1rem;\n}\n.LogoImg {\n  margin-left: 120px;\n  margin-top: 10px;\n}\n.ServiceNavGroup {\n  margin-top:8px;\n  margin-right: 120px;\n  display: flex;\n  float: right;\n  list-style: none;\n}\n.ServiceNabGroup {\n  margin-left : 35px;\n}\nli > a {\n  color: black;\n  text-decoration: none;\n}\n.NavLink {\n  display: flex;\n  padding: 0.5rem 1rem;\n}\n\n\n\n\n", ""]);
+exports.push([module.i, "\n#header {\n  width: 100%;\n  height: auto;\n  box-sizing: border-box;\n  z-index: 5;\n  display: block;\n}\n.LoginNav {\n  height: 35px;\n  font-size: 13px;\n  color: #6c738a;\n  z-index: 4;\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\n  margin-right: 140px;\n  display: flex;\n  float: right;\n}\n.ServiceNav {\n  margin-top: 10px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  padding: .5rem 1rem;\n}\n.LogoImg {\n  margin-left: 120px;\n  margin-top: 10px;\n}\n.ServiceNavGroup {\n  margin-top:8px;\n  margin-right: 120px;\n  display: flex;\n  float: right;\n  list-style: none;\n}\n.ServiceNabGroup {\n  margin-left : 35px;\n}\nli > a {\n  color: black;\n  text-decoration: none;\n}\n.NavLink {\n  display: flex;\n  padding: 0.5rem 1rem;\n  font-weight: 700;\n  font-size: 2vh;\n}\n.NavLink:hover {\n  color: #f86941;\n  text-decoration: none;\n  transition:all 0.5s ease;\n}\n\n\n\n\n", ""]);
 
 // exports
 
@@ -5425,7 +5435,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.homeContainer {\r\n    width: 100%;\n}\n.homeContainerChild {\r\n  width: 90%;\r\n    margin: 0 auto;\n}\ndiv > a > img {\r\n    width: 100%;\r\n    height: 100%;\n}\n#popular {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n#popularMain {\r\n    width: 65vw;\n}\n#popularSub {\r\n    width: 35vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 0;\r\n    padding: 0;\n}\n.popular-sub-child {\r\n    width: 100%;\r\n    height: 100%;\n}\n.home_list {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\r\n\r\n/* ===== carousel css ===== */\n.fas fa-chevron-left {\r\n  visibility: visible;\n}\n.fas fa-chevron-right {\r\n  visibility: visible;\n}\n.col-xs-12 {\r\n  width: 100%;\n}\n.section--demo-4 .main {\r\n    margin-bottom: 30px;\n}\n.section--demo-4 .thumbnails {\r\n    margin: 0 -5px;\r\n    width: calc(100% + 10px);\n}\n.section--demo-4 .agile__actions {\r\n    position: static;\n}\n.section--demo-4 .agile__nav-button {\r\n    background: transparent;\r\n    border: none;\r\n    color: #ccc;\r\n    cursor: pointer;\r\n    font-size: 24px;\r\n    transition-duration: .3s;\n}\n.section--demo-4 .agile__nav-button:hover {\r\n    color: #888;\n}\n.section--demo-4 .agile__dot {\r\n    margin: 0 10px;\n}\n.section--demo-4 .agile__dot button {\r\n    background-color: #eee;\r\n    border: none;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    display: block;\r\n    height: 10px;\r\n    font-size: 0;\r\n    line-height: 0;\r\n    margin: 0;\r\n    padding: 0;\r\n    transition-duration: .3s;\r\n    width: 10px;\n}\n.section--demo-4 .agile__dot--current button, .section--demo-4 .agile__dot:hover button {\r\n    background-color: #888;\n}\n.section--demo-4 .thumbnails .agile__nav-button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\n}\n.section--demo-4 .thumbnails .agile__nav-button--prev {\r\n    left: -45px;\n}\n.section--demo-4 .thumbnails .agile__nav-button--next {\r\n    right: -45px;\n}\n.section--demo-4 .slide {\r\n    align-items: center;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    display: flex;\r\n    height: 450px;\r\n    justify-content: center;\n}\n.section--demo-4 .slide--thumbniail {\r\n    cursor: pointer;\r\n    height: 100px;\r\n    padding: 0 5px;\r\n    transition: opacity .3s;\n}\n.section--demo-4 .slide--thumbniail:hover {\r\n    opacity: .75;\n}\n.section--demo-4 .slide img {\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: center;\r\n       object-position: center;\r\n    width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.homeContainer {\r\n    width: 100%;\n}\n.homeContainerChild {\r\n  width: 90%;\r\n    margin: 0 auto;\n}\ndiv > a > img {\r\n    width: 100%;\r\n    height: 100%;\n}\n#popular {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n#popularMain {\r\n    width: 65vw;\r\n    overflow: hidden;\n}\n#popularMain > a > img:hover {\r\n    transition: .3s;\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\n}\n#popularSub {\r\n    width: 35vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 0;\r\n    padding: 0;\n}\n.popular-sub-child {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\n}\n.popular-sub-child > a > img:hover {\r\n    transition: .3s;\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\n}\n.home_list {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n.home_list > a {\r\n    overflow: hidden;\n}\n.home_list > a > img:hover {\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\r\n    transition: .3s;\n}\r\n\r\n/* ===== carousel css ===== */\n.fas fa-chevron-left {\r\n  visibility: visible;\n}\n.fas fa-chevron-right {\r\n  visibility: visible;\n}\n.col-xs-12 {\r\n  width: 100%;\n}\n.section--demo-4 .main {\r\n    margin-bottom: 30px;\n}\n.section--demo-4 .thumbnails {\r\n    margin: 0 -5px;\r\n    width: calc(100% + 10px);\n}\n.section--demo-4 .agile__actions {\r\n    position: static;\n}\n.section--demo-4 .agile__nav-button {\r\n    background: transparent;\r\n    border: none;\r\n    color: #ccc;\r\n    cursor: pointer;\r\n    font-size: 24px;\r\n    transition-duration: .3s;\n}\n.section--demo-4 .agile__nav-button:hover {\r\n    color: #888;\n}\n.section--demo-4 .agile__dot {\r\n    margin: 0 10px;\n}\n.section--demo-4 .agile__dot button {\r\n    background-color: #eee;\r\n    border: none;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    display: block;\r\n    height: 10px;\r\n    font-size: 0;\r\n    line-height: 0;\r\n    margin: 0;\r\n    padding: 0;\r\n    transition-duration: .3s;\r\n    width: 10px;\n}\n.section--demo-4 .agile__dot--current button, .section--demo-4 .agile__dot:hover button {\r\n    background-color: #888;\n}\n.section--demo-4 .thumbnails .agile__nav-button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\n}\n.section--demo-4 .thumbnails .agile__nav-button--prev {\r\n    left: -45px;\n}\n.section--demo-4 .thumbnails .agile__nav-button--next {\r\n    right: -45px;\n}\n.section--demo-4 .slide {\r\n    align-items: center;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    display: flex;\r\n    height: 450px;\r\n    justify-content: center;\n}\n.section--demo-4 .slide--thumbniail {\r\n    cursor: pointer;\r\n    height: 100px;\r\n    padding: 0 5px;\r\n    transition: opacity .3s;\n}\n.section--demo-4 .slide--thumbniail:hover {\r\n    opacity: .75;\n}\n.section--demo-4 .slide img {\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: center;\r\n       object-position: center;\r\n    width: 100%;\n}\n.slide:hover {\r\n    transition: opacity .3s;\r\n    opacity: .75;\n}\r\n", ""]);
 
 // exports
 
@@ -8544,6 +8554,25 @@ var render = function() {
             )
           ],
           1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "NavLink",
+                attrs: { to: "/mypage/profile", exact: "" }
+              },
+              [
+                _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
+                _vm._v(" "),
+                _c("span", [_vm._v("마이페이지")])
+              ]
+            )
+          ],
+          1
         )
       ])
     ])
@@ -8782,10 +8811,14 @@ var render = function() {
                     "div",
                     {
                       key: index,
-                      staticClass: "slide",
+                      staticClass: "slide slide_main",
                       class: "slide--" + index
                     },
-                    [_c("img", { attrs: { src: slide } })]
+                    [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _c("img", { attrs: { src: slide } })
+                      ])
+                    ]
                   )
                 }),
                 0

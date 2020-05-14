@@ -36,18 +36,11 @@ class LectureUserController extends Controller
     {
         $confirmCode = \App\Session::first();
 
-        $user = \App\User::whereConfirmCode($confirmCode)->first();
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
-
-        // \App\LectureUser::create([
-        //     'accuracy' => $request->accuracy,
-        //     'user_id' => $user->id,
-        //     'lecture_id' => $request->lecture_id,
-        // ]);
-
-        (float)$accuracy = $request->accuracy;
-        (int)$user_id = $user->id;
-        (int)$lecture_id = $request->id;
+        $accuracy = $request->accuracy;
+        $user_id = $user->id;
+        $lecture_id = $request->lecture_id;
 
         $score = \App\LectureUser::create([
             'accuracy' => $accuracy,
