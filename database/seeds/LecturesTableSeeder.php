@@ -24,7 +24,7 @@ class LecturesTableSeeder extends Seeder
             'title' => '적당한 아이돌 댄스',
             'content' => '이거슨 적당한 아이돌 댄스입니다잉',
             'video' => '나중에 넣어',
-            'image' => 'LectureImg/02',
+            'image' => 'LectureImg/02.jpg',
             'genre_id' => 1,
             'level_id' => 2,
         ]);
@@ -33,7 +33,7 @@ class LecturesTableSeeder extends Seeder
             'title' => '어려운 아이돌 댄스',
             'content' => '이거슨 어려운 아이돌 댄스입니다잉',
             'video' => '나중에 넣어',
-            'image' => 'LectureImg/03',
+            'image' => 'LectureImg/03.jpg',
             'genre_id' => 1,
             'level_id' => 3,
         ]);
@@ -41,7 +41,7 @@ class LecturesTableSeeder extends Seeder
             'title' => '매우쉬운 팝핀 댄스',
             'content' => '이거슨 쉬운 팝핀 댄스입니다잉',
             'video' => '나중에 넣어',
-            'image' => 'LectureImg/04',
+            'image' => 'LectureImg/04.jpg',
             'genre_id' => 2,
             'level_id' => 1,
         ]);
@@ -50,7 +50,7 @@ class LecturesTableSeeder extends Seeder
             'title' => '적당한 팝핀 댄스',
             'content' => '이거슨 적당한 팝핀 댄스입니다잉',
             'video' => '나중에 넣어',
-            'image' => 'LectureImg/05',
+            'image' => 'LectureImg/05.jpg',
             'genre_id' => 2,
             'level_id' => 2,
         ]);
@@ -59,7 +59,7 @@ class LecturesTableSeeder extends Seeder
             'title' => '어려운 팝핀 댄스',
             'content' => '이거슨 어려운 팝핀 댄스입니다잉',
             'video' => '나중에 넣어',
-            'image' => 'LectureImg/06',
+            'image' => 'LectureImg/06.jpg',
             'genre_id' => 2,
             'level_id' => 3,
         ]);

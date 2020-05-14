@@ -85701,15 +85701,7 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 842b7d24a9919c8ae98613fc747a74af1128b787
-    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
-=======
     return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
->>>>>>> jhh
   }
 }, {
   path: '/userlist',
@@ -85789,27 +85781,12 @@ var routes = [{
   path: '/advice/list',
   name: 'AdviceList',
   component: function component() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 842b7d24a9919c8ae98613fc747a74af1128b787
-    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
-=======
     return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
->>>>>>> jhh
   }
 }, {
   path: '/advice/detail/:contentId',
   name: 'AdviceDetail',
   component: function component() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 842b7d24a9919c8ae98613fc747a74af1128b787
-=======
->>>>>>> jhh
     return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));
   }
 }, // 마이페이지
@@ -86077,13 +86054,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
 __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> 842b7d24a9919c8ae98613fc747a74af1128b787
 
 
 /***/ })
