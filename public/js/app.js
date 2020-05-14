@@ -85988,6 +85988,7 @@ var routes = [{
   component: function component() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
 =======
     return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
@@ -85995,6 +85996,9 @@ var routes = [{
 =======
     return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
 >>>>>>> ahn
+=======
+    return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
+>>>>>>> jhh
   }
 }, {
   path: '/userlist',
@@ -86050,15 +86054,12 @@ var routes = [{
   name: 'AuditionCreate',
   component: function component() {
     return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
-<<<<<<< HEAD
   }
 }, {
   path: '/auditionapply',
   name: 'AuditionAppply',
   component: function component() {
     return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionApply.vue */ "./resources/js/views/audition/AuditionApply.vue"));
-=======
->>>>>>> fb785a2be2989726b11732e23050bc6e341c5336
   }
 }, //   댄스강좌
 {
@@ -86085,6 +86086,7 @@ var routes = [{
   component: function component() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
 =======
     return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
@@ -86092,6 +86094,9 @@ var routes = [{
 =======
     return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
 >>>>>>> ahn
+=======
+    return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
+>>>>>>> jhh
   }
 }, {
   path: '/advice/detail/:contentId',
@@ -86104,57 +86109,37 @@ var routes = [{
   path: '/mypage',
   name: 'mypage',
   component: function component() {
-<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
-=======
-    return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
->>>>>>> fb785a2be2989726b11732e23050bc6e341c5336
   },
   children: [{
     path: 'profile',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
+      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
     }
   }, {
     path: 'lecture',
     component: function component() {
-<<<<<<< HEAD
       return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
-=======
-      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
->>>>>>> fb785a2be2989726b11732e23050bc6e341c5336
     }
   }, {
     path: 'apply',
     component: function component() {
-<<<<<<< HEAD
       return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
-=======
-      return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
->>>>>>> fb785a2be2989726b11732e23050bc6e341c5336
     }
   }, {
     path: 'companyinfo',
     component: function component() {
-<<<<<<< HEAD
       return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
-=======
-      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
->>>>>>> fb785a2be2989726b11732e23050bc6e341c5336
     }
   }, {
     path: 'auditionlist',
     component: function component() {
-<<<<<<< HEAD
       return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
-=======
-      return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
->>>>>>> fb785a2be2989726b11732e23050bc6e341c5336
     }
   }, {
     path: 'profileedit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
+      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
     }
   }]
 }];
@@ -86386,6 +86371,7 @@ __webpack_require__.r(__webpack_exports__);
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 =======
@@ -86396,6 +86382,10 @@ module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\res
 __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 >>>>>>> ahn
+=======
+__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> jhh
 
 
 /***/ })
