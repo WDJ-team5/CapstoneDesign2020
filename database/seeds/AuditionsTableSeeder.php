@@ -45,7 +45,7 @@ class AuditionsTableSeeder extends Seeder
             'image' => 'auditon_image/04.jpg',
             'rank' => 'A',
             'video' => '나중에 집어넣어',
-            'user_id' => 15,
+            'user_id' => 16,
         ]);
         App\Audition::create([
             'title' => 'audition_title_5',
@@ -58,8 +58,8 @@ class AuditionsTableSeeder extends Seeder
         ]);
 
         App\Audition::create([
-            'title' => 'audition_title_1',
-            'content' => 'audition_content_1',
+            'title' => 'audition_title_6',
+            'content' => 'audition_content_6',
             'end_date' => '2020-05-10',
             'image' => 'auditon_image/06.jpg',
             'rank' => 'A',

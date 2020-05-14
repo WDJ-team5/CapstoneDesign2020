@@ -38,4 +38,10 @@ Route::resource('lectureUsers', 'lectureUserController');
 
 Route::get('/loadProfile', 'MypageController@loadProfile');
 
+Route::get('/updateProfile', 'MypageController@updateProfile');
+
 Route::get('/loadMyLecture', 'MypageController@loadMyLecture');
+
+Route::get('/loadMyResume', 'MypageController@loadMyResume');
+
+Route::get('/loadMyAudition', 'MypageController@loadMyAudition');
