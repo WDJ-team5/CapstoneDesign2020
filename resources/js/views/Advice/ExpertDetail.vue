@@ -56,7 +56,7 @@
                             <span class="feedback-star-font">피드백 별점</span>
                         </div>
                         <div class="feedbackBtnBox">
-                            <button class="feedbackBtn">피드백 신청하기</button>
+                            <button class="feedbackBtn" @click="writeAdvice">피드백 신청하기</button>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,14 @@
 
 export default {
   name: "ExpertDetail",
-  props: ['propsdata']
+  props: ['propsdata'],
+  methods: {
+    writeAdvice() {
+      this.$router.push({
+        path: "/advice/create"
+      });
+    }
+  }
 };
 </script>
 
