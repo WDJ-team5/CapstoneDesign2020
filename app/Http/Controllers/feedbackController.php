@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
+use App\Career;
+use App\Expert;
 use Illuminate\Http\Request;
 
 class feedbackController extends Controller

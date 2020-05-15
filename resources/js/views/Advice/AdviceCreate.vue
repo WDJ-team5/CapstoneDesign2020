@@ -1,14 +1,14 @@
 <template>
-    <div class="advice-create-page">
-        <div class="advice-create-form"> 
+    <div class="feedback-create-page">
+        <div class="feedback-create-form"> 
 
-            <form v-on:submit.prevent="createAdvice">
+            <form v-on:submit.prevent="createFeedback">
 
-                <div class="advice-title-form">
-                    <b-form-input class="advice-title" placeholder="제목을 입력하세요"></b-form-input>
+                <div class="feedback-title-form">
+                    <b-form-input class="feedback-title" placeholder="제목을 입력하세요"></b-form-input>
                 </div>
 
-                <div class="advice-info">
+                <div class="feedback-info">
                     <label class="receiver">
                         <label>Receiver : </label>
                         <label>Receiver name</label>
@@ -24,8 +24,8 @@
 
                 <b-form-textarea id="textarea-rows" placeholder="내용을 입력해주세요" rows="22"></b-form-textarea>
 
-                <div class="advice-btn">
-                    <b-button class="advice-send-btn" type="submit" variant="primary">보내기</b-button>
+                <div class="feedback-btn">
+                    <b-button class="feedback-send-btn" type="submit" variant="primary">보내기</b-button>
                     <b-button variant="danger" @click="cancle">취소</b-button>
                 </div>
 
@@ -36,12 +36,12 @@
 </template>
 
 <script>
-import * as adviceService from '../../services/advice_service';
+import * as feedbackService from "../../services/feedback_service";
 export default {
-    name:'AdviceCreate',
+    name:'FeedbackCreate',
     data() {
         return {
-            adviceData:{
+            FeedbackData:{
                 title:'',
                 content: '',
                 userId: 1,
@@ -56,16 +56,16 @@ export default {
 
     },
     methods:{
-        createAdvice: async function(){
+        createFeedback: async function(){
             let formData=new FormData();
-            formData.append('title',this.adviceData.title);
-            formData.append('date',this.adviceData.date);
-            formData.append('content',this.adviceData.content);
-            formData.append('video',this.adviceData.video);
-            formData.append('selected',this.adviceData.selected);
+            formData.append('title',this.feedbackData.title);
+            formData.append('date',this.feedbackData.date);
+            formData.append('content',this.feedbackData.content);
+            formData.append('video',this.feedbackData.video);
+            formData.append('selected',this.feedbackData.selected);
 
             try{
-                const response=await adviceService.createAdvice(formData);
+                const response=await feedbackService.createFeedback(formData);
                 history.back();
             }catch(error){
                 console.log(error.response.status);
@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style>
-    .advice-create-page {
+    .feedback-create-page {
         width: 100%;
         margin-top: 20px;
         display: flex;
@@ -102,15 +102,15 @@ export default {
         justify-content: center;
     }
 
-    .advice-create-form {
+    .feedback-create-form {
         width: 800px;
     }
 
-    .advice-title-form {
+    .feedback-title-form {
         margin-bottom: 20px;
     }
 
-    .advice-info {
+    .feedback-info {
         height: 60px;
     }
 
@@ -131,18 +131,18 @@ export default {
         margin-left:5px;
     }
 
-    .advice-title{
+    .feedback-title{
         height: 60px;
     }
 
-    .advice-btn {
+    .feedback-btn {
         margin-top : 30px;
         display: flex;
         flex-direction: row;
         justify-content: center;
     }
 
-    .advice-send-btn {
+    .feedback-send-btn {
         margin-right: 5px;
     }
 

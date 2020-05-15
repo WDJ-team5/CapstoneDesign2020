@@ -29,15 +29,15 @@
                             <tbody>
                                 <tr>
                                     <th>자기소개</th>
-                                    <td>{{propsdata.content}}</td>
+                                    <td>{{propsdata.introduction}}</td>
                                 </tr>
                                 <tr>
                                     <th>전문분야</th>
-                                    <td>{{propsdata.major}}</td>
+                                    <td>{{propsdata.area}}</td>
                                 </tr>
                                 <tr>
                                     <th>수상경력</th>
-                                    <td>{{propsdata.awards}}</td>
+                                    <td>수상경력</td>
                                 </tr>
                                 <tr>
                                     <th>SNS</th>
@@ -45,7 +45,7 @@
                                 </tr>
                                 <tr>
                                     <th>소속사</th>
-                                    <td>{{propsdata.company}}</td>
+                                    <td>{{propsdata.company_name}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -221,6 +221,7 @@ export default {
         color: #fff;
         font-size: 12px;
         font-weight: bold;
+        padding-left: 10px;
     }
     
     .feedback-star-font-box {

@@ -26,7 +26,7 @@ class ExpertsTableSeeder extends Seeder
             'expert_company_id' => 1,
         ]);
 
-        App\Specialty::find(4)->experts()->create([//idol 전문가4호
+        App\Specialty::find(1)->experts()->create([//idol 전문가4호
             'sns' => '카카오스토리',
             'specialty_id' => 1,
             'expert_company_id' => 1,
