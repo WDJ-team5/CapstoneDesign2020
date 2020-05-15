@@ -300,12 +300,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }(),
     endedVideo: function () {
       var _endedVideo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-<<<<<<< HEAD
         var tmp, formData, res;
-=======
-        var _console, tmp, formData, res;
-
->>>>>>> ahn
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
@@ -334,30 +329,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 res = _context4.sent;
                 // const res = await lectureService.createScore();
                 console.log(res);
-<<<<<<< HEAD
                 console.log("플레이 데이터 저장 성공"); // this.flashMessage.success({
-=======
-                console.log("가따옴"); // this.flashMessage.success({
->>>>>>> ahn
                 //   message: "Category stored successfully!",
                 //   time: 5000
                 // });
 
-<<<<<<< HEAD
                 _context4.next = 21;
                 break;
 
               case 18:
                 _context4.prev = 18;
                 _context4.t0 = _context4["catch"](10);
-=======
-                _context4.next = 23;
-                break;
-
-              case 20:
-                _context4.prev = 20;
-                _context4.t0 = _context4["catch"](12);
->>>>>>> ahn
                 console.log(_context4.t0); // switch (error.response.status) {
                 //   case 422:
                 //     this.errors = error.response.data.errors;
@@ -370,20 +352,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 //     break;
                 // }
 
-<<<<<<< HEAD
               case 21:
-=======
-              case 23:
->>>>>>> ahn
               case "end":
                 return _context4.stop();
             }
           }
-<<<<<<< HEAD
         }, _callee4, this, [[10, 18]]);
-=======
-        }, _callee4, this, [[12, 20]]);
->>>>>>> ahn
       }));
 
       function endedVideo() {

@@ -85986,19 +85986,7 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
-=======
-    return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
->>>>>>> fb785a2be2989726b11732e23050bc6e341c5336
-=======
-    return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
->>>>>>> ahn
-=======
-    return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
->>>>>>> jhh
   }
 }, {
   path: '/userlist',
@@ -86084,19 +86072,7 @@ var routes = [{
   path: '/advice/list',
   name: 'AdviceList',
   component: function component() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
-=======
-    return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
->>>>>>> fb785a2be2989726b11732e23050bc6e341c5336
-=======
-    return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
->>>>>>> ahn
-=======
-    return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
->>>>>>> jhh
   }
 }, {
   path: '/advice/detail/:contentId',
@@ -86369,23 +86345,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-__webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
 __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> fb785a2be2989726b11732e23050bc6e341c5336
-=======
-__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> ahn
-=======
-__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> jhh
 
 
 /***/ })
