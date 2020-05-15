@@ -18,7 +18,7 @@ class AuditionsTableSeeder extends Seeder
             'image' => 'auditon_image/01.jpg',
             'rank' => 'A',
             'video' => '나중에 집어넣어',
-            'user_id' => 15,
+            'user_id' => 19,
         ]);
         App\Audition::create([
             'title' => 'audition_title_2',
@@ -27,7 +27,7 @@ class AuditionsTableSeeder extends Seeder
             'image' => 'auditon_image/02.jpg',
             'rank' => 'A',
             'video' => '나중에 집어넣어',
-            'user_id' => 15,
+            'user_id' => 19,
         ]);
         App\Audition::create([
             'title' => 'audition_title_3',
@@ -36,7 +36,7 @@ class AuditionsTableSeeder extends Seeder
             'image' => 'auditon_image/03.jpg',
             'rank' => 'A',
             'video' => '나중에 집어넣어',
-            'user_id' => 15,
+            'user_id' => 19,
         ]);
         App\Audition::create([
             'title' => 'audition_title_4',
@@ -45,7 +45,7 @@ class AuditionsTableSeeder extends Seeder
             'image' => 'auditon_image/04.jpg',
             'rank' => 'A',
             'video' => '나중에 집어넣어',
-            'user_id' => 16,
+            'user_id' => 20,
         ]);
         App\Audition::create([
             'title' => 'audition_title_5',
@@ -54,7 +54,7 @@ class AuditionsTableSeeder extends Seeder
             'image' => 'auditon_image/05.jpg',
             'rank' => 'A',
             'video' => '나중에 집어넣어',
-            'user_id' => 16,
+            'user_id' => 20,
         ]);
 
         App\Audition::create([
@@ -64,7 +64,7 @@ class AuditionsTableSeeder extends Seeder
             'image' => 'auditon_image/06.jpg',
             'rank' => 'A',
             'video' => '나중에 집어넣어',
-            'user_id' => 16,
+            'user_id' => 20,
         ]);
     }
 }

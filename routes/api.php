@@ -38,6 +38,8 @@ Route::resource('lectureUsers', 'LectureUserController');
 
 Route::resource('feedback', 'FeedbackController');
 
+Route::resource('auditionApply', 'AuditionApplyController');
+
 Route::get('/loadProfile', 'MypageController@loadProfile');
 
 Route::get('/updateProfile', 'MypageController@updateProfile');
