@@ -90,7 +90,7 @@ const routes=[
         component:()=>import('./views/Advice/AdviceList.vue')
     },
     {
-        path:'/advice/create/:contentId?',
+        path:`/advice/create/:contentId?/:contentName?`,
         name:'AdviceCreate',
         component:()=>import('./views/Advice/AdviceCreate.vue')
     },

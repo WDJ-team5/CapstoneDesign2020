@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -37,19 +38,25 @@ class ArticleController extends Controller
         $confirmCode = \App\Session::first();
 
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+        
+        $article= new \App\Article();
 
-        \App\User::find($user->id)->articles()->create([
-            // 'title',
-            // 'content',
-            // 'video',
-            // 'answer',
-            // 'answer_date',
-            // // 'grade',
-            // 'user_id',
-            // 'answer_id',
-        ]);
+        $article->user_id=$user->id;
+        $article->title=$request->title;
+        $article->content=$request->content;
+        $article->video=$request->video;
 
-        return response()->json('피드백 요청 완료', 200);
+        $article->expert_id=$request->expert_id;
+  
+
+        if($article->save()){
+            return response()->json($article,200);
+        }else{
+            return response()->json([
+                'message'=>'문제가 발생했습니다',
+                'status_code'=>500
+            ],500);
+        }
     }
 
     /**

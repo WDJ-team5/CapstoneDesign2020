@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Career;
 use App\Expert;
+use App\Article;
 use Illuminate\Http\Request;
 
 class feedbackController extends Controller
@@ -40,7 +41,28 @@ class feedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+        
+        $article= new \App\Article();
+
+        $article->user_id=$user->id;
+        $article->title=$request->title;
+        $article->content=$request->content;
+        $article->video=$request->video;
+
+        $article->expert_id=$request->expert_id;
+  
+
+        if($article->save()){
+            return response()->json($article,200);
+        }else{
+            return response()->json([
+                'message'=>'문제가 발생했습니다',
+                'status_code'=>500
+            ],500);
+        }
     }
 
     /**
