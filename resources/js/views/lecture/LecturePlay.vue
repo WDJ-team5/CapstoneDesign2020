@@ -70,7 +70,7 @@ export default {
       loop: null,
       cal: cal,
       finalScore: 0,
-      ended: false
+      ended: false,
       // data:{
       //     'title' => '매우쉬운 아이돌 댄스',
       //     'content' => '이거슨 쉬운 아이돌 댄스입니다잉',
@@ -208,6 +208,9 @@ export default {
       }
       if (!this.ended)
         this.loop = window.requestAnimationFrame(this.webcamReady);
+    },
+    saveVideo: function(){
+      var canvas = document.createElement('canvas');
     },
     endedVideo: async function() {
       if (this.start) {
