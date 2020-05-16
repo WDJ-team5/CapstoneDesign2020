@@ -2,8 +2,8 @@
   <div class="expert">
 
     <div class="expert-set">
-      <div id="container" class="expert-imgList kpop">
-        <ExpertItem v-on:active="active1" />
+      <div id="container" class="expert-imgList">
+        <ExpertItem v-bind:propsdata="idolExp" v-on:active="active1" />
       </div>
       <div class="expert-profile" v-if="isActive1">
         <ExpertDetail v-bind:propsdata="data[0]"></ExpertDetail>
@@ -11,35 +11,23 @@
     </div>
 
     <div class="expert-set">
-      <div id="container" class="expert-imgList kpop">
-        <ExpertItem v-on:active="active2" />
+      <div id="container" class="expert-imgList">
+        <ExpertItem v-bind:propsdata="hiphopExp" v-on:active="active2" />
       </div>
       <div class="expert-profile" v-if="isActive2">
-        <ExpertDetail></ExpertDetail>
+        <ExpertDetail v-bind:propsdata="data[0]"></ExpertDetail>
       </div>
     </div>
 
 
     <div class="expert-set">
-      <div id="container" class="expert-imgList kpop">
-        <ExpertItem v-on:active="active3" />
+      <div id="container" class="expert-imgList">
+        <ExpertItem v-bind:propsdata="poppinExp" v-on:active="active3" />
       </div>
       <div class="expert-profile" v-if="isActive3">
-        <ExpertDetail></ExpertDetail>
+        <ExpertDetail v-bind:propsdata="data[0]"></ExpertDetail>
       </div>
     </div>
-
-
-    <div class="expert-set">
-      <div id="container" class="expert-imgList kpop">
-        <ExpertItem v-on:active="active4" />
-      </div>
-      <div class="expert-profile" v-if="isActive4">
-        <ExpertDetail></ExpertDetail>
-      </div>
-    </div>
-
-
 
 
   </div>
@@ -48,37 +36,87 @@
 <script>
 import ExpertItem from "./ExpertItem.vue";
 import ExpertDetail from "./ExpertDetail.vue";
-
+import * as feedbackService from "../../services/feedback_service";
 
 export default {
   data () {
+
+
     return {
+      experts:[],
+      expertData:{
+        userid: "",
+        name: "",
+        image: "",
+        introduction: "",
+        sns: "",
+        area: "",
+        company_name: "",
+      },
       isActive1:false,
       isActive2:false,
       isActive3:false,
       isActive4:false,
-      data:[]
+      data:[],
+      idolExp:[],
+      hiphopExp:[],
+      poppinExp:[],
     };
+
+
   },
   name: "ExpertList",
   props: {
     // msg: String
   },
+  mounted(){
+        this.loadFeedback();
+  },
   methods: {
+    loadFeedback: async function(){
+            try{
+
+                const response=await feedbackService.loadFeedback();
+                // console.log(response.data[0]);
+                console.log("data[1] : ",response.data[1]);
+                this.experts.unshift(response.data[0]);
+                this.experts=response.data[0]; 
+                // console.log("전문가 값 출력 : ",this.experts);
+
+
+                const idolExp = response.data[0].filter(item => item.area === 'idol');
+                // console.log(idolExp);
+                this.idolExp=idolExp;
+
+                const hiphopExp = response.data[0].filter(item => item.area === 'hiphop');
+                // console.log(hiphopExp);
+                this.hiphopExp=hiphopExp;
+
+                const poppinExp = response.data[0].filter(item => item.area === 'poppin');
+                // console.log(poppinExp);
+                this.poppinExp=poppinExp;
+               
+
+
+            }catch(error){
+                this.flashMessage.error({
+                    message: '데이터를 못받았음',
+                    time:5000
+             });
+         }
+     },
     active1(items) {
       this.isActive1 =!this.isActive1;
       this.data.unshift(items);
-      console.log("데이터확인",this.data[0],"응그래");
     },
-    active2() {
+    active2(items) {
       this.isActive2 =!this.isActive2;
+      this.data.unshift(items);
     },
-    active3() {
+    active3(items) {
       this.isActive3 =!this.isActive3;
+      this.data.unshift(items);
     },
-    active4() {
-      this.isActive4 =!this.isActive4;
-    }
   },
   components: {
     ExpertItem,

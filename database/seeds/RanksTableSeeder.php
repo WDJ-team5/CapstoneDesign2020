@@ -12,17 +12,17 @@ class RanksTableSeeder extends Seeder
     public function run()
     {
         App\Rank::create([
-            'name' => 'C',
+            'rank_name' => 'C',
             'criterion' => 50,
         ]);
 
         App\Rank::create([
-            'name' => 'B',
+            'rank_name' => 'B',
             'criterion' => 70,
         ]);
 
         App\Rank::create([
-            'name' => 'A',
+            'rank_name' => 'A',
             'criterion' => 90,
         ]);
     }

@@ -12,15 +12,15 @@ class LevelsTableSeeder extends Seeder
     public function run()
     {
         App\Level::create([
-            'name' => 'C',
+            'level_name' => 'C',
         ]);
 
         App\Level::create([
-            'name' => 'B',
+            'level_name' => 'B',
         ]);
 
         App\Level::create([
-            'name' => 'A',
+            'level_name' => 'A',
         ]);
     }
 }

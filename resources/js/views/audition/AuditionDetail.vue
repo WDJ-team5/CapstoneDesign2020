@@ -20,12 +20,12 @@
           <col />
         </colgroup>
         <tbody>
-          <p class="auditiondetails_total">기업정보</p>
+          <p class="auditiondetails_total">오디션 정보</p>
           <tr>
-            <th>감독</th>
-            <td>메가폰코리아</td>
-            <th>접수기간</th>
-            <td>채용시 마감 ~ 채용시 마감</td>
+            <th>모집랭크</th>
+            <td>{{auditions.rank}} 랭크이상</td>
+            <th>오디션 기간</th>
+            <td>{{auditions.end_date}} 까지</td>
           </tr>
           <tr>
             <th>장르</th>
@@ -65,15 +65,7 @@
       <dl class="auditiondetails_introduction">
           <dt>오디션 소개</dt>
           <dd>
-            오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.<br>
-            오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.<br>
-            오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.<br>
-            오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.<br><br>
-            오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.<br>
-            오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.<br><br>
-            오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.<br>
-            오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.오디션 본문내용입니다.<br>
-
+            {{auditions.content}}<br>
           </dd>
       </dl>
       <hr class="hr_line">
@@ -86,7 +78,7 @@
       ></b-embed>
       <hr class="hr_line">
       <div id="button_area">
-        <button type="button">지원하기</button>
+        <button type="button" @click="applyAudition">지원하기</button>
       </div>
       <div id="button_area">
       <b-button variant="primary" v-on:click="editAudition(auditions)">수정</b-button>
@@ -202,6 +194,11 @@ export default {
       this.$router.push({
         path: `/auditioncreate/${auditions.id}`
       });
+    },
+    applyAudition(){
+      this.$router.push({
+        path: "/auditionapply"
+      });
     }
 
     // 삭제를 수행하는 함수
@@ -251,6 +248,8 @@ table{
   padding: 0;
   border: 0;
   outline: 0;
+
+  height: 100%;
 }
 
 tbody{
@@ -341,7 +340,7 @@ dl {
 
 #content {
   width: 1200px;
-  margin: 5px auto 0;
+  margin: -25px auto 0;
   padding-bottom: 152px;
 }
 

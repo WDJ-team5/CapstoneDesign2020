@@ -2,7 +2,9 @@
     <div class="mypage_container">
         <br>
         <div class="mypage_wrap">
-            <h2>ARTIST</h2>
+            <h2 v-if="mypages.class == 1">ARTIST</h2>
+            <h2 v-if="mypages.class == 2">EXPERT</h2>
+            <h2 v-if="mypages.class == 3">PRODUCER</h2>
             <div class="mypage_flex">
                 <div class="mypage_profile">
                     <div id="profileImg">
@@ -13,33 +15,20 @@
                         <div class="table_flex">
                             <table>
                                 <tr>
-                                    <td>이름</td>
+                                    <th>이름</th>
+                                    <td>{{mypages.name}}</td>
                                 </tr>
                                 <tr>
-                                    <td>생년월일</td>
+                                    <th>생년월일</th>
+                                    <td>{{mypages.birthday}}</td>
                                 </tr>
                                 <tr>
-                                    <td>주소</td>
+                                    <th>주소</th>
+                                    <td>{{mypages.address}}</td>
                                 </tr>
                                 <tr>
-                                    <td>연락처</td>
-                                </tr>
-                                <tr>
-                                    <td>소개</td>
-                                </tr>
-                            </table>
-                            <table>
-                                <tr>
-                                    <td>안희건(v-for)</td>
-                                </tr>
-                                    <td>940330(v-for)</td>
-                                <tr>
-                                    <td>대구광역시 달서구(v-for)</td>
-                                <tr>
-                                    <td>010-6483-5850(v-for)</td>
-                                </tr>
-                                <tr>
-                                    <td>소개안한다!(v-for)</td>
+                                    <th>연락처</th>
+                                    <td>{{mypages.call_number}}</td>
                                 </tr>
                             </table>
                         </div>
@@ -81,15 +70,38 @@
 
 <script>
 export default {
+    name: 'mypage',
+    data() {
+        return {
+            mypages: [],
+            mypageData: {
+                name: '',
+                image: '',
+            },
+            editMypageData: {},
+            errors: {}
+        }
+    },
+    mounted() {
+        this.loadProfile();
+    },
+    methods: {
+        loadProfile: async function() {
+            const url = 'api/mypage';
 
+            this.axios.get(url).then(response => {
+                console.log(response.data);
+                this.mypages = response.data;
+            });
+        },
+    }
 }
 </script>
 
 <style>
 a {
     color: black;
-}
-.mypage_container {
+    transition: all .9s;
 }
 .mypage_wrap {
     width: 90%;
@@ -114,8 +126,8 @@ a {
 #profileImg {
     width: 266px;
     margin-top: -133px;
-}
-.mypage_navigation {
+    border-radius: 133px;
+    overflow: hidden;
 }
 .mypage_nav_link{
     display: flex;
@@ -154,7 +166,7 @@ a {
 }
 .profile_link:hover {
     background-color: #f5f5f5;
-    transition:all 0.5s ease;
+    transition:all 0.8s ease;
 }
 .profile_link:visited {
     background-color: #f5f5f5;

@@ -37,7 +37,7 @@ class UsersTableSeeder extends Seeder
             'address' => '대구광역시',
             'call_number' => '010-0000-0000',
             'introduction' => '좌익수는 올 해 처음이지만, 열심히 하겠습니다.',
-            'class' => 2,
+            'class' => 1,
             'rank_id'=> 3,
             'company_id' => null,
             'expert_id' => null,
@@ -236,7 +236,71 @@ class UsersTableSeeder extends Seeder
             'expert_id' => 12,
         ]);
 
-        //기업용 계정
+        App\User::create([
+            'userid' => 'hiphop_01',
+            'password' => bcrypt('1234'),
+            'name' => '힙합맨1',
+            'image' => null,
+            'birthday' => '1996-08-10',
+            'gender' => 1,
+            'address' => '대구광역시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 난 힙합 요정이야',
+            'class' => 2,
+            'rank_id'=> 3,
+            'company_id' => null,
+            'expert_id' => 13,
+        ]);
+
+        App\User::create([
+            'userid' => 'hiphop_02',
+            'password' => bcrypt('1234'),
+            'name' => '힙합맨2',
+            'image' => null,
+            'birthday' => '1996-08-10',
+            'gender' => 1,
+            'address' => '대구광역시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 난 힙합 요정이야',
+            'class' => 2,
+            'rank_id'=> 3,
+            'company_id' => null,
+            'expert_id' => 14,
+        ]);
+
+        App\User::create([
+            'userid' => 'hiphop_03',
+            'password' => bcrypt('1234'),
+            'name' => '힙합맨3',
+            'image' => null,
+            'birthday' => '1996-08-10',
+            'gender' => 1,
+            'address' => '대구광역시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 난 힙합 요정이야',
+            'class' => 2,
+            'rank_id'=> 3,
+            'company_id' => null,
+            'expert_id' => 15,
+        ]);
+
+        App\User::create([
+            'userid' => 'hiphop_04',
+            'password' => bcrypt('1234'),
+            'name' => '힙합맨4',
+            'image' => null,
+            'birthday' => '1996-08-10',
+            'gender' => 1,
+            'address' => '대구광역시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 난 힙합 요정이야',
+            'class' => 2,
+            'rank_id'=> 3,
+            'company_id' => null,
+            'expert_id' => 16,
+        ]);
+
+        //기업용
         App\User::create([
             'userid' => 'company_01',
             'password' => bcrypt('1234'),

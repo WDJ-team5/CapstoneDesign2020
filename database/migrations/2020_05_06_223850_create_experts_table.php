@@ -16,12 +16,15 @@ class CreateExpertsTable extends Migration
         Schema::create('experts', function (Blueprint $table) {
             $table->id();//전문가번호
             $table->string('sns');//sns
+            $table->string('career_01');//수상경력1
+            $table->string('career_02');//수상경력2
+            $table->string('career_03');//수상경력3
             $table->timestamps();
             $table->unsignedBigInteger('specialty_id');//전문분야번호
-            $table->unsignedBigInteger('company_id')->nullable();//소속기업번호
+            $table->unsignedBigInteger('expert_company_id')->nullable();//소속기업번호
 
             $table->foreign('specialty_id')->references('id')->on('specialties');
-            $table->foreign('company_id')->references('id')->on('companies');
+            $table->foreign('expert_company_id')->references('id')->on('companies');
         });
     }
 

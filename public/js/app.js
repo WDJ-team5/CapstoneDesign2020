@@ -2198,14 +2198,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "session",
@@ -2480,7 +2472,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }]
       },
-      slides: ["https://images.unsplash.com/photo-1453831362806-3d5577f014a4?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ", "https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ", "https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ", "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ", "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ", "https://images.unsplash.com/photo-1472926373053-51b220987527?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ", "https://images.unsplash.com/photo-1497534547324-0ebb3f052e88?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"] // vue-agile
+      slides: ["images/dance_main1.png", "images/dance_main2.png", "images/dance_main3.png", "images/dance_main4.png", "images/dance_main5.png", "images/dance_main6.png", "images/dance_main7.png"] // vue-agile
 
     };
   },
@@ -48111,7 +48103,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#header {\n  width: 100%;\n  height: auto;\n  box-sizing: border-box;\n  z-index: 5;\n  display: block;\n}\n.LoginNav {\n  height: 35px;\n  font-size: 13px;\n  color: #6c738a;\n  z-index: 4;\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\n  margin-right: 140px;\n  display: flex;\n  float: right;\n}\n.ServiceNav {\n  margin-top: 10px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  padding: .5rem 1rem;\n}\n.LogoImg {\n  margin-left: 120px;\n  margin-top: 10px;\n}\n.ServiceNavGroup {\n  margin-top:8px;\n  margin-right: 120px;\n  display: flex;\n  float: right;\n  list-style: none;\n}\n.ServiceNabGroup {\n  margin-left : 35px;\n}\nli > a {\n  color: black;\n  text-decoration: none;\n}\n.NavLink {\n  display: flex;\n  padding: 0.5rem 1rem;\n  font-weight: 700;\n  font-size: 2vh;\n}\n.NavLink:hover {\n  color: #f86941;\n  text-decoration: none;\n  transition:all 0.5s ease;\n}\n\n\n\n\n", ""]);
+exports.push([module.i, "\n#header {\n  width: 100%;\n  height: auto;\n  box-sizing: border-box;\n  z-index: 5;\n  display: block;\n}\n.LoginNav {\n  height: 35px;\n  font-size: 13px;\n  color: #6c738a;\n  z-index: 4;\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\n  margin-right: 140px;\n  display: flex;\n  float: right;\n}\n.ServiceNav {\n  margin-top: 10px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  padding: .5rem 1rem;\n}\n.LogoImg {\n  margin-left: 120px;\n  margin-top: 10px;\n}\n.ServiceNavGroup {\n  margin-top:8px;\n  margin-right: 120px;\n  display: flex;\n  float: right;\n  list-style: none;\n}\n.ServiceNabGroup {\n  margin-left : 35px;\n}\nli > a {\n  color: black;\n  text-decoration: none;\n  transition: color .9s;\n}\n.NavLink {\n  display: flex;\n  padding: 0.5rem 1rem;\n  font-weight: 700;\n  font-size: 2vh;\n}\n.NavLink:hover {\n  color: #f86941;\n  text-decoration: none;\n  transition:all 0.5s ease;\n}\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48130,7 +48122,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.homeContainer {\r\n    width: 100%;\n}\n.homeContainerChild {\r\n  width: 90%;\r\n    margin: 0 auto;\n}\ndiv > a > img {\r\n    width: 100%;\r\n    height: 100%;\n}\n#popular {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n#popularMain {\r\n    width: 65vw;\r\n    overflow: hidden;\n}\n#popularMain > a > img:hover {\r\n    transition: .3s;\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\n}\n#popularSub {\r\n    width: 35vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 0;\r\n    padding: 0;\n}\n.popular-sub-child {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\n}\n.popular-sub-child > a > img:hover {\r\n    transition: .3s;\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\n}\n.home_list {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n.home_list > a {\r\n    overflow: hidden;\n}\n.home_list > a > img:hover {\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\r\n    transition: .3s;\n}\r\n\r\n/* ===== carousel css ===== */\n.fas fa-chevron-left {\r\n  visibility: visible;\n}\n.fas fa-chevron-right {\r\n  visibility: visible;\n}\n.col-xs-12 {\r\n  width: 100%;\n}\n.section--demo-4 .main {\r\n    margin-bottom: 30px;\n}\n.section--demo-4 .thumbnails {\r\n    margin: 0 -5px;\r\n    width: calc(100% + 10px);\n}\n.section--demo-4 .agile__actions {\r\n    position: static;\n}\n.section--demo-4 .agile__nav-button {\r\n    background: transparent;\r\n    border: none;\r\n    color: #ccc;\r\n    cursor: pointer;\r\n    font-size: 24px;\r\n    transition-duration: .3s;\n}\n.section--demo-4 .agile__nav-button:hover {\r\n    color: #888;\n}\n.section--demo-4 .agile__dot {\r\n    margin: 0 10px;\n}\n.section--demo-4 .agile__dot button {\r\n    background-color: #eee;\r\n    border: none;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    display: block;\r\n    height: 10px;\r\n    font-size: 0;\r\n    line-height: 0;\r\n    margin: 0;\r\n    padding: 0;\r\n    transition-duration: .3s;\r\n    width: 10px;\n}\n.section--demo-4 .agile__dot--current button, .section--demo-4 .agile__dot:hover button {\r\n    background-color: #888;\n}\n.section--demo-4 .thumbnails .agile__nav-button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\n}\n.section--demo-4 .thumbnails .agile__nav-button--prev {\r\n    left: -45px;\n}\n.section--demo-4 .thumbnails .agile__nav-button--next {\r\n    right: -45px;\n}\n.section--demo-4 .slide {\r\n    align-items: center;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    display: flex;\r\n    height: 450px;\r\n    justify-content: center;\n}\n.section--demo-4 .slide--thumbniail {\r\n    cursor: pointer;\r\n    height: 100px;\r\n    padding: 0 5px;\r\n    transition: opacity .3s;\n}\n.section--demo-4 .slide--thumbniail:hover {\r\n    opacity: .75;\n}\n.section--demo-4 .slide img {\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: center;\r\n       object-position: center;\r\n    width: 100%;\n}\n.slide:hover {\r\n    transition: opacity .3s;\r\n    opacity: .75;\n}\r\n", ""]);
+exports.push([module.i, "\n.homeContainer {\r\n    width: 100%;\n}\n.homeContainerChild {\r\n  width: 90%;\r\n    margin: 0 auto;\n}\ndiv > a > img {\r\n    width: 100%;\r\n    height: 100%;\r\n    transform: scale(1.0);\r\n    transition: transform .5s;\n}\n#popular {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n#popularMain {\r\n    width: 65vw;\r\n    overflow: hidden;\n}\n#popularMain > a > img:hover {\r\n    transition: .3s;\r\n    opacity: 0.75;\r\n    transform: scale(1.5) translateZ(0);\n}\n#popularSub {\r\n    width: 35vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 0;\r\n    padding: 0;\n}\n.popular-sub-child {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\n}\n.popular-sub-child > a > img:hover {\r\n    transition: .3s;\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\n}\n.home_list {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n.home_list > a {\r\n    overflow: hidden;\n}\n.home_list > a > img:hover {\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\r\n    transition: .3s;\n}\r\n\r\n/* ===== carousel css ===== */\n.fas fa-chevron-left {\r\n  visibility: visible;\n}\n.fas fa-chevron-right {\r\n  visibility: visible;\n}\n.col-xs-12 {\r\n  width: 100%;\n}\n.section--demo-4 .main {\r\n    margin-bottom: 30px;\n}\n.section--demo-4 .thumbnails {\r\n    margin: 0 -5px;\r\n    width: calc(100% + 10px);\n}\n.section--demo-4 .agile__actions {\r\n    position: static;\n}\n.section--demo-4 .agile__nav-button {\r\n    background: transparent;\r\n    border: none;\r\n    color: #ccc;\r\n    cursor: pointer;\r\n    font-size: 24px;\r\n    transition-duration: .3s;\n}\n.section--demo-4 .agile__nav-button:hover {\r\n    color: #888;\n}\n.section--demo-4 .agile__dot {\r\n    margin: 0 10px;\n}\n.section--demo-4 .agile__dot button {\r\n    background-color: #eee;\r\n    border: none;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    display: block;\r\n    height: 10px;\r\n    font-size: 0;\r\n    line-height: 0;\r\n    margin: 0;\r\n    padding: 0;\r\n    transition-duration: .3s;\r\n    width: 10px;\n}\n.section--demo-4 .agile__dot--current button, .section--demo-4 .agile__dot:hover button {\r\n    background-color: #888;\n}\n.section--demo-4 .thumbnails .agile__nav-button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\n}\n.section--demo-4 .thumbnails .agile__nav-button--prev {\r\n    left: -45px;\n}\n.section--demo-4 .thumbnails .agile__nav-button--next {\r\n    right: -45px;\n}\n.section--demo-4 .slide {\r\n    align-items: center;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    display: flex;\r\n    height: 550px;\r\n    justify-content: center;\n}\n.section--demo-4 .slide--thumbniail {\r\n    cursor: pointer;\r\n    height: 100px;\r\n    padding: 0 5px;\r\n    transition: opacity .3s;\n}\n.section--demo-4 .slide--thumbniail:hover {\r\n    opacity: .75;\n}\n.section--demo-4 .slide img {\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: center;\r\n       object-position: center;\r\n    width: 100%;\n}\n.slide:hover {\r\n    transition: opacity .3s;\r\n    opacity: .75;\n}\r\n", ""]);
 
 // exports
 
@@ -67928,6 +67920,19 @@ const mixin = {
 
 /***/ }),
 
+/***/ "./node_modules/vue-axios/dist/vue-axios.min.js":
+/*!******************************************************!*\
+  !*** ./node_modules/vue-axios/dist/vue-axios.min.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(o){return typeof o}:function(o){return o&&"function"==typeof Symbol&&o.constructor===Symbol&&o!==Symbol.prototype?"symbol":typeof o};!function(){function o(e,t){if(!o.installed){if(o.installed=!0,!t)return void console.error("You have to install axios");e.axios=t,Object.defineProperties(e.prototype,{axios:{get:function(){return t}},$http:{get:function(){return t}}})}}"object"==( false?undefined:_typeof(exports))?module.exports=o: true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function(){return o}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):undefined}();
+
+/***/ }),
+
 /***/ "./node_modules/vue-functional-data-merge/dist/lib.esm.js":
 /*!****************************************************************!*\
   !*** ./node_modules/vue-functional-data-merge/dist/lib.esm.js ***!
@@ -85484,14 +85489,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
 /* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/index.js");
 /* harmony import */ var vue_agile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-agile */ "./node_modules/vue-agile/src/index.js");
-/* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
-/* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! bootstrap-vue/dist/bootstrap-vue.css */ "./node_modules/bootstrap-vue/dist/bootstrap-vue.css");
-/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @smartweb/vue-flash-message */ "./node_modules/@smartweb/vue-flash-message/build/vue-flash-msg.common.js");
-/* harmony import */ var _smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.min.js");
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
+/* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! bootstrap-vue/dist/bootstrap-vue.css */ "./node_modules/bootstrap-vue/dist/bootstrap-vue.css");
+/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @smartweb/vue-flash-message */ "./node_modules/@smartweb/vue-flash-message/build/vue-flash-msg.common.js");
+/* harmony import */ var _smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_11__);
+
+
 
 
 
@@ -85503,8 +85514,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_4__["BootstrapVue"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_9___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_11___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_agile__WEBPACK_IMPORTED_MODULE_5__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_axios__WEBPACK_IMPORTED_MODULE_6___default.a, axios__WEBPACK_IMPORTED_MODULE_7___default.a);
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   router: _router__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -85734,11 +85746,7 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
-<<<<<<< HEAD
-    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
-=======
-    return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
->>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
+    return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
   }
 }, {
   path: '/userlist',
@@ -85750,13 +85758,13 @@ var routes = [{
   path: '/login',
   name: 'login',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/views/auth/Login.vue"));
+    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/views/auth/Login.vue"));
   }
 }, {
   path: '/signselect',
   name: 'signselect',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/auth/SignSelect.vue */ "./resources/js/views/auth/SignSelect.vue"));
+    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/auth/SignSelect.vue */ "./resources/js/views/auth/SignSelect.vue"));
   }
 }, {
   path: '/usersignup',
@@ -85768,13 +85776,13 @@ var routes = [{
   path: '/companysignup1',
   name: 'companysignup1',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup1.vue */ "./resources/js/views/auth/CompanySignup1.vue"));
+    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup1.vue */ "./resources/js/views/auth/CompanySignup1.vue"));
   }
 }, {
   path: '/companysignup2',
   name: 'companysignup2',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup2.vue */ "./resources/js/views/auth/CompanySignup2.vue"));
+    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup2.vue */ "./resources/js/views/auth/CompanySignup2.vue"));
   }
 }, // 오디션
 {
@@ -85794,6 +85802,12 @@ var routes = [{
   name: 'AuditionCreate',
   component: function component() {
     return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
+  }
+}, {
+  path: '/auditionapply',
+  name: 'AuditionAppply',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionApply.vue */ "./resources/js/views/audition/AuditionApply.vue"));
   }
 }, //   댄스강좌
 {
@@ -85818,11 +85832,16 @@ var routes = [{
   path: '/advice/list',
   name: 'AdviceList',
   component: function component() {
+    return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
 <<<<<<< HEAD
-    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
+  }
+}, {
+  path: '/advice/create/:contentId?',
+  name: 'AdviceCreate',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceCreate.vue */ "./resources/js/views/Advice/AdviceCreate.vue"));
 =======
-    return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
->>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
+>>>>>>> ahn
   }
 }, {
   path: '/advice/detail/:contentId',
@@ -85835,37 +85854,42 @@ var routes = [{
   path: '/mypage',
   name: 'mypage',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
+    return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
   },
   children: [{
     path: 'profile',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
+      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
+<<<<<<< HEAD
     }
+=======
+    },
+    props: true
+>>>>>>> ahn
   }, {
     path: 'lecture',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
+      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
     }
   }, {
     path: 'apply',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
+      return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
     }
   }, {
     path: 'companyinfo',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
+      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
     }
   }, {
     path: 'auditionlist',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
+      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
     }
   }, {
     path: 'profileedit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
+      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
     }
   }]
 }];
@@ -86096,12 +86120,12 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
-__webpack_require__(/*! C:\teamProject\git\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\teamProject\git\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 =======
 __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> addb9334f4e5fc3d634da84c32050e89896037ed
+>>>>>>> ahn
 
 
 /***/ })

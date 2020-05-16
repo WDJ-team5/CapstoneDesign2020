@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class LectureUserController extends Controller
+class AuditionApplyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,14 @@ class LectureUserController extends Controller
      */
     public function index()
     {
-        //
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        $result = \App\User::join('ranks','rank_id','=','ranks.id')
+        ->whereConfirmCode($confirmCode->confirm_code)->first();
+
+        return response()->json($result, 200);
     }
 
     /**
@@ -34,27 +41,7 @@ class LectureUserController extends Controller
      */
     public function store(Request $request)
     {
-        $confirmCode = \App\Session::first();
-
-        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
-
-        $accuracy = $request->accuracy;
-        $user_id = $user->id;
-        $lecture_id = $request->lecture_id;
-        if($accuracy >= 85) {
-            $clear = 1;
-        } else {
-            $clear = 0;
-        }
-
-        $score = \App\LectureUser::create([
-            'accuracy' => $accuracy,
-            'user_id' => $user_id,
-            'lecture_id' => $lecture_id,
-            'clear' => $clear,
-        ]);
-
-        return response()->json($score, 200);
+        //
     }
 
     /**
@@ -88,8 +75,7 @@ class LectureUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        return response()->json('수강 끝난 후 점수 데이터 추가', 200);
+        //
     }
 
     /**
