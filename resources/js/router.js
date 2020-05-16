@@ -108,7 +108,8 @@ const routes=[
         children: [
             {
                 path: 'profile',
-                component:()=>import('./views/mypage/Profile.vue')
+                component:()=>import('./views/mypage/Profile.vue'),
+                props: true
             },
             {
                 path: 'lecture',

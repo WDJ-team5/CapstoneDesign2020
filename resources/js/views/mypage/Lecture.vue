@@ -35,7 +35,31 @@
 
 <script>
 export default {
+    name: 'lecture',
+    data() {
+        return {
+            lectures: [],
+            lectureData: {
+                name: '',
+                image: '',
+            },
+            editLectureData: {},
+            errors: {}
+        }
+    },
+    mounted() {
+        this.loadLecture();
+    },
+    methods: {
+        loadLecture: async function() {
+            const url = 'api/mypage/lecture';
 
+            this.axios.get(url).then(response => {
+                console.log(response);
+                // this.lectures = response.data;
+            });
+        },
+    }
 }
 </script>
 
