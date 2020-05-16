@@ -18,14 +18,24 @@
     <video ref="webcam" id="webCam" width="800" height="600" autoplay v-on:play="bindPage()"></video>
     <!-- <canvas id="canvas" width="800" height="600"> -->
     <div id="pannel">
-      <button id="preview_btn" type="button" v-on:click="modeChange()">{{computedModeChangeHtml}}</button>
-      <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button>
-      <!-- <button id="end-btn" type="button">끝내기</button> -->
-      <router-link to="/lecture" class="nav-link" exact>
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <button id="end_btn">끝내기</button>
-      </router-link>
+      <div class="btn-bg bg-1">
+        <div class="btn btn-1">
+
+          <button id="preview_btn" type="button" v-on:click="modeChange()">{{computedModeChangeHtml}}</button>
+          <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button>
+          <!-- <button id="end-btn" type="button">끝내기</button> -->
+          <router-link to="/lecture" class="nav-link" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <button id="end_btn">끝내기</button>
+          </router-link>
+        </div>
+      </div>
     </div>
+
+
+
+
+
     <!-- </canvas> -->
     <div id="modal" v-bind:style="{display:computedDisplay}">
       <div class="modal_content">
@@ -346,4 +356,46 @@ export default {
   background: rgba(0, 0, 0, 0.5);
   z-index: -1;
 }
+
+    body .btn-bg {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body .btn-bg.bg-1 {
+  background: #6ab1c9;
+}
+body .btn-bg.bg-1 .btn-1 button {
+  color: #c7f8f9;
+  background: transparent;
+  border: 3px solid #c7f8f9;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.btn-bg.bg-1 .btn-1 button a {
+  color: #c7f8f9;
+}
+.btn-bg.bg-1 .btn-1 button:hover {
+  background: #c7f8f9;
+  color: #6ab1c9;
+  border: 3px solid #6ab1c9;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.btn-bg.bg-1 .btn-1 button:hover >a {
+  color: #6ab1c9;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.btn-bg.bg-1 .btn-1 button:active {
+  -webkit-transform: translate(5px, 5px);
+  transform: translate(5px, 5px);
+}
+
 </style>
