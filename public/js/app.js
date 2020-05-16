@@ -85835,6 +85835,12 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
   }
 }, {
+  path: '/advice/create/:contentId?',
+  name: 'AdviceCreate',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceCreate.vue */ "./resources/js/views/Advice/AdviceCreate.vue"));
+  }
+}, {
   path: '/advice/detail/:contentId',
   name: 'AdviceDetail',
   component: function component() {
@@ -86106,6 +86112,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+__webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+>>>>>>> master
 __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 

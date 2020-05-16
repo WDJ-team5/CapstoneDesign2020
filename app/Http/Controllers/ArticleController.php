@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use App\Career;
-use App\Expert;
+
 use Illuminate\Http\Request;
 
-class feedbackController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +13,7 @@ class feedbackController extends Controller
      */
     public function index()
     {
-        $experts = \App\User::whereClass(2)->join('experts','expert_id','=','experts.id')
-        ->join('specialties','specialty_id','=','specialties.id')
-        ->join('companies','expert_company_id','=','companies.id')->get();
-
-        return response()->json($experts, 200);
+        //
     }
 
     /**
@@ -40,7 +34,22 @@ class feedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        \App\User::find($user->id)->articles()->create([
+            // 'title',
+            // 'content',
+            // 'video',
+            // 'answer',
+            // 'answer_date',
+            // // 'grade',
+            // 'user_id',
+            // 'answer_id',
+        ]);
+
+        return response()->json('피드백 요청 완료', 200);
     }
 
     /**

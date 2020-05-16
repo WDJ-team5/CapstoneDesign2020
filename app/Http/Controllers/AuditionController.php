@@ -14,8 +14,12 @@ class AuditionController extends Controller
      */
     public function index()
     {
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
         $audition= Audition::orderBy('created_at','desc')->paginate();
-        return response()->json($audition,200);
+        return response()->json([$audition, $user],200);
     }
 
     /**
@@ -42,8 +46,14 @@ class AuditionController extends Controller
             // 'context'=>'required|min:10',
             'image' => 'required|image|mimes:jpeg,png,jpg'
         ]);
+
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
         
         $audition=new \App\Audition();
+
+        $audition->user_id=$user->id;
 
         // 제목 저장
         $audition->title=$request->title;
@@ -81,8 +91,16 @@ class AuditionController extends Controller
      */
     public function show($id)
     {
-        $result=Audition::find($id);
-        return response()->json($result);
+        //$result=Audition::find($id);
+
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        $result = \App\Audition::join('users','user_id','=','users.id')
+        ->join('companies','company_id','=','companies.id')-find($id);
+        
+        return response()->json([$result,$user], 200);
     }
 
     /**

@@ -34,7 +34,11 @@ Route::resource('users', 'UserController');
 
 Route::resource('sessions', 'SessionController');
 
-Route::resource('lectureUsers', 'lectureUserController');
+Route::resource('lectureUsers', 'LectureUserController');
+
+Route::resource('feedback', 'FeedbackController');
+
+Route::resource('auditionApply', 'AuditionApplyController');
 
 Route::get('/mypage', 'MypageController@loadProfile');
 

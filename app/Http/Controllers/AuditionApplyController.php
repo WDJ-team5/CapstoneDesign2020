@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use App\Career;
-use App\Expert;
+
 use Illuminate\Http\Request;
 
-class feedbackController extends Controller
+class AuditionApplyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +13,14 @@ class feedbackController extends Controller
      */
     public function index()
     {
-        $experts = \App\User::whereClass(2)->join('experts','expert_id','=','experts.id')
-        ->join('specialties','specialty_id','=','specialties.id')
-        ->join('companies','expert_company_id','=','companies.id')->get();
+        $confirmCode = \App\Session::first();
 
-        return response()->json($experts, 200);
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        $result = \App\User::join('ranks','rank_id','=','ranks.id')
+        ->whereConfirmCode($confirmCode->confirm_code)->first();
+
+        return response()->json($result, 200);
     }
 
     /**

@@ -15,7 +15,7 @@ class CreateResumesTable extends Migration
     {
         Schema::create('resumes', function (Blueprint $table) {
             $table->id();//지원번호
-            $table->integer('score');//영상과제점수
+            $table->float('score');//영상과제점수
             $table->text('message');//기타메시지
             $table->boolean('result')->default(0);//합격여부
             $table->timestamps();

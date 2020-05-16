@@ -42,4 +42,37 @@ class MypageController extends Controller
 
         return response()->json($result, 200);
     }
+
+    public function loadMyResume() {
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        $result = \App\User::find($user->id)->resumes()
+        ->join('auditions','audition_id','=','auditions.id')->first();
+
+        return response()->json($result, 200);
+    }
+
+    public function loadMyAudition() {
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        $result = \App\User::find($user->id)->auditions()->get();
+
+        return response()->json($result, 200);
+    }
+
+    public function updateProfile() {
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        $result = \App\User::find($user->id)->update([
+            //내용내용
+        ]);
+
+        return response()->json($result, 200);
+    }
 }

@@ -56,6 +56,9 @@ class DatabaseSeeder extends Seeder
 
         App\Audition::truncate();
         $this->call(AuditionsTableSeeder::class);
+        
+        App\Resume::truncate();
+        $this->call(ResumesTableSeeder::class);
 
         if(config('database.default') !== 'sqlite') {
             DB::statement('SET FOREIGN_KEY_CHECKS = 1');
