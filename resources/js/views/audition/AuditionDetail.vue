@@ -50,15 +50,16 @@
       </dl>
       <hr class="hr_line">
       <p id="video_result" class="auditiondetails_total">영상과제</p>
-      <b-embed
+      <!-- <b-embed
               type="iframe"
               aspect="16by9"
               v-bind:src="auditionData.video"
               allowfullscreen
-      ></b-embed>
+      ></b-embed> -->
+      <iframe width="1000" height="500" src="https://www.youtube.com/embed/tLJICX3yKMs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <hr class="hr_line">
       <div id="button_area">
-        <button type="button" @click="applyAudition">테스트하기</button>
+        <button type="button" @click="applyAudition">오디션 보기</button>
       </div>
       <div id="button_area">
       <b-button variant="primary" v-on:click="editAudition(auditions)">수정</b-button>
@@ -154,7 +155,7 @@ export default {
     },
 
     deleteAudition: async function(auditions) {
-      if (!window.confirm(`삭제할거에요? ${auditions.title}`)) {
+      if (!window.confirm(`삭제할거에요?`)) {
         return;
       }
       try {
@@ -281,6 +282,7 @@ td {
 }
 
 .auditiondetails_tblinfo td {
+    width: 140px;
     padding-top: 21px;
     font-size: 14px;
     font-weight: normal;
