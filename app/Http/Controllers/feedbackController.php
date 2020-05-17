@@ -23,6 +23,16 @@ class feedbackController extends Controller
         return response()->json($experts, 200);
     }
 
+
+    public function loadFeedbackList()
+    {
+        $confirmCode = \App\Session::first();
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+        $result = \App\User::find($user->id)->articles()->get();
+
+        return response()->json($result, 200);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

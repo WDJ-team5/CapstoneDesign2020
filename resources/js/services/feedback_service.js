@@ -8,4 +8,8 @@ export function loadFeedback() {
     return http().get('/feedback');
 }
 
+export function loadFeedbackList() {
+    return http().get('/feedback/list');
+}
+
 

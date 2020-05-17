@@ -14,7 +14,12 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $confirmCode = \App\Session::first();
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+        // $result = \App\User::find($user->id)->articles()->join('experts','expert_id','=','experts.id')->get();
+        // return response()->json($result, 200);
+        $result = \App\Article::where('user_id','=',`$user->id`)->get();
+        return response()->json($result, 200);
     }
 
     /**
