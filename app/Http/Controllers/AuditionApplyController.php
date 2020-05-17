@@ -41,7 +41,13 @@ class AuditionApplyController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        // $result = \App\;
+
+        return response()->json($result, 200);
     }
 
     /**
