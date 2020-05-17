@@ -17,6 +17,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+<<<<<<< HEAD
+=======
+//
+>>>>>>> ahn
 //
 //
 //
@@ -62,6 +66,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+//
+//
+//
+//
+//
+//
+>>>>>>> ahn
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'profile',
   data: function data() {
@@ -125,7 +139,11 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.profile {\r\n    display: flex;\r\n    padding: 1vw;\n}\n.table_flex {\r\n    display: flex;\n}\n.table_margin {\r\n    border-collapse: separate;\r\n    border-spacing: 1vh;\n}\n.score {\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 1vw;\n}\r\n", ""]);
+=======
+exports.push([module.i, "\n.profile_contents > img {\r\n    width: 250px;\n}\n.profile {\r\n    display: flex;\r\n    padding: 1vw;\n}\n.table_flex {\r\n    display: flex;\n}\n.table_margin {\r\n    border-collapse: separate;\r\n    border-spacing: 1vh;\n}\n.score {\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 1vw;\n}\r\n", ""]);
+>>>>>>> ahn
 
 // exports
 
@@ -179,7 +197,18 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "profile" }, [
+<<<<<<< HEAD
       _vm._m(0),
+=======
+      _c("div", { staticClass: "profile_contents" }, [
+        _c("img", {
+          attrs: {
+            src: "images/" + _vm.profiles.rank_name + ".png",
+            alt: _vm.profiles.rank_name
+          }
+        })
+      ]),
+>>>>>>> ahn
       _vm._v(" "),
       _c("div", { staticClass: "table_flex" }, [
         _c("table", { staticClass: "table_margin" }, [
@@ -192,19 +221,33 @@ var render = function() {
           _c("tr", [
             _c("th", [_vm._v("성별")]),
             _vm._v(" "),
+<<<<<<< HEAD
             _vm.profiles.gender == true ? _c("td", [_vm._v("여성")]) : _vm._e(),
             _vm._v(" "),
             _vm.profiles.gender == false ? _c("td", [_vm._v("남성")]) : _vm._e()
+=======
+            _vm.profiles.gender == true
+              ? _c("td", [_vm._v("여성")])
+              : _c("td", [_vm._v("남성")])
+>>>>>>> ahn
           ]),
           _vm._v(" "),
           _c("tr", [
             _c("th", [_vm._v("등급")]),
             _vm._v(" "),
+<<<<<<< HEAD
             _vm.profiles.class == 1 ? _c("td", [_vm._v("ARTIST")]) : _vm._e(),
             _vm._v(" "),
             _vm.profiles.class == 2 ? _c("td", [_vm._v("EXPERT")]) : _vm._e(),
             _vm._v(" "),
             _vm.profiles.class == 3 ? _c("td", [_vm._v("PRODUCER")]) : _vm._e()
+=======
+            _vm.profiles.class == 1
+              ? _c("td", [_vm._v("ARTIST")])
+              : _vm.profiles.class == 2
+              ? _c("td", [_vm._v("EXPERT")])
+              : _c("td", [_vm._v("PRODUCER")])
+>>>>>>> ahn
           ]),
           _vm._v(" "),
           _c("tr", [
@@ -217,12 +260,34 @@ var render = function() {
             _c("th", [_vm._v("가입일")]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(String(_vm.profiles.created_at)))])
+<<<<<<< HEAD
           ])
+=======
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", [_vm._v("랭킹")]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(_vm.profiles.rank_name))])
+          ]),
+          _vm._v(" "),
+          _vm.profiles.class == 3
+            ? _c("tr", [
+                _c("th", [_vm._v("기업명")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.profiles.company_name))])
+              ])
+            : _vm._e()
+>>>>>>> ahn
         ])
       ])
     ]),
     _vm._v(" "),
+<<<<<<< HEAD
     _vm._m(1)
+=======
+    _vm._m(0)
+>>>>>>> ahn
   ])
 }
 var staticRenderFns = [
@@ -230,6 +295,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+<<<<<<< HEAD
     return _c("div", { staticClass: "profile_contents" }, [
       _c("img", { attrs: { src: "http://placehold.it/200x200", alt: "" } })
     ])
@@ -238,6 +304,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+=======
+>>>>>>> ahn
     return _c("div", { staticClass: "score" }, [
       _c("div", [
         _c("img", { attrs: { src: "http://placehold.it/500x250", alt: "" } })

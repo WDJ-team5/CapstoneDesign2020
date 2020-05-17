@@ -84,9 +84,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
+=======
+>>>>>>> ahn
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'mypage',
   data: function data() {
@@ -150,7 +153,11 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\na {\r\n    color: black;\r\n    transition: all .9s;\n}\n.mypage_wrap {\r\n    width: 90%;\r\n    margin: 0 auto;\n}\n.mypage_wrap > h2 {\r\n    margin-bottom: 5vh;\r\n    color: red;\n}\n.mypage_flex {\r\n    display: flex;\n}\n.mypage_profile {\r\n    width: 30%;\r\n    min-height: 65vh;\r\n    display: flex;\r\n    flex-flow: column;\r\n    align-items: center;\r\n    margin-top: 133px;\r\n    background-color: #e7e7e7;\n}\n#profileImg {\r\n    width: 266px;\r\n    margin-top: -133px;\r\n    border-radius: 133px;\r\n    overflow: hidden;\n}\n.mypage_nav_link{\r\n    display: flex;\r\n    height: 5vh;\r\n    text-align: center;\r\n    align-items: center;\r\n    border-top: 1px solid #e7e7e7;\n}\n#routerView {\r\n    background-color: #f5f5f5;\n}\n.mypage_nav_link > a:hover {\r\n    color: #f86941;\r\n    font-weight: 700;\r\n    text-decoration: none;\r\n    transition:all 0.8s ease;\n}\n.profile_info {\r\n    width: -webkit-fit-content;\r\n    width: -moz-fit-content;\r\n    width: fit-content;\n}\n.table_flex {\r\n    display: flex;\n}\n.mypage_header {\r\n    width: 70%;\n}\n.mypage_header_content {\r\n    height: 133px;\n}\n.profile_link {\r\n    width: calc(100% / 6);\r\n    height: 5vh;\r\n    display: inline-block;\r\n    line-height: 5vh;\r\n    overflow: hidden;\n}\n.profile_link:hover {\r\n    background-color: #f5f5f5;\r\n    transition:all 0.8s ease;\n}\n.profile_link:visited {\r\n    background-color: #f5f5f5;\n}\r\n", ""]);
+=======
+exports.push([module.i, "\na {\r\n    color: black;\r\n    transition: all .9s;\n}\n.mypage_wrap {\r\n    width: 90%;\r\n    margin: 0 auto;\n}\n.mypage_wrap > h2 {\r\n    margin-bottom: 5vh;\r\n    color: red;\n}\n.mypage_flex {\r\n    display: flex;\n}\n.mypage_profile {\r\n    width: 30%;\r\n    min-height: 65vh;\r\n    display: flex;\r\n    flex-flow: column;\r\n    align-items: center;\r\n    margin-top: 133px;\r\n    background-color: #e7e7e7;\n}\n#profileImg {\r\n    width: 266px;\r\n    margin-top: -133px;\r\n    border-radius: 133px;\r\n    overflow: hidden;\n}\n.mypage_nav_link{\r\n    display: flex;\r\n    height: 5vh;\r\n    text-align: center;\r\n    align-items: center;\r\n    border-top: 1px solid #e7e7e7;\n}\n#routerView {\r\n    background-color: #f5f5f5;\n}\n.mypage_nav_link > a:hover {\r\n    color: #f86941;\r\n    font-weight: 700;\r\n    text-decoration: none;\r\n    transition:all 0.8s ease;\n}\n.profile_info {\r\n    width: -webkit-fit-content;\r\n    width: -moz-fit-content;\r\n    width: fit-content;\n}\n.table_flex {\r\n    display: flex;\n}\n.mypage_header {\r\n    width: 70%;\n}\n.mypage_header_content {\r\n    height: 133px;\n}\n.profile_link:nth-child(1):nth-last-child(3),\r\n.profile_link:nth-child(1):nth-last-child(3) ~ .profile_link {\r\n    width: calc(100% / 3);\r\n    height: 5vh;\r\n    display: inline-block;\r\n    line-height: 5vh;\r\n    overflow: hidden;\n}\n.profile_link:nth-child(1):nth-last-child(4),\r\n.profile_link:nth-child(1):nth-last-child(4) ~ .profile_link {\r\n    width: calc(100% / 4);\r\n    height: 5vh;\r\n    display: inline-block;\r\n    line-height: 5vh;\r\n    overflow: hidden;\n}\n.profile_link:hover {\r\n    background-color: #f5f5f5;\r\n    transition:all 0.8s ease;\n}\n.profile_link:visited {\r\n    background-color: #f5f5f5;\n}\r\n", ""]);
+>>>>>>> ahn
 
 // exports
 
@@ -206,6 +213,7 @@ var render = function() {
     _c("br"),
     _vm._v(" "),
     _c("div", { staticClass: "mypage_wrap" }, [
+<<<<<<< HEAD
       _vm.mypages.class == 1 ? _c("h2", [_vm._v("ARTIST")]) : _vm._e(),
       _vm._v(" "),
       _vm.mypages.class == 2 ? _c("h2", [_vm._v("EXPERT")]) : _vm._e(),
@@ -252,6 +260,58 @@ var render = function() {
         _c("div", { staticClass: "mypage_header" }, [
           _vm._m(1),
           _vm._v(" "),
+=======
+      _vm.mypages.class == 1
+        ? _c("h2", [_vm._v("ARTIST")])
+        : _vm.mypages.class == 2
+        ? _c("h2", [_vm._v("EXPERT")])
+        : _c("h2", [_vm._v("PRODUCER")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mypage_flex" }, [
+        _c("div", { staticClass: "mypage_profile" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "profile_info" }, [
+            _c("h4", [_vm._v("Profile")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "table_flex" }, [
+              _c("table", [
+                _c("tr", [
+                  _c("th", [_vm._v("이름")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(_vm.mypages.name))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", [_vm._v("생년월일")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(_vm.mypages.birthday))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", [_vm._v("주소")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(_vm.mypages.address))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", [_vm._v("연락처")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(_vm.mypages.call_number))])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mypage_header" }, [
+          _c("div", { staticClass: "mypage_header_content" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.mypages.name))]),
+            _vm._v(" "),
+            _c("h5", [_vm._v("프로필 갱신 일전 www.facebook.com")])
+          ]),
+          _vm._v(" "),
+>>>>>>> ahn
           _c(
             "div",
             { staticClass: "mypage_navigation" },
@@ -278,6 +338,7 @@ var render = function() {
                     [_c("span", [_vm._v("수강강좌")])]
                   ),
                   _vm._v(" "),
+<<<<<<< HEAD
                   _c(
                     "router-link",
                     {
@@ -304,6 +365,25 @@ var render = function() {
                     },
                     [_c("span", [_vm._v("오디션등록내역")])]
                   ),
+=======
+                  _vm.mypages.class != 3
+                    ? _c(
+                        "router-link",
+                        {
+                          staticClass: "profile_link",
+                          attrs: { to: "/mypage/apply" }
+                        },
+                        [_c("span", [_vm._v("지원현황")])]
+                      )
+                    : _c(
+                        "router-link",
+                        {
+                          staticClass: "profile_link",
+                          attrs: { to: "/mypage/auditionlist" }
+                        },
+                        [_c("span", [_vm._v("오디션등록내역")])]
+                      ),
+>>>>>>> ahn
                   _vm._v(" "),
                   _c(
                     "router-link",
@@ -333,6 +413,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { attrs: { id: "profileImg" } }, [
       _c("img", { attrs: { src: "http://placehold.it/266x266" } })
+<<<<<<< HEAD
     ])
   },
   function() {
@@ -343,6 +424,8 @@ var staticRenderFns = [
       _c("h3", [_vm._v("안희건 AN HUIGEON")]),
       _vm._v(" "),
       _c("h5", [_vm._v("프로필 갱신 일전 www.facebook.com")])
+=======
+>>>>>>> ahn
     ])
   }
 ]

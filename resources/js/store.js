@@ -7,8 +7,8 @@ export default new Vuex.Store({
     state: {
         apiURL: 'http://localhost:8000/api',
         serverPath: 'http://localhost:8000'
-        // apiURL: 'http://127.0.0.1:8000/api',
-        // serverPath: 'http://127.0.0.1:8000'
+    //     apiURL: 'http://127.0.0.1:8000/api',
+    //     serverPath: 'http://127.0.0.1:8000'
     },
 
     // state: {
@@ -17,8 +17,8 @@ export default new Vuex.Store({
     // },
 
     // state: {
-    //     apiURL: 'http://localhost:9000/api',
-    //     serverPath: 'http://localhost:9000'
+    //     apiURL: 'http://localhost:8000/api',
+    //     serverPath: 'http://localhost:8000'
     // },
     mutations: {},
     actions: {}
