@@ -23,9 +23,9 @@
                                 <tbody>
                                     <tr>
                                         <th>이름</th>
-                                        <td>장성현</td>
+                                        <td>{{auditions.name}}</td>
                                         <th>랭크</th>
-                                        <td>A랭크</td>
+                                        <td>{{auditions.rank_name}}</td>
                                     </tr>
                                     <tr>
                                         <th>생년월일</th>
@@ -35,17 +35,13 @@
                                     </tr>
                                     <tr>
                                         <th>주소</th>
-                                        <td>대구광역시</td>
-                                        <th>자기소개</th>
-                                        <td>안녕하세요 열심히하겠습니다.</td>
+                                        <td>{{auditions.address}}</td>
+                                        <th>성별</th>
+                                        <td>{{auditions.gender}}</td>
                                     </tr>
                                     <tr>
                                         <th>연락처</th>
-                                        <td>010-0000-0000</td>
-                                    </tr>
-                                    <tr>
-                                        <th>성별</th>
-                                        <td>남자</td>
+                                        <td>{{auditions.call_number}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -134,11 +130,33 @@
 </template>
 
 <script>
+import * as auditionService from "../../services/audition_service";
 export default {
     data(){
         return{
-            text:''
+            text:'',
+            auditions: [],
         }
+    },
+    mounted() {
+    this.applyAudition();
+    },
+
+    methods:{
+    // 유저 데이터 로드
+    applyAudition: async function() {
+      try {
+        const response = await auditionService.applyAudition();
+        this.auditions = response.data;
+        console.log(this.auditions);
+        this.state = true;
+      } catch (error) {
+        this.flashMessage.error({
+          message: "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
+          time: 5000
+        });
+      }
+    },
     }
 }
 </script>

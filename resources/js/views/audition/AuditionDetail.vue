@@ -179,7 +179,7 @@ export default {
     },
     applyAudition(){
       this.$router.push({
-        path: "/auditiontest"
+        path: "/auditionapply"
       });
     }
 

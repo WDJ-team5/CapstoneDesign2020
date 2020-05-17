@@ -100,7 +100,7 @@ class AuditionController extends Controller
         
         $result = \App\Audition::join('users','user_id','=','users.id')
         ->join('companies','company_id','=','companies.id')->find($id);
-     
+
         return response()->json([$result,$user], 200);
     }
 
