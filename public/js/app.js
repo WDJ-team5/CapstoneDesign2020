@@ -86064,14 +86064,14 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
   }
 }, {
-  path: '/auditiontest',
+  path: '/auditiontest/:contentId',
   name: 'AuditionTest',
   component: function component() {
     return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
   }
 }, // 어플라이 페이지로
 {
-  path: '/auditionapply/:score',
+  path: '/auditionapply/:contentId/:score',
   name: 'AuditionAppply',
   component: function component() {
     return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionApply.vue */ "./resources/js/views/audition/AuditionApply.vue"));

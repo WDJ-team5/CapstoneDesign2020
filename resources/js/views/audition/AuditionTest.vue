@@ -75,6 +75,7 @@ export default {
     return {
       animate: true,
       id: lectureId,
+      cid:'',
       filename: "",
       video: "",
       videoData: null,
@@ -103,6 +104,7 @@ export default {
     };
   },
   mounted() {
+    this.cid = Number(this.$route.params.contentId);
     const constraints = (window.constraints = {
       audio: false,
       video: true
@@ -264,7 +266,7 @@ export default {
           //       time: 5000
           //     });
           //     break;
-          // }
+          // } 
         }
       }
     },
@@ -272,8 +274,9 @@ export default {
     // 페이지 넘기기
     apply(){
       let score=this.finalScore;
+      let cid=this.cid;
       this.$router.push({
-        path:`/auditionapply/${score}`
+        path:`/auditionapply/${cid}/${score}`
       });
     }
   }

@@ -144,10 +144,12 @@ export default {
             text:'',
             auditions: [],
             aid:'',
+            score:[]
         }
     },
     mounted() {
-    this.aid = Number(this.$route.params.score);
+    this.aid = Number(this.$route.params.contentId);
+    this.score = Number(this.$route.params.score);
     this.applyAudition();
     },
 
@@ -157,7 +159,7 @@ export default {
       try {
         const response = await auditionService.applyAudition();
         this.auditions = response.data;
-        console.log(this.auditions);
+        console.log(this.score);
         this.state = true;
       } catch (error) {
         this.flashMessage.error({
@@ -172,8 +174,9 @@ export default {
             formData.append('rank_name',this.auditions.rank_name);
             formData.append('birthday',this.auditions.birthday);
             formData.append('call_number',this.auditions.call_number);
-            formData.append('score',this.aid);
+            formData.append('score',this.score);
             formData.append('text',this.text);
+            formData.append('audition_id',this.aid);
             console.log(...formData);
 
             try{
