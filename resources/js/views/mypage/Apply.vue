@@ -9,15 +9,10 @@
                     <th>날짜</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>IOIOI</td>
-                        <td>마임</td>
-                        <td>yyyy-mm-dd</td>
-                    </tr>
-                    <tr>
-                        <td>IOIOI</td>
-                        <td>마임</td>
-                        <td>yyyy-mm-dd</td>
+                    <tr v-for="(apply, index) in applies" :key="index">
+                        <td>{{apply.content}}</td>
+                        <td>{{apply.id}}</td>
+                        <td>{{apply.title}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -28,7 +23,31 @@
 
 <script>
 export default {
+    name: 'apply',
+    data() {
+        return {
+            applies: [],
+            applyData: {
+                name: '',
+                image: '',
+            },
+            editApplyData: {},
+            errors: {}
+        }
+    },
+    mounted() {
+        this.loadMyResume();
+    },
+    methods: {
+        loadMyResume: async function() {
+            const url = 'api/mypage/apply';
 
+            this.axios.get(url).then(response => {
+                console.log(response.data);
+                this.applies.push(response.data);
+            });
+        },
+    }
 }
 </script>
 
@@ -40,18 +59,9 @@ export default {
     width: 100%;
     border-collapse: separate;
     border-spacing: 2vh;
-    border-top: solid 1px black;
-}
-thead {
 }
 th {
     text-align: center;
-}
-tbody {
-    border-top: solid 1px black;
-
-}
-tr {
 }
 td {
     text-align: center;
