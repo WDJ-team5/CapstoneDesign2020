@@ -21,22 +21,42 @@
       <button id="preview_btn" type="button" v-on:click="modeChange()">{{computedModeChangeHtml}}</button>
       <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button>
       <!-- <button id="end-btn" type="button">끝내기</button> -->
-      <router-link to="/lecture" class="nav-link" exact>
+      <router-link to="/audition" class="nav-link" exact>
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <button id="end_btn">끝내기</button>
       </router-link>
     </div>
-    <!-- </canvas> -->
+
+    <!-- 이거가 -->
     <div id="modal" v-bind:style="{display:computedDisplay}">
       <div class="modal_content">
-        <h2>모달 창</h2>
+          <div id="result_left">
+              <div id="left_content">
+              <h2 id="result_title">참 잘했어용! ! !</h2>
+              <h2 id="result_score">{{computedFinalScore}}점</h2>
+              <b-progress id="result_graph" :value="78" variant="success" striped :animated="animate"></b-progress>
+            </div>
+          </div>
+          <div id="result_right">
+            <img src="../../../../public/images/logo.jpg" width="200px" height="41px" style="margin-top:50px;margin-left:60px;margin-bottom:30px">
+            <button id="result_replay" type="button" v-on:click="modalChange()">다시하기</button>
+            
+              <button id="result_end" style="margin-top:5px;" v-on:click="apply()">지원하기</button>
+          </div>
+        </div>
+
+      <!-- <div class="modal_content">
+        <h2>이거맞나</h2>
         <p>{{computedFinalScore}}</p>
-        <button type="button" id="replay_btn" v-on:click="modalChange()">다시하기</button>
+        <button type="button" id="replay_btn" v-on:click="modalChange()">다시하ㅇㅇ기</button>
+
         <router-link to="/lecture" class="nav-link" exact>
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <button id="end_btn">끝내기</button>
         </router-link>
-      </div>
+
+      </div>-->
+
       <div class="modal_layer"></div>
     </div>
   </div>
@@ -53,6 +73,7 @@ export default {
     const lectureId = Number(this.$route.params.id);
     const cal = require("../../../../public/js/calculation.js");
     return {
+      animate: true,
       id: lectureId,
       filename: "",
       video: "",
@@ -116,11 +137,11 @@ export default {
   methods: {
     loadLectureData: async function() {
       try {
-        const response = await lectureService.loadLectureData(this.id);
+        const response = await lectureService.loadLectureData(1);
         this.filename = response.data.video;
-        this.video = "videos/" + this.filename + ".mp4";
+        this.video = "videos/" + "sample1"+ ".mp4";
         axios
-          .get("videoDatas/" + this.filename + ".json")
+          .get("videoDatas/" + "sample1" + ".json")
           .then(response => (this.videoData = response.data));
       } catch (err) {
         console.error(err);
@@ -212,48 +233,55 @@ export default {
     endedVideo: async function() {
       if (this.start) {
         let tmp = this.totalScore / this.finalCount;
-        this.finalScore = Math.round(tmp*100)/100;
+        this.finalScore = Math.round(tmp * 100) / 100;
         this.ended = true;
         // console.log(this.finalScore);
 
-        let formData = new FormData();
-        formData.append("accuracy", this.finalScore);
-        formData.append("lecture_id", this.id);
         // console.log(...formData);
-        this.finalScore = tmp.toFixed(2) + "%";
+        this.finalScore = tmp.toFixed(2);
         window.cancelAnimationFrame(this.loop);
         this.modalChange();
-      
-      try {
-        const res = await lectureService.createScore(formData);
-        // const res = await lectureService.createScore();
-        console.log(res);
-        console.log("플레이 데이터 저장 성공");
 
-        // this.flashMessage.success({
-        //   message: "Category stored successfully!",
-        //   time: 5000
-        // });
-      } catch (error) {
-        console.log(error);
-        // switch (error.response.status) {
-        //   case 422:
-        //     this.errors = error.response.data.errors;
-        //     break;
-        //   default:
-        //     this.flashMessage.error({
-        //       message: "Some error occurred, Please try again!",
-        //       time: 5000
-        //     });
-        //     break;
-        // }
+        try {
+          const res = await lectureService.createScore(formData);
+          // const res = await lectureService.createScore();
+          console.log(res);
+          console.log("플레이 데이터 저장 성공");
+
+          // this.flashMessage.success({
+          //   message: "Category stored successfully!",
+          //   time: 5000
+          // });
+        } catch (error) {
+          console.log(error);
+          // switch (error.response.status) {
+          //   case 422:
+          //     this.errors = error.response.data.errors;
+          //     break;
+          //   default:
+          //     this.flashMessage.error({
+          //       message: "Some error occurred, Please try again!",
+          //       time: 5000
+          //     });
+          //     break;
+          // }
+        }
       }
-    }
+    },
+
+    // 페이지 넘기기
+    apply(){
+      let score=this.finalScore;
+      this.$router.push({
+        path:`/auditionapply/${score}`
+      });
     }
   }
 };
 </script>
 <style>
+
+
 /* html, body {
         overflow: hidden;
         width:100%;
@@ -313,14 +341,16 @@ export default {
 }
 #modal {
   position: relative;
+  background: white;
   width: 100%;
   height: 100%;
   z-index: 100001;
   display: none;
 }
-#modal h2 {
+/* #modal h2 {
   margin: 0;
-}
+} */
+
 #modal button {
   display: inline-block;
   width: 100px;
@@ -328,7 +358,7 @@ export default {
 }
 #modal .modal_content {
   position: relative;
-  width: 300px;
+  width: 800px;
   margin: 100px auto;
   padding: 20px 10px;
   background: #fff;
@@ -343,4 +373,69 @@ export default {
   background: rgba(0, 0, 0, 0.5);
   z-index: -1;
 }
+
+
+  #result_title{
+        margin-left: 50px;
+    }
+
+    #result_score{
+        margin-left: 96px;
+    }
+    
+    #left_content{
+      margin-top:70px
+    }
+
+    #result_ranking{
+        margin-top: 20px;
+    }
+    #result_container{
+        width: 100%;
+        margin-top: 50px;
+        border: 1px sollid gray;
+        
+    }
+    #result_left{
+        width:45%;
+        height: 400px;
+        display: inline-block;
+        border:10px solid gray;
+    }
+
+    #result_graph{
+        
+        margin-left: 10%;
+        background: #d3d3d3;
+        width: 80%;
+        height: 50px;
+    }
+
+
+    #result_right{
+        width:45%;
+        height: 400px;
+        display: inline-block;
+        vertical-align: top;
+        border:10px solid gray;
+    }
+
+    #btn-radios-1{
+        width: 80%;
+    }
+
+    #ranking_title{
+        margin-top: 30px;
+    }
+
+    #button_area{
+        width: 100%;
+        margin-top:5%;
+    }
+
+    .resultbutton{
+        width:30%;
+        
+        vertical-align: top;
+    }
 </style>

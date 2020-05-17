@@ -58,7 +58,7 @@
       ></b-embed>
       <hr class="hr_line">
       <div id="button_area">
-        <button type="button" @click="applyAudition">지원하기</button>
+        <button type="button" @click="applyAudition">테스트하기</button>
       </div>
       <div id="button_area">
       <b-button variant="primary" v-on:click="editAudition(auditions)">수정</b-button>

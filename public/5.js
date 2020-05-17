@@ -374,7 +374,7 @@ render._withStripped = true
 /*!***************************************************!*\
   !*** ./resources/js/services/audition_service.js ***!
   \***************************************************/
-/*! exports provided: createAudition, loadAudition, loadDetailAudition, deleteAudition, updateAudition, applyAudition */
+/*! exports provided: createAudition, loadAudition, loadDetailAudition, deleteAudition, updateAudition, applyAudition, submitAudition */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -385,6 +385,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteAudition", function() { return deleteAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateAudition", function() { return updateAudition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "applyAudition", function() { return applyAudition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "submitAudition", function() { return submitAudition; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
  // 오디션 생성
 
@@ -412,6 +413,10 @@ function updateAudition(id, data) {
 
 function applyAudition() {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/auditionApply');
+} // 오디션 정보제출
+
+function submitAudition(data) {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/auditionApply', data);
 }
 
 /***/ }),

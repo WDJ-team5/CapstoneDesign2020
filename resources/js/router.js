@@ -67,8 +67,9 @@ const routes=[
         name: 'AuditionTest',
         component:()=>import('./views/audition/AuditionTest.vue')
     },
+    // 어플라이 페이지로
     {
-        path: '/auditionapply',
+        path: '/auditionapply/:score',
         name: 'AuditionAppply',
         component:()=>import('./views/audition/AuditionApply.vue')
     },

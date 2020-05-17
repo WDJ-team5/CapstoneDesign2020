@@ -33,4 +33,8 @@ export function applyAudition(){
     return http().get('/auditionApply');
 }
 
+// 오디션 정보제출
+export function submitAudition(data){
+    return http().post('/auditionApply',data);
+}
 
