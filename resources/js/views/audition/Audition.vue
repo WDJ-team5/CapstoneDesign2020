@@ -6,7 +6,7 @@
         <li @click="rowClick(audition)">
           <a href="#" class="link">
             <div class="imgbox hovereffect">
-              <img id="card-image" :src="`${$store.state.serverPath}/storage/${audition.image}`" :alt="audition.title">
+              <img id="card-image" :src="`${$store.state.serverPath}/storage/${audition.aud_image}`" :alt="audition.title">
             </div>
             <div class="d_dayinfo">
               <p class="day">{{audition.rank}}랭크이상</p>

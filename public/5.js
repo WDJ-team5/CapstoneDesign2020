@@ -289,7 +289,7 @@ var render = function() {
                         src:
                           _vm.$store.state.serverPath +
                           "/storage/" +
-                          audition.image,
+                          audition.aud_image,
                         alt: audition.title
                       }
                     })
