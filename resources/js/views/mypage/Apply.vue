@@ -47,7 +47,8 @@ export default {
 
             this.axios.get(url).then(response => {
                 console.log(response.data);
-                this.applies.push(response.data);
+                // this.applies.push(response.data);
+                this.applies = response.data;
             });
         },
     }

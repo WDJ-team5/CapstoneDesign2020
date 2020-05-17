@@ -7,9 +7,8 @@
                     <thead>
                         <tr>
                             <td>
-                                <label for="image">사진 선택</label>
-                                <img :src="`${$store.state.serverPath}/storage/${profiles.image}`" ref="editProfileImageDisplay" :alt="x">
-                                <input type="file" v-on:change="editAttatchImage" ref="editProfileImage" class="form-control" id="image">
+                                <img src="http://placehold.it/250x250" alt="">
+                                <input type="file" class="form-control">
                             </td>
                         </tr>
                         <tr>

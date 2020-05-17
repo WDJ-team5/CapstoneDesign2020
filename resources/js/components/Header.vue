@@ -7,29 +7,9 @@
         <div v-if="sessionData.state">
           <router-link to="/login" class="NavLink" exact>로그인</router-link>
         </div>
-        <div v-if="!sessionData.state">
-          <a v-on:click="deleteSession">로그아웃</a>
+        <div v-if="!sessionData.state" id="logout_div">
+          <a class="NavLink" id="logout" v-on:click="deleteSession">로그아웃</a>
         </div>
-
-        <ul class="navbar-nav ml-auto ml-md-0">
-          <li class="nav-item dropdown">
-            <a
-              class="dropdown-toggle"
-              id="userDropdown"
-              href="#"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <i class="fas fa-user fa-fw"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-              <a class="dropdown-item" href="#">Settings</a>
-              <a class="dropdown-item" href="#">Activity Log</a>
-            </div>
-          </li>
-        </ul>
       </div>    
     </div>
 
@@ -85,7 +65,7 @@
             <span>오디션</span>
           </router-link>
         </li>
-        <li>
+        <li v-if="!sessionData.state">
           <router-link to="/mypage/profile" class="NavLink" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>마이페이지</span>
@@ -176,74 +156,85 @@ export default {
 </script>
 
 <style>
-    #header {
-      width: 100%;
-      height: auto;
-      box-sizing: border-box;
-      z-index: 5;
-      display: block;
-    }
+#header {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  z-index: 5;
+  display: block;
+}
 
-    .LoginNav {
-      height: 35px;
-      font-size: 13px;
-      color: #6c738a;
-      z-index: 4;
-      border-bottom: 1px solid rgb(157, 156, 156);
-    }
+.LoginNav {
+  height: 35px;
+  font-size: 13px;
+  color: #6c738a;
+  z-index: 4;
+  border-bottom: 1px solid rgb(157, 156, 156);
+}
 
-    .LoginNavGroup {
-      margin-right: 140px;
-      display: flex;
-      float: right;
-    }
+.LoginNavGroup {
+  margin-right: 140px;
+  display: flex;
+  float: right;
+}
 
-    .ServiceNav {
-      margin-top: 10px;
-      width: 100%;
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      padding: .5rem 1rem;
-    }
+.ServiceNav {
+  margin-top: 10px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+}
 
-    .LogoImg {
-      margin-left: 120px;
-      margin-top: 10px;
-    }
+.LogoImg {
+  margin-left: 120px;
+  margin-top: 10px;
+}
 
-    .ServiceNavGroup {
-      margin-top:8px;
-      margin-right: 120px;
-      display: flex;
-      float: right;
-      list-style: none;
-    }
+.ServiceNavGroup {
+  margin-top:8px;
+  margin-right: 120px;
+  display: flex;
+  float: right;
+  list-style: none;
+}
 
-    .ServiceNabGroup {
-      margin-left : 35px;
-    }
+.ServiceNabGroup {
+  margin-left : 35px;
+}
 
-    li > a {
-      color: black;
-      text-decoration: none;
-      transition: color .9s;
-    }
+li > a {
+  color: black;
+  text-decoration: none;
+  transition: color .9s;
+}
 
-    .NavLink {
-      display: flex;
-      padding: 0.5rem 1rem;
-      font-weight: 700;
-      font-size: 2vh;
-    }
-    
-    .NavLink:hover {
-      color: #f86941;
-      text-decoration: none;
-      transition:all 0.5s ease;
-    }
+.NavLink {
+  display: flex;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: 2vh;
+}
 
+.NavLink:hover {
+  color: #f86941;
+  text-decoration: none;
+  transition:all 0.5s ease;
+}
 
-
-
+#logout_div {
+}
+#logout {
+  color: #007bff;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: 2vh;
+}
+#logout:hover {
+  color: #f86941;
+  text-decoration: none;
+  transition:all 0.5s ease;
+  cursor: pointer;
+}
 </style>

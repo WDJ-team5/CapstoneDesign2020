@@ -191,11 +191,19 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
+<<<<<<< HEAD
         _c("div", { staticClass: "lecture_content" }, [
           _c("div", { staticClass: "lecture_img" }, [
             _c("img", {
               attrs: { src: "http://placehold.it/150x150", alt: "" }
             })
+=======
+        _c("div", { staticClass: "mypage_header" }, [
+          _c("div", { staticClass: "mypage_header_content" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.mypages.name))]),
+            _vm._v(" "),
+            _c("h5", [_vm._v(_vm._s(_vm.mypages.userid))])
+>>>>>>> ahn
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "lecture_text" }, [

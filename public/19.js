@@ -32,6 +32,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -83,6 +84,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({});
+=======
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'lecture',
+  data: function data() {
+    return {
+      lectures: [],
+      lectureData: {
+        name: '',
+        image: ''
+      },
+      editLectureData: {},
+      errors: {}
+    };
+  },
+  mounted: function mounted() {
+    this.loadLecture();
+  },
+  methods: {
+    loadLecture: function () {
+      var _loadLecture = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this = this;
+
+        var url;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                url = 'api/mypage/lecture';
+                this.axios.get(url).then(function (response) {
+                  console.log(response.data); // this.lectures.push(response.data);
+
+                  _this.lectures = response.data;
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function loadLecture() {
+        return _loadLecture.apply(this, arguments);
+      }
+
+      return loadLecture;
+    }()
+  }
+});
+>>>>>>> ahn
 
 /***/ }),
 
