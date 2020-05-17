@@ -55,9 +55,10 @@ class UserController extends Controller
 
         $confirm_code = $session->confirm_code;
 
-        $user = \App\User;;
+        $user = \App\User::join('ranks','rank_id','=','ranks.id')
+        ->whereConfirmCode($confirm_code)->first();
 
-        return response()->json($user, 200);
+        return response()->json(var_export($user), 200);
     }
 
     public function edit($id)
