@@ -35,7 +35,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
 //
 //
 //
@@ -51,57 +50,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({});
-=======
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'apply',
-  data: function data() {
-    return {
-      applies: [],
-      applyData: {
-        name: '',
-        image: ''
-      },
-      editApplyData: {},
-      errors: {}
-    };
-  },
-  mounted: function mounted() {
-    this.loadMyResume();
-  },
-  methods: {
-    loadMyResume: function () {
-      var _loadMyResume = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this = this;
-
-        var url;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                url = 'api/mypage/apply';
-                this.axios.get(url).then(function (response) {
-                  console.log(response.data); // this.applies.push(response.data);
-
-                  _this.applies = response.data;
-                });
-
-              case 2:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function loadMyResume() {
-        return _loadMyResume.apply(this, arguments);
-      }
-
-      return loadMyResume;
-    }()
-  }
-});
->>>>>>> ahn
 
 /***/ }),
 
@@ -209,7 +157,6 @@ var render = function() {
           ),
           _vm._v(" "),
           _c(
-<<<<<<< HEAD
             "li",
             [
               _c(
@@ -231,23 +178,6 @@ var render = function() {
               )
             ],
             1
-=======
-            "tbody",
-            _vm._l(_vm.applies, function(apply, index) {
-              return _c("tr", { key: index }, [
-                _c("td", [_vm._v(_vm._s(apply.content))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(apply.message))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(apply.score))]),
-                _vm._v(" "),
-                apply.result == 1
-                  ? _c("td", [_vm._v("합격")])
-                  : _c("td", [_vm._v("불합격")])
-              ])
-            }),
-            0
->>>>>>> ahn
           )
         ])
       ])
@@ -259,23 +189,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-<<<<<<< HEAD
     return _c("div", { staticClass: "aligner-item" }, [
       _c("h2", { staticClass: "title" }, [_vm._v("회원 종류를 선택해주세요")]),
       _vm._v(" "),
       _c("p", { staticClass: "mainform_txt type01" }, [
         _vm._v("본인의 포지션을 선택하고 알맞은 서비스를 이용하세요.")
       ])
-=======
-    return _c("thead", [
-      _c("th", [_vm._v("오디션명")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("기타메세지")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("과제점수")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("합격여부")])
->>>>>>> ahn
     ])
   }
 ]

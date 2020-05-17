@@ -9,6 +9,14 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -32,7 +40,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
 //
 //
 //
@@ -54,56 +61,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
-=======
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'lecture',
+  name: 'company',
   data: function data() {
     return {
-      lectures: [],
-      lectureData: {
+      companies: [],
+      companyData: {
         name: '',
         image: ''
       },
-      editLectureData: {},
+      editCompanyData: {},
       errors: {}
     };
   },
   mounted: function mounted() {
-    this.loadLecture();
+    this.loadCompanyInfo();
   },
   methods: {
-    loadLecture: function () {
-      var _loadLecture = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    loadCompanyInfo: function () {
+      var _loadCompanyInfo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var _this = this;
 
         var url;
@@ -111,11 +87,10 @@ __webpack_require__.r(__webpack_exports__);
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                url = 'api/mypage/lecture';
+                url = 'api/mypage/companyinfo';
                 this.axios.get(url).then(function (response) {
-                  console.log(response.data); // this.lectures.push(response.data);
-
-                  _this.lectures = response.data;
+                  console.log(response.data);
+                  _this.companies = response.data;
                 });
 
               case 2:
@@ -126,15 +101,14 @@ __webpack_require__.r(__webpack_exports__);
         }, _callee, this);
       }));
 
-      function loadLecture() {
-        return _loadLecture.apply(this, arguments);
+      function loadCompanyInfo() {
+        return _loadCompanyInfo.apply(this, arguments);
       }
 
-      return loadLecture;
+      return loadCompanyInfo;
     }()
   }
 });
->>>>>>> ahn
 
 /***/ }),
 
@@ -202,66 +176,90 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "company_profile" }, [
+      _c("h4", [_vm._v("Profile")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "company_container" }, [
+        _c("table", [
+          _c("thead", [
+            _c("tr", [
+              _c("th", [_vm._v("이름")]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.companies.company_name))])
+            ]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _vm._m(5),
+            _vm._v(" "),
+            _vm._m(6),
+            _vm._v(" "),
+            _vm._m(7)
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("button", [_vm._v("저장하기")])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "company_profile" }, [
-        _c("h4", [_vm._v("Profile")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "company_container" }, [
-          _c("table", [
-            _c("thead", [
-              _c("tr", [_c("th", [_vm._v("이름")])]),
-              _vm._v(" "),
-              _c("tr", [_c("th", [_vm._v("성별")])]),
-              _vm._v(" "),
-              _c("tr", [_c("th", [_vm._v("키")])]),
-              _vm._v(" "),
-              _c("tr", [_c("th", [_vm._v("아이디")])]),
-              _vm._v(" "),
-              _c("tr", [_c("th", [_vm._v("닉네임")])]),
-              _vm._v(" "),
-              _c("tr", [_c("th", [_vm._v("가입일")])]),
-              _vm._v(" "),
-              _c("tr", [_c("th", [_vm._v("이메일")])]),
-              _vm._v(" "),
-              _c("tr", [_c("th", [_vm._v("소속사")])]),
-              _vm._v(" "),
-              _c("tr", [_c("th", [_vm._v("분야")])])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("table", [
-            _c("tbody", [
-              _c("tr", [_c("td", [_vm._v("v-for")])]),
-              _vm._v(" "),
-              _c("tr", [_c("td", [_vm._v("v-for")])]),
-              _vm._v(" "),
-              _c("tr", [_c("td", [_vm._v("v-for")])]),
-              _vm._v(" "),
-              _c("tr", [_c("td", [_vm._v("v-for")])]),
-              _vm._v(" "),
-              _c("tr", [_c("td", [_vm._v("v-for")])]),
-              _vm._v(" "),
-              _c("tr", [_c("td", [_vm._v("v-for")])]),
-              _vm._v(" "),
-              _c("tr", [_c("td", [_vm._v("v-for")])]),
-              _vm._v(" "),
-              _c("tr", [_c("td", [_vm._v("v-for")])]),
-              _vm._v(" "),
-              _c("tr", [_c("td", [_vm._v("v-for")])])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("button", [_vm._v("저장하기")])
-      ])
-    ])
+    return _c("tr", [_c("th", [_vm._v("성별")]), _vm._v(" "), _c("td")])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [_c("th", [_vm._v("키")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [_c("th", [_vm._v("아이디")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [_c("th", [_vm._v("닉네임")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [_c("th", [_vm._v("가입일")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [_c("th", [_vm._v("이메일")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [_c("th", [_vm._v("소속사")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [_c("th", [_vm._v("분야")])])
   }
 ]
 render._withStripped = true

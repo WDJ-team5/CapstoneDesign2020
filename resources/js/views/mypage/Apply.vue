@@ -11,7 +11,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(apply, index) in applies" :key="index">
-                        <td>{{apply.content}}</td>
+                        <td>{{apply.title}}</td>
                         <td>{{apply.message}}</td>
                         <td>{{apply.score}}</td>
                         <td v-if="apply.result == 1">합격</td>
