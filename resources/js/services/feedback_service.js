@@ -12,4 +12,9 @@ export function loadFeedbackList() {
     return http().get('/feedback/list');
 }
 
+export function loadDetailFeedback(data) {
+    let anything="/feedback/"+data;
+    return http().get(anything);
+}
+
 
