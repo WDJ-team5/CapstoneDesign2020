@@ -40,6 +40,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+//
+//
+>>>>>>> ahn
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'apply',
   data: function data() {
@@ -168,9 +174,19 @@ var render = function() {
               return _c("tr", { key: index }, [
                 _c("td", [_vm._v(_vm._s(apply.content))]),
                 _vm._v(" "),
+<<<<<<< HEAD
                 _c("td", [_vm._v(_vm._s(apply.id))]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(apply.title))])
+=======
+                _c("td", [_vm._v(_vm._s(apply.message))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(apply.score))]),
+                _vm._v(" "),
+                apply.result == 1
+                  ? _c("td", [_vm._v("합격")])
+                  : _c("td", [_vm._v("불합격")])
+>>>>>>> ahn
               ])
             }),
             0
@@ -188,9 +204,17 @@ var staticRenderFns = [
     return _c("thead", [
       _c("th", [_vm._v("오디션명")]),
       _vm._v(" "),
+<<<<<<< HEAD
       _c("th", [_vm._v("지원분야")]),
       _vm._v(" "),
       _c("th", [_vm._v("날짜")])
+=======
+      _c("th", [_vm._v("기타메세지")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("과제점수")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("합격여부")])
+>>>>>>> ahn
     ])
   }
 ]

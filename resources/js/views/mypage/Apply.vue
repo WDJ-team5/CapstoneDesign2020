@@ -5,14 +5,17 @@
             <table id="apply_table">
                 <thead>
                     <th>오디션명</th>
-                    <th>지원분야</th>
-                    <th>날짜</th>
+                    <th>기타메세지</th>
+                    <th>과제점수</th>
+                    <th>합격여부</th>
                 </thead>
                 <tbody>
                     <tr v-for="(apply, index) in applies" :key="index">
                         <td>{{apply.content}}</td>
-                        <td>{{apply.id}}</td>
-                        <td>{{apply.title}}</td>
+                        <td>{{apply.message}}</td>
+                        <td>{{apply.score}}</td>
+                        <td v-if="apply.result == 1">합격</td>
+                        <td v-else>불합격</td>
                     </tr>
                 </tbody>
             </table>

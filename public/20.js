@@ -250,7 +250,11 @@ var render = function() {
           _c("div", { staticClass: "mypage_header_content" }, [
             _c("h3", [_vm._v(_vm._s(_vm.mypages.name))]),
             _vm._v(" "),
+<<<<<<< HEAD
             _c("h5", [_vm._v("프로필 갱신 일전 www.facebook.com")])
+=======
+            _c("h5", [_vm._v(_vm._s(_vm.mypages.userid))])
+>>>>>>> ahn
           ]),
           _vm._v(" "),
           _c(
