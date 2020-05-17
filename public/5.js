@@ -1,8 +1,8 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[5],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionDetail.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionDetail.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -13,18 +13,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _services_audition_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/audition_service */ "./resources/js/services/audition_service.js");
 
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -118,160 +106,103 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'AuditionCreate',
+  name: "AuditionDetail",
   data: function data() {
+    var contentId = Number(this.$route.params.contentId); // params로 받은 게시글 아이디를 저장
+    // const contentData = data.Content.filter(item => item.content_id === contentId)[0]
+    // 현재 게시글에 해당하는 데이터를 가져옴
+
     return {
+      auditions: [],
       auditionData: {
-        title: '',
-        content: '',
+        id: "",
+        title: "",
+        content: "",
         userId: 1,
-        date: '',
-        image: '',
-        selected: '',
-        video: ''
+        date: "",
+        image: "",
+        selected: "",
+        video: "https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
       },
-      editAuditionData: {
-        title: '',
-        content: '',
-        image: ''
-      },
-      cid: '',
-      errors: {},
-      state: false,
-      options: [{
-        value: null,
-        text: '랭크 설정'
-      }, {
-        value: 'A랭크 이상',
-        text: 'A랭크 이상'
-      }, {
-        value: 'B랭크 이상',
-        text: 'B랭크 이상'
-      }, {
-        value: 'C랭크 이상',
-        text: 'C랭크 이상'
-      }, {
-        value: '랭크무관',
-        text: '랭크무관'
-      }]
+      cid: contentId,
+      state: false
     };
   },
-  created: function created() {
-    if (this.$route.params.contentId > 0) {
-      this.cid = Number(this.$route.params.contentId);
-      this.loadDetailAudition();
-    }
+  mounted: function mounted() {
+    this.loadDetailAudition();
   },
   methods: {
-    // 사진첨부
-    attachImage: function attachImage() {
-      this.auditionData.image = this.$refs.newAuditionImage.files[0];
-      var reader = new FileReader();
-      reader.addEventListener('load', function () {
-        this.$refs.newAuditionImageDisplay.src = reader.result;
-      }.bind(this), false);
-      reader.readAsDataURL(this.auditionData.image);
-    },
-    //오디션 만들기
-    createAudition: function () {
-      var _createAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _console;
-
-        var formData, response;
+    // 데이터 로드
+    loadDetailAudition: function () {
+      var _loadDetailAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                formData = new FormData();
-                formData.append('title', this.auditionData.title);
-                formData.append('date', this.auditionData.date);
-                formData.append('content', this.auditionData.content);
-                formData.append('image', this.auditionData.image);
-                formData.append('selected', this.auditionData.selected);
-
-                (_console = console).log.apply(_console, _toConsumableArray(formData));
-
-                _context.prev = 7;
-                _context.next = 10;
-                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["createAudition"](formData);
-
-              case 10:
-                response = _context.sent;
-                this.flashMessage.success({
-                  message: '성공했다 !!!!!!!',
-                  time: 5000
-                });
-                history.back();
-                _context.next = 24;
-                break;
-
-              case 15:
-                _context.prev = 15;
-                _context.t0 = _context["catch"](7);
-                console.log(_context.t0.response.status);
-                _context.t1 = _context.t0.response.status;
-                _context.next = _context.t1 === 422 ? 21 : 23;
-                break;
-
-              case 21:
-                this.errors = _context.t0.response.data.errors;
-                return _context.abrupt("break", 24);
-
-              case 23:
-                this.flashMessage.error({
-                  message: '문제가 발생!',
-                  time: 5000
-                });
-
-              case 24:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this, [[7, 15]]);
-      }));
-
-      function createAudition() {
-        return _createAudition.apply(this, arguments);
-      }
-
-      return createAudition;
-    }(),
-    // 수정 데이터 로드
-    loadDetailAudition: function () {
-      var _loadDetailAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.prev = 0;
-                _context2.next = 3;
+                _context.prev = 0;
+                _context.next = 3;
                 return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["loadDetailAudition"](this.cid);
 
               case 3:
-                response = _context2.sent;
-                this.editAuditionData = response.data;
+                response = _context.sent;
+                this.auditions = response.data;
                 this.state = true;
-                _context2.next = 11;
+                _context.next = 11;
                 break;
 
               case 8:
-                _context2.prev = 8;
-                _context2.t0 = _context2["catch"](0);
+                _context.prev = 8;
+                _context.t0 = _context["catch"](0);
                 this.flashMessage.error({
-                  message: 'ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ',
+                  message: "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
                   time: 5000
                 });
 
               case 11:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2, this, [[0, 8]]);
+        }, _callee, this, [[0, 8]]);
       }));
 
       function loadDetailAudition() {
@@ -280,125 +211,93 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return loadDetailAudition;
     }(),
-    // 사진첨부
-    editAttachImage: function editAttachImage() {
-      this.editAuditionData.image = this.$refs.editAuditionImage.files[0];
-      var reader = new FileReader();
-      reader.addEventListener('load', function () {
-        this.$refs.editAuditionImageDisplay.src = reader.result;
-      }.bind(this), false);
-      reader.readAsDataURL(this.editAuditionData.image);
-    },
-    // 수정사항 저장
-    updateAudition: function () {
-      var _updateAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        var _console2, _console3;
-
-        var formData, response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+    deleteAudition: function () {
+      var _deleteAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(auditions) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                formData = new FormData();
+                if (window.confirm("\uC0AD\uC81C\uD560\uAC70\uC5D0\uC694? ".concat(auditions.title))) {
+                  _context2.next = 2;
+                  break;
+                }
 
-                (_console2 = console).log.apply(_console2, _toConsumableArray(formData));
+                return _context2.abrupt("return");
 
-                formData.append('title', this.editAuditionData.title);
-                formData.append('content', this.editAuditionData.content);
-                formData.append('image', this.editAuditionData.image);
-                formData.append('_method', 'put');
+              case 2:
+                _context2.prev = 2;
+                _context2.next = 5;
+                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["deleteAudition"](auditions.id);
 
-                (_console3 = console).log.apply(_console3, _toConsumableArray(formData));
-
-                _context3.prev = 7;
-                _context3.next = 10;
-                return _services_audition_service__WEBPACK_IMPORTED_MODULE_1__["updateAudition"](this.editAuditionData.id, formData);
-
-              case 10:
-                response = _context3.sent;
+              case 5:
+                // this.audition=this.audition.filter(obj=>{
+                //   return obj.id != audition.id;
+                // });
+                history.back();
                 this.flashMessage.success({
-                  message: '성공했다 !!!!!!!',
+                  message: "삭제성공",
                   time: 5000
                 });
-                history.back();
-                _context3.next = 18;
+                _context2.next = 12;
                 break;
 
-              case 15:
-                _context3.prev = 15;
-                _context3.t0 = _context3["catch"](7);
+              case 9:
+                _context2.prev = 9;
+                _context2.t0 = _context2["catch"](2);
                 this.flashMessage.error({
-                  message: _context3.t0.response.status,
+                  message: _context2.t0.response.data.message,
                   time: 5000
                 });
 
-              case 18:
+              case 12:
               case "end":
-                return _context3.stop();
+                return _context2.stop();
             }
           }
-        }, _callee3, this, [[7, 15]]);
+        }, _callee2, this, [[2, 9]]);
       }));
 
-      function updateAudition() {
-        return _updateAudition.apply(this, arguments);
+      function deleteAudition(_x) {
+        return _deleteAudition.apply(this, arguments);
       }
 
-      return updateAudition;
+      return deleteAudition;
     }(),
-    // 저장 시
-    uploadContet: function uploadContet() {// let items=data.Content.sort((a,b)=>{return b.content_id-a.content_id})
-      // const content_id=items[0].content_id+1
-      // data.Content.push({
-      //     content_id:content_id,
-      //     user_id:this.userId,
-      //     title:this.subject,
-      //     context:this.context,
-      //     created_at:this.createdAt,
-      //     date:this.date,
-      //     sub_image:this.sub_image,
-      //     video:this.video,
-      //     rank:this.selected,
-      //     updated_at:null,
-      //     })
-      //     this.$router.push({
-      //     path:'/board/free'
-      //     })
-    },
-    // 수정 후 저장시
-    // updateContent(){
-    //     this.updateObject.title=this.subject;
-    //     this.updateObject.context=this.context;
-    //     this.updateObject.date = this.date;
-    //     this.updateObject.rank = this.selected;
-    //     this.updateObject.sub_image=this.sub_image;
-    //     this.updateObject.video=this.video;
-    //     this.$router.push({
-    //         path:'/board/free'
-    //     })
-    // },
-    // uploadImage(e){
-    //     let file=e.target.files;
-    //     let reader=new FileReader();
-    //     reader.readAsDataURL(file[0]);
-    //     reader.onload=e=>{
-    //         this.sub_image=e.target.result;
-    //     }
-    // },
-    cancle: function cancle() {
+    editAudition: function editAudition(auditions) {
       this.$router.push({
-        path: '/board/free'
+        path: "/auditioncreate/".concat(auditions.id)
       });
-    }
+    },
+    applyAudition: function applyAudition() {
+      this.$router.push({
+        path: "/auditionapply"
+      });
+    } // 삭제를 수행하는 함수
+    // deleteData() {
+    //   const content_index = data.Content.findIndex(item => item.content_id === this.contentId);
+    //   // findIndex: 조건이 만족할 경우 index를 반환해줌
+    //   data.Content.splice(content_index, 1)
+    //   // 데이터 삭제 수행
+    //   this.$router.push({
+    //     path: '/board/free'
+    //   })
+    // },
+    // 수정을 수행하는 함수
+    // updateData() {
+    //   this.$router.push({
+    //     path: `/board/free/create/${this.contentId}`
+    //   })
+    // }
+
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionDetail.vue?vue&type=style&index=0&id=9bb2291e&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionDetail.vue?vue&type=style&index=0&id=9bb2291e&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -407,22 +306,22 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#form_input{\n        width: 1400px;\n        margin-left: 160px;\n        margin-top: 20px;\n}\n#select_area{\n    width: 2200px;\n    float: left;\n    margin:0;\n    padding:0;\n}\n.select_item{\n    width: 300px;\n    display: inline-block;\n    margin: 0 0 0 0;\n    padding: 0 0 0 0;\n}\n\n/* 제목 */\n#title{\n    height: 60px;\n}\n\n/* 날짜 */\n.b-form-datepicker {\n    width: 300px;\n    margin:0 0 0 0;\n}\n\n", ""]);
+exports.push([module.i, "\ndiv[data-v-9bb2291e] {\r\n  margin: 0;\r\n  padding: 0;\r\n  border: 0;\r\n  outline: 0;\n}\n.hr_line[data-v-9bb2291e] {\r\n    height: 1px;\r\n    margin: 39px 0 40px;\r\n    border: none;\r\n    background: #666666;\r\n    font-size: 0;\r\n    line-height: 0;\n}\ntable[data-v-9bb2291e]{\r\n  border-collapse: collapse;\r\n  border-spacing: 0;\r\n  \r\n  padding: 0;\r\n  border: 0;\r\n  outline: 0;\r\n\r\n  height: 100%;\n}\ntbody[data-v-9bb2291e]{\r\n    display: table-row-group;\r\n    vertical-align: middle;\r\n    border-collapse: collapse;\r\n    border-spacing: 0;\n}\ntr[data-v-9bb2291e]{\r\n  display: table-row;\r\n  vertical-align: inherit;\r\n  margin: 0;\r\n  padding: 0;\r\n  border: 0;\r\n  outline: 0;\n}\ntr:first-child th[data-v-9bb2291e], .auditiondetails_tblinfo tr:first-child td[data-v-9bb2291e] {\r\n    padding-top: 54px;\n}\n.auditiondetails_tblinfo th[data-v-9bb2291e] {\r\n    padding-top: 21px;\r\n    font-size: 14px;\r\n    font-weight: bold;\r\n    text-align: left;\n}\nth[data-v-9bb2291e]{\r\n  margin: 0;\r\n  padding: 0;\r\n  border: 0;\r\n  outline: 0;\r\n  display: table-cell;\r\n  vertical-align: inherit;\n}\ntd[data-v-9bb2291e] {\r\n    padding-top: 54px;\n}\n#detail_box[data-v-9bb2291e]{\r\n  padding: 0 31px 0 29px;\n}\n.auditiondetails_tblinfo td[data-v-9bb2291e] {\r\n    padding-top: 21px;\r\n    font-size: 14px;\r\n    font-weight: normal;\r\n    text-align: left;\n}\ncolgroup[data-v-9bb2291e] {\r\n    display: table-column-group;\n}\nelement.style[data-v-9bb2291e] {\r\n    width: 110px;\n}\ncol[data-v-9bb2291e] {\r\n    display: table-column;\n}\r\n\r\n/* 본문 내용 */\ndl[data-v-9bb2291e] {\r\n    display: block;\r\n    -webkit-margin-before: 1em;\r\n            margin-block-start: 1em;\r\n    -webkit-margin-after: 1em;\r\n            margin-block-end: 1em;\n}\r\n\r\n/* 본문제목 */\n.auditiondetails_introduction dt[data-v-9bb2291e] {\r\n    color: #666666;\r\n    font-size: 18px;\r\n    font-weight: bold;\n}\n.auditiondetails_introduction dd[data-v-9bb2291e] {\r\n    margin-top: 29px;\r\n    font-size: 14px;\r\n    line-height: 1.71;\n}\n#content[data-v-9bb2291e] {\r\n  width: 1200px;\r\n  margin: -25px auto 0;\r\n  padding-bottom: 152px;\n}\r\n\r\n/* 제목박스 */\n#auditiondetails_boxtit[data-v-9bb2291e] {\r\n  overflow: hidden;\r\n  margin-top: 5px;\r\n  padding: 18px 31px 18px 27px;\r\n  box-sizing: border-box;\r\n  background: #ed1c24;\n}\n.auditiondetails_boxtit .text[data-v-9bb2291e] {\r\n    float: left;\r\n    color: #fff;\r\n    font-size: 14px;\r\n    font-weight: bold;\n}\r\n\r\n/* 영상과제 텍스트 */\n.auditiondetails_total[data-v-9bb2291e] {\r\n    color: #666666;\r\n    font-size: 18px;\r\n    font-weight: bold;\n}\n#video_result[data-v-9bb2291e]{\r\n  -webkit-margin-before: 1em;\r\n          margin-block-start: 1em;\n}\r\n\r\n/* 제목박스 텍스트 */\n#auditiondetails_boxtit .text[data-v-9bb2291e] {\r\n  float: left;\r\n  color: #fff;\r\n  font-size: 14px;\r\n  font-weight: bold;\n}\n.auditiondetails_recruitment[data-v-9bb2291e] {\r\n  font-size: 24px;\r\n  font-weight: bold;\r\n  text-align: center;\r\n  margin-top: 20px;\n}\n#auditiondetails_dayimg[data-v-9bb2291e] {\r\n  position: relative;\r\n  margin-top: 30px;\r\n  font-size: 0;\r\n  line-height: 0;\n}\n#auditiondetails_dayimg img[data-v-9bb2291e] {\r\n  width: 100%;\r\n  height: 800px;\n}\n.auditiondetails_dayimg .text[data-v-9bb2291e] {\r\n  position: absolute;\r\n  left: 0;\r\n  bottom: 0;\r\n  width: 150px;\r\n  height: 56px;\r\n  padding-top: 0px;\r\n  box-sizing: border-box;\r\n  background: #ed1c24;\r\n  color: #fff;\r\n  font-size: 24px;\r\n  font-weight: bold;\r\n  text-align: center;\r\n  line-height: 56px;\n}\n#button_area[data-v-9bb2291e]{\r\n  position: relative;\r\n  margin-top: 30px;\r\n  font-size: 0;\r\n  line-height: 0;\r\n  text-align: center;\n}\nbutton[data-v-9bb2291e] {\r\n    display: inline-block;\r\n    width: 152px;\r\n    height: 48px;\r\n    border: none;\r\n    background: #ed1c24;\r\n    color: #fff;\r\n    font-size: 16px;\r\n    line-height: 1;\n}\r\n\r\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionDetail.vue?vue&type=style&index=0&id=9bb2291e&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionDetail.vue?vue&type=style&index=0&id=9bb2291e&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionCreate.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionDetail.vue?vue&type=style&index=0&id=9bb2291e&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionDetail.vue?vue&type=style&index=0&id=9bb2291e&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -444,10 +343,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c& ***!
-  \*********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionDetail.vue?vue&type=template&id=9bb2291e&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/audition/AuditionDetail.vue?vue&type=template&id=9bb2291e&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -459,300 +358,246 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "form_input" } }, [
-    _vm.cid
-      ? _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.updateAudition($event)
-              }
+  return _c("div", { attrs: { id: "content" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("p", { staticClass: "auditiondetails_recruitment" }, [
+      _vm._v(_vm._s(_vm.auditions.title))
+    ]),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "auditiondetails_dayimg" } }, [
+      _vm.state
+        ? _c("img", {
+            attrs: {
+              src:
+                _vm.$store.state.serverPath + "/storage/" + _vm.auditions.image,
+              alt: _vm.auditions.title
             }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _c("p", { staticClass: "text" }, [_vm._v("채용시 마감")])
+    ]),
+    _vm._v(" "),
+    _c("hr", { staticClass: "hr_line" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      { attrs: { id: "detail_box" } },
+      [
+        _c("table", { staticClass: "auditiondetails_tblinfo" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("p", { staticClass: "auditiondetails_total" }, [
+              _vm._v("오디션 정보")
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("th", [_vm._v("모집랭크")]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.auditions.rank) + " 랭크이상")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("오디션 기간")]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.auditions.end_date) + " 까지")])
+            ]),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _vm._m(5),
+            _vm._v(" "),
+            _vm._m(6),
+            _vm._v(" "),
+            _vm._m(7)
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "hr_line" }),
+        _vm._v(" "),
+        _c("dl", { staticClass: "auditiondetails_introduction" }, [
+          _c("dt", [_vm._v("오디션 소개")]),
+          _vm._v(" "),
+          _c("dd", [
+            _vm._v("\n          " + _vm._s(_vm.auditions.content)),
+            _c("br")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "hr_line" }),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "auditiondetails_total",
+            attrs: { id: "video_result" }
           },
+          [_vm._v("영상과제")]
+        ),
+        _vm._v(" "),
+        _c("b-embed", {
+          attrs: {
+            type: "iframe",
+            aspect: "16by9",
+            src: _vm.auditionData.video,
+            allowfullscreen: ""
+          }
+        }),
+        _vm._v(" "),
+        _c("hr", { staticClass: "hr_line" }),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "button_area" } }, [
+          _c(
+            "button",
+            { attrs: { type: "button" }, on: { click: _vm.applyAudition } },
+            [_vm._v("지원하기")]
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { attrs: { id: "button_area" } },
           [
             _c(
-              "div",
-              { attrs: { id: "form_header" } },
-              [
-                _c("b-form-input", {
-                  attrs: { id: "title", placeholder: "제목을 입력해주세요" },
-                  model: {
-                    value: _vm.editAuditionData.title,
-                    callback: function($$v) {
-                      _vm.$set(_vm.editAuditionData, "title", $$v)
-                    },
-                    expression: "editAuditionData.title"
+              "b-button",
+              {
+                attrs: { variant: "primary" },
+                on: {
+                  click: function($event) {
+                    return _vm.editAudition(_vm.auditions)
                   }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { attrs: { id: "selct_area" } }, [
-              _c(
-                "div",
-                { staticClass: "select_item" },
-                [
-                  _c("b-form-datepicker", {
-                    staticClass: "mb-2",
-                    attrs: {
-                      placeholder: "마감기한 설정",
-                      id: "example-datepicker"
-                    },
-                    model: {
-                      value: _vm.editAuditionData.date,
-                      callback: function($$v) {
-                        _vm.$set(_vm.editAuditionData, "date", $$v)
-                      },
-                      expression: "editAuditionData.date"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "select_item" }, [
-                _c(
-                  "div",
-                  [
-                    _c("b-form-select", {
-                      attrs: { options: _vm.options },
-                      model: {
-                        value: _vm.editAuditionData.selected,
-                        callback: function($$v) {
-                          _vm.$set(_vm.editAuditionData, "selected", $$v)
-                        },
-                        expression: "editAuditionData.selected"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("label", { staticStyle: { "margin-left": "20px" } }, [
-                _vm._v("템플릿 선택: ")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "select_item" }, [
-                _c("input", {
-                  ref: "editAuditionImage",
-                  staticClass: "form-control ",
-                  attrs: { type: "file", id: "image" },
-                  on: { change: _vm.editAttachImage }
-                })
-              ]),
-              _vm._v(" "),
-              _c("label", [_vm._v("영상과제: ")]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "select_item" },
-                [
-                  _c("b-form-input", {
-                    attrs: { id: "video", placeholder: "링크를 삽입해주세요" },
-                    model: {
-                      value: _vm.editAuditionData.video,
-                      callback: function($$v) {
-                        _vm.$set(_vm.editAuditionData, "video", $$v)
-                      },
-                      expression: "editAuditionData.video"
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _vm.state
-                ? _c("img", {
-                    ref: "editAuditionImageDisplay",
-                    staticClass: "w-150px",
-                    attrs: {
-                      src:
-                        _vm.$store.state.serverPath +
-                        "/storage/" +
-                        _vm.editAuditionData.image
-                    }
-                  })
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _c("b-form-textarea", {
-              attrs: {
-                id: "textarea-rows",
-                placeholder: "내용을 입력해주세요",
-                rows: "22"
+                }
               },
-              model: {
-                value: _vm.editAuditionData.content,
-                callback: function($$v) {
-                  _vm.$set(_vm.editAuditionData, "content", $$v)
-                },
-                expression: "editAuditionData.content"
-              }
-            }),
-            _vm._v(" "),
-            _c("b-button", { attrs: { type: "submit", variant: "primary" } }, [
-              _vm._v("수정완료")
-            ]),
+              [_vm._v("수정")]
+            ),
             _vm._v(" "),
             _c(
               "b-button",
-              { attrs: { variant: "danger" }, on: { click: _vm.cancle } },
-              [_vm._v("취소")]
+              {
+                staticStyle: { "margin-left": "5px" },
+                attrs: { variant: "primary" },
+                on: {
+                  click: function($event) {
+                    return _vm.deleteAudition(_vm.auditions)
+                  }
+                }
+              },
+              [_vm._v("삭제")]
             )
           ],
           1
         )
-      : _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.createAudition($event)
-              }
-            }
-          },
-          [
-            _c(
-              "div",
-              { attrs: { id: "form_header" } },
-              [
-                _c("b-form-input", {
-                  attrs: { id: "title", placeholder: "제목을 입력해주세요" },
-                  model: {
-                    value: _vm.auditionData.title,
-                    callback: function($$v) {
-                      _vm.$set(_vm.auditionData, "title", $$v)
-                    },
-                    expression: "auditionData.title"
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { attrs: { id: "selct_area" } }, [
-              _c(
-                "div",
-                { staticClass: "select_item" },
-                [
-                  _c("b-form-datepicker", {
-                    staticClass: "mb-2",
-                    attrs: {
-                      placeholder: "마감기한 설정",
-                      id: "example-datepicker"
-                    },
-                    model: {
-                      value: _vm.auditionData.date,
-                      callback: function($$v) {
-                        _vm.$set(_vm.auditionData, "date", $$v)
-                      },
-                      expression: "auditionData.date"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "select_item" }, [
-                _c(
-                  "div",
-                  [
-                    _c("b-form-select", {
-                      attrs: { options: _vm.options },
-                      model: {
-                        value: _vm.auditionData.selected,
-                        callback: function($$v) {
-                          _vm.$set(_vm.auditionData, "selected", $$v)
-                        },
-                        expression: "auditionData.selected"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("label", { staticStyle: { "margin-left": "20px" } }, [
-                _vm._v("템플릿 선택: ")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "select_item" }, [
-                _c("input", {
-                  ref: "newAuditionImage",
-                  staticClass: "form-control ",
-                  attrs: { type: "file", id: "image" },
-                  on: { change: _vm.attachImage }
-                })
-              ]),
-              _vm._v(" "),
-              _c("label", [_vm._v("영상과제: ")]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "select_item" },
-                [
-                  _c("b-form-input", {
-                    attrs: { id: "video", placeholder: "링크를 삽입해주세요" },
-                    model: {
-                      value: _vm.auditionData.video,
-                      callback: function($$v) {
-                        _vm.$set(_vm.auditionData, "video", $$v)
-                      },
-                      expression: "auditionData.video"
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _vm.auditionData.image.name
-              ? _c("div", [
-                  _c("img", {
-                    ref: "newAuditionImageDisplay",
-                    staticClass: "w-150px",
-                    attrs: { src: "" }
-                  })
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("b-form-textarea", {
-              attrs: {
-                id: "textarea-rows",
-                placeholder: "내용을 입력해주세요",
-                rows: "22"
-              },
-              model: {
-                value: _vm.auditionData.content,
-                callback: function($$v) {
-                  _vm.$set(_vm.auditionData, "content", $$v)
-                },
-                expression: "auditionData.content"
-              }
-            }),
-            _vm._v(" "),
-            _c("b-button", { attrs: { type: "submit", variant: "primary" } }, [
-              _vm._v("저장")
-            ]),
-            _vm._v(" "),
-            _c(
-              "b-button",
-              { attrs: { variant: "danger" }, on: { click: _vm.cancle } },
-              [_vm._v("취소")]
-            )
-          ],
-          1
-        )
+      ],
+      1
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "auditiondetails_boxtit" } }, [
+      _c("p", { staticClass: "text" }, [
+        _vm._v("\n      오디션 상세보기\n    ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("colgroup", [
+      _c("col", { staticStyle: { width: "110px" } }),
+      _vm._v(" "),
+      _c("col", { staticStyle: { width: "310px" } }),
+      _vm._v(" "),
+      _c("col", { staticStyle: { width: "110px" } }),
+      _vm._v(" "),
+      _c("col")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("장르")]),
+      _vm._v(" "),
+      _c("td", [_vm._v("메가폰픽")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("오디션 기간")]),
+      _vm._v(" "),
+      _c("td", [_vm._v("협의 후 결정 ~ 협의 후 결정")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("제작유형")]),
+      _vm._v(" "),
+      _c("td", [_vm._v("Megaphone Pick")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("예상 촬영 기간")]),
+      _vm._v(" "),
+      _c("td", [_vm._v("미정 ~ 미정")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("제작사")]),
+      _vm._v(" "),
+      _c("td", [_vm._v("메가폰코리아")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("촬영장소")]),
+      _vm._v(" "),
+      _c("td")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("캐스팅 담당자")]),
+      _vm._v(" "),
+      _c("td", [_vm._v("메가폰픽")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("페이")]),
+      _vm._v(" "),
+      _c("td", [_vm._v("협의 후 결정")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("담당자 이메일")]),
+      _vm._v(" "),
+      _c("td", { attrs: { colspan: "3" } }, [_vm._v("비공개")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("담당자 연락처")]),
+      _vm._v(" "),
+      _c("td", { attrs: { colspan: "3" } }, [_vm._v("비공개")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -800,18 +645,18 @@ function updateAudition(id, data) {
 
 /***/ }),
 
-/***/ "./resources/js/views/audition/AuditionCreate.vue":
+/***/ "./resources/js/views/audition/AuditionDetail.vue":
 /*!********************************************************!*\
-  !*** ./resources/js/views/audition/AuditionCreate.vue ***!
+  !*** ./resources/js/views/audition/AuditionDetail.vue ***!
   \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AuditionCreate.vue?vue&type=template&id=4188269c& */ "./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c&");
-/* harmony import */ var _AuditionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuditionCreate.vue?vue&type=script&lang=js& */ "./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AuditionCreate.vue?vue&type=style&index=0&lang=css& */ "./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _AuditionDetail_vue_vue_type_template_id_9bb2291e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AuditionDetail.vue?vue&type=template&id=9bb2291e&scoped=true& */ "./resources/js/views/audition/AuditionDetail.vue?vue&type=template&id=9bb2291e&scoped=true&");
+/* harmony import */ var _AuditionDetail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuditionDetail.vue?vue&type=script&lang=js& */ "./resources/js/views/audition/AuditionDetail.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _AuditionDetail_vue_vue_type_style_index_0_id_9bb2291e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AuditionDetail.vue?vue&type=style&index=0&id=9bb2291e&scoped=true&lang=css& */ "./resources/js/views/audition/AuditionDetail.vue?vue&type=style&index=0&id=9bb2291e&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -822,66 +667,66 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _AuditionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _AuditionDetail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AuditionDetail_vue_vue_type_template_id_9bb2291e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AuditionDetail_vue_vue_type_template_id_9bb2291e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "9bb2291e",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/audition/AuditionCreate.vue"
+component.options.__file = "resources/js/views/audition/AuditionDetail.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/views/audition/AuditionDetail.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************!*\
-  !*** ./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/views/audition/AuditionDetail.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionCreate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionDetail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionDetail.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionDetail.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionDetail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css& ***!
-  \*****************************************************************************************/
+/***/ "./resources/js/views/audition/AuditionDetail.vue?vue&type=style&index=0&id=9bb2291e&scoped=true&lang=css&":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/views/audition/AuditionDetail.vue?vue&type=style&index=0&id=9bb2291e&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionCreate.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionDetail_vue_vue_type_style_index_0_id_9bb2291e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionDetail.vue?vue&type=style&index=0&id=9bb2291e&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionDetail.vue?vue&type=style&index=0&id=9bb2291e&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionDetail_vue_vue_type_style_index_0_id_9bb2291e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionDetail_vue_vue_type_style_index_0_id_9bb2291e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionDetail_vue_vue_type_style_index_0_id_9bb2291e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionDetail_vue_vue_type_style_index_0_id_9bb2291e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionDetail_vue_vue_type_style_index_0_id_9bb2291e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c&":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c& ***!
-  \***************************************************************************************/
+/***/ "./resources/js/views/audition/AuditionDetail.vue?vue&type=template&id=9bb2291e&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/views/audition/AuditionDetail.vue?vue&type=template&id=9bb2291e&scoped=true& ***!
+  \***************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionCreate.vue?vue&type=template&id=4188269c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionCreate.vue?vue&type=template&id=4188269c&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionDetail_vue_vue_type_template_id_9bb2291e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AuditionDetail.vue?vue&type=template&id=9bb2291e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/audition/AuditionDetail.vue?vue&type=template&id=9bb2291e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionDetail_vue_vue_type_template_id_9bb2291e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionCreate_vue_vue_type_template_id_4188269c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuditionDetail_vue_vue_type_template_id_9bb2291e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

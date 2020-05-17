@@ -16,13 +16,12 @@
     <!-- <img src="sample.jpg" id="source-video" height="1000"/>         -->
 
     <video ref="webcam" id="webCam" width="800" height="600" autoplay v-on:play="bindPage()"></video>
-    <!-- <canvas id="canvas" width="800" height="600"> -->
+    <canvas id="canvas" width="800" height="600"/>
     <div id="pannel">
       <div class="btn-bg bg-1">
         <div class="btn btn-1">
-
           <button id="preview_btn" type="button" v-on:click="modeChange()">{{computedModeChangeHtml}}</button>
-          <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button>
+          <!-- <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button> -->
           <!-- <button id="end-btn" type="button">끝내기</button> -->
           <router-link to="/lecture" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -67,6 +66,7 @@ export default {
       filename: "",
       video: "",
       videoData: null,
+      data:null,
       webcam: "",
       modalDisplay: "none",
       videoControls: false,
@@ -81,6 +81,9 @@ export default {
       cal: cal,
       finalScore: 0,
       ended: false,
+      ctx: null,
+      canvas: null,
+      poses:[],
       // data:{
       //     'title' => '매우쉬운 아이돌 댄스',
       //     'content' => '이거슨 쉬운 아이돌 댄스입니다잉',
@@ -151,13 +154,24 @@ export default {
     },
     bindPage: async function() {
       this.net = await posenet.load();
+
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
+      this.canvas = canvas;
+      this.ctx = ctx;
       this.webcamReady();
     },
     webcamReady: async function() {
       this.net.dispose();
-      this.net = await posenet.load();
+      this.net = await posenet.load({
+        architecture: 'MobileNetV1',
+        outputStride: 16,
+        inputResolution: { width: 640, height: 480 },
+        multiplier: 0.75}
+      );
       const pose = await this.net.estimateSinglePose(this.$refs.webcam);
-      const poses = this.cal.getData(pose);
+      const data = this.cal.getData(pose);
+      this.poses.push(pose);
 
       let motionCircle = [
         -51.47224073047192,
@@ -168,14 +182,14 @@ export default {
       if (
         !this.start &&
         this.ready &&
-        poses.leftUpperarm < motionCircle[0] + 20 &&
-        poses.leftUpperarm > motionCircle[0] - 20 &&
-        poses.leftForearm < motionCircle[1] + 20 &&
-        poses.leftForearm > motionCircle[1] - 20 &&
-        poses.rightUpperarm < motionCircle[2] + 20 &&
-        poses.rightUpperarm > motionCircle[2] - 20 &&
-        poses.rightForearm < motionCircle[3] + 20 &&
-        poses.rightForearm > motionCircle[3] - 20
+        data.leftUpperarm < motionCircle[0] + 20 &&
+        data.leftUpperarm > motionCircle[0] - 20 &&
+        data.leftForearm < motionCircle[1] + 20 &&
+        data.leftForearm > motionCircle[1] - 20 &&
+        data.rightUpperarm < motionCircle[2] + 20 &&
+        data.rightUpperarm > motionCircle[2] - 20 &&
+        data.rightForearm < motionCircle[3] + 20 &&
+        data.rightForearm > motionCircle[3] - 20
       ) {
         this.start = true;
         let d = new Date();
@@ -193,11 +207,11 @@ export default {
         if (timing >= this.videoData.length) {
           timing = this.videoData.length - 1;
         }
-        for (let key in poses) {
-          if (Math.abs(poses[key]) != 180 && poses[key] != 0) {
+        for (let key in data) {
+          if (Math.abs(data[key]) != 180 && data[key] != 0) {
             tmp =
               100 -
-              (this.cal.distance(poses[key], this.videoData[timing][key]) /
+              (this.cal.distance(data[key], this.videoData[timing][key]) /
                 180) *
                 100;
             if (tmp < 0) tmp = 0;
@@ -215,6 +229,9 @@ export default {
           this.finalCount += 1;
         }
         console.log(tmp + "%");
+      }else{
+        console.log('asdf');
+        this.draw(pose);
       }
       if (!this.ended)
         this.loop = window.requestAnimationFrame(this.webcamReady);
@@ -237,32 +254,30 @@ export default {
         window.cancelAnimationFrame(this.loop);
         this.modalChange();
       
-      try {
-        const res = await lectureService.createScore(formData);
-        // const res = await lectureService.createScore();
-        console.log(res);
-        console.log("플레이 데이터 저장 성공");
-
-        // this.flashMessage.success({
-        //   message: "Category stored successfully!",
-        //   time: 5000
-        // });
-      } catch (error) {
-        console.log(error);
-        // switch (error.response.status) {
-        //   case 422:
-        //     this.errors = error.response.data.errors;
-        //     break;
-        //   default:
-        //     this.flashMessage.error({
-        //       message: "Some error occurred, Please try again!",
-        //       time: 5000
-        //     });
-        //     break;
-        // }
+        try {
+          const res = await lectureService.createScore(formData);
+          console.log(res);
+          console.log("플레이 데이터 저장 성공");
+        } catch (error) {
+          console.log(error);
+        }
       }
-    }
-    }
+    },
+    draw: function(pose) {
+      
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      var points = pose.keypoints;
+      for(var key = 0; key < points.length; key++){
+        if(points[key].score > 0.6){
+          this.ctx.beginPath();
+          this.ctx.arc(points[key].position.x,points[key].position.y,10,0,Math.PI*2);
+          this.ctx.fill()
+          this.ctx.stroke();
+          this.ctx.closePath();
+        }
+      }
+        this.ctx.fillStyle = "#0095DD";
+    },
   }
 };
 </script>
@@ -278,9 +293,6 @@ export default {
 #container {
   width: 100%;
   height: 100%;
-}
-#canvas {
-  position: relative;
 }
 #webCam {
   position: fixed;
@@ -317,12 +329,16 @@ export default {
   position: absolute;
   bottom: 10px;
   left: 20px;
+  width: 120px;
+  height: 50px;
 }
 
 #end_btn {
   position: absolute;
   bottom: 10px;
   right: 20px;
+  width: 120px;
+  height: 50px;
 }
 #modal {
   position: relative;
@@ -357,7 +373,20 @@ export default {
   z-index: -1;
 }
 
-    body .btn-bg {
+canvas{
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 25%;
+  height: 40%;
+  border: 1px solid;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  z-index: 100001;
+}
+
+body .btn-bg {
   width: 100%;
   height: 50vh;
   display: flex;
@@ -378,22 +407,22 @@ body .btn-bg.bg-1 .btn-1 button {
   -webkit-transform: translate(0, 0);
   transform: translate(0, 0);
 }
-.btn-bg.bg-1 .btn-1 button a {
+body .btn-bg.bg-1 .btn-1 button a {
   color: #c7f8f9;
 }
-.btn-bg.bg-1 .btn-1 button:hover {
+body .btn-bg.bg-1 .btn-1 button:hover {
   background: #c7f8f9;
   color: #6ab1c9;
   border: 3px solid #6ab1c9;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
-.btn-bg.bg-1 .btn-1 button:hover >a {
+body .btn-bg.bg-1 .btn-1 button:hover >a {
   color: #6ab1c9;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
-.btn-bg.bg-1 .btn-1 button:active {
+body .btn-bg.bg-1 .btn-1 button:active {
   -webkit-transform: translate(5px, 5px);
   transform: translate(5px, 5px);
 }
