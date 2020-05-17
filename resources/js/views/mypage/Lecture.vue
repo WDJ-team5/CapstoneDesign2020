@@ -4,6 +4,7 @@
             <div class="lecture_content">
                 <div class="lecture_img">
                     <img :src="`${$store.state.serverPath}/storage/${lecture.image}`" :alt="lecture.image">
+                    <!-- {{lectures}} -->
                 </div>
                 <div class="lecture_text">
                     <div>
@@ -43,7 +44,8 @@ export default {
 
             this.axios.get(url).then(response => {
                 console.log(response.data);
-                this.lectures.push(response.data);
+                // this.lectures.push(response.data);
+                this.lectures = response.data;
             });
         },
     }

@@ -32,7 +32,7 @@
 
         <div class="homeContainerChild">
           <hr>
-          <h4>인기 동영상</h4>
+          <h4>댄스강좌</h4>
           <div id="popular">
               <div id="popularMain">
                   <a href="/"><img src="images/dance1.jpg" alt="x"/></a>
@@ -47,7 +47,7 @@
               </div>
           </div>
           <hr />
-          <h4>기업연계</h4>
+          <h4>댄스경연</h4>
           <hr />
           <div class="home_list">
               <a href="#"><img src="images/dance4.jpg" alt="x"/></a>
@@ -56,7 +56,7 @@
               <a href="#"><img src="images/dance7.jpg" alt="x"/></a>
           </div>
           <hr />
-          <h4>댄스경연</h4>
+          <h4>피드백</h4>
           <hr />
           <div class="home_list">
               <a href="#"><img src="images/dance8.jpg" alt="x"/></a>
@@ -65,7 +65,7 @@
               <a href="#"><img src="images/dance11.jpg" alt="x"/></a>
           </div>
           <hr />
-          <h4>카테고리</h4>
+          <h4>오디션</h4>
           <hr />
           <div class="home_list">
               <a href="#"><img src="images/dance1.jpg" alt="x"/></a>
@@ -178,13 +178,12 @@ window.addEventListener('resize', function handleResize(event) {
     width: 100%;
 }
 .homeContainerChild {
-  width: 90%;
+    width: 70%;
     margin: 0 auto;
 }
 div > a > img {
     width: 100%;
     height: 100%;
-    transform: scale(1.0);
     transition: transform .5s;
 }
 #popular {
@@ -196,10 +195,15 @@ div > a > img {
     width: 65vw;
     overflow: hidden;
 }
+#popularMain > a > img {
+    transition: .5s;
+    filter:grayscale(100%);
+}
 #popularMain > a > img:hover {
-    transition: .3s;
-    opacity: 0.75;
-    transform: scale(1.5) translateZ(0);
+    transition: .5s;
+    /* opacity: 0.9; */
+    filter: none;
+    transform: translateZ(0);
 }
 #popularSub {
     width: 35vw;
@@ -213,10 +217,15 @@ div > a > img {
     height: 100%;
     overflow: hidden;
 }
+.popular-sub-child > a > img {
+    transition: .5s;
+    filter:grayscale(100%);
+}
 .popular-sub-child > a > img:hover {
-    transition: .3s;
-    opacity: 0.75;
-    transform: scale(1.5);
+    transition: .5s;
+    filter: none;
+    /* opacity: 0.75; */
+    transform: translateZ(0);
 }
 .home_list {
     width: 100%;
@@ -226,10 +235,14 @@ div > a > img {
 .home_list > a {
     overflow: hidden;
 }
+.home_list > a > img {
+    transition: .5s;
+    filter:grayscale(100%);
+}
 .home_list > a > img:hover {
-    opacity: 0.75;
-    transform: scale(1.5);
-    transition: .3s;
+    /* opacity: 0.75; */
+    transition: .5s;
+    filter: none;
 }
 
 /* ===== carousel css ===== */

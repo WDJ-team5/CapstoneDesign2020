@@ -39,6 +39,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'lecture',
   data: function data() {
@@ -67,9 +68,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 url = 'api/mypage/lecture';
                 this.axios.get(url).then(function (response) {
-                  console.log(response.data);
+                  console.log(response.data); // this.lectures.push(response.data);
 
-                  _this.lectures.push(response.data);
+                  _this.lectures = response.data;
                 });
 
               case 2:
