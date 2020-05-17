@@ -38,7 +38,7 @@ class MypageController extends Controller
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
         $result = \App\LectureUser::join('lectures','lecture_id','=','lectures.id')
-        ->whereUserId($user->id)->first();
+        ->whereUserId($user->id)->get();
 
         return response()->json($result, 200);
     }
