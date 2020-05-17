@@ -95,6 +95,11 @@ const routes=[
         component:()=>import('./views/Advice/AdviceList.vue')
     },
     {
+        path:`/advice/create/:contentId?/:contentName?`,
+        name:'AdviceCreate',
+        component:()=>import('./views/Advice/AdviceCreate.vue')
+    },
+    {
         path:'/advice/detail/:contentId',
         name:'AdviceDetail',
         component:()=>import('./views/Advice/AdviceDetail.vue')
@@ -108,7 +113,8 @@ const routes=[
         children: [
             {
                 path: 'profile',
-                component:()=>import('./views/mypage/Profile.vue')
+                component:()=>import('./views/mypage/Profile.vue'),
+                props: true
             },
             {
                 path: 'lecture',

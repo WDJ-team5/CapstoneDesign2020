@@ -29,15 +29,23 @@
                             <tbody>
                                 <tr>
                                     <th>자기소개</th>
-                                    <td>{{propsdata.content}}</td>
+                                    <td>{{propsdata.introduction}}</td>
                                 </tr>
                                 <tr>
                                     <th>전문분야</th>
-                                    <td>{{propsdata.major}}</td>
+                                    <td>{{propsdata.area}}</td>
                                 </tr>
                                 <tr>
                                     <th>수상경력</th>
-                                    <td>{{propsdata.awards}}</td>
+                                    <td>{{propsdata.career_01}}</td>
+                                </tr>
+                                <tr class="career-add" v-if="propsdata.career_02!=null">
+                                    <th></th>
+                                    <td>{{propsdata.career_02}}</td>
+                                </tr>
+                                <tr class="career-add" v-if="propsdata.career_03!=null">
+                                    <th></th>
+                                    <td>{{propsdata.career_03}}</td>
                                 </tr>
                                 <tr>
                                     <th>SNS</th>
@@ -45,7 +53,7 @@
                                 </tr>
                                 <tr>
                                     <th>소속사</th>
-                                    <td>{{propsdata.company}}</td>
+                                    <td>{{propsdata.company_name}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -56,7 +64,7 @@
                             <span class="feedback-star-font">피드백 별점</span>
                         </div>
                         <div class="feedbackBtnBox">
-                            <button class="feedbackBtn">피드백 신청하기</button>
+                            <button class="feedbackBtn" @click="writeFeedback(propsdata.expert_id, propsdata.name)">피드백 신청하기</button>
                         </div>
                     </div>
                 </div>
@@ -74,7 +82,14 @@
 
 export default {
   name: "ExpertDetail",
-  props: ['propsdata']
+  props: ['propsdata'],
+  methods: {
+    writeFeedback(id,name) {
+      this.$router.push({
+        path: `/advice/create/${id}/${name}`
+      });
+    }
+  }
 };
 </script>
 
@@ -214,6 +229,7 @@ export default {
         color: #fff;
         font-size: 12px;
         font-weight: bold;
+        padding-left: 10px;
     }
     
     .feedback-star-font-box {

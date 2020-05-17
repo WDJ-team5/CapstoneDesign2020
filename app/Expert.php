@@ -8,6 +8,9 @@ class Expert extends Model
 {
     protected $fillable = [
         'sns',
+        'career_01',
+        'career_02',
+        'career_03',
         'field_id',
         'expert_company_id',
     ];
@@ -20,11 +23,6 @@ class Expert extends Model
     public function specialty()
     {
         return $this->belongsTo('App\Specialty');
-    }
-
-    public function careers()
-    {
-        return $this->hasMany('App\Career');
     }
 
     public function company()

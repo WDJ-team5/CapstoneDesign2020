@@ -31357,6 +31357,7 @@ var handleTargets = function handleTargets(_ref) {
     vnode.context.$root.$emit(EVENT_TOGGLE, target);
   });
 }; // Handle directive updates
+<<<<<<< HEAD
 
 /* istanbul ignore next: not easy to test */
 
@@ -31386,6 +31387,37 @@ var handleUpdate = function handleUpdate(el, binding, vnode) {
   // or changes to this element or its contents
 
 
+=======
+
+/* istanbul ignore next: not easy to test */
+
+
+var handleUpdate = function handleUpdate(el, binding, vnode) {
+  if (!_utils_env__WEBPACK_IMPORTED_MODULE_2__["isBrowser"]) {
+    return;
+  }
+
+  if (!Object(_utils_loose_equal__WEBPACK_IMPORTED_MODULE_0__["default"])(Object(_utils_target__WEBPACK_IMPORTED_MODULE_3__["getTargets"])(binding), el[BV_TOGGLE_TARGETS])) {
+    // Targets have changed, so update accordingly
+    Object(_utils_target__WEBPACK_IMPORTED_MODULE_3__["unbindTargets"])(vnode, binding, listenTypes);
+    var targets = Object(_utils_target__WEBPACK_IMPORTED_MODULE_3__["bindTargets"])(vnode, binding, listenTypes, handleTargets); // Update targets array to element
+
+    el[BV_TOGGLE_TARGETS] = targets; // Add aria attributes to element
+
+    el[BV_TOGGLE_CONTROLS] = targets.join(' '); // ensure aria-controls is up to date
+
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_1__["setAttr"])(el, 'aria-controls', el[BV_TOGGLE_CONTROLS]); // Request a state update from targets so that we can ensure
+    // expanded state is correct
+
+    targets.forEach(function (target) {
+      vnode.context.$root.$emit(EVENT_STATE_REQUEST, target);
+    });
+  } // Ensure the collapse class and aria-* attributes persist
+  // after element is updated (either by parent re-rendering
+  // or changes to this element or its contents
+
+
+>>>>>>> 02476d4dca08e11f93b889644fb1892d1ab8a4ca
   if (el[BV_TOGGLE_STATE] === true) {
     Object(_utils_dom__WEBPACK_IMPORTED_MODULE_1__["addClass"])(el, 'collapsed');
     Object(_utils_dom__WEBPACK_IMPORTED_MODULE_1__["setAttr"])(el, 'aria-expanded', 'true');
@@ -31451,6 +31483,7 @@ var VBToggle = {
   /* istanbul ignore next */
   {
     Object(_utils_target__WEBPACK_IMPORTED_MODULE_3__["unbindTargets"])(vnode, binding, listenTypes); // Remove our $root listener
+<<<<<<< HEAD
 
     if (el[BV_TOGGLE]) {
       vnode.context.$root.$off(EVENT_STATE, el[BV_TOGGLE]);
@@ -31458,6 +31491,15 @@ var VBToggle = {
     } // Reset custom  props
 
 
+=======
+
+    if (el[BV_TOGGLE]) {
+      vnode.context.$root.$off(EVENT_STATE, el[BV_TOGGLE]);
+      vnode.context.$root.$off(EVENT_STATE_SYNC, el[BV_TOGGLE]);
+    } // Reset custom  props
+
+
+>>>>>>> 02476d4dca08e11f93b889644fb1892d1ab8a4ca
     resetProp(el, BV_TOGGLE);
     resetProp(el, BV_TOGGLE_STATE);
     resetProp(el, BV_TOGGLE_CONTROLS);
@@ -45336,10 +45378,17 @@ if(false) {}
     _proto._getPlacement = function _getPlacement() {
       var $parentDropdown = $(this._element.parentNode);
       var placement = AttachmentMap.BOTTOM; // Handle dropup
+<<<<<<< HEAD
 
       if ($parentDropdown.hasClass(ClassName$4.DROPUP)) {
         placement = AttachmentMap.TOP;
 
+=======
+
+      if ($parentDropdown.hasClass(ClassName$4.DROPUP)) {
+        placement = AttachmentMap.TOP;
+
+>>>>>>> 02476d4dca08e11f93b889644fb1892d1ab8a4ca
         if ($(this._menu).hasClass(ClassName$4.MENURIGHT)) {
           placement = AttachmentMap.TOPEND;
         }
@@ -67920,6 +67969,19 @@ const mixin = {
 
 /***/ }),
 
+/***/ "./node_modules/vue-axios/dist/vue-axios.min.js":
+/*!******************************************************!*\
+  !*** ./node_modules/vue-axios/dist/vue-axios.min.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(o){return typeof o}:function(o){return o&&"function"==typeof Symbol&&o.constructor===Symbol&&o!==Symbol.prototype?"symbol":typeof o};!function(){function o(e,t){if(!o.installed){if(o.installed=!0,!t)return void console.error("You have to install axios");e.axios=t,Object.defineProperties(e.prototype,{axios:{get:function(){return t}},$http:{get:function(){return t}}})}}"object"==( false?undefined:_typeof(exports))?module.exports=o: true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function(){return o}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):undefined}();
+
+/***/ }),
+
 /***/ "./node_modules/vue-functional-data-merge/dist/lib.esm.js":
 /*!****************************************************************!*\
   !*** ./node_modules/vue-functional-data-merge/dist/lib.esm.js ***!
@@ -85476,14 +85538,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
 /* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/index.js");
 /* harmony import */ var vue_agile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-agile */ "./node_modules/vue-agile/src/index.js");
-/* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
-/* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! bootstrap-vue/dist/bootstrap-vue.css */ "./node_modules/bootstrap-vue/dist/bootstrap-vue.css");
-/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @smartweb/vue-flash-message */ "./node_modules/@smartweb/vue-flash-message/build/vue-flash-msg.common.js");
-/* harmony import */ var _smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.min.js");
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
+/* harmony import */ var bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! bootstrap-vue/dist/bootstrap-vue.css */ "./node_modules/bootstrap-vue/dist/bootstrap-vue.css");
+/* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @smartweb/vue-flash-message */ "./node_modules/@smartweb/vue-flash-message/build/vue-flash-msg.common.js");
+/* harmony import */ var _smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_11__);
+
+
 
 
 
@@ -85495,8 +85563,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_4__["BootstrapVue"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_9___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_11___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_agile__WEBPACK_IMPORTED_MODULE_5__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_axios__WEBPACK_IMPORTED_MODULE_6___default.a, axios__WEBPACK_IMPORTED_MODULE_7___default.a);
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   router: _router__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -85726,62 +85795,62 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
+    return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
   }
 }, {
   path: '/userlist',
   name: 'userlist',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/UserList.vue */ "./resources/js/views/UserList.vue"));
+    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/UserList.vue */ "./resources/js/views/UserList.vue"));
   }
 }, {
   path: '/login',
   name: 'login',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/views/auth/Login.vue"));
+    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/views/auth/Login.vue"));
   }
 }, {
   path: '/signselect',
   name: 'signselect',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/auth/SignSelect.vue */ "./resources/js/views/auth/SignSelect.vue"));
+    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/auth/SignSelect.vue */ "./resources/js/views/auth/SignSelect.vue"));
   }
 }, {
   path: '/usersignup',
   name: 'usersignup',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/auth/UserSignup.vue */ "./resources/js/views/auth/UserSignup.vue"));
+    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/auth/UserSignup.vue */ "./resources/js/views/auth/UserSignup.vue"));
   }
 }, {
   path: '/companysignup1',
   name: 'companysignup1',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup1.vue */ "./resources/js/views/auth/CompanySignup1.vue"));
+    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup1.vue */ "./resources/js/views/auth/CompanySignup1.vue"));
   }
 }, {
   path: '/companysignup2',
   name: 'companysignup2',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup2.vue */ "./resources/js/views/auth/CompanySignup2.vue"));
+    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup2.vue */ "./resources/js/views/auth/CompanySignup2.vue"));
   }
 }, // 오디션
 {
   path: '/audition',
   name: 'audition',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/audition/Audition.vue */ "./resources/js/views/audition/Audition.vue"));
+    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/audition/Audition.vue */ "./resources/js/views/audition/Audition.vue"));
   }
 }, {
   path: '/auditiondetail/:contentId',
   name: 'AuditionDetail',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionDetail.vue */ "./resources/js/views/audition/AuditionDetail.vue"));
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionDetail.vue */ "./resources/js/views/audition/AuditionDetail.vue"));
   }
 }, {
   path: '/auditioncreate/:contentId?',
   name: 'AuditionCreate',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
   }
 }, {
   path: '/auditiontest',
@@ -85793,14 +85862,14 @@ var routes = [{
   path: '/auditionapply',
   name: 'AuditionAppply',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionApply.vue */ "./resources/js/views/audition/AuditionApply.vue"));
+    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionApply.vue */ "./resources/js/views/audition/AuditionApply.vue"));
   }
 }, //   댄스강좌
 {
   path: '/lecture',
   name: 'lecture',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/lecture/Lecture.vue */ "./resources/js/views/lecture/Lecture.vue"));
+    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/lecture/Lecture.vue */ "./resources/js/views/lecture/Lecture.vue"));
   }
 }, {
   path: '/lecturePlay/:id',
@@ -85818,50 +85887,56 @@ var routes = [{
   path: '/advice/list',
   name: 'AdviceList',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
+    return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
+  }
+}, {
+  path: "/advice/create/:contentId?/:contentName?",
+  name: 'AdviceCreate',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceCreate.vue */ "./resources/js/views/Advice/AdviceCreate.vue"));
   }
 }, {
   path: '/advice/detail/:contentId',
   name: 'AdviceDetail',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));
+    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));
   }
 }, // 마이페이지
 {
   path: '/mypage',
   name: 'mypage',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
+    return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
   },
   children: [{
     path: 'profile',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
+      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
     }
   }, {
     path: 'lecture',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
+      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
     }
   }, {
     path: 'apply',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
+      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
     }
   }, {
     path: 'companyinfo',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
+      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
     }
   }, {
     path: 'auditionlist',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
+      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
     }
   }, {
     path: 'profileedit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
+      return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
     }
   }]
 }];
@@ -86091,8 +86166,16 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+
+__webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 02476d4dca08e11f93b889644fb1892d1ab8a4ca
 
 
 /***/ })
