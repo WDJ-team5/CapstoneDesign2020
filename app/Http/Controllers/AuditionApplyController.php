@@ -45,7 +45,12 @@ class AuditionApplyController extends Controller
 
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
-        // $result = \App\;
+        $result = \App\User::find($user->id)->resumes()->create([
+            'score' => $request->score,
+            'message' => $request->text,
+            // 'result' => ,
+            'audition_id' => $request->audition_id,
+        ]);
 
         return response()->json($result, 200);
     }
