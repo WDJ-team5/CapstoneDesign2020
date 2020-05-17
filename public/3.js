@@ -361,13 +361,14 @@ render._withStripped = true
 /*!***************************************************!*\
   !*** ./resources/js/services/feedback_service.js ***!
   \***************************************************/
-/*! exports provided: createFeedback, loadFeedback */
+/*! exports provided: createFeedback, loadFeedback, loadFeedbackList */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFeedback", function() { return createFeedback; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadFeedback", function() { return loadFeedback; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadFeedbackList", function() { return loadFeedbackList; });
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_service */ "./resources/js/services/http_service.js");
 
 function createFeedback(data) {
@@ -375,6 +376,9 @@ function createFeedback(data) {
 }
 function loadFeedback() {
   return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/feedback');
+}
+function loadFeedbackList() {
+  return Object(_http_service__WEBPACK_IMPORTED_MODULE_0__["http"])().get('/feedback/list');
 }
 
 /***/ }),

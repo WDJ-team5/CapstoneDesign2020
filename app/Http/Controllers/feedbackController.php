@@ -19,7 +19,7 @@ class feedbackController extends Controller
         $experts = \App\User::whereClass(2)->join('experts','expert_id','=','experts.id')
         ->join('specialties','specialty_id','=','specialties.id')
         ->join('companies','expert_company_id','=','companies.id')->get();
-
+        // App\User::whereClass(2)->with(array('expert'=>function($query){$query->select('id');}))->get()
         return response()->json($experts, 200);
     }
 
