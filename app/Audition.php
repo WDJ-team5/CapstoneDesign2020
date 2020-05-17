@@ -10,7 +10,7 @@ class Audition extends Model
         'title',
         'content',
         'end_date',
-        'image',
+        'aud_image',
         'rank',
         'video',
         'user_id',

@@ -97,7 +97,7 @@ class AuditionController extends Controller
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
         
         
-        
+            
         $result = \App\Audition::join('users','user_id','=','users.id')
         ->join('companies','company_id','=','companies.id')->find($id);
 

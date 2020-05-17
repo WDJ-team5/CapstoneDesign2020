@@ -7,7 +7,7 @@
     </div>
     <p class="auditiondetails_recruitment">{{auditions.title}}</p>
     <div id="auditiondetails_dayimg">
-      <img v-if="state" :src="`${$store.state.serverPath}/storage/${auditions.image}`" :alt="auditions.title">
+      <img v-if="state" :src="`${$store.state.serverPath}/storage/${auditions.aud_image}`" :alt="auditions.title">
       <p class="text">채용시 마감</p>
     </div>
     <hr class="hr_line">
@@ -141,7 +141,9 @@ export default {
       try {
         const response = await auditionService.loadDetailAudition(this.cid);
         this.auditions = response.data[0];
+        console.log('가나다');
         console.log(this.auditions);
+        console.log(response.data);
         this.state = true;
       } catch (error) {
         this.flashMessage.error({
