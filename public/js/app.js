@@ -86256,8 +86256,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     apiURL: 'http://localhost:8000/api',
-    serverPath: 'http://localhost:8000' // apiURL: 'http://127.0.0.1:8000/api',
-    // serverPath: 'http://127.0.0.1:8000'
+    serverPath: 'http://localhost:8000' //     apiURL: 'http://127.0.0.1:8000/api',
+    //     serverPath: 'http://127.0.0.1:8000'
 
   },
   // state: {
@@ -86265,8 +86265,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   //     serverPath: 'http://192.168.0.6:8000'
   // },
   // state: {
-  //     apiURL: 'http://localhost:9000/api',
-  //     serverPath: 'http://localhost:9000'
+  //     apiURL: 'http://localhost:8000/api',
+  //     serverPath: 'http://localhost:8000'
   // },
   mutations: {},
   actions: {}

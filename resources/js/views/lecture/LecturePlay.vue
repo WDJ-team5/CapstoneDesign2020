@@ -13,24 +13,32 @@
         transform: scaleX(1);
         "
     ></video>
-    <!-- <img src="sample.jpg" id="source-video" height="1000"/>         -->
 
     <video ref="webcam" id="webCam" width="800" height="600" autoplay v-on:play="bindPage()"></video>
-    <!-- <canvas id="canvas" width="800" height="600"> -->
+    <canvas id="canvas" width="800" height="600"/>
     <div id="pannel">
-      <button id="preview_btn" type="button" v-on:click="modeChange()">{{computedModeChangeHtml}}</button>
-      <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button>
-      <!-- <button id="end-btn" type="button">끝내기</button> -->
-      <router-link to="/lecture" class="nav-link" exact>
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <button id="end_btn">끝내기</button>
-      </router-link>
+      <div class="btn-bg bg-1">
+        <div class="btn btn-1">
+          <button id="preview_btn" type="button" v-on:click="modeChange()">{{computedModeChangeHtml}}</button>
+          <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button>
+          <!-- <button id="end-btn" type="button">끝내기</button> -->
+          <router-link to="/lecture" class="nav-link" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <button id="end_btn">끝내기</button>
+          </router-link>
+        </div>
+      </div>
     </div>
+
+
+
+
+
     <!-- </canvas> -->
     <div id="modal" v-bind:style="{display:computedDisplay}">
       <div class="modal_content">
-        <h2>모달 창</h2>
-        <p>{{computedFinalScore}}</p>
+        <h2>테스트 결과</h2>
+        <p>정확도 : {{computedFinalScore}}</p>
         <button type="button" id="replay_btn" v-on:click="modalChange()">다시하기</button>
         <router-link to="/lecture" class="nav-link" exact>
           <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -57,6 +65,7 @@ export default {
       filename: "",
       video: "",
       videoData: null,
+      data:null,
       webcam: "",
       modalDisplay: "none",
       videoControls: false,
@@ -70,7 +79,10 @@ export default {
       loop: null,
       cal: cal,
       finalScore: 0,
-      ended: false
+      ended: false,
+      ctx: null,
+      canvas: null,
+      poses:[],
       // data:{
       //     'title' => '매우쉬운 아이돌 댄스',
       //     'content' => '이거슨 쉬운 아이돌 댄스입니다잉',
@@ -141,13 +153,24 @@ export default {
     },
     bindPage: async function() {
       this.net = await posenet.load();
+
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
+      this.canvas = canvas;
+      this.ctx = ctx;
       this.webcamReady();
     },
     webcamReady: async function() {
       this.net.dispose();
-      this.net = await posenet.load();
+      this.net = await posenet.load({
+        architecture: 'MobileNetV1',
+        outputStride: 16,
+        inputResolution: { width: 640, height: 480 },
+        multiplier: 0.75}
+      );
       const pose = await this.net.estimateSinglePose(this.$refs.webcam);
-      const poses = this.cal.getData(pose);
+      const data = this.cal.getData(pose);
+      this.poses.push(pose);
 
       let motionCircle = [
         -51.47224073047192,
@@ -158,14 +181,14 @@ export default {
       if (
         !this.start &&
         this.ready &&
-        poses.leftUpperarm < motionCircle[0] + 20 &&
-        poses.leftUpperarm > motionCircle[0] - 20 &&
-        poses.leftForearm < motionCircle[1] + 20 &&
-        poses.leftForearm > motionCircle[1] - 20 &&
-        poses.rightUpperarm < motionCircle[2] + 20 &&
-        poses.rightUpperarm > motionCircle[2] - 20 &&
-        poses.rightForearm < motionCircle[3] + 20 &&
-        poses.rightForearm > motionCircle[3] - 20
+        data.leftUpperarm < motionCircle[0] + 20 &&
+        data.leftUpperarm > motionCircle[0] - 20 &&
+        data.leftForearm < motionCircle[1] + 20 &&
+        data.leftForearm > motionCircle[1] - 20 &&
+        data.rightUpperarm < motionCircle[2] + 20 &&
+        data.rightUpperarm > motionCircle[2] - 20 &&
+        data.rightForearm < motionCircle[3] + 20 &&
+        data.rightForearm > motionCircle[3] - 20
       ) {
         this.start = true;
         let d = new Date();
@@ -183,11 +206,11 @@ export default {
         if (timing >= this.videoData.length) {
           timing = this.videoData.length - 1;
         }
-        for (let key in poses) {
-          if (Math.abs(poses[key]) != 180 && poses[key] != 0) {
+        for (let key in data) {
+          if (Math.abs(data[key]) != 180 && data[key] != 0) {
             tmp =
               100 -
-              (this.cal.distance(poses[key], this.videoData[timing][key]) /
+              (this.cal.distance(data[key], this.videoData[timing][key]) /
                 180) *
                 100;
             if (tmp < 0) tmp = 0;
@@ -205,9 +228,15 @@ export default {
           this.finalCount += 1;
         }
         console.log(tmp + "%");
+      }else{
+        console.log('asdf');
+        this.draw(pose);
       }
       if (!this.ended)
         this.loop = window.requestAnimationFrame(this.webcamReady);
+    },
+    saveVideo: function(){
+      var canvas = document.createElement('canvas');
     },
     endedVideo: async function() {
       if (this.start) {
@@ -224,32 +253,30 @@ export default {
         window.cancelAnimationFrame(this.loop);
         this.modalChange();
       
-      try {
-        const res = await lectureService.createScore(formData);
-        // const res = await lectureService.createScore();
-        console.log(res);
-        console.log("플레이 데이터 저장 성공");
-
-        // this.flashMessage.success({
-        //   message: "Category stored successfully!",
-        //   time: 5000
-        // });
-      } catch (error) {
-        console.log(error);
-        // switch (error.response.status) {
-        //   case 422:
-        //     this.errors = error.response.data.errors;
-        //     break;
-        //   default:
-        //     this.flashMessage.error({
-        //       message: "Some error occurred, Please try again!",
-        //       time: 5000
-        //     });
-        //     break;
-        // }
+        try {
+          const res = await lectureService.createScore(formData);
+          console.log(res);
+          console.log("플레이 데이터 저장 성공");
+        } catch (error) {
+          console.log(error);
+        }
       }
-    }
-    }
+    },
+    draw: function(pose) {
+      
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      var points = pose.keypoints;
+      for(var key = 0; key < points.length; key++){
+        if(points[key].score > 0.6){
+          this.ctx.beginPath();
+          this.ctx.arc(points[key].position.x,points[key].position.y,10,0,Math.PI*2);
+          this.ctx.fill()
+          this.ctx.stroke();
+          this.ctx.closePath();
+        }
+      }
+        this.ctx.fillStyle = "#0095DD";
+    },
   }
 };
 </script>
@@ -265,9 +292,6 @@ export default {
 #container {
   width: 100%;
   height: 100%;
-}
-#canvas {
-  position: relative;
 }
 #webCam {
   position: fixed;
@@ -304,18 +328,22 @@ export default {
   position: absolute;
   bottom: 10px;
   left: 20px;
+  width: 120px;
+  height: 50px;
 }
 
 #end_btn {
   position: absolute;
   bottom: 10px;
   right: 20px;
+  width: 120px;
+  height: 50px;
 }
 #modal {
   position: relative;
   width: 100%;
   height: 100%;
-  z-index: 100001;
+  z-index: 100002;
   display: none;
 }
 #modal h2 {
@@ -328,7 +356,8 @@ export default {
 }
 #modal .modal_content {
   position: relative;
-  width: 300px;
+  width: 800px;
+  height: 600px;
   margin: 100px auto;
   padding: 20px 10px;
   background: #fff;
@@ -343,4 +372,59 @@ export default {
   background: rgba(0, 0, 0, 0.5);
   z-index: -1;
 }
+
+canvas{
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 25%;
+  height: 40%;
+  border: 1px solid;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  z-index: 100001;
+}
+
+body .btn-bg {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body .btn-bg.bg-1 {
+  background: #6ab1c9;
+}
+body .btn-bg.bg-1 .btn-1 button {
+  color: #c7f8f9;
+  background: transparent;
+  border: 3px solid #c7f8f9;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+body .btn-bg.bg-1 .btn-1 button a {
+  color: #c7f8f9;
+}
+body .btn-bg.bg-1 .btn-1 button:hover {
+  background: #c7f8f9;
+  color: #6ab1c9;
+  border: 3px solid #6ab1c9;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+body .btn-bg.bg-1 .btn-1 button:hover >a {
+  color: #6ab1c9;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+body .btn-bg.bg-1 .btn-1 button:active {
+  -webkit-transform: translate(5px, 5px);
+  transform: translate(5px, 5px);
+}
+
 </style>

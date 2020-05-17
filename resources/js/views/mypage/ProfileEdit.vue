@@ -6,41 +6,62 @@
                 <table>
                     <thead>
                         <tr>
+                            <td>
+                                <label for="image">사진 선택</label>
+                                <img :src="`${$store.state.serverPath}/storage/${profiles.image}`" ref="editProfileImageDisplay" :alt="x">
+                                <input type="file" v-on:change="editAttatchImage" ref="editProfileImage" class="form-control" id="image">
+                            </td>
+                        </tr>
+                        <tr>
                             <th>이름</th>
-                            <th>v-for</th>
+                            <td>{{profiles.name}}</td>
                         </tr>
                         <tr>
                             <th>성별</th>
-                            <td>v-for</td>
+                            <td v-if="profiles.gender == false">남자</td>
+                            <td v-else>여자</td>
                         </tr>
                         <tr>
-                            <th>키</th>
-                            <td>v-for</td>
-
+                            <th>등급</th>
+                            <td v-if="profiles.class == 1">ARTIST</td>
+                            <td v-else-if="profiles.class == 2">EXPERT</td>
+                            <td v-else>PRODUCER</td>
                         </tr>
                         <tr>
                             <th>아이디</th>
-                            <td>v-for</td>
-                        </tr>
-                        <tr>
-                            <th>닉네임</th>
-                            <td><input type="text"></td>
+                            <td>{{profiles.userid}}</td>
                         </tr>
                         <tr>
                             <th>가입일</th>
-                            <td>v-for</td>
+                            <td>{{profiles.created_at}}</td>
                         </tr>
                         <tr>
-                            <th>이메일</th>
-                            <td>v-for</td>
+                            <th>수정일</th>
+                            <td>{{profiles.updated_at}}</td>
+                        </tr>
+                        <tr>
+                            <th>랭크</th>
+                            <td>{{profiles.rank_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>생년월일</th>
+                            <td>{{profiles.birthday}}</td>
+                        </tr>
+                        <tr>
+                            <th>연락처</th>
+                            <td><input type="text"></td>
                         </tr>
                         <tr>
                             <th>소속사</th>
                             <td><input type="text"></td>
                         </tr>
                         <tr>
-                            <th>분야</th>
-                            <td><input type="text"></td>
+                            <th>자기소개</th>
+                            <td><input type="textarea"></td>
+                        </tr>
+                        <tr v-if="profiles.class == 3">
+                            <th>회사명</th>
+                            <td><input type="text" :value="`${profiles.company_name}`"></td>
                         </tr>
                     </thead>
                 </table>
@@ -52,7 +73,31 @@
 
 <script>
 export default {
+    name: 'profile',
+    data() {
+        return {
+            profiles: [],
+            profileData: {
+                name: '',
+                image: '',
+            },
+            editProfileData: {},
+            errors: {}
+        }
+    },
+    mounted() {
+        this.loadProfile();
+    },
+    methods: {
+        loadProfile: async function() {
+            const url = 'api/mypage/profileedit';
 
+            this.axios.get(url).then(response => {
+                console.log(response.data);
+                this.profiles = response.data;
+            });
+        },
+    }
 }
 </script>
 
@@ -64,6 +109,7 @@ export default {
 }
 .edit_container {
     display: flex;
+    width: fit-content;
 }
 table {
     border-collapse: separate;

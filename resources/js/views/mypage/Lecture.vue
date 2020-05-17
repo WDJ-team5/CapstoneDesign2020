@@ -1,34 +1,21 @@
 <template>
     <div>
-        <div class="lecture">
+        <div class="lecture" v-for="(lecture, index) in lectures" :key="index">
             <div class="lecture_content">
                 <div class="lecture_img">
-                    <img src="http://placehold.it/150x150" alt="">
+                    <img :src="`${$store.state.serverPath}/storage/${lecture.image}`" :alt="lecture.image">
                 </div>
                 <div class="lecture_text">
                     <div>
-                        <h5>솜방망이 춤...v-for</h5>
+                        <h5>{{lecture.title}}</h5>
                     </div>
                     <div class="lecture_info">
-                        <div>정확도 : 94%...v-for</div>
-                        <div>날짜 : yyyy-mm-dd...v-for</div>
+                        <div>정확도 : {{lecture.accuracy}}</div>
+                        <div>날짜 : {{lecture.created_at}}</div>
                     </div>
                 </div>
             </div>
-            <div class="lecture_content">
-                <div class="lecture_img">
-                    <img src="http://placehold.it/150x150" alt="">
-                </div>
-                <div class="lecture_text">
-                    <div>
-                        <h5>솜방망이 춤...v-for</h5>
-                    </div>
-                    <div class="lecture_info">
-                        <div>정확도 : 94%...v-for</div>
-                        <div>날짜 : yyyy-mm-dd...v-for</div>
-                    </div>
-                </div>
-            </div>
+            <hr>
         </div>
     </div>
 </template>
@@ -55,8 +42,8 @@ export default {
             const url = 'api/mypage/lecture';
 
             this.axios.get(url).then(response => {
-                console.log(response);
-                // this.lectures = response.data;
+                console.log(response.data);
+                this.lectures.push(response.data);
             });
         },
     }
@@ -79,5 +66,15 @@ h5 {
     display: flex;
     flex-direction: column;
     padding: 1vw;
+}
+.lecture_img {
+    width: 150px;
+}
+.lecture_img > img {
+    width: 100%;
+    height: 100%;
+}
+hr {
+    margin: 0;
 }
 </style>

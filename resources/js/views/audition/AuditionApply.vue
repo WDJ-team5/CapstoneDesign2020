@@ -45,7 +45,7 @@
                                     </tr>
                                     <tr>
                                         <th>점수</th>
-                                        <td>{{this.aid}}</td>
+                                        <td>{{this.score}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -144,7 +144,7 @@ export default {
             text:'',
             auditions: [],
             aid:'',
-            score:[]
+            score:''
         }
     },
     mounted() {
@@ -178,15 +178,19 @@ export default {
             formData.append('text',this.text);
             formData.append('audition_id',this.aid);
             console.log(...formData);
+            this.$router.push({
+                path:'/audition'
+            });
+
 
             try{
                 const response=await auditionService.submitAudition(formData);
 
                 this.flashMessage.success({
-                    message: '성공했다 !!!!!!!',
+                    message: '신청이 완료되었습니다.',
                     time:5000
                 });
-
+                
                 
             }catch(error){
                 console.log(error.response.status);

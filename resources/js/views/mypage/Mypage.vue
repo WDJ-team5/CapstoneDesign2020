@@ -3,8 +3,8 @@
         <br>
         <div class="mypage_wrap">
             <h2 v-if="mypages.class == 1">ARTIST</h2>
-            <h2 v-if="mypages.class == 2">EXPERT</h2>
-            <h2 v-if="mypages.class == 3">PRODUCER</h2>
+            <h2 v-else-if="mypages.class == 2">EXPERT</h2>
+            <h2 v-else>PRODUCER</h2>
             <div class="mypage_flex">
                 <div class="mypage_profile">
                     <div id="profileImg">
@@ -36,8 +36,8 @@
                 </div>
                 <div class="mypage_header">
                     <div class="mypage_header_content">
-                        <h3>안희건 AN HUIGEON</h3>
-                        <h5>프로필 갱신 일전 www.facebook.com</h5>
+                        <h3>{{mypages.name}}</h3>
+                        <h5>{{mypages.userid}}</h5>
                     </div>
                     <div class="mypage_navigation">
                         <div class="mypage_nav_link">
@@ -47,13 +47,10 @@
                             <router-link to="/mypage/lecture" class="profile_link">
                                 <span>수강강좌</span>
                             </router-link>
-                            <router-link to="/mypage/apply" class="profile_link">
+                            <router-link to="/mypage/apply" class="profile_link" v-if="mypages.class != 3">
                                 <span>지원현황</span>
                             </router-link>
-                            <router-link to="/mypage/companyinfo" class="profile_link">
-                                <span>기업정보</span>
-                            </router-link>
-                            <router-link to="/mypage/auditionlist" class="profile_link">
+                            <router-link to="/mypage/auditionlist" class="profile_link" v-else>
                                 <span>오디션등록내역</span>
                             </router-link>
                             <router-link to="/mypage/profileedit" class="profile_link">
@@ -157,13 +154,24 @@ a {
 .mypage_header_content {
     height: 133px;
 }
-.profile_link {
-    width: calc(100% / 6);
+
+.profile_link:nth-child(1):nth-last-child(3),
+.profile_link:nth-child(1):nth-last-child(3) ~ .profile_link {
+    width: calc(100% / 3);
     height: 5vh;
     display: inline-block;
     line-height: 5vh;
     overflow: hidden;
 }
+.profile_link:nth-child(1):nth-last-child(4),
+.profile_link:nth-child(1):nth-last-child(4) ~ .profile_link {
+    width: calc(100% / 4);
+    height: 5vh;
+    display: inline-block;
+    line-height: 5vh;
+    overflow: hidden;
+}
+
 .profile_link:hover {
     background-color: #f5f5f5;
     transition:all 0.8s ease;

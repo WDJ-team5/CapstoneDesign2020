@@ -1,37 +1,18 @@
 <template>
 <div>
-    <div class="audition">
+    <div class="audition" v-for="(audition, index) in auditions" :key="index">
         <div class="audition_container">
             <div class="list_text">
                 <div class="list_title">
-                    여긴제목...v-for
+                    {{audition.title}}
                 </div>
                 <div class="list_contents">
-                    여긴내용...v-for
+                    {{audition.content}}
                 </div>
             </div>
             <div class="list_side">
                 <div class="audition_deadline">
-                    <div>마감일</div>
-                    <div>v-for</div>
-                </div>
-                <button>지원자 현황</button>
-            </div>
-        </div>
-        <hr>
-        <div class="audition_container">
-            <div class="list_text">
-                <div class="list_title">
-                    여긴제목...v-for
-                </div>
-                <div class="list_contents">
-                    여긴내용...v-for
-                </div>
-            </div>
-            <div class="list_side">
-                <div class="audition_deadline">
-                    <div>마감일</div>
-                    <div>v-for</div>
+                    마감일: {{audition.end_date}}
                 </div>
                 <button>지원자 현황</button>
             </div>
@@ -43,7 +24,32 @@
 
 <script>
 export default {
+    name: 'audition',
+    data() {
+        return {
+            auditions: [],
+            auditionData: {
+                name: '',
+                image: '',
+            },
+            editAuditionData: {},
+            errors: {}
+        }
+    },
+    mounted() {
+        this.loadMyAudition();
+    },
+    methods: {
+        loadMyAudition: async function() {
+            const url = 'api/mypage/auditionlist';
 
+            this.axios.get(url).then(response => {
+                console.log(response.data);
+                // this.auditions.push(response.data);
+                this.auditions = response.data;
+            });
+        },
+    }
 }
 </script>
 
@@ -55,11 +61,15 @@ export default {
 .list_text {
     width: 70%;
 }
+.list_title {
+    font-weight: 700;
+}
 .list_side {
     width: 30%;
 }
 .audition_deadline {
     display: flex;
+    color: red;
 }
 hr {
     margin: 0;
