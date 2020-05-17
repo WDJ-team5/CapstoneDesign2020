@@ -40,12 +40,8 @@ Route::resource('feedback', 'FeedbackController');
 
 Route::resource('auditionApply', 'AuditionApplyController');
 
-Route::get('/loadProfile', 'MypageController@loadProfile');
+Route::get('/mypage', 'MypageController@loadProfile');
 
-Route::get('/updateProfile', 'MypageController@updateProfile');
+Route::get('/mypage/profile', 'MypageController@loadProfile');
 
-Route::get('/loadMyLecture', 'MypageController@loadMyLecture');
-
-Route::get('/loadMyResume', 'MypageController@loadMyResume');
-
-Route::get('/loadMyAudition', 'MypageController@loadMyAudition');
+Route::get('/mypage/lecture', 'MypageController@loadMyLecture');

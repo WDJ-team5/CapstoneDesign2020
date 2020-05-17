@@ -25,5 +25,16 @@ export function deleteAudition(id){
 // 오디션 업데이트하기
 export function updateAudition(id,data){
     return httpFile().post(`audition/${id}`,data);
+
+}
+
+// 오디션 지원하기 정보 로드
+export function applyAudition(){
+    return http().get('/auditionApply');
+}
+
+// 오디션 정보제출
+export function submitAudition(data){
+    return http().post('/auditionApply',data);
 }
 

@@ -41,7 +41,7 @@ class AuditionApplyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
@@ -52,7 +52,7 @@ class AuditionApplyController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

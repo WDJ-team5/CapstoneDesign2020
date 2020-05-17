@@ -37,7 +37,15 @@
                                 </tr>
                                 <tr>
                                     <th>수상경력</th>
-                                    <td>수상경력</td>
+                                    <td>{{propsdata.career_01}}</td>
+                                </tr>
+                                <tr class="career-add" v-if="propsdata.career_02!=null">
+                                    <th></th>
+                                    <td>{{propsdata.career_02}}</td>
+                                </tr>
+                                <tr class="career-add" v-if="propsdata.career_03!=null">
+                                    <th></th>
+                                    <td>{{propsdata.career_03}}</td>
                                 </tr>
                                 <tr>
                                     <th>SNS</th>
@@ -56,7 +64,7 @@
                             <span class="feedback-star-font">피드백 별점</span>
                         </div>
                         <div class="feedbackBtnBox">
-                            <button class="feedbackBtn" @click="writeAdvice">피드백 신청하기</button>
+                            <button class="feedbackBtn" @click="writeFeedback(propsdata.expert_id, propsdata.name)">피드백 신청하기</button>
                         </div>
                     </div>
                 </div>
@@ -76,9 +84,9 @@ export default {
   name: "ExpertDetail",
   props: ['propsdata'],
   methods: {
-    writeAdvice() {
+    writeFeedback(id,name) {
       this.$router.push({
-        path: "/advice/create"
+        path: `/advice/create/${id}/${name}`
       });
     }
   }
