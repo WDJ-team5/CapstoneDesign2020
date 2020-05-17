@@ -19,7 +19,7 @@ class feedbackController extends Controller
         $experts = \App\User::whereClass(2)->join('experts','expert_id','=','experts.id')
         ->join('specialties','specialty_id','=','specialties.id')
         ->join('companies','expert_company_id','=','companies.id')->get();
-
+        // App\User::whereClass(2)->with(array('expert'=>function($query){$query->select('id');}))->get()
         return response()->json($experts, 200);
     }
 
@@ -28,7 +28,17 @@ class feedbackController extends Controller
     {
         $confirmCode = \App\Session::first();
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
-        $result = \App\User::find($user->id)->articles()->get();
+
+
+        if($user->class == 1) {
+            $result = \App\User::find($user->id)->articles()->get();
+        } else if($user->class == 2) {
+            $result = \App\Expert::find($user->expert_id)->articles()->get();
+        } else {
+            $result = \App\User::find($user->id)->articles()->get();           
+        }
+
+        // $result = \App\User::find($user->id)->articles()->get();
 
         return response()->json($result, 200);
     }
@@ -83,7 +93,26 @@ class feedbackController extends Controller
      */
     public function show($id)
     {
-        //
+        // $confirmCode = \App\Session::first();
+        // $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        // // $result1 = \App\Article::join('users','user_id','=','users.id')->find($cid);
+        
+        // // $result2 = \App\Expert::find($eid);
+        // //dkshkahfmrpTek
+
+        // return response()->json([$result1], 200);
+    }
+
+    public function test($cid,$eid)
+    {
+        $confirmCode = \App\Session::first();
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        $result1 = \App\Article::join('users','user_id','=','users.id')->find($cid);
+        $result2 = \App\User::where('expert_id', '=', $eid)->firstOrFail();
+
+        return response()->json([$result1,$result2], 200);
     }
 
     /**
@@ -94,7 +123,7 @@ class feedbackController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**

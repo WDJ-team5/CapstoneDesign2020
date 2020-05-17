@@ -60,6 +60,9 @@ class DatabaseSeeder extends Seeder
         App\Resume::truncate();
         $this->call(ResumesTableSeeder::class);
 
+        App\LectureUser::truncate();
+        $this->call(LectureUserTableSeeder::class);
+
         if(config('database.default') !== 'sqlite') {
             DB::statement('SET FOREIGN_KEY_CHECKS = 1');
         }

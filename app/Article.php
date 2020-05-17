@@ -14,7 +14,7 @@ class Article extends Model
         'answer_date',
         // 'grade',
         'user_id',
-        'answer_id',
+        'expert_id',
     ];
 
     public function user()

@@ -17,7 +17,17 @@ class AuditionController extends Controller
         $confirmCode = \App\Session::first();
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
-        $audition= Audition::orderBy('created_at','desc')->paginate();
+        $audition = \App\Audition::orderBy('created_at','desc')
+        ->with(array('user'=>function($query){
+            $query->with(array('company'=>function($query){
+                $query->get();
+            }
+        ));}))->get();
+
+        // App\User::whereClass(2)
+        //->with(array('expert'=>function($query){$query->select('id');}))->get()
+
+        // $audition= Audition::orderBy('created_at','desc')->paginate();
         return response()->json([$audition, $user],200);
     }
 

@@ -24,11 +24,14 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr v-for="(feedbackList, index) in feedbackList" :key="index">
+                  <tr v-for="(feedbackList, index) in feedbackList" :key="index" @click="rowClick(feedbackList.id,feedbackList.expert_id)">
                     <td>{{feedbackList.id}}</td>
                     <td>{{feedbackList.title}}</td>
                     <td>{{feedbackList.created_at}}</td>
-                    <td>{{feedbackList.answer}}</td>
+                    <td>
+                      <b-badge variant="secondary" v-if="feedbackList.answer==null">미답변</b-badge>
+                      <b-badge variant="primary"  v-else>답변완료</b-badge>
+                    </td>
                   </tr>
               </tbody>
           </tr>
@@ -106,9 +109,9 @@ export default {
              });
          }
      },
-    rowClick(item, index, e) {
+    rowClick(cid,eid) {
       this.$router.push({
-        path: `/advice/detail/${item.content_id}`
+        path: `/advice/detail/${cid}/${eid}`
       });
     },
     // writeContent() {

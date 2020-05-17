@@ -7,9 +7,11 @@
                     <thead>
                         <tr>
                             <th>이름</th>
+                            <td>{{companies.company_name}}</td>
                         </tr>
                         <tr>
                             <th>성별</th>
+                            <td></td>
                         </tr>
                         <tr>
                             <th>키</th>
@@ -34,37 +36,6 @@
                         </tr>
                     </thead>
                 </table>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>v-for</td>
-                        </tr>
-                        <tr>
-                            <td>v-for</td>
-                        </tr>
-                        <tr>
-                            <td>v-for</td>
-                        </tr>
-                        <tr>
-                            <td>v-for</td>
-                        </tr>
-                        <tr>
-                            <td>v-for</td>
-                        </tr>
-                        <tr>
-                            <td>v-for</td>
-                        </tr>
-                        <tr>
-                            <td>v-for</td>
-                        </tr>
-                        <tr>
-                            <td>v-for</td>
-                        </tr>
-                        <tr>
-                            <td>v-for</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
                 <button>저장하기</button>
         </div>
@@ -73,7 +44,31 @@
 
 <script>
 export default {
+    name: 'company',
+    data() {
+        return {
+            companies: [],
+            companyData: {
+                name: '',
+                image: '',
+            },
+            editCompanyData: {},
+            errors: {}
+        }
+    },
+    mounted() {
+        this.loadCompanyInfo();
+    },
+    methods: {
+        loadCompanyInfo: async function() {
+            const url = 'api/mypage/companyinfo';
 
+            this.axios.get(url).then(response => {
+                console.log(response.data);
+                this.companies = response.data;
+            });
+        },
+    }
 }
 </script>
 
