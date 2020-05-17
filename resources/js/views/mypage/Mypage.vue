@@ -37,7 +37,7 @@
                 <div class="mypage_header">
                     <div class="mypage_header_content">
                         <h3>{{mypages.name}}</h3>
-                        <h5>프로필 갱신 일전 www.facebook.com</h5>
+                        <h5>{{mypages.userid}}</h5>
                     </div>
                     <div class="mypage_navigation">
                         <div class="mypage_nav_link">
