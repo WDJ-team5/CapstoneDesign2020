@@ -15,7 +15,6 @@ class AuditionController extends Controller
     public function index()
     {
         $confirmCode = \App\Session::first();
-
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
         $audition= Audition::orderBy('created_at','desc')->paginate();
@@ -91,15 +90,17 @@ class AuditionController extends Controller
      */
     public function show($id)
     {
+        
         //$result=Audition::find($id);
-
         $confirmCode = \App\Session::first();
 
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
-
-        $result = \App\Audition::join('users','user_id','=','users.id')
-        ->join('companies','company_id','=','companies.id')-find($id);
         
+        
+        
+        $result = \App\Audition::join('users','user_id','=','users.id')
+        ->join('companies','company_id','=','companies.id')->find($id);
+     
         return response()->json([$result,$user], 200);
     }
 

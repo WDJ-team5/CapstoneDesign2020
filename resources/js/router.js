@@ -63,6 +63,11 @@ const routes=[
         component:()=>import('./views/audition/AuditionCreate.vue')
     },
     {
+        path: '/auditiontest',
+        name: 'AuditionTest',
+        component:()=>import('./views/audition/AuditionTest.vue')
+    },
+    {
         path: '/auditionapply',
         name: 'AuditionAppply',
         component:()=>import('./views/audition/AuditionApply.vue')

@@ -122,26 +122,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AuditionDetail",
@@ -184,25 +164,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 response = _context.sent;
-                this.auditions = response.data;
+                this.auditions = response.data[0];
+                console.log(this.auditions);
                 this.state = true;
-                _context.next = 11;
+                _context.next = 12;
                 break;
 
-              case 8:
-                _context.prev = 8;
+              case 9:
+                _context.prev = 9;
                 _context.t0 = _context["catch"](0);
                 this.flashMessage.error({
                   message: "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
                   time: 5000
                 });
 
-              case 11:
+              case 12:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[0, 8]]);
+        }, _callee, this, [[0, 9]]);
       }));
 
       function loadDetailAudition() {
@@ -270,7 +251,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     applyAudition: function applyAudition() {
       this.$router.push({
-        path: "/auditionapply"
+        path: "/auditiontest"
       });
     } // 삭제를 수행하는 함수
     // deleteData() {
@@ -403,17 +384,25 @@ var render = function() {
               _c("td", [_vm._v(_vm._s(_vm.auditions.end_date) + " 까지")])
             ]),
             _vm._v(" "),
-            _vm._m(2),
+            _c("tr", [
+              _c("th", [_vm._v("담당자 이름")]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.auditions.name))]),
+              _vm._v(" "),
+              _c("th", [_vm._v("담당자 연락처")]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.auditions.call_number))])
+            ]),
             _vm._v(" "),
-            _vm._m(3),
-            _vm._v(" "),
-            _vm._m(4),
-            _vm._v(" "),
-            _vm._m(5),
-            _vm._v(" "),
-            _vm._m(6),
-            _vm._v(" "),
-            _vm._m(7)
+            _c("tr", [
+              _c("th", [_vm._v("회사 명")]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.auditions.company_name))]),
+              _vm._v(" "),
+              _c("th", [_vm._v("회사 위치")]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.auditions.address))])
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -519,82 +508,6 @@ var staticRenderFns = [
       _c("col", { staticStyle: { width: "110px" } }),
       _vm._v(" "),
       _c("col")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("장르")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("메가폰픽")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("오디션 기간")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("협의 후 결정 ~ 협의 후 결정")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("제작유형")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("Megaphone Pick")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("예상 촬영 기간")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("미정 ~ 미정")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("제작사")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("메가폰코리아")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("촬영장소")]),
-      _vm._v(" "),
-      _c("td")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("캐스팅 담당자")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("메가폰픽")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("페이")]),
-      _vm._v(" "),
-      _c("td", [_vm._v("협의 후 결정")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("담당자 이메일")]),
-      _vm._v(" "),
-      _c("td", { attrs: { colspan: "3" } }, [_vm._v("비공개")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("담당자 연락처")]),
-      _vm._v(" "),
-      _c("td", { attrs: { colspan: "3" } }, [_vm._v("비공개")])
     ])
   }
 ]

@@ -9,7 +9,7 @@
               <img id="card-image" :src="`${$store.state.serverPath}/storage/${audition.image}`" :alt="audition.title">
             </div>
             <div class="d_dayinfo">
-              <p class="day">~랭크이상</p>
+              <p class="day">{{audition.rank}}랭크이상</p>
               <table class="info">
                 <colgroup>
                   <col style="width:100px;" />
@@ -27,7 +27,7 @@
                   </tr>-->
                   <tr>
                     <th>마감일</th>
-                    <td>2020년 5월 13일 까지</td>
+                    <td>{{audition.end_date}} 까지</td>
                   </tr>
                   <!--                                        <tr>
                                     <th>주연</th>
@@ -132,9 +132,9 @@ export default {
     loadAudition: async function() {
       try {
         const response = await auditionService.loadAudition();
-        this.auditions.unshift(response.data);
-        this.auditions = response.data.data;
-        console.log(this.auditions);
+        this.auditions.unshift(response);
+        
+        this.auditions = response.data[0].data;
       } catch (error) {
         this.flashMessage.error({
           message: "에러가 발생했습니다!",

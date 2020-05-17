@@ -154,26 +154,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 response = _context.sent;
-                this.auditions.unshift(response.data);
-                this.auditions = response.data.data;
-                console.log(this.auditions);
-                _context.next = 12;
+                this.auditions.unshift(response);
+                this.auditions = response.data[0].data;
+                _context.next = 11;
                 break;
 
-              case 9:
-                _context.prev = 9;
+              case 8:
+                _context.prev = 8;
                 _context.t0 = _context["catch"](0);
                 this.flashMessage.error({
                   message: "에러가 발생했습니다!",
                   time: 5000
                 });
 
-              case 12:
+              case 11:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[0, 9]]);
+        }, _callee, this, [[0, 8]]);
       }));
 
       function loadAudition() {
@@ -297,7 +296,9 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "d_dayinfo" }, [
-                    _c("p", { staticClass: "day" }, [_vm._v("~랭크이상")]),
+                    _c("p", { staticClass: "day" }, [
+                      _vm._v(_vm._s(audition.rank) + "랭크이상")
+                    ]),
                     _vm._v(" "),
                     _c("table", { staticClass: "info" }, [
                       _vm._m(0, true),
@@ -310,7 +311,17 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _vm._m(1, true)
+                      _c("tbody", [
+                        _c("tr", [
+                          _c("th", [_vm._v("마감일")]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(_vm._s(audition.end_date) + " 까지")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(1, true)
+                      ])
                     ])
                   ])
                 ])
@@ -346,18 +357,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tbody", [
-      _c("tr", [
-        _c("th", [_vm._v("마감일")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("2020년 5월 13일 까지")])
-      ]),
+    return _c("tr", [
+      _c("th", [_vm._v("기업명")]),
       _vm._v(" "),
-      _c("tr", [
-        _c("th", [_vm._v("기업명")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("YG 엔터테인먼트")])
-      ])
+      _c("td", [_vm._v("YG 엔터테인먼트")])
     ])
   }
 ]
