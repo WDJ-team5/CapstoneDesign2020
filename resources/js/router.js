@@ -101,7 +101,7 @@ const routes=[
         component:()=>import('./views/Advice/AdviceCreate.vue')
     },
     {
-        path:'/advice/detail/:contentId',
+        path:'/advice/detail/:contentId?/:expertId?',
         name:'AdviceDetail',
         component:()=>import('./views/Advice/AdviceDetail.vue')
     },

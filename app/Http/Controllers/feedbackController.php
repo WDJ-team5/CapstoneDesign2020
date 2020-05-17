@@ -93,12 +93,24 @@ class feedbackController extends Controller
      */
     public function show($id)
     {
+        // $confirmCode = \App\Session::first();
+        // $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        // // $result1 = \App\Article::join('users','user_id','=','users.id')->find($cid);
+        
+        // // $result2 = \App\Expert::find($eid);
+        // //dkshkahfmrpTek
+
+        // return response()->json([$result1], 200);
+    }
+
+    public function test($cid,$eid)
+    {
         $confirmCode = \App\Session::first();
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
-        $result1 = \App\Article::join('users','user_id','=','users.id')->find($id);
-        $result2 = \App\Article::join('experts','expert_id','=','experts.id')->find($id);
-        //dkshkahfmrpTek
+        $result1 = \App\Article::join('users','user_id','=','users.id')->find($cid);
+        $result2 = \App\User::where('expert_id', '=', $eid)->firstOrFail();
 
         return response()->json([$result1,$result2], 200);
     }

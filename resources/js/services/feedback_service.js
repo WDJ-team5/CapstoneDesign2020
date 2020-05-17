@@ -12,9 +12,10 @@ export function loadFeedbackList() {
     return http().get('/feedback/list');
 }
 
-export function loadDetailFeedback(data) {
-    let anything="/feedback/"+data;
+export function loadDetailFeedback(cid,eid) {
+    let anything="/feedback/test/"+cid+"/"+eid;
     return http().get(anything);
+    // return httpFile().post('/feedback/test',cid,eid);
 }
 
 

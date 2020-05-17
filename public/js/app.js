@@ -86108,7 +86108,7 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceCreate.vue */ "./resources/js/views/Advice/AdviceCreate.vue"));
   }
 }, {
-  path: '/advice/detail/:contentId',
+  path: '/advice/detail/:contentId?/:expertId?',
   name: 'AdviceDetail',
   component: function component() {
     return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));

@@ -1,27 +1,26 @@
 <template>
   <div>
-    <!-- <b-card>
+    <b-card>
       <div class="content">
         <div class="content-detail-content-info">
             <div class="content-detail-content-info-left">
-              <img :src="user_img" alt="" width="50px" height="50px">
+              <img :src="feedbackDetail.image" alt="" width="50px" height="50px">
               <div class="content-detail-content-info-left-number">{{feedbackDetail.name}}</div>
             </div>
         </div>      
-        <div class="content-detail-content">{{context}}</div>
+        <div class="content-detail-content">{{feedbackDetail.content}}</div>
        </div>
        <div class="content">
         <div class="content-detail-content-info">
             <div class="content-detail-content-info-left">
-              <img :src="user_img" alt="" width="50px" height="50px">
-              <div class="content-detail-content-info-left-number">{{expert_name}}</div>
+              <img :src="expertDetail.image" alt="" width="50px" height="50px">
+              <div class="content-detail-content-info-left-number">{{expertDetail.name}}</div>
             </div>
         </div>
-        <div class="content-detail-content" v-if="reply_context==null">아직 피드백이 작성되지 않았습니다.</div>
-        <div class="content-detail-content" v-else>{{reply_context}}</div>
+        <div class="content-detail-content" v-if="feedbackDetail.answer==null">아직 피드백이 작성되지 않았습니다.</div>
+        <div class="content-detail-content" v-else>{{feedbackDetail.answer}}</div>
        </div>    
-    </b-card> -->
-    <h1>데이터 먼저 봅시다</h1>
+    </b-card>
   </div>
 </template>
 
@@ -33,10 +32,12 @@ export default {
   name: "AdviceDetail",
   data() {
     const contentId = Number(this.$route.params.contentId);
+    const expertId = Number(this.$route.params.expertId);
     return {
       feedbackDetail:[],
-      user:[],
+      expertDetail:[],
       cid: contentId,
+      eid: expertId,
       };
   },
   mounted(){
@@ -45,12 +46,17 @@ export default {
   methods: {
      loadDetailFeedback: async function(){
             try{
-                const response=await feedbackService.loadDetailFeedback(this.cid);
-                console.log('오디션 디테일1',response.data[0]);
-                console.log('오디션 디테일2',response.data[1]);
-                this.feedbackDetail.unshift(response.data);
-                this.feedbackDetail=response.data; 
-                console.log("데이터가 잘 왔는가 : ",this.feedbackDetail);
+                const response=await feedbackService.loadDetailFeedback(this.cid, this.eid);
+                console.log('피드백 디테일 정보',response.data[0]);
+                console.log('전문가 디테일 정보',response.data[1]);
+                this.feedbackDetail.unshift(response.data[0]);
+                this.feedbackDetail=response.data[0]; 
+                this.expertDetail.unshift(response.data[1]);
+                this.expertDetail=response.data[1]; 
+
+
+                console.log("데이터가 잘 들어갔는가 : ",this.feedbackDetail);
+                console.log("데이터가 잘 들어갔는가 : ",this.expertDetail);
 
 
             }catch(error){

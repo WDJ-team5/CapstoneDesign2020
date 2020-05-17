@@ -24,7 +24,7 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr v-for="(feedbackList, index) in feedbackList" :key="index" @click="rowClick(feedbackList.id)">
+                  <tr v-for="(feedbackList, index) in feedbackList" :key="index" @click="rowClick(feedbackList.id,feedbackList.expert_id)">
                     <td>{{feedbackList.id}}</td>
                     <td>{{feedbackList.title}}</td>
                     <td>{{feedbackList.created_at}}</td>
@@ -109,9 +109,9 @@ export default {
              });
          }
      },
-    rowClick(id) {
+    rowClick(cid,eid) {
       this.$router.push({
-        path: `/advice/detail/${id}`
+        path: `/advice/detail/${cid}/${eid}`
       });
     },
     // writeContent() {
