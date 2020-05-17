@@ -28,36 +28,16 @@
             <td>{{auditions.end_date}} 까지</td>
           </tr>
           <tr>
-            <th>장르</th>
-            <td>메가폰픽</td>
-            <th>오디션 기간</th>
-            <td>협의 후 결정 ~ 협의 후 결정</td>
-          </tr>
-          <tr>
-            <th>제작유형</th>
-            <td>Megaphone Pick</td>
-            <th>예상 촬영 기간</th>
-            <td>미정 ~ 미정</td>
-          </tr>
-          <tr>
-            <th>제작사</th>
-            <td>메가폰코리아</td>
-            <th>촬영장소</th>
-            <td></td>
-          </tr>
-          <tr>
-            <th>캐스팅 담당자</th>
-            <td>메가폰픽</td>
-            <th>페이</th>
-            <td>협의 후 결정</td>
-          </tr>
-          <tr>
-            <th>담당자 이메일</th>
-            <td colspan="3">비공개</td>
-          </tr>
-          <tr>
+            <th>담당자 이름</th>
+            <td>{{auditions.name}}</td>
             <th>담당자 연락처</th>
-            <td colspan="3">비공개</td>
+            <td>{{auditions.call_number}}</td>
+          </tr>
+          <tr>
+            <th>회사 명</th>
+            <td>{{auditions.company_name}}</td>
+            <th>회사 위치</th>
+            <td>{{auditions.address}}</td>
           </tr>
         </tbody>
       </table>
@@ -78,7 +58,7 @@
       ></b-embed>
       <hr class="hr_line">
       <div id="button_area">
-        <button type="button" @click="applyAudition">지원하기</button>
+        <button type="button" @click="applyAudition">테스트하기</button>
       </div>
       <div id="button_area">
       <b-button variant="primary" v-on:click="editAudition(auditions)">수정</b-button>
@@ -160,7 +140,8 @@ export default {
     loadDetailAudition: async function() {
       try {
         const response = await auditionService.loadDetailAudition(this.cid);
-        this.auditions = response.data;
+        this.auditions = response.data[0];
+        console.log(this.auditions);
         this.state = true;
       } catch (error) {
         this.flashMessage.error({
@@ -169,6 +150,7 @@ export default {
         });
       }
     },
+
     deleteAudition: async function(auditions) {
       if (!window.confirm(`삭제할거에요? ${auditions.title}`)) {
         return;
@@ -197,7 +179,7 @@ export default {
     },
     applyAudition(){
       this.$router.push({
-        path: "/auditionapply"
+        path: `/auditiontest/${this.cid}`
       });
     }
 

@@ -5,8 +5,9 @@
             <div class="auditiondetails_boxtit">
                 <p class="text">오디션 신청</p>
             </div>
+
             <p class="auditiondetails_recruitment">열세번째 메가폰픽 [먹방연기] / Megaphone Pick</p>
-            <form style="height:1000px" id="applyForm">
+            <form v-on:submit.prevent="createAudition">
                 <div class="auditiondetails_content_ingap">
                     <hr class="hr_line">
                     <p class="auditiondetails_title02">본인 정보를 확인해주세요.</p>
@@ -23,29 +24,28 @@
                                 <tbody>
                                     <tr>
                                         <th>이름</th>
-                                        <td>장성현</td>
+                                        <td> <b-form-input id="title" v-model="auditions.name" placeholder="제목을 입력해주세요"></b-form-input></td>
                                         <th>랭크</th>
-                                        <td>A랭크</td>
+                                        <td>{{auditions.rank_name}}</td>
                                     </tr>
                                     <tr>
                                         <th>생년월일</th>
-                                        <td>1999-06-10</td>
+                                        <td> <b-form-input id="title" v-model="auditions.birthday" placeholder="제목을 입력해주세요"></b-form-input></td>
                                         <th>등급</th>
                                         <td>연습생</td>
                                     </tr>
                                     <tr>
                                         <th>주소</th>
-                                        <td>대구광역시</td>
-                                        <th>자기소개</th>
-                                        <td>안녕하세요 열심히하겠습니다.</td>
-                                    </tr>
-                                    <tr>
+                                        <td> <b-form-input id="title" v-model="auditions.address" placeholder="제목을 입력해주세요"></b-form-input></td>
                                         <th>연락처</th>
-                                        <td>010-0000-0000</td>
+                                        <td> <b-form-input id="title" v-model="auditions.call_number" placeholder="제목을 입력해주세요"></b-form-input></td>
                                     </tr>
                                     <tr>
-                                        <th>성별</th>
-                                        <td>남자</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>점수</th>
+                                        <td>{{this.aid}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -124,21 +124,85 @@
                         max-rows="6"
                         ></b-form-textarea>
                     </div>
+                
                 </div>
+                
             </form>
-            <div id="button_area">
-                    <b-button variant="primary">지원하기</b-button>
-            </div>
+                
         </div>
+        <div id="button_area">
+            <b-button variant="primary" @click="submitAudition">지원하기</b-button>
+        </div>        
     </div>
 </template>
 
 <script>
+import * as auditionService from "../../services/audition_service";
 export default {
     data(){
         return{
-            text:''
+            text:'',
+            auditions: [],
+            aid:'',
+            score:[]
         }
+    },
+    mounted() {
+    this.aid = Number(this.$route.params.contentId);
+    this.score = Number(this.$route.params.score);
+    this.applyAudition();
+    },
+
+    methods:{
+    // 유저 데이터 로드
+    applyAudition: async function() {
+      try {
+        const response = await auditionService.applyAudition();
+        this.auditions = response.data;
+        console.log(this.score);
+        this.state = true;
+      } catch (error) {
+        this.flashMessage.error({
+          message: "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
+          time: 5000
+        });
+      }
+    },
+    submitAudition: async function(){
+            let formData=new FormData();
+            formData.append('name',this.auditions.name);
+            formData.append('rank_name',this.auditions.rank_name);
+            formData.append('birthday',this.auditions.birthday);
+            formData.append('call_number',this.auditions.call_number);
+            formData.append('score',this.score);
+            formData.append('text',this.text);
+            formData.append('audition_id',this.aid);
+            console.log(...formData);
+
+            try{
+                const response=await auditionService.submitAudition(formData);
+
+                this.flashMessage.success({
+                    message: '성공했다 !!!!!!!',
+                    time:5000
+                });
+
+                
+            }catch(error){
+                console.log(error.response.status);
+                switch (error.response.status) {
+                    case 422:
+                        this.errors=error.response.data.errors;
+                        break;
+                
+                    default:
+                        this.flashMessage.error({
+                            message: '문제가 발생!',
+                            time:5000
+                        });
+                }
+            }
+        },
     }
 }
 </script>
@@ -229,6 +293,10 @@ hr {
     margin-inline-start: auto;
     margin-inline-end: auto;
     overflow: hidden;
+}
+
+form{
+    height: 900px;
 }
 
 /* 유저정보 확인 제목 */

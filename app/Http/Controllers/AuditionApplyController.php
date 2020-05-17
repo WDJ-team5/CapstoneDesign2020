@@ -41,7 +41,18 @@ class AuditionApplyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        $result = \App\User::find($user->id)->resumes()->create([
+            'score' => $request->score,
+            'message' => $request->text,
+            // 'result' => ,
+            'audition_id' => $request->audition_id,
+        ]);
+
+        return response()->json($result, 200);
     }
 
     /**
@@ -52,7 +63,7 @@ class AuditionApplyController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
