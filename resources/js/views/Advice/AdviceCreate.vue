@@ -3,26 +3,25 @@
         <div class="feedback-create-form"> 
 
             <form v-on:submit.prevent="createFeedback">
-
                 <div class="feedback-title-form">
-                    <b-form-input class="feedback-title" placeholder="제목을 입력하세요"></b-form-input>
+                    <b-form-input class="feedback-title" v-model="feedbackData.title" placeholder="제목을 입력하세요"></b-form-input>
                 </div>
 
                 <div class="feedback-info">
                     <label class="receiver">
-                        <label>Receiver : </label>
-                        <label>Receiver name</label>
+                        <label>전문가 : </label>
+                        <label>{{this.$route.params.contentName}}</label>
                     </label>
 
                     <label class="video">
                         <label>첨부영상 : </label>
                         <div class="video-form">
-                            <b-form-input id="video"  placeholder="링크를 입력하세요"></b-form-input>
+                            <b-form-input id="video" v-model="feedbackData.video" placeholder="링크를 입력하세요"></b-form-input>
                         </div>
                     </label>
                 </div>
 
-                <b-form-textarea id="textarea-rows" placeholder="내용을 입력해주세요" rows="22"></b-form-textarea>
+                <b-form-textarea id="textarea-rows" v-model="feedbackData.content" placeholder="내용을 입력해주세요" rows="22"></b-form-textarea>
 
                 <div class="feedback-btn">
                     <b-button class="feedback-send-btn" type="submit" variant="primary">보내기</b-button>
@@ -41,12 +40,12 @@ export default {
     name:'FeedbackCreate',
     data() {
         return {
-            FeedbackData:{
-                title:'',
-                content: '',
-                userId: 1,
-                date:'',
-                video:'',
+            feedbackData:{
+                title : '',
+                content : '',
+                video : '',
+                answer : '',
+                expert_id : '',
             },
             errors:{},
             state:false,
@@ -55,27 +54,37 @@ export default {
     created(){
 
     },
+    mounted(){
+        this.test();
+    },
     methods:{
+        test: async function(){
+            console.log("콘솔찍어보긔",this.$route.params);
+        },
         createFeedback: async function(){
             let formData=new FormData();
             formData.append('title',this.feedbackData.title);
-            formData.append('date',this.feedbackData.date);
             formData.append('content',this.feedbackData.content);
             formData.append('video',this.feedbackData.video);
-            formData.append('selected',this.feedbackData.selected);
-
+            formData.append('answer',null);
+            formData.append('answer_date',null);
+            formData.append('expert_id',this.$route.params.contentId);
+            console.log(...formData);
             try{
                 const response=await feedbackService.createFeedback(formData);
+                console.log("일단 요청은 성공적");
+
                 history.back();
+                
             }catch(error){
-                console.log(error.response.status);
+                console.log(error.response.data);
                 switch (error.response.status) {
                     case 422:
                         this.errors=error.response.data.errors;
                         break; 
                     default:
                         this.flashMessage.error({
-                            message: 'this is error',
+                            message: '안돼영',
                             time:5000
                         });
                 }

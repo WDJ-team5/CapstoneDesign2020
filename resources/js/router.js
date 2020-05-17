@@ -63,7 +63,13 @@ const routes=[
         component:()=>import('./views/audition/AuditionCreate.vue')
     },
     {
-        path: '/auditionapply',
+        path: '/auditiontest/:contentId',
+        name: 'AuditionTest',
+        component:()=>import('./views/audition/AuditionTest.vue')
+    },
+    // 어플라이 페이지로
+    {
+        path: '/auditionapply/:contentId/:score',
         name: 'AuditionAppply',
         component:()=>import('./views/audition/AuditionApply.vue')
     },
@@ -90,7 +96,7 @@ const routes=[
         component:()=>import('./views/Advice/AdviceList.vue')
     },
     {
-        path:'/advice/create/:contentId?',
+        path:`/advice/create/:contentId?/:contentName?`,
         name:'AdviceCreate',
         component:()=>import('./views/Advice/AdviceCreate.vue')
     },

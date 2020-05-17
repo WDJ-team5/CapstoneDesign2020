@@ -13,7 +13,6 @@
         transform: scaleX(1);
         "
     ></video>
-    <!-- <img src="sample.jpg" id="source-video" height="1000"/>         -->
 
     <video ref="webcam" id="webCam" width="800" height="600" autoplay v-on:play="bindPage()"></video>
     <canvas id="canvas" width="800" height="600"/>
@@ -21,7 +20,7 @@
       <div class="btn-bg bg-1">
         <div class="btn btn-1">
           <button id="preview_btn" type="button" v-on:click="modeChange()">{{computedModeChangeHtml}}</button>
-          <!-- <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button> -->
+          <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button>
           <!-- <button id="end-btn" type="button">끝내기</button> -->
           <router-link to="/lecture" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -38,8 +37,8 @@
     <!-- </canvas> -->
     <div id="modal" v-bind:style="{display:computedDisplay}">
       <div class="modal_content">
-        <h2>모달 창</h2>
-        <p>{{computedFinalScore}}</p>
+        <h2>테스트 결과</h2>
+        <p>정확도 : {{computedFinalScore}}</p>
         <button type="button" id="replay_btn" v-on:click="modalChange()">다시하기</button>
         <router-link to="/lecture" class="nav-link" exact>
           <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -344,7 +343,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  z-index: 100001;
+  z-index: 100002;
   display: none;
 }
 #modal h2 {
@@ -357,7 +356,8 @@ export default {
 }
 #modal .modal_content {
   position: relative;
-  width: 300px;
+  width: 800px;
+  height: 600px;
   margin: 100px auto;
   padding: 20px 10px;
   background: #fff;

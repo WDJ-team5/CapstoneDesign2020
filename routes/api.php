@@ -36,6 +36,8 @@ Route::resource('sessions', 'SessionController');
 
 Route::resource('lectureUsers', 'LectureUserController');
 
+Route::get('/feedback/list', 'FeedbackController@loadFeedbackList')->name('feedback.loadFeedbackList');
+
 Route::resource('feedback', 'FeedbackController');
 
 Route::resource('auditionApply', 'AuditionApplyController');
