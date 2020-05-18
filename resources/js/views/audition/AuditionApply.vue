@@ -6,7 +6,7 @@
                 <p class="text">오디션 신청</p>
             </div>
 
-            <p class="auditiondetails_recruitment">열세번째 메가폰픽 [먹방연기] / Megaphone Pick</p>
+            <p class="auditiondetails_recruitment">YG태양이 지지않는 밤 오디션</p>
             <form v-on:submit.prevent="createAudition">
                 <div class="auditiondetails_content_ingap">
                     <hr class="hr_line">
