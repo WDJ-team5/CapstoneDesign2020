@@ -2178,26 +2178,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "session",
@@ -48349,7 +48329,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#header {\n  width: 100%;\n  height: auto;\n  box-sizing: border-box;\n  z-index: 5;\n  display: block;\n}\n.LoginNav {\n  height: 35px;\n  font-size: 13px;\n  color: #6c738a;\n  z-index: 4;\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\n  margin-right: 140px;\n  display: flex;\n  float: right;\n}\n.ServiceNav {\n  margin-top: 10px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  justify-content: space-between;\n  padding: .5rem 1rem;\n}\n.LogoImg {\n  margin-left: 120px;\n  margin-top: 10px;\n}\n.ServiceNavGroup {\n  margin-top:8px;\n  margin-right: 120px;\n  display: flex;\n  float: right;\n  list-style: none;\n}\n.ServiceNabGroup {\n  margin-left : 35px;\n}\nli > a {\n  color: black;\n  text-decoration: none;\n  transition: color .9s;\n}\n.NavLink {\n  display: flex;\n  padding: 0.5rem 1rem;\n  font-weight: 700;\n  font-size: 2vh;\n}\n.NavLink:hover {\n  color: #f86941;\n  text-decoration: none;\n  transition:all 0.5s ease;\n}\n\n\n\n\n", ""]);
+exports.push([module.i, "\n#header {\r\n  width: 100%;\r\n  height: auto;\r\n  box-sizing: border-box;\r\n  z-index: 5;\r\n  display: block;\n}\n.LoginNav {\r\n  height: 35px;\r\n  font-size: 13px;\r\n  color: #6c738a;\r\n  z-index: 4;\r\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\r\n  margin-right: 140px;\r\n  display: flex;\r\n  float: right;\n}\n.ServiceNav {\r\n  margin-top: 10px;\r\n  width: 100%;\r\n  position: relative;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: .5rem 1rem;\n}\n.LogoImg {\r\n  margin-left: 120px;\r\n  margin-top: 10px;\n}\n.ServiceNavGroup {\r\n  margin-top:8px;\r\n  margin-right: 120px;\r\n  display: flex;\r\n  float: right;\r\n  list-style: none;\n}\n.ServiceNabGroup {\r\n  margin-left : 35px;\n}\nli > a {\r\n  color: black;\r\n  text-decoration: none;\r\n  transition: color .9s;\n}\n.NavLink {\r\n  display: flex;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n.NavLink:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\n}\n#logout_div {\n}\n#logout {\r\n  color: #007bff;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n#logout:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\r\n  cursor: pointer;\n}\r\n", ""]);
 
 // exports
 
@@ -48368,7 +48348,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.homeContainer {\r\n    width: 100%;\n}\n.homeContainerChild {\r\n  width: 90%;\r\n    margin: 0 auto;\n}\ndiv > a > img {\r\n    width: 100%;\r\n    height: 100%;\r\n    transform: scale(1.0);\r\n    transition: transform .5s;\n}\n#popular {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n#popularMain {\r\n    width: 65vw;\r\n    overflow: hidden;\n}\n#popularMain > a > img:hover {\r\n    transition: .3s;\r\n    opacity: 0.75;\r\n    transform: scale(1.5) translateZ(0);\n}\n#popularSub {\r\n    width: 35vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 0;\r\n    padding: 0;\n}\n.popular-sub-child {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\n}\n.popular-sub-child > a > img:hover {\r\n    transition: .3s;\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\n}\n.home_list {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n.home_list > a {\r\n    overflow: hidden;\n}\n.home_list > a > img:hover {\r\n    opacity: 0.75;\r\n    transform: scale(1.5);\r\n    transition: .3s;\n}\r\n\r\n/* ===== carousel css ===== */\n.fas fa-chevron-left {\r\n  visibility: visible;\n}\n.fas fa-chevron-right {\r\n  visibility: visible;\n}\n.col-xs-12 {\r\n  width: 100%;\n}\n.section--demo-4 .main {\r\n    margin-bottom: 30px;\n}\n.section--demo-4 .thumbnails {\r\n    margin: 0 -5px;\r\n    width: calc(100% + 10px);\n}\n.section--demo-4 .agile__actions {\r\n    position: static;\n}\n.section--demo-4 .agile__nav-button {\r\n    background: transparent;\r\n    border: none;\r\n    color: #ccc;\r\n    cursor: pointer;\r\n    font-size: 24px;\r\n    transition-duration: .3s;\n}\n.section--demo-4 .agile__nav-button:hover {\r\n    color: #888;\n}\n.section--demo-4 .agile__dot {\r\n    margin: 0 10px;\n}\n.section--demo-4 .agile__dot button {\r\n    background-color: #eee;\r\n    border: none;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    display: block;\r\n    height: 10px;\r\n    font-size: 0;\r\n    line-height: 0;\r\n    margin: 0;\r\n    padding: 0;\r\n    transition-duration: .3s;\r\n    width: 10px;\n}\n.section--demo-4 .agile__dot--current button, .section--demo-4 .agile__dot:hover button {\r\n    background-color: #888;\n}\n.section--demo-4 .thumbnails .agile__nav-button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\n}\n.section--demo-4 .thumbnails .agile__nav-button--prev {\r\n    left: -45px;\n}\n.section--demo-4 .thumbnails .agile__nav-button--next {\r\n    right: -45px;\n}\n.section--demo-4 .slide {\r\n    align-items: center;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    display: flex;\r\n    height: 550px;\r\n    justify-content: center;\n}\n.section--demo-4 .slide--thumbniail {\r\n    cursor: pointer;\r\n    height: 100px;\r\n    padding: 0 5px;\r\n    transition: opacity .3s;\n}\n.section--demo-4 .slide--thumbniail:hover {\r\n    opacity: .75;\n}\n.section--demo-4 .slide img {\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: center;\r\n       object-position: center;\r\n    width: 100%;\n}\n.slide:hover {\r\n    transition: opacity .3s;\r\n    opacity: .75;\n}\r\n", ""]);
+exports.push([module.i, "\n.homeContainer {\r\n    width: 100%;\n}\n.homeContainerChild {\r\n    width: 70%;\r\n    margin: 0 auto;\n}\ndiv > a > img {\r\n    width: 100%;\r\n    height: 100%;\r\n    transition: transform .5s;\n}\n#popular {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n#popularMain {\r\n    width: 65vw;\r\n    overflow: hidden;\n}\n#popularMain > a > img {\r\n    transition: .5s;\r\n    -webkit-filter:grayscale(100%);\r\n            filter:grayscale(100%);\n}\n#popularMain > a > img:hover {\r\n    transition: .5s;\r\n    /* opacity: 0.9; */\r\n    -webkit-filter: none;\r\n            filter: none;\r\n    transform: translateZ(0);\n}\n#popularSub {\r\n    width: 35vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 0;\r\n    padding: 0;\n}\n.popular-sub-child {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\n}\n.popular-sub-child > a > img {\r\n    transition: .5s;\r\n    -webkit-filter:grayscale(100%);\r\n            filter:grayscale(100%);\n}\n.popular-sub-child > a > img:hover {\r\n    transition: .5s;\r\n    -webkit-filter: none;\r\n            filter: none;\r\n    /* opacity: 0.75; */\r\n    transform: translateZ(0);\n}\n.home_list {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n.home_list > a {\r\n    overflow: hidden;\n}\n.home_list > a > img {\r\n    transition: .5s;\r\n    -webkit-filter:grayscale(100%);\r\n            filter:grayscale(100%);\n}\n.home_list > a > img:hover {\r\n    /* opacity: 0.75; */\r\n    transition: .5s;\r\n    -webkit-filter: none;\r\n            filter: none;\n}\r\n\r\n/* ===== carousel css ===== */\n.fas fa-chevron-left {\r\n  visibility: visible;\n}\n.fas fa-chevron-right {\r\n  visibility: visible;\n}\n.col-xs-12 {\r\n  width: 100%;\n}\n.section--demo-4 .main {\r\n    margin-bottom: 30px;\n}\n.section--demo-4 .thumbnails {\r\n    margin: 0 -5px;\r\n    width: calc(100% + 10px);\n}\n.section--demo-4 .agile__actions {\r\n    position: static;\n}\n.section--demo-4 .agile__nav-button {\r\n    background: transparent;\r\n    border: none;\r\n    color: #ccc;\r\n    cursor: pointer;\r\n    font-size: 24px;\r\n    transition-duration: .3s;\n}\n.section--demo-4 .agile__nav-button:hover {\r\n    color: #888;\n}\n.section--demo-4 .agile__dot {\r\n    margin: 0 10px;\n}\n.section--demo-4 .agile__dot button {\r\n    background-color: #eee;\r\n    border: none;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    display: block;\r\n    height: 10px;\r\n    font-size: 0;\r\n    line-height: 0;\r\n    margin: 0;\r\n    padding: 0;\r\n    transition-duration: .3s;\r\n    width: 10px;\n}\n.section--demo-4 .agile__dot--current button, .section--demo-4 .agile__dot:hover button {\r\n    background-color: #888;\n}\n.section--demo-4 .thumbnails .agile__nav-button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\n}\n.section--demo-4 .thumbnails .agile__nav-button--prev {\r\n    left: -45px;\n}\n.section--demo-4 .thumbnails .agile__nav-button--next {\r\n    right: -45px;\n}\n.section--demo-4 .slide {\r\n    align-items: center;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    display: flex;\r\n    height: 550px;\r\n    justify-content: center;\n}\n.section--demo-4 .slide--thumbniail {\r\n    cursor: pointer;\r\n    height: 100px;\r\n    padding: 0 5px;\r\n    transition: opacity .3s;\n}\n.section--demo-4 .slide--thumbniail:hover {\r\n    opacity: .75;\n}\n.section--demo-4 .slide img {\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: center;\r\n       object-position: center;\r\n    width: 100%;\n}\n.slide:hover {\r\n    transition: opacity .3s;\r\n    opacity: .75;\n}\r\n", ""]);
 
 // exports
 
@@ -68854,14 +68834,18 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         !_vm.sessionData.state
-          ? _c("div", [
-              _c("a", { on: { click: _vm.deleteSession } }, [
-                _vm._v("로그아웃")
-              ])
+          ? _c("div", { attrs: { id: "logout_div" } }, [
+              _c(
+                "a",
+                {
+                  staticClass: "NavLink",
+                  attrs: { id: "logout" },
+                  on: { click: _vm.deleteSession }
+                },
+                [_vm._v("로그아웃")]
+              )
             ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm._m(0)
+          : _vm._e()
       ])
     ]),
     _vm._v(" "),
@@ -68991,71 +68975,31 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c(
-          "li",
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "NavLink",
-                attrs: { to: "/mypage/profile", exact: "" }
-              },
+        !_vm.sessionData.state
+          ? _c(
+              "li",
               [
-                _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
-                _vm._v(" "),
-                _c("span", [_vm._v("마이페이지")])
-              ]
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "NavLink",
+                    attrs: { to: "/mypage/profile", exact: "" }
+                  },
+                  [
+                    _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("마이페이지")])
+                  ]
+                )
+              ],
+              1
             )
-          ],
-          1
-        )
+          : _vm._e()
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "navbar-nav ml-auto ml-md-0" }, [
-      _c("li", { staticClass: "nav-item dropdown" }, [
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-toggle",
-            attrs: {
-              id: "userDropdown",
-              href: "#",
-              role: "button",
-              "data-toggle": "dropdown",
-              "aria-haspopup": "true",
-              "aria-expanded": "false"
-            }
-          },
-          [_c("i", { staticClass: "fas fa-user fa-fw" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "dropdown-menu dropdown-menu-right",
-            attrs: { "aria-labelledby": "userDropdown" }
-          },
-          [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Settings")
-            ]),
-            _vm._v(" "),
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Activity Log")
-            ])
-          ]
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -69323,7 +69267,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "homeContainerChild" }, [
       _c("hr"),
       _vm._v(" "),
-      _c("h4", [_vm._v("인기 동영상")]),
+      _c("h4", [_vm._v("댄스강좌")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "popular" } }, [
         _c("div", { attrs: { id: "popularMain" } }, [
@@ -69349,7 +69293,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _c("h4", [_vm._v("기업연계")]),
+      _c("h4", [_vm._v("댄스경연")]),
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
@@ -69373,7 +69317,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _c("h4", [_vm._v("댄스경연")]),
+      _c("h4", [_vm._v("피드백")]),
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
@@ -69397,7 +69341,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _c("h4", [_vm._v("카테고리")]),
+      _c("h4", [_vm._v("오디션")]),
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
@@ -86006,88 +85950,96 @@ var routes = [{
   path: '/categories',
   name: 'categories',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
+    return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./views/Categories.vue */ "./resources/js/views/Categories.vue"));
   }
 }, {
   path: '/userlist',
   name: 'userlist',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/UserList.vue */ "./resources/js/views/UserList.vue"));
+    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/UserList.vue */ "./resources/js/views/UserList.vue"));
   }
 }, {
   path: '/login',
   name: 'login',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/views/auth/Login.vue"));
+    return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/auth/Login.vue */ "./resources/js/views/auth/Login.vue"));
   }
 }, {
   path: '/signselect',
   name: 'signselect',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/auth/SignSelect.vue */ "./resources/js/views/auth/SignSelect.vue"));
+    return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/auth/SignSelect.vue */ "./resources/js/views/auth/SignSelect.vue"));
   }
 }, {
   path: '/usersignup',
   name: 'usersignup',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/auth/UserSignup.vue */ "./resources/js/views/auth/UserSignup.vue"));
+    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/auth/UserSignup.vue */ "./resources/js/views/auth/UserSignup.vue"));
   }
 }, {
   path: '/companysignup1',
   name: 'companysignup1',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup1.vue */ "./resources/js/views/auth/CompanySignup1.vue"));
+    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup1.vue */ "./resources/js/views/auth/CompanySignup1.vue"));
   }
 }, {
   path: '/companysignup2',
   name: 'companysignup2',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup2.vue */ "./resources/js/views/auth/CompanySignup2.vue"));
+    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/auth/CompanySignup2.vue */ "./resources/js/views/auth/CompanySignup2.vue"));
   }
 }, // 오디션
 {
   path: '/audition',
   name: 'audition',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/Audition.vue */ "./resources/js/views/audition/Audition.vue"));
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/audition/Audition.vue */ "./resources/js/views/audition/Audition.vue"));
   }
 }, {
   path: '/auditiondetail/:contentId',
   name: 'AuditionDetail',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionDetail.vue */ "./resources/js/views/audition/AuditionDetail.vue"));
+    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionDetail.vue */ "./resources/js/views/audition/AuditionDetail.vue"));
   }
 }, {
   path: '/auditioncreate/:contentId?',
   name: 'AuditionCreate',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
+    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionCreate.vue */ "./resources/js/views/audition/AuditionCreate.vue"));
   }
 }, {
   path: '/auditiontest/:contentId',
   name: 'AuditionTest',
   component: function component() {
+<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
+=======
+    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
+>>>>>>> 4e91454a78e914753488ee0a46fe0187f9c1d2e4
   }
 }, // 어플라이 페이지로
 {
   path: '/auditionapply/:contentId/:score',
   name: 'AuditionAppply',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionApply.vue */ "./resources/js/views/audition/AuditionApply.vue"));
+    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionApply.vue */ "./resources/js/views/audition/AuditionApply.vue"));
   }
 }, //   댄스강좌
 {
   path: '/lecture',
   name: 'lecture',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/lecture/Lecture.vue */ "./resources/js/views/lecture/Lecture.vue"));
+    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/lecture/Lecture.vue */ "./resources/js/views/lecture/Lecture.vue"));
   }
 }, {
   path: '/lecturePlay/:id',
   name: 'LecturePlay',
   component: function component() {
+<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/lecture/LecturePlay.vue */ "./resources/js/views/lecture/LecturePlay.vue"));
+=======
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./views/lecture/LecturePlay.vue */ "./resources/js/views/lecture/LecturePlay.vue"));
+>>>>>>> 4e91454a78e914753488ee0a46fe0187f9c1d2e4
   }
 }, {
   path: '/expert/list',
@@ -86099,12 +86051,13 @@ var routes = [{
   path: '/advice/list',
   name: 'AdviceList',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
+    return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceList.vue */ "./resources/js/views/Advice/AdviceList.vue"));
   }
 }, {
   path: "/advice/create/:contentId?/:contentName?",
   name: 'AdviceCreate',
   component: function component() {
+<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceCreate.vue */ "./resources/js/views/Advice/AdviceCreate.vue"));
   }
 }, {
@@ -86112,50 +86065,57 @@ var routes = [{
   name: 'AdviceUpdate',
   component: function component() {
     return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceCreate.vue */ "./resources/js/views/Advice/AdviceCreate.vue"));
+=======
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceCreate.vue */ "./resources/js/views/Advice/AdviceCreate.vue"));
+>>>>>>> 4e91454a78e914753488ee0a46fe0187f9c1d2e4
   }
 }, {
   path: '/advice/detail/:contentId?/:expertId?',
   name: 'AdviceDetail',
   component: function component() {
+<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));
+=======
+    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));
+>>>>>>> 4e91454a78e914753488ee0a46fe0187f9c1d2e4
   }
 }, // 마이페이지
 {
   path: '/mypage',
   name: 'mypage',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
+    return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/mypage/Mypage.vue */ "./resources/js/views/mypage/Mypage.vue"));
   },
   children: [{
     path: 'profile',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
+      return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/mypage/Profile.vue */ "./resources/js/views/mypage/Profile.vue"));
     },
     props: true
   }, {
     path: 'lecture',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
+      return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/mypage/Lecture.vue */ "./resources/js/views/mypage/Lecture.vue"));
     }
   }, {
     path: 'apply',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
+      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/Apply.vue */ "./resources/js/views/mypage/Apply.vue"));
     }
   }, {
     path: 'companyinfo',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
+      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/mypage/CompanyInfo.vue */ "./resources/js/views/mypage/CompanyInfo.vue"));
     }
   }, {
     path: 'auditionlist',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
+      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/mypage/AuditionList.vue */ "./resources/js/views/mypage/AuditionList.vue"));
     }
   }, {
     path: 'profileedit',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
+      return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./views/mypage/ProfileEdit.vue */ "./resources/js/views/mypage/ProfileEdit.vue"));
     }
   }]
 }];
@@ -86385,8 +86345,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+<<<<<<< HEAD
+__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> ahn
 
 
 /***/ })

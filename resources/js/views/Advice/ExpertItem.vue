@@ -1,7 +1,7 @@
 <template>
   <div class="expert-imgList">
     <div class="expert-item" v-for="(propsdata, index) in propsdata" :key="propsdata.userid" @click="active(index)"> 
-      <img :src="propsdata.img" alt="">
+      <img :src="`${$store.state.serverPath}/storage/${propsdata.image}`" alt="">
       <p class="text">{{propsdata.name}}</p>
     </div>
   </div>

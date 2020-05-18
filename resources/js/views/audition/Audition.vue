@@ -35,7 +35,7 @@
                   </tr>-->
                   <tr>
                     <th>기업명</th>
-                    <td>YG 엔터테인먼트</td>
+                    <td>{{ audition.user.company.company_name }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -134,7 +134,8 @@ export default {
         const response = await auditionService.loadAudition();
         this.auditions.unshift(response);
         
-        this.auditions = response.data[0].data;
+        this.auditions = response.data[0];
+        console.log(this.auditions);
       } catch (error) {
         this.flashMessage.error({
           message: "에러가 발생했습니다!",

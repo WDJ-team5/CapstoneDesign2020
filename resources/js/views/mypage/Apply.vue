@@ -11,7 +11,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(apply, index) in applies" :key="index">
-                        <td>{{apply.content}}</td>
+                        <td>{{apply.title}}</td>
                         <td>{{apply.message}}</td>
                         <td>{{apply.score}}</td>
                         <td v-if="apply.result == 1">합격</td>
@@ -47,7 +47,8 @@ export default {
 
             this.axios.get(url).then(response => {
                 console.log(response.data);
-                this.applies.push(response.data);
+                // this.applies.push(response.data);
+                this.applies = response.data;
             });
         },
     }
@@ -62,6 +63,9 @@ export default {
     width: 100%;
     border-collapse: separate;
     border-spacing: 2vh;
+}
+thead {
+    border-bottom: solid black 1px;
 }
 th {
     text-align: center;

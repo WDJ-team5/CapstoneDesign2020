@@ -17,10 +17,17 @@
     <video ref="webcam" id="webCam" width="800" height="600" autoplay v-on:play="bindPage()"></video>
     <canvas id="canvas" width="800" height="600"/>
     <div id="pannel">
+      <div id="pannel_content">
+        <p>테스트를 시작하기전 자신의 모습이 인식이 잘 되는지 확인해주세요.</p>
+        <p>주변에 옷이나 인식에 방해되는 요소를 제거해 주세요.</p>
+        <hr/>
+        <p>@댄스설명@</p>
+        <p>{{content}}</p>
+      </div>
       <div class="btn-bg bg-1">
         <div class="btn btn-1">
           <button id="preview_btn" type="button" v-on:click="modeChange()">{{computedModeChangeHtml}}</button>
-          <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button>
+          <!-- <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button> -->
           <!-- <button id="end-btn" type="button">끝내기</button> -->
           <router-link to="/lecture" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -30,38 +37,34 @@
       </div>
     </div>
 
-
-
-
-
-    <!-- </canvas> -->
     <div id="modal" v-bind:style="{display:computedDisplay}">
       <div class="modal_content">
         <h2>테스트 결과</h2>
-        <p>정확도 : {{computedFinalScore}}</p>
+        <p id="accuracy_p">정확도 : {{computedFinalScore}}</p>
+        <canvas id="chart" width = "800" height= "500"/>
         <button type="button" id="replay_btn" v-on:click="modalChange()">다시하기</button>
-        <router-link to="/lecture" class="nav-link" exact>
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <button id="end_btn">끝내기</button>
+        <router-link to="/lecture" class="modal_end_btn" exact>
+          <button id="modal_end_btn">끝내기</button>
         </router-link>
       </div>
       <div class="modal_layer"></div>
     </div>
   </div>
 </template>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
-<script src="video.js"></script>
 <script>
 import * as lectureService from "../../services/lecture_service";
 import axios from "axios";
+import chartjs from 'chart.js';
 export default {
   name: "LecturePlay",
   data() {
     const lectureId = Number(this.$route.params.id);
     const cal = require("../../../../public/js/calculation.js");
+    let danceData = {time:[],score:[]};
+
     return {
       id: lectureId,
+      content:"",
       filename: "",
       video: "",
       videoData: null,
@@ -73,7 +76,7 @@ export default {
       net: null,
       started: false,
       startTime: null,
-      danceData: [],
+      danceData: danceData,
       totalScore: 0,
       finalCount: 0,
       loop: null,
@@ -129,6 +132,7 @@ export default {
     loadLectureData: async function() {
       try {
         const response = await lectureService.loadLectureData(this.id);
+        this.content = response.data.content;
         this.filename = response.data.video;
         this.video = "videos/" + this.filename + ".mp4";
         axios
@@ -162,11 +166,11 @@ export default {
     },
     webcamReady: async function() {
       this.net.dispose();
-      this.net = await posenet.load({
-        architecture: 'MobileNetV1',
-        outputStride: 16,
-        inputResolution: { width: 640, height: 480 },
-        multiplier: 0.75}
+      this.net = await posenet.load(
+        // {architecture: 'MobileNetV1',
+        // outputStride: 16,
+        // inputResolution: { width: 640, height: 480 },
+        // multiplier: 0.75}
       );
       const pose = await this.net.estimateSinglePose(this.$refs.webcam);
       const data = this.cal.getData(pose);
@@ -193,6 +197,7 @@ export default {
         this.start = true;
         let d = new Date();
         this.startTime = d.getTime();
+        this.canvas.style.display = 'none';
         this.$refs.video.play();
       }
       if (this.start) {
@@ -207,25 +212,23 @@ export default {
           timing = this.videoData.length - 1;
         }
         for (let key in data) {
-          if (Math.abs(data[key]) != 180 && data[key] != 0) {
-            tmp =
-              100 -
-              (this.cal.distance(data[key], this.videoData[timing][key]) /
-                180) *
-                100;
+          if (Math.abs(data[key]) != 180 && data[key] != 0 && Math.abs(this.videoData[timing][key]) != 180 && this.videoData[timing][key] != 0) {
+            tmp = 100 - (this.cal.distance(data[key], this.videoData[timing][key]) / 90) * 100;
             if (tmp < 0) tmp = 0;
             score += tmp;
             cnt++;
           }
         }
 
-        this.danceData.push({ time, score: tmp });
         tmp = 0;
         if (cnt != 0) {
           tmp = 0;
           if (score != 0) tmp = score / cnt;
           this.totalScore += tmp;
           this.finalCount += 1;
+          this.danceData.time.push( time / 1000 );
+          this.danceData.score.push( tmp );
+
         }
         console.log(tmp + "%");
       }else{
@@ -251,6 +254,35 @@ export default {
         // console.log(...formData);
         this.finalScore = tmp.toFixed(2) + "%";
         window.cancelAnimationFrame(this.loop);
+        console.log(this.danceData);
+        var chartCanvas = document.getElementById('chart');
+        var chart = new chartjs(chartCanvas,{
+          label: '정확도',
+          type: 'line',
+          data: {
+            labels:this.danceData.time,
+            datasets:[{
+              data: this.danceData.score,
+            }],
+//            backgroundColor:'rgba(255,201,14,1)',
+           backgroundColor:'transpartent',
+            // borderColor:'rgba(255,201,14,0.5)',
+            borderColor:'orange',
+            fill: true,
+            lineTension:0
+          },
+          options:{
+            responsive: false,
+            scales: {
+              yAxes:[{
+                ticks:{
+                  beginAtZero:true
+                }
+              }]
+            }
+          }
+        });
+
         this.modalChange();
       
         try {
@@ -262,8 +294,7 @@ export default {
         }
       }
     },
-    draw: function(pose) {
-      
+    draw: function(pose) {     
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       var points = pose.keypoints;
       for(var key = 0; key < points.length; key++){
@@ -321,7 +352,9 @@ export default {
   bottom: 0;
   width: 25%;
   height: 60%;
-  background: brown;
+}
+#pannel #pannel_content{
+  padding: 20px;
 }
 
 #preview_btn {
@@ -372,8 +405,16 @@ export default {
   background: rgba(0, 0, 0, 0.5);
   z-index: -1;
 }
+#chart{
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  width: 700px;
+  height: 300px;
+}
 
-canvas{
+#canvas{
   position: fixed;
   right: 0;
   top: 0;
@@ -386,9 +427,25 @@ canvas{
   z-index: 100001;
 }
 
+#replay_btn{
+  position: absolute;
+  right: 170px;
+  bottom: 10px;
+}
+.modal_end_btn{
+  position: absolute;
+  height: 30px;
+  width: 80px;
+  right: 10px;
+  bottom: 10px;
+}
+
+
 body .btn-bg {
+  position: absolute;
   width: 100%;
-  height: 50vh;
+  height: 15%;
+  bottom:0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -425,6 +482,9 @@ body .btn-bg.bg-1 .btn-1 button:hover >a {
 body .btn-bg.bg-1 .btn-1 button:active {
   -webkit-transform: translate(5px, 5px);
   transform: translate(5px, 5px);
+}
+#accuracy_p{
+  font-size: 20px;
 }
 
 </style>
