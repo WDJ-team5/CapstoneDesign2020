@@ -15,7 +15,7 @@
       <div class="profile_info">
         <div class="profile">
           <div class="photo">
-              <img :src='propsdata.img' alt=""> 
+              <img :src="`${$store.state.serverPath}/storage/${propsdata.image}`" alt=""> 
           </div>
         </div>
         

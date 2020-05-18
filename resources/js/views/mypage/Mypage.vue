@@ -8,7 +8,7 @@
             <div class="mypage_flex">
                 <div class="mypage_profile">
                     <div id="profileImg">
-                        <img src="http://placehold.it/266x266" />
+                        <img :src="`${$store.state.serverPath}/storage/${mypages.image}`" />
                     </div>
                     <div class="profile_info">
                         <h4>Profile</h4>
@@ -37,7 +37,7 @@
                 <div class="mypage_header">
                     <div class="mypage_header_content">
                         <h3>{{mypages.name}}</h3>
-                        <h5>프로필 갱신 일전 www.facebook.com</h5>
+                        <h5>{{mypages.userid}}</h5>
                     </div>
                     <div class="mypage_navigation">
                         <div class="mypage_nav_link">
@@ -122,9 +122,14 @@ a {
 }
 #profileImg {
     width: 266px;
+    height: 266px;
     margin-top: -133px;
     border-radius: 133px;
     overflow: hidden;
+}
+#profileImg > img {
+    width: 100%;
+    height: 100%;
 }
 .mypage_nav_link{
     display: flex;

@@ -38,6 +38,8 @@ Route::resource('lectureUsers', 'LectureUserController');
 
 Route::get('/feedback/list', 'FeedbackController@loadFeedbackList')->name('feedback.loadFeedbackList');
 
+Route::get('/feedback/test/{cid}/{eid}', 'FeedbackController@test');
+
 Route::resource('feedback', 'FeedbackController');
 
 Route::resource('auditionApply', 'AuditionApplyController');

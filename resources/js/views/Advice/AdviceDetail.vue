@@ -4,21 +4,24 @@
       <div class="content">
         <div class="content-detail-content-info">
             <div class="content-detail-content-info-left">
-              <img :src="user_img" alt="" width="50px" height="50px">
-              <div class="content-detail-content-info-left-number">{{user_name}}</div>
+              <img :src="feedbackDetail.image" alt="" width="50px" height="50px">
+              <div class="content-detail-content-info-left-number">{{feedbackDetail.name}}</div>
             </div>
         </div>      
-        <div class="content-detail-content">{{context}}</div>
+        <div class="content-detail-content">{{feedbackDetail.content}}</div>
        </div>
        <div class="content">
         <div class="content-detail-content-info">
             <div class="content-detail-content-info-left">
-              <img :src="user_img" alt="" width="50px" height="50px">
-              <div class="content-detail-content-info-left-number">{{expert_name}}</div>
+              <img :src="expertDetail.image" alt="" width="50px" height="50px">
+              <div class="content-detail-content-info-left-number">{{expertDetail.name}}</div>
             </div>
         </div>
-        <div class="content-detail-content" v-if="reply_context==null">아직 피드백이 작성되지 않았습니다.</div>
-        <div class="content-detail-content" v-else>{{reply_context}}</div>
+        <div class="content-detail-content" v-if="feedbackDetail.answer==null">
+          아직 피드백이 작성되지 않았습니다.
+          <button  @click="updateFeedback(cid,eid)">피드백 작성하기</button>
+        </div>
+        <div class="content-detail-content" v-else>{{feedbackDetail.answer}}</div>
        </div>    
     </b-card>
   </div>
@@ -26,46 +29,51 @@
 
 <script>
 import data from "./index.js";
+import * as feedbackService from "../../services/feedback_service";
 
 export default {
   name: "AdviceDetail",
   data() {
-
     const contentId = Number(this.$route.params.contentId);
-    const contentData = data.Content.filter(
-      contentItem => contentItem.content_id === contentId
-    )[0];
-
- 
+    const expertId = Number(this.$route.params.expertId);
     return {
-      contentId: contentId,
-      title: contentData.title,
-      context: contentData.context,
-      user_name: data.User.filter(item => item.user_id === contentData.user_id)[0]
-        .name,
-      created: contentData.created_at,
-      expert_name: data.Expert.filter(item => item.expert_id === contentData.expert_id)[0]
-        .name,
-      reply_context: contentData.reply_context,
-      updated: contentData.updated_at,
-      expert_img: data.Expert.filter(item => item.expert_id === contentData.expert_id)[0]
-        .img,
-      user_img: data.User.filter(item => item.user_id === contentData.user_id)[0]
-        .img,
+      feedbackDetail:[],
+      expertDetail:[],
+      cid: contentId,
+      eid: expertId,
       };
-
-    
+  },
+  mounted(){
+        this.loadDetailFeedback();
   },
   methods: {
-    deleteData() {
-      const content_index = data.Content.findIndex(
-        contentItem => contentItem.content_id === this.contentId
-      );
-      data.Content.splice(content_index, 1); // 데이터 삭제
+     loadDetailFeedback: async function(){
+            try{
+                const response=await feedbackService.loadDetailFeedback(this.cid, this.eid);
+                console.log('피드백 디테일 정보',response.data[0]);
+                console.log('전문가 디테일 정보',response.data[1]);
+                this.feedbackDetail.unshift(response.data[0]);
+                this.feedbackDetail=response.data[0]; 
+                this.expertDetail.unshift(response.data[1]);
+                this.expertDetail=response.data[1]; 
+
+
+                console.log("데이터가 잘 들어갔는가 : ",this.feedbackDetail);
+                console.log("데이터가 잘 들어갔는가 : ",this.expertDetail);
+
+
+            }catch(error){
+                this.flashMessage.error({
+                    message: '데이터를 못받았음',
+                    time:5000
+             });
+         }
+     },
+     updateFeedback(id,eid) {
       this.$router.push({
-        path: "/"
+        path: `/advice/update/${id}/${eid}`
       });
-    },
+    }
   }
 };
 </script>

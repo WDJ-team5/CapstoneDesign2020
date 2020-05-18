@@ -381,7 +381,7 @@ dl {
 
 #auditiondetails_dayimg img {
   width: 100%;
-  height: 800px;
+  height: 690px;
 }
 
 .auditiondetails_dayimg .text {
