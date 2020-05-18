@@ -64,6 +64,9 @@ export default {
     border-collapse: separate;
     border-spacing: 2vh;
 }
+thead {
+    border-bottom: solid black 1px;
+}
 th {
     text-align: center;
 }

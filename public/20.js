@@ -40,18 +40,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'lecture',
   data: function data() {
@@ -71,6 +59,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     loadLecture: function () {
       var _loadLecture = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this = this;
+
         var url;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -78,7 +68,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 url = 'api/mypage/lecture';
                 this.axios.get(url).then(function (response) {
-                  console.log(response); // this.lectures = response.data;
+                  console.log(response.data); // this.lectures.push(response.data);
+
+                  _this.lectures = response.data;
                 });
 
               case 2:
@@ -112,7 +104,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.lecture {\r\n    display: flex;\r\n    flex-direction: column;\n}\n.lecture_content {\r\n    display: flex;\r\n    padding: 1vw;\n}\nh5 {\r\n    font-weight: 700;\n}\n.lecture_text {\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 1vw;\n}\r\n", ""]);
+exports.push([module.i, "\n.lecture {\r\n    display: flex;\r\n    flex-direction: column;\n}\n.lecture_content {\r\n    display: flex;\r\n    padding: 1vw;\n}\nh5 {\r\n    font-weight: 700;\n}\n.lecture_text {\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 1vw;\n}\n.lecture_img {\r\n    width: 150px;\n}\n.lecture_img > img {\r\n    width: 100%;\r\n    height: 100%;\n}\nhr {\r\n    margin: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -164,62 +156,38 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "lecture" }, [
+  return _c(
+    "div",
+    _vm._l(_vm.lectures, function(lecture, index) {
+      return _c("div", { key: index, staticClass: "lecture" }, [
         _c("div", { staticClass: "lecture_content" }, [
           _c("div", { staticClass: "lecture_img" }, [
             _c("img", {
-              attrs: { src: "http://placehold.it/150x150", alt: "" }
+              attrs: {
+                src: _vm.$store.state.serverPath + "/storage/" + lecture.image,
+                alt: lecture.image
+              }
             })
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "lecture_text" }, [
-            _c("div", [_c("h5", [_vm._v("솜방망이 춤...v-for")])]),
+            _c("div", [_c("h5", [_vm._v(_vm._s(lecture.title))])]),
             _vm._v(" "),
             _c("div", { staticClass: "lecture_info" }, [
-              _c("div", [_vm._v("정확도 : 94%...v-for")]),
+              _c("div", [_vm._v("정확도 : " + _vm._s(lecture.accuracy))]),
               _vm._v(" "),
-              _c("div", [_vm._v("날짜 : yyyy-mm-dd...v-for")])
+              _c("div", [_vm._v("날짜 : " + _vm._s(lecture.created_at))])
             ])
           ])
         ]),
         _vm._v(" "),
-<<<<<<< HEAD
-        _c("div", { staticClass: "lecture_content" }, [
-          _c("div", { staticClass: "lecture_img" }, [
-            _c("img", {
-              attrs: { src: "http://placehold.it/150x150", alt: "" }
-            })
-=======
-        _c("div", { staticClass: "mypage_header" }, [
-          _c("div", { staticClass: "mypage_header_content" }, [
-            _c("h3", [_vm._v(_vm._s(_vm.mypages.name))]),
-            _vm._v(" "),
-            _c("h5", [_vm._v(_vm._s(_vm.mypages.userid))])
->>>>>>> ahn
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "lecture_text" }, [
-            _c("div", [_c("h5", [_vm._v("솜방망이 춤...v-for")])]),
-            _vm._v(" "),
-            _c("div", { staticClass: "lecture_info" }, [
-              _c("div", [_vm._v("정확도 : 94%...v-for")]),
-              _vm._v(" "),
-              _c("div", [_vm._v("날짜 : yyyy-mm-dd...v-for")])
-            ])
-          ])
-        ])
+        _c("hr")
       ])
-    ])
-  }
-]
+    }),
+    0
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

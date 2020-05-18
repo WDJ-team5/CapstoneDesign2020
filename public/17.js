@@ -9,6 +9,14 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -35,9 +43,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'apply',
+  data: function data() {
+    return {
+      applies: [],
+      applyData: {
+        name: '',
+        image: ''
+      },
+      editApplyData: {},
+      errors: {}
+    };
+  },
+  mounted: function mounted() {
+    this.loadMyResume();
+  },
+  methods: {
+    loadMyResume: function () {
+      var _loadMyResume = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this = this;
+
+        var url;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                url = 'api/mypage/apply';
+                this.axios.get(url).then(function (response) {
+                  console.log(response.data); // this.applies.push(response.data);
+
+                  _this.applies = response.data;
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function loadMyResume() {
+        return _loadMyResume.apply(this, arguments);
+      }
+
+      return loadMyResume;
+    }()
+  }
+});
 
 /***/ }),
 
@@ -53,7 +107,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.apply_container {\r\n    padding: 1vw;\n}\n#apply_table {\r\n    width: 100%;\r\n    border-collapse: separate;\r\n    border-spacing: 2vh;\r\n    border-top: solid 1px black;\n}\nthead {\n}\nth {\r\n    text-align: center;\n}\ntbody {\r\n    border-top: solid 1px black;\n}\ntr {\n}\ntd {\r\n    text-align: center;\n}\r\n", ""]);
+exports.push([module.i, "\n.apply_container {\r\n    padding: 1vw;\n}\n#apply_table {\r\n    width: 100%;\r\n    border-collapse: separate;\r\n    border-spacing: 2vh;\n}\nthead {\r\n    border-bottom: solid black 1px;\n}\nth {\r\n    text-align: center;\n}\ntd {\r\n    text-align: center;\n}\r\n", ""]);
 
 // exports
 
@@ -105,45 +159,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "apply" }, [
+      _c("div", { staticClass: "apply_container" }, [
+        _c("table", { attrs: { id: "apply_table" } }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.applies, function(apply, index) {
+              return _c("tr", { key: index }, [
+                _c("td", [_vm._v(_vm._s(apply.content))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(apply.message))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(apply.score))]),
+                _vm._v(" "),
+                apply.result == 1
+                  ? _c("td", [_vm._v("합격")])
+                  : _c("td", [_vm._v("불합격")])
+              ])
+            }),
+            0
+          )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "apply" }, [
-        _c("div", { staticClass: "apply_container" }, [
-          _c("table", { attrs: { id: "apply_table" } }, [
-            _c("thead", [
-              _c("th", [_vm._v("오디션명")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("지원분야")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("날짜")])
-            ]),
-            _vm._v(" "),
-            _c("tbody", [
-              _c("tr", [
-                _c("td", [_vm._v("IOIOI")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("마임")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("yyyy-mm-dd")])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v("IOIOI")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("마임")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("yyyy-mm-dd")])
-              ])
-            ])
-          ])
-        ])
-      ])
+    return _c("thead", [
+      _c("th", [_vm._v("오디션명")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("기타메세지")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("과제점수")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("합격여부")])
     ])
   }
 ]

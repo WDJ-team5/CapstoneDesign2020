@@ -9,6 +9,14 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -33,26 +41,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'audition',
+  data: function data() {
+    return {
+      auditions: [],
+      auditionData: {
+        name: '',
+        image: ''
+      },
+      editAuditionData: {},
+      errors: {}
+    };
+  },
+  mounted: function mounted() {
+    this.loadMyAudition();
+  },
+  methods: {
+    loadMyAudition: function () {
+      var _loadMyAudition = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this = this;
+
+        var url;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                url = 'api/mypage/auditionlist';
+                this.axios.get(url).then(function (response) {
+                  console.log(response.data); // this.auditions.push(response.data);
+
+                  _this.auditions = response.data;
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function loadMyAudition() {
+        return _loadMyAudition.apply(this, arguments);
+      }
+
+      return loadMyAudition;
+    }()
+  }
+});
 
 /***/ }),
 
@@ -68,7 +105,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.audition_container {\r\n    display: flex;\r\n    padding: 1vw;\n}\n.list_text {\r\n    width: 70%;\n}\n.list_side {\r\n    width: 30%;\n}\n.audition_deadline {\r\n    display: flex;\n}\nhr {\r\n    margin: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.audition_container {\r\n    display: flex;\r\n    padding: 1vw;\n}\n.list_text {\r\n    width: 70%;\n}\n.list_title {\r\n    font-weight: 700;\n}\n.list_side {\r\n    width: 30%;\n}\n.audition_deadline {\r\n    display: flex;\r\n    color: red;\n}\nhr {\r\n    margin: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -120,63 +157,36 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "audition" }, [
+  return _c(
+    "div",
+    _vm._l(_vm.auditions, function(audition, index) {
+      return _c("div", { key: index, staticClass: "audition" }, [
         _c("div", { staticClass: "audition_container" }, [
           _c("div", { staticClass: "list_text" }, [
             _c("div", { staticClass: "list_title" }, [
               _vm._v(
-                "\r\n                    여긴제목...v-for\r\n                "
+                "\r\n                    " +
+                  _vm._s(audition.title) +
+                  "\r\n                "
               )
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "list_contents" }, [
               _vm._v(
-                "\r\n                    여긴내용...v-for\r\n                "
+                "\r\n                    " +
+                  _vm._s(audition.content) +
+                  "\r\n                "
               )
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "list_side" }, [
             _c("div", { staticClass: "audition_deadline" }, [
-              _c("div", [_vm._v("마감일")]),
-              _vm._v(" "),
-              _c("div", [_vm._v("v-for")])
-            ]),
-            _vm._v(" "),
-            _c("button", [_vm._v("지원자 현황")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c("div", { staticClass: "audition_container" }, [
-          _c("div", { staticClass: "list_text" }, [
-            _c("div", { staticClass: "list_title" }, [
               _vm._v(
-                "\r\n                    여긴제목...v-for\r\n                "
+                "\r\n                    마감일: " +
+                  _vm._s(audition.end_date) +
+                  "\r\n                "
               )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "list_contents" }, [
-              _vm._v(
-                "\r\n                    여긴내용...v-for\r\n                "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "list_side" }, [
-            _c("div", { staticClass: "audition_deadline" }, [
-              _c("div", [_vm._v("마감일")]),
-              _vm._v(" "),
-              _c("div", [_vm._v("v-for")])
             ]),
             _vm._v(" "),
             _c("button", [_vm._v("지원자 현황")])
@@ -185,9 +195,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("hr")
       ])
-    ])
-  }
-]
+    }),
+    0
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
