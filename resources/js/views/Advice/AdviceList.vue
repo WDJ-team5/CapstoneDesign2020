@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="advice">
     <!-- <b-table striped hover :feedbackList="feedbackList" :per-page="perPage" :current-page="currentPage" :fields="fields"
       @row-clicked="rowClick">
       
@@ -12,29 +12,33 @@
     </b-table>
     <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage" align="center"></b-pagination> -->
 
-    <div>
-      <table class="table">
-          <tr>
-              <thead>
-                  <tr>
-                      <td>번호</td>
-                      <td>제목</td>
-                      <td>작성일</td>
-                      <td>답변</td>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr v-for="(feedbackList, index) in feedbackList" :key="index" @click="rowClick(feedbackList.id,feedbackList.expert_id)">
-                    <td>{{feedbackList.id}}</td>
-                    <td>{{feedbackList.title}}</td>
-                    <td>{{feedbackList.created_at}}</td>
-                    <td>
-                      <b-badge variant="secondary" v-if="feedbackList.answer==null">미답변</b-badge>
-                      <b-badge variant="primary"  v-else>답변완료</b-badge>
-                    </td>
-                  </tr>
-              </tbody>
-          </tr>
+    <div class="table-box">
+      <table class="table" width="950">
+        <colgroup>
+          <col width="8%" />
+          <col width="40%" />
+          <col width="26%" />
+          <col width="16%" />
+        </colgroup>
+        <thead>
+            <tr class="top-border">
+                <td class="cell_padding right-border">번호</td>
+                <td class="cell_padding right-border">제목</td>
+                <td class="cell_padding right-border">작성일</td>
+                <td class="cell_padding">답변</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(feedbackList, index) in feedbackList" :key="index" @click="rowClick(feedbackList.id,feedbackList.expert_id)">
+              <td class="cell_padding">{{feedbackList.id}}</td>
+              <td>{{feedbackList.title}}</td>
+              <td class="cell_padding">{{feedbackList.created_at}}</td>
+              <td class="cell_padding">
+                <b-badge variant="secondary" v-if="feedbackList.answer==null">미답변</b-badge>
+                <b-badge variant="primary" v-else>답변완료</b-badge>
+              </td>
+            </tr>
+        </tbody>
       </table>
     </div>
 
@@ -131,5 +135,63 @@ export default {
 
 
 <style scoped>
+
+    .advice {
+      width: 100%;
+      height: auto;
+      margin-bottom:30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .table-box {
+      width:950px;
+    }
+
+    table {
+      width: 950px;
+    }
+
+
+    td:before {
+        content: attr(data-label);
+        float: left;
+    }
+ 
+ 
+    /* 
+     * Let's add a little more styling to make the table look clean
+     */
+     table {
+         border: 0;
+     }
+ 
+    table thead {
+        background-color: lightgray;
+    }
+ 
+    table tr {
+        margin-bottom: 30px;
+    }
+
+    .cell_padding {
+
+      text-align:center;
+
+
+    }
+
+    /* .right-border {
+      border-right: solid rgb(172, 172, 172) 2px;
+      border-radius: 10px;
+
+    } */
+
+    .top-border {
+      border-top: solid rgb(194, 193, 193) 3px;
+    }
+
+
 
 </style>>
