@@ -121,9 +121,29 @@ class feedbackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,Article $article)
     {
+
+        // $article->user_id=$request->user_id;
+        // $article->title=$request->title;
+        // $article->content=$request->content;
+        // $article->video=$request->video;
+
+        // $article->answer=$request->answer;
+
+        // $article->expert_id=$request->expert_id;
+  
+
+        // if($article->save()){
+        //     return response()->json($article,200);
+        // }else{
+        //     return response()->json([
+        //         'message'=>'문제가 발생했습니다',
+        //         'status_code'=>500
+        //     ],500);
+        // }
         
+
     }
 
     /**
@@ -133,9 +153,29 @@ class feedbackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($aid, Request $request)
     {
-        //
+
+        $article = Article::findOrFail($aid);
+
+        $article->update([	
+            'user_id' => $request->get('user_id'),
+            'title' => $request->get('title'),
+            'content' => $request->get('content'),
+            'video' => $request->get('video'),
+            'expert_id' => $request->get('expert_id'),
+            'answer' => $request->get('answer'),
+        ]);
+
+        if($article->save()){
+            return response()->json($article,200);
+        }else{
+            return response()->json([
+                'message'=>'문제가 발생했습니다',
+                'status_code'=>500
+            ],500);
+        }
+
     }
 
     /**

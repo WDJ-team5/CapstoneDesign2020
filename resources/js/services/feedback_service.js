@@ -18,4 +18,8 @@ export function loadDetailFeedback(cid,eid) {
     // return httpFile().post('/feedback/test',cid,eid);
 }
 
+export function updateFeedback(aid,data){
+    return httpFile().post(`/feedback/${aid}`,data);
+}
+
 

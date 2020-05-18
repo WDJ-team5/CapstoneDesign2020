@@ -17,7 +17,10 @@
               <div class="content-detail-content-info-left-number">{{expertDetail.name}}</div>
             </div>
         </div>
-        <div class="content-detail-content" v-if="feedbackDetail.answer==null">아직 피드백이 작성되지 않았습니다.</div>
+        <div class="content-detail-content" v-if="feedbackDetail.answer==null">
+          아직 피드백이 작성되지 않았습니다.
+          <button  @click="updateFeedback(cid,eid)">피드백 작성하기</button>
+        </div>
         <div class="content-detail-content" v-else>{{feedbackDetail.answer}}</div>
        </div>    
     </b-card>
@@ -66,6 +69,11 @@ export default {
              });
          }
      },
+     updateFeedback(id,eid) {
+      this.$router.push({
+        path: `/advice/update/${id}/${eid}`
+      });
+    }
   }
 };
 </script>
