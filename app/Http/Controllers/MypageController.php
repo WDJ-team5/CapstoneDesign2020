@@ -48,7 +48,7 @@ class MypageController extends Controller
 
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
-        $result = \App\User::find($user->id)->resumes()
+        $result = \App\User::orderBy('id', 'desc')->find($user->id)->resumes()
         ->join('auditions','audition_id','=','auditions.id')->get();
 
         return response()->json($result, 200);
