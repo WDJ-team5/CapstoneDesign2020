@@ -86113,6 +86113,7 @@ var routes = [{
   name: 'AuditionTest',
   component: function component() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
 =======
 <<<<<<< HEAD
@@ -86121,6 +86122,9 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
 >>>>>>> ahn
 >>>>>>> 2570aac965f92fe6a42feec316daa806eab2d762
+=======
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
+>>>>>>> jhh
   }
 }, // 어플라이 페이지로
 {
@@ -86140,7 +86144,7 @@ var routes = [{
   path: '/lecturePlay/:id',
   name: 'LecturePlay',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./views/lecture/LecturePlay.vue */ "./resources/js/views/lecture/LecturePlay.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./views/lecture/LecturePlay.vue */ "./resources/js/views/lecture/LecturePlay.vue"));
   }
 }, {
   path: '/expert/list',
@@ -86170,7 +86174,7 @@ var routes = [{
   path: '/advice/detail/:contentId?/:expertId?',
   name: 'AdviceDetail',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));
+    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/Advice/AdviceDetail.vue */ "./resources/js/views/Advice/AdviceDetail.vue"));
   }
 }, // 마이페이지
 {
@@ -86439,6 +86443,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 =======
@@ -86475,6 +86480,10 @@ __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js 
 module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 >>>>>>> jhh
 >>>>>>> 2570aac965f92fe6a42feec316daa806eab2d762
+=======
+__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> jhh
 
 
 /***/ })
