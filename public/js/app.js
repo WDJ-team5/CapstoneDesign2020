@@ -18182,8 +18182,13 @@ var BModal = /*#__PURE__*/_utils_vue__WEBPACK_IMPORTED_MODULE_0__["default"].ext
       // Note: On IE 11, `document.activeElement` may be `null`
       // So we test it for truthiness first
       // https://github.com/bootstrap-vue/bootstrap-vue/issues/3206
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> ahn
       return activeElement && activeElement.focus ? activeElement : null;
     },
     // Private method to finish showing modal
@@ -31749,6 +31754,7 @@ var addRootListeners = function addRootListeners(el, vnode) {
       if (Object(_utils_array__WEBPACK_IMPORTED_MODULE_2__["arrayIncludes"])(el[BV_TOGGLE_TARGETS] || [], id)) {
         // Set/Clear 'collapsed' visibility class state
         el[BV_TOGGLE_STATE] = state; // Set `aria-expanded` and class state on trigger element
+<<<<<<< HEAD
 
         setToggleState(el, state);
       }
@@ -31772,8 +31778,31 @@ var setToggleState = function setToggleState(el, state) {
     Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["setAttr"])(el, ATTR_ARIA_EXPANDED, STRING_FALSE);
   }
 }; // Reset and remove a property from the provided element
+=======
+>>>>>>> ahn
 
 
+<<<<<<< HEAD
+=======
+    vnode.context.$root.$on([EVENT_STATE, EVENT_STATE_SYNC], handler);
+  }
+};
+
+var setToggleState = function setToggleState(el, state) {
+  // State refers to the visibility of the collapse/sidebar
+  if (state) {
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["removeClass"])(el, CLASS_BV_TOGGLE_COLLAPSED);
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["addClass"])(el, CLASS_BV_TOGGLE_NOT_COLLAPSED);
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["setAttr"])(el, ATTR_ARIA_EXPANDED, STRING_TRUE);
+  } else {
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["removeClass"])(el, CLASS_BV_TOGGLE_NOT_COLLAPSED);
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["addClass"])(el, CLASS_BV_TOGGLE_COLLAPSED);
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["setAttr"])(el, ATTR_ARIA_EXPANDED, STRING_FALSE);
+  }
+}; // Reset and remove a property from the provided element
+
+
+>>>>>>> ahn
 var resetProp = function resetProp(el, prop) {
   el[prop] = null;
   delete el[prop];
@@ -87249,8 +87278,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> ahn
 
 
 /***/ })
