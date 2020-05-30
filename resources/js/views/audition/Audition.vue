@@ -2,6 +2,10 @@
   <div id="container">
     <div class="common_contentbox">
       <h2 class="title">오디션</h2>
+      <b-dropdown id="dropdown-text" text="랭크선택" class="m-2">
+        <b-dropdown-item-button @click="aRank()">A랭크이상</b-dropdown-item-button>
+        <b-dropdown-item-button @click="bRank()">B랭크이상</b-dropdown-item-button>
+      </b-dropdown>
       <ul class="audition_list" v-for="(audition,index) in paginatedData" :key="index">
         <li @click="rowClick(audition)">
           <a href="#" class="link">
@@ -52,14 +56,13 @@
           <button :disabled="pageNum >= pageCount - 1" @click="nextPage" class="page-btn">
             다음
           </button>
-        </div>
+        
       </div>
 
       <div id="button_area">
         <button type="button" @click="writeContent">오디션 공고ssss등록</button>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -78,6 +81,7 @@ export default {
     return {
       pageNum: 0,
       auditions: [],
+      auditions2:[],
       auditionData: {
         id: "",
         title: "",
@@ -105,6 +109,12 @@ export default {
   },
 
   methods: {
+    aRank(){
+      console.log(this.auditions2);
+    },
+    bRank(){
+      console.log('b');
+    },
     nextPage () {
       this.pageNum += 1;
     },
@@ -119,6 +129,7 @@ export default {
         this.auditions.unshift(response);
         
         this.auditions = response.data[0];
+        this.auditions2=response.data[0];
         console.log(this.auditions);
       } catch (error) {
         this.flashMessage.error({
@@ -160,7 +171,7 @@ export default {
             end = start + this.pageSize;
       console.log(this.auditions.slice(start, end)); 
       return this.auditions.slice(start, end);
-    }
+    },
   }
 };
 </script>
