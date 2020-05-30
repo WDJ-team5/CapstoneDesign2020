@@ -2,7 +2,7 @@
   <div id="container">
     <div class="common_contentbox">
       <h2 class="title">오디션</h2>
-      <ul class="audition_list" v-for="(audition,index) in auditions" :key="index">
+      <ul class="audition_list" v-for="(audition,index) in auditions" :key="index" :per-page="perPage" :current-page="currentPage">
         <li @click="rowClick(audition)">
           <a href="#" class="link">
             <div class="imgbox hovereffect">
@@ -39,6 +39,13 @@
                   </tr>
                 </tbody>
               </table>
+              <b-pagination
+                v-model="currentPage"
+                :total-rows="rows"
+                :per-page="perPage"
+                aria-controls="my-table"
+              ></b-pagination>
+
             </div>
           </a>
         </li>
@@ -88,26 +95,8 @@ export default {
     // items = items.map(contentItem => {return {...contentItem, user_name: data.User.filter(userItem => userItem.user_id === contentItem.user_id)[0].name}})
 
     return {
-      // 게시글의 보여주고싶은 필드 보이도록 설정
-      // fields:[
-      //     {
-      //         key:'content_id',
-      //         label:'글번호'
-      //     },
-      //     {
-      //         key:'title',
-      //         label:'제목'
-      //     },
-      //     {
-      //         key:'created_at',
-      //         label:'작성일'
-      //     },
-      //     {
-      //         key:'user_name',
-      //         label:'글쓴이'
-      //     }
-      // ],
-
+      currentPage:1,
+      perPage:2,
       auditions: [],
       auditionData: {
         id: "",
@@ -156,6 +145,11 @@ export default {
       this.$router.push({
         path: "/auditioncreate"
       });
+    }
+  },
+  computed:{
+    rows(){
+      return this.auditions.length
     }
   }
 };

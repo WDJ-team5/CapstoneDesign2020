@@ -18120,8 +18120,13 @@ var BModal = /*#__PURE__*/_utils_vue__WEBPACK_IMPORTED_MODULE_0__["default"].ext
       // Note: On IE 11, `document.activeElement` may be `null`
       // So we test it for truthiness first
       // https://github.com/bootstrap-vue/bootstrap-vue/issues/3206
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> 2570aac965f92fe6a42feec316daa806eab2d762
       return activeElement && activeElement.focus ? activeElement : null;
     },
     // Private method to finish showing modal
@@ -31551,6 +31556,7 @@ var ENTER = _utils_key_codes__WEBPACK_IMPORTED_MODULE_0__["default"].ENTER,
 
 var CLASS_BV_TOGGLE_COLLAPSED = 'collapsed';
 var CLASS_BV_TOGGLE_NOT_COLLAPSED = 'not-collapsed'; // Property key for handler storage
+<<<<<<< HEAD
 
 var BV_BASE = '__BV_toggle'; // Root event listener property (Function)
 
@@ -31565,6 +31571,22 @@ var BV_TOGGLE_TARGETS = "".concat(BV_BASE, "_TARGETS__"); // Commonly used strin
 var STRING_FALSE = 'false';
 var STRING_TRUE = 'true'; // Commonly used attribute names
 
+=======
+
+var BV_BASE = '__BV_toggle'; // Root event listener property (Function)
+
+var BV_TOGGLE_ROOT_HANDLER = "".concat(BV_BASE, "_HANDLER__"); // Trigger element click handler property (Function)
+
+var BV_TOGGLE_CLICK_HANDLER = "".concat(BV_BASE, "_CLICK__"); // Target visibility state property (Boolean)
+
+var BV_TOGGLE_STATE = "".concat(BV_BASE, "_STATE__"); // Target ID list property (Array)
+
+var BV_TOGGLE_TARGETS = "".concat(BV_BASE, "_TARGETS__"); // Commonly used strings
+
+var STRING_FALSE = 'false';
+var STRING_TRUE = 'true'; // Commonly used attribute names
+
+>>>>>>> 2570aac965f92fe6a42feec316daa806eab2d762
 var ATTR_ARIA_CONTROLS = 'aria-controls';
 var ATTR_ARIA_EXPANDED = 'aria-expanded';
 var ATTR_ROLE = 'role';
@@ -31658,6 +31680,31 @@ var addRootListeners = function addRootListeners(el, vnode) {
       if (Object(_utils_array__WEBPACK_IMPORTED_MODULE_2__["arrayIncludes"])(el[BV_TOGGLE_TARGETS] || [], id)) {
         // Set/Clear 'collapsed' visibility class state
         el[BV_TOGGLE_STATE] = state; // Set `aria-expanded` and class state on trigger element
+<<<<<<< HEAD
+
+        setToggleState(el, state);
+      }
+    };
+
+    el[BV_TOGGLE_ROOT_HANDLER] = handler; // Listen for toggle state changes (public) and sync (private)
+
+    vnode.context.$root.$on([EVENT_STATE, EVENT_STATE_SYNC], handler);
+  }
+};
+
+var setToggleState = function setToggleState(el, state) {
+  // State refers to the visibility of the collapse/sidebar
+  if (state) {
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["removeClass"])(el, CLASS_BV_TOGGLE_COLLAPSED);
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["addClass"])(el, CLASS_BV_TOGGLE_NOT_COLLAPSED);
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["setAttr"])(el, ATTR_ARIA_EXPANDED, STRING_TRUE);
+  } else {
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["removeClass"])(el, CLASS_BV_TOGGLE_NOT_COLLAPSED);
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["addClass"])(el, CLASS_BV_TOGGLE_COLLAPSED);
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["setAttr"])(el, ATTR_ARIA_EXPANDED, STRING_FALSE);
+  }
+}; // Reset and remove a property from the provided element
+=======
 
         setToggleState(el, state);
       }
@@ -31701,6 +31748,7 @@ var handleUpdate = function handleUpdate(el, binding, vnode) {
     if (!Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["hasAttr"])(el, ATTR_ROLE)) {
       Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["setAttr"])(el, ATTR_ROLE, 'button');
     }
+>>>>>>> 2570aac965f92fe6a42feec316daa806eab2d762
 
     if (!Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["hasAttr"])(el, ATTR_TABINDEX)) {
       Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["setAttr"])(el, ATTR_TABINDEX, '0');
@@ -31709,6 +31757,49 @@ var handleUpdate = function handleUpdate(el, binding, vnode) {
   // after element is updated (either by parent re-rendering
   // or changes to this element or its contents)
 
+<<<<<<< HEAD
+var resetProp = function resetProp(el, prop) {
+  el[prop] = null;
+  delete el[prop];
+}; // Handle directive updates
+
+
+var handleUpdate = function handleUpdate(el, binding, vnode) {
+  /* istanbul ignore next: should never happen */
+  if (!_utils_env__WEBPACK_IMPORTED_MODULE_4__["isBrowser"] || !vnode.context) {
+    return;
+  } // If element is not a button or link, we add `role="button"`
+  // and `tabindex="0"` for accessibility reasons
+
+=======
+
+  setToggleState(el, el[BV_TOGGLE_STATE]); // Parse list of target IDs
+
+  var targets = getTargets(binding);
+  /* istanbul ignore else */
+  // Ensure the `aria-controls` hasn't been overwritten
+  // or removed when vnode updates
+
+  if (targets.length) {
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["setAttr"])(el, ATTR_ARIA_CONTROLS, targets.join(' '));
+  } else {
+    Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["removeAttr"])(el, ATTR_ARIA_CONTROLS);
+  } // Add/Update our click listener(s)
+>>>>>>> 2570aac965f92fe6a42feec316daa806eab2d762
+
+  if (isNonStandardTag(el)) {
+    if (!Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["hasAttr"])(el, ATTR_ROLE)) {
+      Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["setAttr"])(el, ATTR_ROLE, 'button');
+    }
+
+    if (!Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["hasAttr"])(el, ATTR_TABINDEX)) {
+      Object(_utils_dom__WEBPACK_IMPORTED_MODULE_3__["setAttr"])(el, ATTR_TABINDEX, '0');
+    }
+  } // Ensure the collapse class and `aria-*` attributes persist
+  // after element is updated (either by parent re-rendering
+  // or changes to this element or its contents)
+
+<<<<<<< HEAD
 
   setToggleState(el, el[BV_TOGGLE_STATE]); // Parse list of target IDs
 
@@ -31732,6 +31823,16 @@ var handleUpdate = function handleUpdate(el, binding, vnode) {
     // Request a state update from targets so that we can
     // ensure expanded state is correct (in most cases)
 
+=======
+  addClickListener(el, vnode); // If targets array has changed, update
+
+  if (!Object(_utils_loose_equal__WEBPACK_IMPORTED_MODULE_1__["default"])(targets, el[BV_TOGGLE_TARGETS])) {
+    // Update targets array to element storage
+    el[BV_TOGGLE_TARGETS] = targets; // Ensure `aria-controls` is up to date
+    // Request a state update from targets so that we can
+    // ensure expanded state is correct (in most cases)
+
+>>>>>>> 2570aac965f92fe6a42feec316daa806eab2d762
     targets.forEach(function (target) {
       vnode.context.$root.$emit(EVENT_STATE_REQUEST, target);
     });
@@ -86000,7 +86101,19 @@ var routes = [{
   path: '/auditiontest/:contentId',
   name: 'AuditionTest',
   component: function component() {
+<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
+=======
+<<<<<<< HEAD
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
+=======
+<<<<<<< HEAD
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
+=======
+    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
+>>>>>>> ahn
+>>>>>>> 2570aac965f92fe6a42feec316daa806eab2d762
+>>>>>>> edcd2a6b9d203623c85e5eafe28c1eec1bf9ce1a
   }
 }, // 어플라이 페이지로
 {
@@ -86318,8 +86431,48 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+<<<<<<< HEAD
+__webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+__webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+__webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+<<<<<<< HEAD
+__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> ahn
+>>>>>>> 53df7952403831ee71dc55dc904e0fbed8d5b1b5
+=======
+__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> ahn
+>>>>>>> faf4799fbec4a08f1edc9b5d3de75e4294b62455
+=======
+__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> ahn
+=======
+__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> jhh
+>>>>>>> 2570aac965f92fe6a42feec316daa806eab2d762
+>>>>>>> edcd2a6b9d203623c85e5eafe28c1eec1bf9ce1a
 
 
 /***/ })
