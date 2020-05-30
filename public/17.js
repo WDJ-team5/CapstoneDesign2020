@@ -107,11 +107,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-<<<<<<< HEAD
-exports.push([module.i, "\n.apply_container {\r\n    padding: 1vw;\n}\n#apply_table {\r\n    width: 100%;\r\n    border-collapse: separate;\r\n    border-spacing: 2vh;\n}\nth {\r\n    text-align: center;\n}\ntd {\r\n    text-align: center;\n}\r\n", ""]);
-=======
 exports.push([module.i, "\n.apply_container {\r\n    padding: 1vw;\n}\n#apply_table {\r\n    width: 100%;\r\n    border-collapse: separate;\r\n    border-spacing: 2vh;\n}\nthead {\r\n    border-bottom: solid black 1px;\n}\nth {\r\n    text-align: center;\n}\ntd {\r\n    text-align: center;\n}\r\n", ""]);
->>>>>>> ahn
 
 // exports
 
@@ -173,11 +169,7 @@ var render = function() {
             "tbody",
             _vm._l(_vm.applies, function(apply, index) {
               return _c("tr", { key: index }, [
-<<<<<<< HEAD
                 _c("td", [_vm._v(_vm._s(apply.title))]),
-=======
-                _c("td", [_vm._v(_vm._s(apply.content))]),
->>>>>>> ahn
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(apply.message))]),
                 _vm._v(" "),
