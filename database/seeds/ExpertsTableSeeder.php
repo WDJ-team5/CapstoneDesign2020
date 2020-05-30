@@ -16,7 +16,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 1,
+            'company_id' => 1,
         ]);
 
         App\Specialty::find(1)->experts()->create([//idol 전문가2호
@@ -24,7 +24,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 1,
+            'company_id' => 1,
         ]);
 
         App\Specialty::find(1)->experts()->create([//idol 전문가3호
@@ -32,7 +32,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 1,
+            'company_id' => 1,
         ]);
 
         App\Specialty::find(1)->experts()->create([//idol 전문가4호
@@ -40,7 +40,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 1,
+            'company_id' => 1,
         ]);
 
         App\Specialty::find(2)->experts()->create([//poppin 전문가1호
@@ -48,7 +48,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 2,
+            'company_id' => 2,
         ]);
 
         App\Specialty::find(2)->experts()->create([//poppin 전문가2호
@@ -56,7 +56,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 2,
+            'company_id' => 2,
         ]);
 
         App\Specialty::find(2)->experts()->create([//poppin 전문가3호
@@ -64,7 +64,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 2,
+            'company_id' => 2,
         ]);
 
         App\Specialty::find(2)->experts()->create([//poppin 전문가4호
@@ -72,7 +72,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 2,
+            'company_id' => 2,
         ]);
 
         App\Specialty::find(3)->experts()->create([//B-boying 전문가1호
@@ -80,7 +80,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 1,
+            'company_id' => 1,
         ]);
 
         App\Specialty::find(3)->experts()->create([//B-boying 전문가2호
@@ -88,7 +88,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 1,
+            'company_id' => 1,
         ]);
 
         App\Specialty::find(3)->experts()->create([//B-boying 전문가3호
@@ -96,7 +96,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 1,
+            'company_id' => 1,
         ]);
 
         App\Specialty::find(3)->experts()->create([//B-boying 전문가4호
@@ -104,7 +104,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 1,
+            'company_id' => 1,
         ]);
 
         App\Specialty::find(4)->experts()->create([//hiphop 전문가1호
@@ -112,7 +112,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 2,
+            'company_id' => 2,
         ]);
 
         App\Specialty::find(4)->experts()->create([//hiphop 전문가2호
@@ -120,7 +120,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 2,
+            'company_id' => 2,
         ]);
 
         App\Specialty::find(4)->experts()->create([//hiphop 전문가3호
@@ -128,7 +128,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 2,
+            'company_id' => 2,
         ]);
 
         App\Specialty::find(4)->experts()->create([//hiphop 전문가4호
@@ -136,7 +136,7 @@ class ExpertsTableSeeder extends Seeder
             'career_01' => '수상경력 01',
             'career_02' => '수상경력 02',
             'career_03' => '수상경력 03',
-            'expert_company_id' => 2,
+            'company_id' => 2,
         ]);
     }
 }

@@ -14,10 +14,14 @@ class LectureController extends Controller
      */
     public function index()
     {
-        $lecture = \App\lecture::join('genres','genre_id','=','genres.id')
-        ->join('levels','level_id','=','levels.id')
-        ->orderBy('created_at','desc')
-        ->paginate();
+        // $lecture = \App\lecture::join('genres','genre_id','=','genres.id')
+        // ->join('levels','level_id','=','levels.id')
+        // ->orderBy('created_at','desc')
+        // ->paginate();
+        $lecture = \App\Lecture::with(array('genre'=>function($query){$query->get();}))
+        ->with(array('level'=>function($query){$query->get();}))->get();
+
+
         // $lecture= Lecture::orderBy('created_at','desc')->paginate();
         return response()->json($lecture,200);
     }
