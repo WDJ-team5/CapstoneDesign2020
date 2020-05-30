@@ -2,7 +2,7 @@
   <div id="container">
     <div class="common_contentbox">
       <h2 class="title">오디션</h2>
-      <ul class="audition_list" v-for="(audition,index) in auditions" :key="index" :per-page="perPage" :currentPage="currentPage"  >
+      <ul class="audition_list" v-for="(audition,index) in paginatedData" :key="index">
         <li @click="rowClick(audition)">
           <a href="#" class="link">
             <div class="imgbox hovereffect">
@@ -10,46 +10,56 @@
             </div>
             <div class="d_dayinfo">
               <p class="day">{{audition.rank}}랭크이상</p>
+              <table class="info">
+                <colgroup>
+                  <col style="width:100px;" />
+                  <col />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th colspan="2">{{audition.title}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!--                                        <tr>
+                                    <th>제작</th>
+                                    <td>메가폰 엔터테인먼트</td>
+                  </tr>-->
+                  <tr>
+                    <th>마감일</th>
+                    <td>{{audition.end_date}} 까지</td>
+                  </tr>
+                  <!--                                        <tr>
+                                    <th>주연</th>
+                                    <td>이준혁, 장동곤, 이창범</td>
+                  </tr>-->
+                  <tr>
+                    <th>기업명</th>
+                    <td>{{ audition.user.company.company_name }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
             </div>
           </a>
         </li>
       </ul>
-      <b-pagination
-        v-model="currentPage"
-        :total-rows="rows"
-        :per-page="perPage"
-        aria-controls="my-table"
-      ></b-pagination>
+      <div class="btn-cover">
+          <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">
+            이전
+          </button>
+          <span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} 페이지</span>
+          <button :disabled="pageNum >= pageCount - 1" @click="nextPage" class="page-btn">
+            다음
+          </button>
+        </div>
+      </div>
 
       <div id="button_area">
         <button type="button" @click="writeContent">오디션 공고ssss등록</button>
       </div>
     </div>
-    <!-- <h1>{{items.user_id}}</h1> -->
-    <!-- <b-table striped hover :auditions="auditions" @row-clicked="rowClick"></b-table> -->
-    <!-- <div>
-        <b-list-group id="audition-all" >
-            <b-list-group-item  id="audition-set" href="#" active class="flex-column align-items-start" @click="rowClick(audition)" v-for="(audition,index) in auditions" :key="index">
-                <div class="hovereffect audition-image-box">
-                    <img id="card-image" :src="`${$store.state.serverPath}/storage/${audition.image}`" :alt="audition.title">
-                </div>
-                <div class="audition-info">
-                    <div style="margin-top:12px">
-                        <h5 class="audition-title">{{audition.title}}</h5>
-                    </div>
-                    <div>
-                        <b-badge pill variant="primary">마감일: 2020년 5월 15일{{audition.date}}</b-badge>
-                    </div>
-                    <div>
-                        <b-badge pill variant="success">랭크: B랭크 이상 지원가능{{audition.selected}}</b-badge>
-                    </div>
-                </div>
-            </b-list-group-item>
 
-        </b-list-group>
-    </div>
-
-    <b-button class="audition-add-btn" variant="dark" @click="writeContent">오디션 공고 등록</b-button>-->
   </div>
 </template>
 
@@ -66,8 +76,7 @@ export default {
     // items = items.map(contentItem => {return {...contentItem, user_name: data.User.filter(userItem => userItem.user_id === contentItem.user_id)[0].name}})
 
     return {
-      currentPage:1,
-      perPage:2,
+      pageNum: 0,
       auditions: [],
       auditionData: {
         id: "",
@@ -79,9 +88,16 @@ export default {
         selected: "",
         video: ""
       },
-
       errors: {}
     };
+  },
+
+  props:{
+    pageSize: {
+      type: Number,
+      required: false,
+      default: 2
+    }
   },
 
   mounted() {
@@ -89,6 +105,14 @@ export default {
   },
 
   methods: {
+    nextPage () {
+      this.pageNum += 1;
+    },
+    prevPage () {
+      this.pageNum -= 1;
+    },
+
+    // 모든 데이터로드
     loadAudition: async function() {
       try {
         const response = await auditionService.loadAudition();
@@ -118,9 +142,24 @@ export default {
       });
     }
   },
+
   computed:{
-    rows(){
-      return this.auditions.length
+    // 오디션 데이터 길이 측정
+    pageCount () {
+      let listLeng = this.auditions.length,
+          listSize = this.pageSize,
+          page = Math.floor(listLeng / listSize);
+      if (listLeng % listSize > 0) page += 1;
+      
+      return page;
+    },
+
+    // 오디션 데이터 길이 나누기
+    paginatedData () {
+      const start = this.pageNum * this.pageSize,
+            end = start + this.pageSize;
+      console.log(this.auditions.slice(start, end)); 
+      return this.auditions.slice(start, end);
     }
   }
 };
@@ -313,74 +352,17 @@ button {
         -webkit-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
     }
-    
 
-/* .hovereffect:hover img {
-        opacity: 0.6;
-        filter: alpha(opacity=60);
-        -webkit-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-    }
-
-    .hovereffect:hover .overlay:before {
-        opacity: 1;
-        filter: alpha(opacity=100);
-        -webkit-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-    }
-
-    #container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 70px;
-    }
-
-    #audition-all {
-        width: 1100px;
-        display: inline-block;
-        margin-top:40px;
-        padding:0;
-    }
-
-    #audition-set {
-        width: 250px;
-        height: 370px;
-        float: left;
-        color: black;
-        background-color: white;
-        border: 1px solid #ced4da;
-        padding: 0 0 0 0;
-        margin-left: 20px;
-        margin-top: 60px;
-        border-radius:5px;
-    }
-
-    .audition-image-box {
-        width: 250px;
-        height: 260px;
-    }
-
-    .audition-image-box > img {
-        width: 100%;
-        height:100%;
-    }
-
-    .audition-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .audition-title {
-        font-size:25px;
-        font-weight:100;
-    }
-
-    .audition-add-btn {
-        margin-top:60px;
-        width:200px;
-        height:60px;
-        margin-top:50px;
-    } */
+  .btn-cover {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.btn-cover .page-btn {
+  width: 5rem;
+  height: 2rem;
+  letter-spacing: 0.5px;
+}
+.btn-cover .page-count {
+  padding: 0 1rem;
+}
 </style>
