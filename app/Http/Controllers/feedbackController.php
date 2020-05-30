@@ -16,10 +16,14 @@ class feedbackController extends Controller
      */
     public function index()
     {
-        $experts = \App\User::whereClass(2)->join('experts','expert_id','=','experts.id')
-        ->join('specialties','specialty_id','=','specialties.id')
-        ->join('companies','expert_company_id','=','companies.id')->get();
+        // $experts = \App\User::whereClass(2)->join('experts','expert_id','=','experts.id')
+        // ->join('specialties','specialty_id','=','specialties.id')
+        // ->join('companies','expert_company_id','=','companies.id')->get();
+
         // App\User::whereClass(2)->with(array('expert'=>function($query){$query->select('id');}))->get()
+
+        $experts = \App\User::whereClass(2)->with(array('expert'=>function($query){$query->with(array('specialty'=>function($query){$query->get();}))->with(array('company'=>function($query){$query->get();}));}))->get();
+
         return response()->json($experts, 200);
     }
 

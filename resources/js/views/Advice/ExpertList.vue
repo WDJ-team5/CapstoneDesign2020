@@ -84,7 +84,7 @@ export default {
                 const response=await feedbackService.loadFeedback();
                 // console.log(response.data[0]);
                 console.log("data : ",response.data);
-                this.experts.unshift(response.data);
+                // this.experts.unshift(response.data);
                 this.experts=response.data; 
                 // console.log("전문가 값 출력 : ",this.experts);
 

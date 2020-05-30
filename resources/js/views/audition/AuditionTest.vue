@@ -141,9 +141,9 @@ export default {
       try {
         const response = await lectureService.loadLectureData(1);
         this.filename = response.data.video;
-        this.video = "videos/" + "sample1"+ ".mp4";
+        this.video = "videos/" + "audition_sample01"+ ".mp4";
         axios
-          .get("videoDatas/" + "sample1" + ".json")
+          .get("videoDatas/" + "audition_sample01" + ".json")
           .then(response => (this.videoData = response.data));
       } catch (err) {
         console.error(err);

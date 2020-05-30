@@ -13,10 +13,10 @@
                         <h5 sytle="lecture-title" class="mb-1">{{lecture.title}}</h5>
                     </div>
                     <div>
-                        <b-badge pill variant="primary">장르: {{lecture.genre_name}}</b-badge>
+                        <b-badge pill variant="primary">장르: {{lecture.genre.genre_name}}</b-badge>
                     </div>
                     <div>
-                        <b-badge pill variant="success">난이도: {{lecture.level_name}}</b-badge>
+                        <b-badge pill variant="success">난이도: {{lecture.level.level_name}}</b-badge>
                     </div>
                 </div>
             </b-list-group-item>
@@ -52,8 +52,8 @@ export default {
         loadLecture: async function(){
             try{
                 const response=await lectureService.loadLecture();
-                this.lectures.unshift(response.data);
-                this.lectures=response.data.data; 
+                // this.lectures.unshift(response.data);
+                this.lectures=response.data;
                 console.log(...this.lectures);
             }catch(error){
                 this.flashMessage.error({
