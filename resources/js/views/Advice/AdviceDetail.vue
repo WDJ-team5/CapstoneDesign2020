@@ -7,7 +7,11 @@
         <div class="content">
           <div class="content-detail-content-info">
               <div class="content-detail-content-info-left">
+<<<<<<< HEAD
                 <img :src="`${$store.state.serverPath}/storage/${feedbackDetail.image}`" alt="" width="70px" height="70px">
+=======
+                <img src="http://placehold.it/70x70" alt="" width="70px" height="70px">
+>>>>>>> 1a98e4c3c7217554c8b71082c6fa8cc9afd8317c
                 <div class="name">{{feedbackDetail.name}}</div>
               </div>
           </div>      
@@ -33,7 +37,11 @@
         <div class="content content-reply">
           <div class="content-detail-content-info">
               <div class="content-detail-content-info-left">
+<<<<<<< HEAD
                 <img :src="`${$store.state.serverPath}/storage/${expertDetail.image}`" alt="" width="70px" height="70px">
+=======
+                <img src="http://placehold.it/70x70" alt="" width="70px" height="70px">
+>>>>>>> 1a98e4c3c7217554c8b71082c6fa8cc9afd8317c
                 <div class="name">{{expertDetail.name}}</div>
               </div>
           </div>

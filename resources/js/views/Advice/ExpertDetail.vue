@@ -33,27 +33,27 @@
                                 </tr>
                                 <tr>
                                     <th>전문분야</th>
-                                    <td>{{propsdata.area}}</td>
+                                    <td>{{propsdata.expert.specialty.area}}</td>
                                 </tr>
                                 <tr>
                                     <th>수상경력</th>
-                                    <td>{{propsdata.career_01}}</td>
+                                    <td>{{propsdata.expert.career_01}}</td>
                                 </tr>
-                                <tr class="career-add" v-if="propsdata.career_02!=null">
+                                <tr class="career-add" v-if="propsdata.expert.career_02!=null">
                                     <th></th>
-                                    <td>{{propsdata.career_02}}</td>
+                                    <td>{{propsdata.expert.career_02}}</td>
                                 </tr>
-                                <tr class="career-add" v-if="propsdata.career_03!=null">
+                                <tr class="career-add" v-if="propsdata.expert.career_03!=null">
                                     <th></th>
-                                    <td>{{propsdata.career_03}}</td>
+                                    <td>{{propsdata.expert.career_03}}</td>
                                 </tr>
                                 <tr>
                                     <th>SNS</th>
-                                    <td>{{propsdata.sns}}</td>
+                                    <td>{{propsdata.expert.sns}}</td>
                                 </tr>
                                 <tr>
                                     <th>소속사</th>
-                                    <td>{{propsdata.company_name}}</td>
+                                    <td>{{propsdata.expert.company.company_name}}</td>
                                 </tr>
                             </tbody>
                         </table>

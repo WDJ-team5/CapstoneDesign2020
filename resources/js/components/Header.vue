@@ -17,7 +17,7 @@
       <a class="LogoImg">
         <em>
           <router-link to="/#" exact>
-          <img src="../../../public/images/logo.jpg" width="200px" height="41px">
+          <img src="images/logo.jpg" width="200px" height="41px">
           </router-link>
         </em>
       </a>

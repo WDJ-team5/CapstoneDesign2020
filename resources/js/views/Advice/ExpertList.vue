@@ -84,20 +84,20 @@ export default {
                 const response=await feedbackService.loadFeedback();
                 // console.log(response.data[0]);
                 console.log("data : ",response.data);
-                this.experts.unshift(response.data);
+                // this.experts.unshift(response.data);
                 this.experts=response.data; 
                 console.log("전문가 값 출력 : ",this.experts);
 
 
-                const idolExp = response.data.filter(item => item.area === 'idol');
+                const idolExp = response.data.filter(item => item.expert.specialty.area === 'idol');
                 // console.log(idolExp);
                 this.idolExp=idolExp;
 
-                const hiphopExp = response.data.filter(item => item.area === 'hiphop');
+                const hiphopExp = response.data.filter(item => item.expert.specialty.area === 'hiphop');
                 // console.log(hiphopExp);
                 this.hiphopExp=hiphopExp;
 
-                const poppinExp = response.data.filter(item => item.area === 'poppin');
+                const poppinExp = response.data.filter(item => item.expert.specialty.area === 'poppin');
                 // console.log(poppinExp);
                 this.poppinExp=poppinExp;
                

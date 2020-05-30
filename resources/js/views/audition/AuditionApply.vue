@@ -123,6 +123,14 @@
                         rows="3"
                         max-rows="6"
                         ></b-form-textarea>
+
+                        <p class="auditiondetails_title02">영상링크 첨부</p>
+                        <b-form-input
+                        id="video_link"
+                        v-model="video"
+                        required
+                        placeholder="영상링크를 입력해주세요"
+                        ></b-form-input>
                     </div>
                 
                 </div>
@@ -142,6 +150,7 @@ export default {
     data(){
         return{
             text:'',
+            video:'',
             auditions: [],
             aid:'',
             score:''
@@ -176,6 +185,7 @@ export default {
             formData.append('call_number',this.auditions.call_number);
             formData.append('score',this.score);
             formData.append('text',this.text);
+            formData.append('video',this.video);
             formData.append('audition_id',this.aid);
             console.log(...formData);
             this.$router.push({

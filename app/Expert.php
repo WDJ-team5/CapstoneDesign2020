@@ -12,7 +12,7 @@ class Expert extends Model
         'career_02',
         'career_03',
         'field_id',
-        'expert_company_id',
+        'company_id',
     ];
 
     public function user()
@@ -27,7 +27,7 @@ class Expert extends Model
 
     public function company()
     {
-        return $this->belongTo('App\Company');
+        return $this->belongsTo('App\Company');
     }
 
     public function articles()
