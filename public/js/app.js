@@ -68958,7 +68958,7 @@ var render = function() {
             _c("router-link", { attrs: { to: "/#", exact: "" } }, [
               _c("img", {
                 attrs: {
-                  src: __webpack_require__(/*! ../../../public/images/logo.jpg */ "./public/images/logo.jpg"),
+                  src: "images/logo.jpg",
                   width: "200px",
                   height: "41px"
                 }
@@ -85680,17 +85680,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./public/images/logo.jpg":
-/*!********************************!*\
-  !*** ./public/images/logo.jpg ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/logo.jpg?f2cb133f260ee2b42c5287fa2acf5263";
-
-/***/ }),
-
 /***/ "./resources/js/App.vue":
 /*!******************************!*\
   !*** ./resources/js/App.vue ***!
@@ -86114,6 +86103,11 @@ var routes = [{
   component: function component() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
+=======
+>>>>>>> 8a9d7352d8b715ccd6e7fd5c9663ce1e274caec8
+<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
 =======
 <<<<<<< HEAD
@@ -86122,9 +86116,13 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
 >>>>>>> ahn
 >>>>>>> 2570aac965f92fe6a42feec316daa806eab2d762
+<<<<<<< HEAD
 =======
     return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
 >>>>>>> jhh
+=======
+>>>>>>> edcd2a6b9d203623c85e5eafe28c1eec1bf9ce1a
+>>>>>>> 8a9d7352d8b715ccd6e7fd5c9663ce1e274caec8
   }
 }, // 어플라이 페이지로
 {
@@ -86317,20 +86315,20 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
-  state: {
-    apiURL: 'http://localhost:8000/api',
-    serverPath: 'http://localhost:8000' //     apiURL: 'http://127.0.0.1:8000/api',
-    //     serverPath: 'http://127.0.0.1:8000'
-
-  },
+  // state: {
+  //     apiURL: 'http://localhost:8000/api',
+  //     serverPath: 'http://localhost:8000'
+  //     apiURL: 'http://127.0.0.1:8000/api',
+  //     serverPath: 'http://127.0.0.1:8000'
+  // },
   // state: {
   //     apiURL: 'http://192.168.0.6:8000/api',
   //     serverPath: 'http://192.168.0.6:8000'
   // },
-  // state: {
-  //     apiURL: 'http://localhost:8000/api',
-  //     serverPath: 'http://localhost:8000'
-  // },
+  state: {
+    apiURL: 'http://localhost:8000/api',
+    serverPath: 'http://localhost:8000'
+  },
   mutations: {},
   actions: {}
 }));
@@ -86444,6 +86442,12 @@ __webpack_require__.r(__webpack_exports__);
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+>>>>>>> 8a9d7352d8b715ccd6e7fd5c9663ce1e274caec8
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 =======
@@ -86480,10 +86484,14 @@ __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js 
 module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 >>>>>>> jhh
 >>>>>>> 2570aac965f92fe6a42feec316daa806eab2d762
+<<<<<<< HEAD
 =======
 __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 >>>>>>> jhh
+=======
+>>>>>>> edcd2a6b9d203623c85e5eafe28c1eec1bf9ce1a
+>>>>>>> 8a9d7352d8b715ccd6e7fd5c9663ce1e274caec8
 
 
 /***/ })

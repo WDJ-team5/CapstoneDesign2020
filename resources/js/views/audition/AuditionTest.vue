@@ -38,7 +38,7 @@
             </div>
           </div>
           <div id="result_right">
-            <img src="../../../../public/images/logo.jpg" width="200px" height="41px" style="margin-top:50px;margin-left:60px;margin-bottom:30px">
+            <img src="images/logo.jpg" width="200px" height="41px" style="margin-top:50px;margin-left:60px;margin-bottom:30px">
             <button id="result_replay" type="button" v-on:click="modalChange()">다시하기</button>
             
               <button id="result_end" style="margin-top:5px;" v-on:click="apply()">지원하기</button>
