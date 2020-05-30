@@ -2,7 +2,7 @@
   <div id="container">
     <div class="common_contentbox">
       <h2 class="title">오디션</h2>
-      <ul class="audition_list" v-for="(audition,index) in auditions" :key="index" :per-page="perPage" :current-page="currentPage">
+      <ul class="audition_list" v-for="(audition,index) in auditions" :key="index" :per-page="perPage" :currentPage="currentPage"  >
         <li @click="rowClick(audition)">
           <a href="#" class="link">
             <div class="imgbox hovereffect">
@@ -10,48 +10,19 @@
             </div>
             <div class="d_dayinfo">
               <p class="day">{{audition.rank}}랭크이상</p>
-              <table class="info">
-                <colgroup>
-                  <col style="width:100px;" />
-                  <col />
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th colspan="2">{{audition.title}}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!--                                        <tr>
-                                    <th>제작</th>
-                                    <td>메가폰 엔터테인먼트</td>
-                  </tr>-->
-                  <tr>
-                    <th>마감일</th>
-                    <td>{{audition.end_date}} 까지</td>
-                  </tr>
-                  <!--                                        <tr>
-                                    <th>주연</th>
-                                    <td>이준혁, 장동곤, 이창범</td>
-                  </tr>-->
-                  <tr>
-                    <th>기업명</th>
-                    <td>{{ audition.user.company.company_name }}</td>
-                  </tr>
-                </tbody>
-              </table>
-              <b-pagination
-                v-model="currentPage"
-                :total-rows="rows"
-                :per-page="perPage"
-                aria-controls="my-table"
-              ></b-pagination>
-
             </div>
           </a>
         </li>
       </ul>
+      <b-pagination
+        v-model="currentPage"
+        :total-rows="rows"
+        :per-page="perPage"
+        aria-controls="my-table"
+      ></b-pagination>
+
       <div id="button_area">
-        <button type="button" @click="writeContent">오디션 공고등록</button>
+        <button type="button" @click="writeContent">오디션 공고ssss등록</button>
       </div>
     </div>
     <!-- <h1>{{items.user_id}}</h1> -->
