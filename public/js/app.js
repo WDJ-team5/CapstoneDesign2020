@@ -68857,7 +68857,7 @@ var render = function() {
             _c("router-link", { attrs: { to: "/#", exact: "" } }, [
               _c("img", {
                 attrs: {
-                  src: __webpack_require__(/*! ../../../public/images/logo.jpg */ "./public/images/logo.jpg"),
+                  src: "images/logo.jpg",
                   width: "200px",
                   height: "41px"
                 }
@@ -85579,17 +85579,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./public/images/logo.jpg":
-/*!********************************!*\
-  !*** ./public/images/logo.jpg ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/logo.jpg?f2cb133f260ee2b42c5287fa2acf5263";
-
-/***/ }),
-
 /***/ "./resources/js/App.vue":
 /*!******************************!*\
   !*** ./resources/js/App.vue ***!
@@ -86011,11 +86000,7 @@ var routes = [{
   path: '/auditiontest/:contentId',
   name: 'AuditionTest',
   component: function component() {
-<<<<<<< HEAD
     return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
-=======
-    return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
->>>>>>> ahn
   }
 }, // 어플라이 페이지로
 {
@@ -86208,20 +86193,20 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
-  state: {
-    apiURL: 'http://localhost:8000/api',
-    serverPath: 'http://localhost:8000' //     apiURL: 'http://127.0.0.1:8000/api',
-    //     serverPath: 'http://127.0.0.1:8000'
-
-  },
+  // state: {
+  //     apiURL: 'http://localhost:8000/api',
+  //     serverPath: 'http://localhost:8000'
+  //     apiURL: 'http://127.0.0.1:8000/api',
+  //     serverPath: 'http://127.0.0.1:8000'
+  // },
   // state: {
   //     apiURL: 'http://192.168.0.6:8000/api',
   //     serverPath: 'http://192.168.0.6:8000'
   // },
-  // state: {
-  //     apiURL: 'http://localhost:8000/api',
-  //     serverPath: 'http://localhost:8000'
-  // },
+  state: {
+    apiURL: 'http://localhost:8000/api',
+    serverPath: 'http://localhost:8000'
+  },
   mutations: {},
   actions: {}
 }));
@@ -86333,33 +86318,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-__webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-__webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
-<<<<<<< HEAD
-__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
 __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> ahn
->>>>>>> 53df7952403831ee71dc55dc904e0fbed8d5b1b5
-=======
-__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> ahn
->>>>>>> faf4799fbec4a08f1edc9b5d3de75e4294b62455
-=======
-__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> ahn
 
 
 /***/ })

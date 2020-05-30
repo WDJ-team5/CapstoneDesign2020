@@ -7,7 +7,7 @@
         <div class="content">
           <div class="content-detail-content-info">
               <div class="content-detail-content-info-left">
-                <img src="../../../../public/images/i.png" alt="" width="70px" height="70px">
+                <img src="http://placehold.it/70x70" alt="" width="70px" height="70px">
                 <div class="name">{{feedbackDetail.name}}</div>
               </div>
           </div>      
@@ -33,7 +33,7 @@
         <div class="content content-reply">
           <div class="content-detail-content-info">
               <div class="content-detail-content-info-left">
-                <img src="../../../../public/images/i.png" alt="" width="70px" height="70px">
+                <img src="http://placehold.it/70x70" alt="" width="70px" height="70px">
                 <div class="name">{{expertDetail.name}}</div>
               </div>
           </div>
