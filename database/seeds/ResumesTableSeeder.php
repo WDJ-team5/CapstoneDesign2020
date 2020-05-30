@@ -14,6 +14,7 @@ class ResumesTableSeeder extends Seeder
         App\User::find(1)->resumes()->create([
             'score' => 80.5,
             'message' => '꼭 합격하고싶습니다.',
+            'video' => null,
             'audition_id' => 5,
         ]);
     }

@@ -10,6 +10,7 @@ class Resume extends Model
         'score',
         'message',
         'result',
+        'video',
         'user_id',
         'audition_id',
     ];

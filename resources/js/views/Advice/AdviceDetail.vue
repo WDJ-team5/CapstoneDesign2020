@@ -1,29 +1,48 @@
 <template>
-  <div>
-    <b-card>
-      <div class="content">
-        <div class="content-detail-content-info">
-            <div class="content-detail-content-info-left">
-              <img :src="feedbackDetail.image" alt="" width="50px" height="50px">
-              <div class="content-detail-content-info-left-number">{{feedbackDetail.name}}</div>
-            </div>
-        </div>      
-        <div class="content-detail-content">{{feedbackDetail.content}}</div>
-       </div>
-       <div class="content">
-        <div class="content-detail-content-info">
-            <div class="content-detail-content-info-left">
-              <img :src="expertDetail.image" alt="" width="50px" height="50px">
-              <div class="content-detail-content-info-left-number">{{expertDetail.name}}</div>
-            </div>
+  <div class="advice-detail"> 
+
+
+    <div class="card-box">
+      <b-card>
+        <div class="content">
+          <div class="content-detail-content-info">
+              <div class="content-detail-content-info-left">
+                <img src="../../../../public/images/i.png" alt="" width="70px" height="70px">
+                <div class="name">{{feedbackDetail.name}}</div>
+              </div>
+          </div>      
+          <div class="content-detail-content">{{feedbackDetail.content}}</div>
+        </div>    
+      </b-card>
+    </div>
+
+
+    <div class="card-box" v-if="feedbackDetail.answer==null">
+      <b-card>
+        <div class="content content-reply">
+          <div class="content-null">
+            <h1>작성된 피드백이 없습니다.</h1>
+            <b-button class="update-btn" @click="updateFeedback(cid,eid)">피드백 작성하기</b-button>
+          </div>
         </div>
-        <div class="content-detail-content" v-if="feedbackDetail.answer==null">
-          아직 피드백이 작성되지 않았습니다.
-          <button  @click="updateFeedback(cid,eid)">피드백 작성하기</button>
+      </b-card>
+    </div>
+
+    <div class="card-box" v-else>
+      <b-card>
+        <div class="content content-reply">
+          <div class="content-detail-content-info">
+              <div class="content-detail-content-info-left">
+                <img src="../../../../public/images/i.png" alt="" width="70px" height="70px">
+                <div class="name">{{expertDetail.name}}</div>
+              </div>
+          </div>
+          <div class="content-detail-content">{{feedbackDetail.answer}}</div>
         </div>
-        <div class="content-detail-content" v-else>{{feedbackDetail.answer}}</div>
-       </div>    
-    </b-card>
+      </b-card>
+    </div>
+
+
   </div>
 </template>
 
@@ -79,24 +98,36 @@ export default {
 </script>
 <style scoped>
 
-.content {
-  border: 1px solid black;
-  margin-top : 30px;
+.advice-detail {
+      width: 100%;
+      height: auto;
+      margin-bottom:30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 }
+.card-box {
+  width:850px;
+}
+
+.content-reply {
+  background-color:rgb(233, 233, 233);
+}
+
 .content-detail-content-info {
   display: flex;
   justify-content: space-between;
 }
 
 .content-detail-content-info-left {
-  width: 130px;
+  width: 190px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
   margin-left:20px;
-  margin-top:20px;
+  margin-top:10px;
 }
 
 .content-detail-content-info-right {
@@ -106,6 +137,11 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 1rem;
+}
+
+.name{
+  font-size:20px;
+  margin-bottom:10px;
 }
 
 .content-detail-content {
@@ -127,5 +163,22 @@ export default {
   border: 1px solid black;
   margin-top: 1rem;
   padding: 2rem;
+}
+
+.content-null{
+  height:300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-null > h1 {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.update-btn {
+  margin-top:20px;
 }
 </style>
