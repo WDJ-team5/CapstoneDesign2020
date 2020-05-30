@@ -7,7 +7,7 @@
         <div class="content">
           <div class="content-detail-content-info">
               <div class="content-detail-content-info-left">
-                <img src="../../../../public/images/i.png" alt="" width="70px" height="70px">
+                <img :src="`${$store.state.serverPath}/storage/${feedbackDetail.image}`" alt="" width="70px" height="70px">
                 <div class="name">{{feedbackDetail.name}}</div>
               </div>
           </div>      
@@ -33,7 +33,7 @@
         <div class="content content-reply">
           <div class="content-detail-content-info">
               <div class="content-detail-content-info-left">
-                <img src="../../../../public/images/i.png" alt="" width="70px" height="70px">
+                <img :src="`${$store.state.serverPath}/storage/${expertDetail.image}`" alt="" width="70px" height="70px">
                 <div class="name">{{expertDetail.name}}</div>
               </div>
           </div>
@@ -52,9 +52,12 @@ import * as feedbackService from "../../services/feedback_service";
 
 export default {
   name: "AdviceDetail",
+  props: ['propsdata'],
   data() {
-    const contentId = Number(this.$route.params.contentId);
-    const expertId = Number(this.$route.params.expertId);
+    // const contentId = Number(this.$route.params.contentId);
+    // const expertId = Number(this.$route.params.expertId);
+    const contentId = this.propsdata[0];
+    const expertId = this.propsdata[1];
     return {
       feedbackDetail:[],
       expertDetail:[],

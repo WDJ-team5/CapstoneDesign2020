@@ -30,18 +30,22 @@
         </thead>
         <tbody>
             <tr v-for="(feedbackList, index) in feedbackList" :key="index" @click="rowClick(feedbackList.id,feedbackList.expert_id)">
-              <td class="cell_padding">{{feedbackList.id}}</td>
-              <td>{{feedbackList.title}}</td>
-              <td class="cell_padding">{{feedbackList.created_at}}</td>
-              <td class="cell_padding">
-                <b-badge variant="secondary" v-if="feedbackList.answer==null">미답변</b-badge>
-                <b-badge variant="primary" v-else>답변완료</b-badge>
-              </td>
+              <div>
+                <td class="cell_padding">{{feedbackList.id}}</td>
+                <td>{{feedbackList.title}}</td>
+                <td class="cell_padding">{{feedbackList.created_at}}</td>
+                <td class="cell_padding">
+                  <b-badge variant="secondary" v-if="feedbackList.answer==null">미답변</b-badge>
+                  <b-badge variant="primary" v-else>답변완료</b-badge>
+                </td>
+              </div>
+              <div v-if="isAc">
+                <AdviceDetail v-bind:propsdata="detail"></AdviceDetail>
+              </div>
             </tr>
         </tbody>
       </table>
     </div>
-
 
   </div>
 
@@ -54,13 +58,16 @@
 
 <script>
 import data from "./index.js";
+import AdviceDetail from "./AdviceDetail.vue";
 import * as feedbackService from "../../services/feedback_service";
 
 export default {
-  name: "FeedbackList",
+  name: "AdviceList",
   data() {
 
     return {
+      isActive1:false,
+      ActiveIndex:[],
       currentPage: 1, 
       perPage: 10, 
       fields: [
@@ -90,6 +97,7 @@ export default {
                 answer_data : '',
                 expert_id : '',
             },
+      detail:[],
       // items: items
     };
   },
@@ -113,22 +121,31 @@ export default {
              });
          }
      },
-    rowClick(cid,eid) {
-      this.$router.push({
-        path: `/advice/detail/${cid}/${eid}`
-      });
-    },
+    // rowClick(cid,eid) {
+    //   this.$router.push({
+    //     path: `/advice/detail/${cid}/${eid}`
+    //   });
+    // },
     // writeContent() {
     //   this.$router.push({
     //     path: `/board/create`
     //   });
     // }
+    rowClick(cid, eid) {
+      // this.isActive1 =!this.isActive1;
+      this.ActiveIndex.unshift(cid);
+      this.detail.unshift(eid);
+      this.detail.unshift(cid);
+    },
   },
   computed: {
     rows() {
       return this.feedbackList.length;
     }
-  }
+  },
+  components: {
+    AdviceDetail
+  },
 };
 
 </script>

@@ -86,7 +86,7 @@ export default {
                 console.log("data : ",response.data);
                 this.experts.unshift(response.data);
                 this.experts=response.data; 
-                // console.log("전문가 값 출력 : ",this.experts);
+                console.log("전문가 값 출력 : ",this.experts);
 
 
                 const idolExp = response.data.filter(item => item.area === 'idol');
