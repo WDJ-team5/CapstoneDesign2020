@@ -14,7 +14,8 @@
                         <td>{{apply.title}}</td>
                         <td>{{apply.message}}</td>
                         <td>{{apply.score}}</td>
-                        <td v-if="apply.result == 1">합격</td>
+                        <td v-if="apply.result == 0">심사중</td>
+                        <td v-else-if="apply.result == 1">합격</td>
                         <td v-else>불합격</td>
                     </tr>
                 </tbody>
