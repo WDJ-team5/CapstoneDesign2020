@@ -14,12 +14,12 @@
 
     <div class="table-box">
       <table class="table" width="950">
-        <colgroup>
+        <!-- <colgroup>
           <col width="8%" />
           <col width="40%" />
           <col width="26%" />
           <col width="16%" />
-        </colgroup>
+        </colgroup> -->
         <thead>
             <tr class="top-border">
                 <td class="cell_padding right-border">번호</td>
@@ -29,20 +29,40 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="(feedbackList, index) in feedbackList" :key="index" @click="rowClick(feedbackList.id,feedbackList.expert_id)">
-              <div>
-                <td class="cell_padding">{{feedbackList.id}}</td>
-                <td>{{feedbackList.title}}</td>
-                <td class="cell_padding">{{feedbackList.created_at}}</td>
-                <td class="cell_padding">
-                  <b-badge variant="secondary" v-if="feedbackList.answer==null">미답변</b-badge>
-                  <b-badge variant="primary" v-else>답변완료</b-badge>
-                </td>
-              </div>
-              <div v-if="isAc">
-                <AdviceDetail v-bind:propsdata="detail"></AdviceDetail>
-              </div>
+          <div class="test" v-for="(feedbackList, index) in feedbackList" :key="index" >
+
+            <tr @click="rowClick(feedbackList.id,feedbackList.expert_id)"> 
+                  <td v-b-toggle="'collapse-'+index">
+                      <div class="cell_padding">{{feedbackList.id}}</div>
+                  </td>
+ 
+                  <td v-b-toggle="'collapse-'+index">
+                    <div>{{feedbackList.title}}</div>
+                  </td>
+   
+                  <td v-b-toggle="'collapse-'+index">
+                    <div class="cell_padding">{{feedbackList.created_at}}</div>
+                  </td>
+                
+                  <td v-b-toggle="'collapse-'+index">
+                    <div class="cell_padding">
+                      <b-badge variant="secondary" v-if="feedbackList.answer==null">미답변</b-badge>
+                      <b-badge variant="primary" v-else>답변완료</b-badge>
+                    </div>     
+                  </td>
             </tr>
+
+            <tr>
+              <td class="td-detail" colspan='4'>
+                <div class="detail">
+                  <b-collapse :id="'collapse-'+index">
+                    <AdviceDetail v-if="isActive1" v-bind:propsdata="detail"></AdviceDetail>
+                  </b-collapse>
+                </div>
+              </td>
+            </tr>
+
+          </div>
         </tbody>
       </table>
     </div>
@@ -132,10 +152,12 @@ export default {
     //   });
     // }
     rowClick(cid, eid) {
-      // this.isActive1 =!this.isActive1;
-      this.ActiveIndex.unshift(cid);
+      this.isActive1 =!this.isActive1;
       this.detail.unshift(eid);
       this.detail.unshift(cid);
+      // console.log("rowClick은 실행되었음");
+      // console.log("eid : "+eid+", cid : "+cid);
+      // console.log(this.detail[0]+""+this.detail[1]);
     },
   },
   computed: {
@@ -209,6 +231,17 @@ export default {
       border-top: solid rgb(194, 193, 193) 3px;
     }
 
+    .test {
+      display:contents;
+    }
 
+    .detail {
+      display:contents;
 
-</style>>
+    }
+
+    .td-detail {
+      padding:0%;
+    }
+
+</style>
