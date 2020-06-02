@@ -29,7 +29,7 @@
             </tr>
         </thead>
         <tbody>
-          <div class="test" v-for="(feedbackList, index) in feedbackList" :key="index" >
+          <div class="test" v-for="(feedbackList, index) in feedbackList.slice(10*(currentPage-1),10*(currentPage))" :key="index" >
 
             <tr @click="rowClick(feedbackList.id,feedbackList.expert_id)"> 
                   <td v-b-toggle="'collapse-'+index">
@@ -67,6 +67,21 @@
       </table>
     </div>
 
+
+    <div>
+      <b-pagination
+        v-model="currentPage"
+        :total-rows="rows"
+        :per-page="perPage"
+        :items="feedbackList"
+        first-text="First"
+        prev-text="Prev"
+        next-text="Next"
+        last-text="Last"
+      ></b-pagination>
+    </div>
+
+
   </div>
 
 
@@ -86,10 +101,10 @@ export default {
   data() {
 
     return {
+      perPage: 10,
+      currentPage: 1,
       isActive1:false,
       ActiveIndex:[],
-      currentPage: 1, 
-      perPage: 10, 
       fields: [
         {
           key: "id",
@@ -180,8 +195,9 @@ export default {
       height: auto;
       margin-bottom:30px;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
     }
 
     .table-box {
