@@ -15,9 +15,11 @@ class AuditionController extends Controller
     public function index()
     {
         $confirmCode = \App\Session::first();
+        
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
         $audition = \App\Audition::orderBy('id','desc')->with(array('user'=>function($query){$query->with(array('company'=>function($query){$query->get();} ));}))->get();
+
 
         // App\User::whereClass(2)
         //->with(array('expert'=>function($query){$query->select('id');}))->get()

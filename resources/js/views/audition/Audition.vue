@@ -81,7 +81,8 @@ export default {
     return {
       pageNum: 0,
       auditions: [],
-      auditions2:[],
+      auditionsa:[],
+      auditionsb:[],
       auditionData: {
         id: "",
         title: "",
@@ -110,10 +111,10 @@ export default {
 
   methods: {
     aRank(){
-      console.log(this.auditions2);
+      this.auditions=this.auditionsa;
     },
     bRank(){
-      console.log('b');
+     this.auditions=this.auditionsb;
     },
     nextPage () {
       this.pageNum += 1;
@@ -129,6 +130,16 @@ export default {
         this.auditions.unshift(response);
         
         this.auditions = response.data[0];
+
+        for(var i=0;i<this.auditions.length;i++){
+          if(this.auditions[i].rank=="A"){
+            this.auditionsa.push(this.auditions[i]);
+          }else{
+            this.auditionsb.push(this.auditions[i]);
+          }
+      }
+
+        
         this.auditions2=response.data[0];
         console.log(this.auditions);
       } catch (error) {
