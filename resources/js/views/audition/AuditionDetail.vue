@@ -29,15 +29,15 @@
           </tr>
           <tr>
             <th>담당자 이름</th>
-            <td>{{auditions.name}}</td>
+            <td>{{auditions.user.name}}</td>
             <th>담당자 연락처</th>
-            <td>{{auditions.call_number}}</td>
+            <td>{{auditions.user.call_number}}</td>
           </tr>
           <tr>
             <th>회사 명</th>
-            <td>{{auditions.company_name}}</td>
+            <td>{{auditions.user.company.company_name}}</td>
             <th>회사 위치</th>
-            <td>{{auditions.address}}</td>
+            <td>{{auditions.user.address}}</td>
           </tr>
         </tbody>
       </table>
@@ -142,9 +142,7 @@ export default {
       try {
         const response = await auditionService.loadDetailAudition(this.cid);
         this.auditions = response.data[0];
-        console.log('가나다');
         console.log(this.auditions);
-        console.log(response.data);
         this.state = true;
       } catch (error) {
         this.flashMessage.error({

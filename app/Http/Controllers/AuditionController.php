@@ -18,7 +18,12 @@ class AuditionController extends Controller
         
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
-        $audition = \App\Audition::orderBy('id','desc')->with(array('user'=>function($query){$query->with(array('company'=>function($query){$query->get();} ));}))->get();
+        $audition = \App\Audition::orderBy('id','desc')
+        ->with(array('user'=>function($query){
+            $query->with(array('company'=>function($query){
+                $query->get();
+            } ));
+        }))->get();
 
 
         // App\User::whereClass(2)
@@ -105,8 +110,11 @@ class AuditionController extends Controller
         
         
             
-        $result = \App\Audition::join('users','user_id','=','users.id')
-        ->join('companies','company_id','=','companies.id')->find($id);
+        // $result = \App\Audition::join('users','user_id','=','users.id')
+        // ->join('companies','company_id','=','companies.id')->find($id);
+
+        $result = \App\Audition::with(array('user'=>function($query){$query->with(array('company'=>function($query){$query->get();}));}))->find($id);
+
         return response()->json([$result,$user], 200);
     }
 

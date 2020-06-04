@@ -17,7 +17,7 @@ class AuditionsTableSeeder extends Seeder
             'end_date' => '2020-05-25',
             'aud_image' => 'auditon_image/01.jpg',
             'rank' => 'A',
-            'video' => '나중에 집어넣어',
+            'video' => 'audition_sample01',
             'user_id' => 19,
         ]);
         App\Audition::create([

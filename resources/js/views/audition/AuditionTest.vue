@@ -13,72 +13,89 @@
         transform: scaleX(1);
         "
     ></video>
-    <!-- <img src="sample.jpg" id="source-video" height="1000"/>         -->
 
     <video ref="webcam" id="webCam" width="800" height="600" autoplay v-on:play="bindPage()"></video>
-    <!-- <canvas id="canvas" width="800" height="600"> -->
+    <canvas id="canvas" width="800" height="600" />
     <div id="pannel">
-      <button id="preview_btn" type="button" v-on:click="modeChange()">{{computedModeChangeHtml}}</button>
-      <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button>
-      <!-- <button id="end-btn" type="button">끝내기</button> -->
-      <router-link to="/audition" class="nav-link" exact>
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <button id="end_btn">끝내기</button>
-      </router-link>
+      <div id="pannel_content">
+        <p>테스트를 시작하기전 자신의 모습이 인식이 잘 되는지 확인해주세요.</p>
+        <p>주변에 옷이나 인식에 방해되는 요소를 제거해 주세요.</p>
+        <hr />
+        <p>@댄스설명@</p>
+        <p>노력은 배신하지 않습니다~!</p>
+      </div>
+      <div class="btn-bg bg-1">
+        <div class="btn btn-1">
+          <button
+            id="preview_btn"
+            type="button"
+            v-on:click="modeChange()"
+          >{{computedModeChangeHtml}}</button>
+          <!-- <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button> -->
+          <!-- <button id="end-btn" type="button">끝내기</button> -->
+          <router-link to="/lecture" class="nav-link" exact>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <button id="end_btn">끝내기</button>
+          </router-link>
+        </div>
+      </div>
     </div>
-
-    <!-- 이거가 -->
     <div id="modal" v-bind:style="{display:computedDisplay}">
       <div class="modal_content">
-          <div id="result_left">
-              <div id="left_content">
-              <h2 id="result_title">참 잘했어용! ! !</h2>
-              <h2 id="result_score">{{computedFinalScore}}점</h2>
-              <b-progress id="result_graph" :value="78" variant="success" striped :animated="animate"></b-progress>
-            </div>
-          </div>
-          <div id="result_right">
-            <img src="images/logo.jpg" width="200px" height="41px" style="margin-top:50px;margin-left:60px;margin-bottom:30px">
-            <button id="result_replay" type="button" v-on:click="modalChange()">다시하기</button>
-            
-              <button id="result_end" style="margin-top:5px;" v-on:click="apply()">지원하기</button>
+        <div id="result_left">
+          <div id="left_content">
+            <h2 id="result_title">참 잘했어용! ! !</h2>
+            <h2 id="result_score">{{computedFinalScore}}점</h2>
+            <b-progress id="result_graph" :value="78" variant="success" striped :animated="animate"></b-progress>
           </div>
         </div>
+        <div id="result_right">
+          <img
+            src="images/logo.jpg"
+            width="200px"
+            height="41px"
+            style="margin-top:50px;margin-left:60px;margin-bottom:30px"
+          />
+          <button id="result_replay" type="button" v-on:click="modalChange()">다시하기</button>
+
+          <button id="result_end" style="margin-top:5px;" v-on:click="apply()">지원하기</button>
+        </div>
+      </div>
 
       <!-- <div class="modal_content">
         <h2>이거맞나</h2>
         <p>{{computedFinalScore}}</p>
         <button type="button" id="replay_btn" v-on:click="modalChange()">다시하ㅇㅇ기</button>
-
         <router-link to="/lecture" class="nav-link" exact>
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <button id="end_btn">끝내기</button>
         </router-link>
-
       </div>-->
 
       <div class="modal_layer"></div>
     </div>
   </div>
 </template>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
-<script src="video.js"></script>
 <script>
-import * as lectureService from "../../services/lecture_service";
+// import * as lectureService from "../../services/lecture_service";
+import * as auditionService from "../../services/audition_service";
 import axios from "axios";
+import chartjs from "chart.js";
 export default {
   name: "LecturePlay",
   data() {
-    const lectureId = Number(this.$route.params.id);
+    const audtionId = Number(this.$route.params.contentId);
     const cal = require("../../../../public/js/calculation.js");
+    let danceData = { time: [], score: [] };
+
     return {
       animate: true,
-      id: lectureId,
-      cid:'',
+      id: audtionId,
+      content: "",
       filename: "",
       video: "",
       videoData: null,
+      data: null,
       webcam: "",
       modalDisplay: "none",
       videoControls: false,
@@ -86,13 +103,16 @@ export default {
       net: null,
       started: false,
       startTime: null,
-      danceData: [],
+      danceData: danceData,
       totalScore: 0,
       finalCount: 0,
       loop: null,
       cal: cal,
       finalScore: 0,
-      ended: false
+      ended: false,
+      ctx: null,
+      canvas: null,
+      poses: []
       // data:{
       //     'title' => '매우쉬운 아이돌 댄스',
       //     'content' => '이거슨 쉬운 아이돌 댄스입니다잉',
@@ -104,7 +124,6 @@ export default {
     };
   },
   mounted() {
-    this.cid = Number(this.$route.params.contentId);
     const constraints = (window.constraints = {
       audio: false,
       video: true
@@ -139,11 +158,13 @@ export default {
   methods: {
     loadLectureData: async function() {
       try {
-        const response = await lectureService.loadLectureData(1);
-        this.filename = response.data.video;
-        this.video = "videos/" + "audition_sample01"+ ".mp4";
+        const response = await auditionService.loadDetailAudition(this.id);
+        // this.content = response.data.content;
+        console.log(response.data);
+        this.filename = response.data[0].video;
+        this.video = "videos/" + this.filename + ".mp4";
         axios
-          .get("videoDatas/" + "audition_sample01" + ".json")
+          .get("videoDatas/" + this.filename + ".json")
           .then(response => (this.videoData = response.data));
       } catch (err) {
         console.error(err);
@@ -164,13 +185,25 @@ export default {
     },
     bindPage: async function() {
       this.net = await posenet.load();
+
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+      this.canvas = canvas;
+      this.ctx = ctx;
       this.webcamReady();
     },
     webcamReady: async function() {
       this.net.dispose();
-      this.net = await posenet.load();
+      this.net = await posenet
+        .load
+        // {architecture: 'MobileNetV1',
+        // outputStride: 16,
+        // inputResolution: { width: 640, height: 480 },
+        // multiplier: 0.75}
+        ();
       const pose = await this.net.estimateSinglePose(this.$refs.webcam);
-      const poses = this.cal.getData(pose);
+      const data = this.cal.getData(pose);
+      this.poses.push(pose);
 
       let motionCircle = [
         -51.47224073047192,
@@ -181,18 +214,19 @@ export default {
       if (
         !this.start &&
         this.ready &&
-        poses.leftUpperarm < motionCircle[0] + 20 &&
-        poses.leftUpperarm > motionCircle[0] - 20 &&
-        poses.leftForearm < motionCircle[1] + 20 &&
-        poses.leftForearm > motionCircle[1] - 20 &&
-        poses.rightUpperarm < motionCircle[2] + 20 &&
-        poses.rightUpperarm > motionCircle[2] - 20 &&
-        poses.rightForearm < motionCircle[3] + 20 &&
-        poses.rightForearm > motionCircle[3] - 20
+        data.leftUpperarm < motionCircle[0] + 20 &&
+        data.leftUpperarm > motionCircle[0] - 20 &&
+        data.leftForearm < motionCircle[1] + 20 &&
+        data.leftForearm > motionCircle[1] - 20 &&
+        data.rightUpperarm < motionCircle[2] + 20 &&
+        data.rightUpperarm > motionCircle[2] - 20 &&
+        data.rightForearm < motionCircle[3] + 20 &&
+        data.rightForearm > motionCircle[3] - 20
       ) {
         this.start = true;
         let d = new Date();
         this.startTime = d.getTime();
+        this.canvas.style.display = "none";
         this.$refs.video.play();
       }
       if (this.start) {
@@ -206,12 +240,16 @@ export default {
         if (timing >= this.videoData.length) {
           timing = this.videoData.length - 1;
         }
-        for (let key in poses) {
-          if (Math.abs(poses[key]) != 180 && poses[key] != 0) {
+        for (let key in data) {
+          if (
+            Math.abs(data[key]) != 180 &&
+            data[key] != 0 &&
+            Math.abs(this.videoData[timing][key]) != 180 &&
+            this.videoData[timing][key] != 0
+          ) {
             tmp =
               100 -
-              (this.cal.distance(poses[key], this.videoData[timing][key]) /
-                180) *
+              (this.cal.distance(data[key], this.videoData[timing][key]) / 90) *
                 100;
             if (tmp < 0) tmp = 0;
             score += tmp;
@@ -219,18 +257,25 @@ export default {
           }
         }
 
-        this.danceData.push({ time, score: tmp });
         tmp = 0;
         if (cnt != 0) {
           tmp = 0;
           if (score != 0) tmp = score / cnt;
           this.totalScore += tmp;
           this.finalCount += 1;
+          this.danceData.time.push(time / 1000);
+          this.danceData.score.push(tmp);
         }
         console.log(tmp + "%");
+      } else {
+        console.log("asdf");
+        this.draw(pose);
       }
       if (!this.ended)
         this.loop = window.requestAnimationFrame(this.webcamReady);
+    },
+    saveVideo: function() {
+      var canvas = document.createElement("canvas");
     },
     endedVideo: async function() {
       if (this.start) {
@@ -249,7 +294,6 @@ export default {
           // const res = await lectureService.createScore();
           console.log(res);
           console.log("플레이 데이터 저장 성공");
-
           // this.flashMessage.success({
           //   message: "Category stored successfully!",
           //   time: 5000
@@ -266,25 +310,41 @@ export default {
           //       time: 5000
           //     });
           //     break;
-          // } 
+          // }
         }
       }
     },
-
-    // 페이지 넘기기
-    apply(){
-      let score=this.finalScore;
-      let cid=this.cid;
+    draw: function(pose) {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      var points = pose.keypoints;
+      for (var key = 0; key < points.length; key++) {
+        if (points[key].score > 0.6) {
+          this.ctx.beginPath();
+          this.ctx.arc(
+            points[key].position.x,
+            points[key].position.y,
+            10,
+            0,
+            Math.PI * 2
+          );
+          this.ctx.fill();
+          this.ctx.stroke();
+          this.ctx.closePath();
+        }
+      }
+      this.ctx.fillStyle = "#0095DD";
+    },
+    apply() {
+      let score = this.finalScore;
+      // let cid = this.cid;
       this.$router.push({
-        path:`/auditionapply/${cid}/${score}`
+        path: `/auditionapply/${this.id}/${score}`
       });
     }
   }
 };
 </script>
 <style>
-
-
 /* html, body {
         overflow: hidden;
         width:100%;
@@ -296,9 +356,6 @@ export default {
 #container {
   width: 100%;
   height: 100%;
-}
-#canvas {
-  position: relative;
 }
 #webCam {
   position: fixed;
@@ -328,31 +385,33 @@ export default {
   bottom: 0;
   width: 25%;
   height: 60%;
-  background: brown;
+}
+#pannel #pannel_content {
+  padding: 20px;
 }
 
 #preview_btn {
   position: absolute;
   bottom: 10px;
   left: 20px;
+  width: 120px;
+  height: 50px;
 }
 
 #end_btn {
   position: absolute;
   bottom: 10px;
   right: 20px;
+  width: 120px;
+  height: 50px;
 }
 #modal {
   position: relative;
-  background: white;
   width: 100%;
   height: 100%;
-  z-index: 100001;
+  z-index: 100002;
   display: none;
 }
-/* #modal h2 {
-  margin: 0;
-} */
 
 #modal button {
   display: inline-block;
@@ -362,6 +421,7 @@ export default {
 #modal .modal_content {
   position: relative;
   width: 800px;
+  height: 600px;
   margin: 100px auto;
   padding: 20px 10px;
   background: #fff;
@@ -377,68 +437,113 @@ export default {
   z-index: -1;
 }
 
+#canvas {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 25%;
+  height: 40%;
+  border: 1px solid;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  z-index: 100001;
+}
 
-  #result_title{
-        margin-left: 50px;
-    }
+#result_title {
+  margin-left: 50px;
+}
+#result_score {
+  margin-left: 96px;
+}
 
-    #result_score{
-        margin-left: 96px;
-    }
-    
-    #left_content{
-      margin-top:70px
-    }
+#left_content {
+  margin-top: 70px;
+}
+#result_ranking {
+  margin-top: 20px;
+}
+#result_container {
+  width: 100%;
+  margin-top: 50px;
+  border: 1px sollid gray;
+}
+#result_left {
+  width: 45%;
+  height: 400px;
+  display: inline-block;
+  border: 10px solid gray;
+}
+#result_graph {
+  margin-left: 10%;
+  background: #d3d3d3;
+  width: 80%;
+  height: 50px;
+}
+#result_right {
+  width: 45%;
+  height: 400px;
+  display: inline-block;
+  vertical-align: top;
+  border: 10px solid gray;
+}
 
-    #result_ranking{
-        margin-top: 20px;
-    }
-    #result_container{
-        width: 100%;
-        margin-top: 50px;
-        border: 1px sollid gray;
-        
-    }
-    #result_left{
-        width:45%;
-        height: 400px;
-        display: inline-block;
-        border:10px solid gray;
-    }
+/* #replay_btn {
+  position: absolute;
+  right: 170px;
+  bottom: 10px;
+}
+.modal_end_btn {
+  position: absolute;
+  height: 30px;
+  width: 80px;
+  right: 10px;
+  bottom: 10px;
+} */
 
-    #result_graph{
-        
-        margin-left: 10%;
-        background: #d3d3d3;
-        width: 80%;
-        height: 50px;
-    }
-
-
-    #result_right{
-        width:45%;
-        height: 400px;
-        display: inline-block;
-        vertical-align: top;
-        border:10px solid gray;
-    }
-
-    #btn-radios-1{
-        width: 80%;
-    }
-
-    #ranking_title{
-        margin-top: 30px;
-    }
-
-    #button_area{
-        width: 100%;
-        margin-top:5%;
-    }
-
-    .resultbutton{
-        width:30%;
-        
-        vertical-align: top;
-    }
+body .btn-bg {
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body .btn-bg.bg-1 {
+  background: #6ab1c9;
+}
+body .btn-bg.bg-1 .btn-1 button {
+  color: #c7f8f9;
+  background: transparent;
+  border: 3px solid #c7f8f9;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+body .btn-bg.bg-1 .btn-1 button a {
+  color: #c7f8f9;
+}
+body .btn-bg.bg-1 .btn-1 button:hover {
+  background: #c7f8f9;
+  color: #6ab1c9;
+  border: 3px solid #6ab1c9;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+body .btn-bg.bg-1 .btn-1 button:hover > a {
+  color: #6ab1c9;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+body .btn-bg.bg-1 .btn-1 button:active {
+  -webkit-transform: translate(5px, 5px);
+  transform: translate(5px, 5px);
+}
+#accuracy_p {
+  font-size: 20px;
+}
 </style>

@@ -127,8 +127,7 @@ export default {
     loadAudition: async function() {
       try {
         const response = await auditionService.loadAudition();
-        this.auditions.unshift(response);
-        
+        // this.auditions.unshift(response);
         this.auditions = response.data[0];
 
         for(var i=0;i<this.auditions.length;i++){
@@ -141,7 +140,7 @@ export default {
 
         
         this.auditions2=response.data[0];
-        console.log(this.auditions);
+        // console.log(this.auditions);
       } catch (error) {
         this.flashMessage.error({
           message: "에러가 발생했습니다!",
