@@ -192,4 +192,10 @@ class feedbackController extends Controller
     {
         //
     }
+
+
+    public function search(Request $request){
+        $search = $request->get('q');
+        return \App\User::where('name','like','%'.$search.'%')->with(array('expert'=>function($query){$query->with(array('specialty'=>function($query){$query->get();}))->with(array('company'=>function($query){$query->get();}));}))->get();
+    }
 }

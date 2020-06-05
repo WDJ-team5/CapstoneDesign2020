@@ -1,39 +1,63 @@
 <template>
   <div class="expert">
 
-
-    <div class="expert-set">
-      <h1>#아이돌 댄스</h1>
-      <div id="container" class="expert-imgList">
-        <ExpertItem v-bind:propsdata="idolExp" v-on:active="active1" />
-      </div>
-      <div class="expert-profile" v-if="isActive1">
-        <ExpertDetail v-bind:propsdata="data[0]"></ExpertDetail>
+    <div class="col-md-8">
+      <div class="input-group">
+        <input type="text" v-model="search" class="form-control">
+        <div class="input-group-prepend">
+          <button @click.prevent="searchExpert()" class="btn btn-primary"><i class="fa fa-search"></i></button>
+        </div>
       </div>
     </div>
 
 
-    <div class="expert-set">
-      <h1>#힙합 댄스</h1>
-      <div id="container" class="expert-imgList">
-        <ExpertItem v-bind:propsdata="hiphopExp" v-on:active="active2" />
-      </div>
-      <div class="expert-profile" v-if="isActive2">
-        <ExpertDetail v-bind:propsdata="data[0]"></ExpertDetail>
+
+    <div v-if="showsearch==true">
+      <div class="expert-set">
+        <div id="container" class="expert-imgList">
+          <ExpertItem v-bind:propsdata="caris" v-on:active="active1" />
+        </div>
+        <div class="expert-profile" v-if="isActive1">
+          <ExpertDetail v-bind:propsdata="data[0]"></ExpertDetail>
+        </div>
       </div>
     </div>
 
 
-    <div class="expert-set">
-      <h1>#팝핀 댄스</h1>
-      <div id="container" class="expert-imgList">
-        <ExpertItem v-bind:propsdata="poppinExp" v-on:active="active3" />
+
+    <div v-if="showsearch==false">
+      <div class="expert-set">
+        <h1>#아이돌 댄스</h1>
+        <div id="container" class="expert-imgList">
+          <ExpertItem v-bind:propsdata="idolExp" v-on:active="active1" />
+        </div>
+        <div class="expert-profile" v-if="isActive1">
+          <ExpertDetail v-bind:propsdata="data[0]"></ExpertDetail>
+        </div>
       </div>
-      <div class="expert-profile" v-if="isActive3">
-        <ExpertDetail v-bind:propsdata="data[0]"></ExpertDetail>
+
+
+      <div class="expert-set">
+        <h1>#힙합 댄스</h1>
+        <div id="container" class="expert-imgList">
+          <ExpertItem v-bind:propsdata="hiphopExp" v-on:active="active2" />
+        </div>
+        <div class="expert-profile" v-if="isActive2">
+          <ExpertDetail v-bind:propsdata="data[0]"></ExpertDetail>
+        </div>
+      </div>
+
+
+      <div class="expert-set">
+        <h1>#팝핀 댄스</h1>
+        <div id="container" class="expert-imgList">
+          <ExpertItem v-bind:propsdata="poppinExp" v-on:active="active3" />
+        </div>
+        <div class="expert-profile" v-if="isActive3">
+          <ExpertDetail v-bind:propsdata="data[0]"></ExpertDetail>
+        </div>
       </div>
     </div>
-
 
   </div>
 </template>
@@ -66,6 +90,9 @@ export default {
       idolExp:[],
       hiphopExp:[],
       poppinExp:[],
+      search:'',
+      showsearch:false,
+      caris:[],
     };
 
 
@@ -78,6 +105,19 @@ export default {
         this.loadFeedback();
   },
   methods: {
+    searchExpert(){
+        fetch('/api/feedback/search?q='+this.search)
+        .then(res => res.json())
+        .then(res => {
+            this.caris = res;
+            console.log("검색결과 : ",res);
+            this.search = '';
+            this.showsearch = true;
+        })
+        .catch(err => {
+          console.log("에러다 에러");
+        });
+    },
     loadFeedback: async function(){
             try{
 
