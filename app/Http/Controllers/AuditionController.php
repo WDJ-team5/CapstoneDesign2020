@@ -15,9 +15,16 @@ class AuditionController extends Controller
     public function index()
     {
         $confirmCode = \App\Session::first();
+        
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
-        $audition = \App\Audition::orderBy('id','desc')->with(array('user'=>function($query){$query->with(array('company'=>function($query){$query->get();} ));}))->get();
+        $audition = \App\Audition::orderBy('id','desc')
+        ->with(array('user'=>function($query){
+            $query->with(array('company'=>function($query){
+                $query->get();
+            } ));
+        }))->get();
+
 
         // App\User::whereClass(2)
         //->with(array('expert'=>function($query){$query->select('id');}))->get()
@@ -103,8 +110,11 @@ class AuditionController extends Controller
         
         
             
-        $result = \App\Audition::join('users','user_id','=','users.id')
-        ->join('companies','company_id','=','companies.id')->find($id);
+        // $result = \App\Audition::join('users','user_id','=','users.id')
+        // ->join('companies','company_id','=','companies.id')->find($id);
+
+        $result = \App\Audition::with(array('user'=>function($query){$query->with(array('company'=>function($query){$query->get();}));}))->find($id);
+
         return response()->json([$result,$user], 200);
     }
 

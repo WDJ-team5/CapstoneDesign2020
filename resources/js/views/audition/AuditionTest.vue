@@ -13,7 +13,6 @@
         transform: scaleX(1);
         "
     ></video>
-    <!-- <img src="sample.jpg" id="source-video" height="1000"/>         -->
 
     <video ref="webcam" id="webCam" width="800" height="600" autoplay v-on:play="bindPage()"></video>
     <!-- <canvas id="canvas" width="800" height="600"> -->
@@ -41,32 +40,33 @@
     </div>
   </div>
 </template>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
-<script src="video.js"></script>
 <script>
-import * as lectureService from "../../services/lecture_service";
+// import * as lectureService from "../../services/lecture_service";
+import * as auditionService from "../../services/audition_service";
 import axios from "axios";
 import Swal from 'sweetalert2';
 export default {
   name: "LecturePlay",
   data() {
-    const lectureId = Number(this.$route.params.id);
+    const audtionId = Number(this.$route.params.contentId);
     const cal = require("../../../../public/js/calculation.js");
+    let danceData = { time: [], score: [] };
+
     return {
       animate: true,
-      id: lectureId,
-      cid:'',
+      id: audtionId,
+      content: "",
       filename: "",
       video: "",
       videoData: null,
+      data: null,
       webcam: "",
       videoControls: false,
       ready: true,
       net: null,
       started: false,
       startTime: null,
-      danceData: [],
+      danceData: danceData,
       totalScore: 0,
       finalCount: 0,
       loop: null,
@@ -78,7 +78,6 @@ export default {
     };
   },
   mounted() {
-    this.cid = Number(this.$route.params.contentId);
     const constraints = (window.constraints = {
       audio: false,
       video: true
@@ -110,11 +109,13 @@ export default {
   methods: {
     loadLectureData: async function() {
       try {
-        const response = await lectureService.loadLectureData(1);
-        this.filename = response.data.video;
-        this.video = "videos/" + "audition_sample01"+ ".mp4";
+        const response = await auditionService.loadDetailAudition(this.id);
+        // this.content = response.data.content;
+        console.log(response.data);
+        this.filename = response.data[0].video;
+        this.video = "videos/" + this.filename + ".mp4";
         axios
-          .get("videoDatas/" + "audition_sample01" + ".json")
+          .get("videoDatas/" + this.filename + ".json")
           .then(response => (this.videoData = response.data));
       } catch (err) {
         console.error(err);
@@ -128,13 +129,25 @@ export default {
     },
     bindPage: async function() {
       this.net = await posenet.load();
+
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+      this.canvas = canvas;
+      this.ctx = ctx;
       this.webcamReady();
     },
     webcamReady: async function() {
       this.net.dispose();
-      this.net = await posenet.load();
+      this.net = await posenet
+        .load
+        // {architecture: 'MobileNetV1',
+        // outputStride: 16,
+        // inputResolution: { width: 640, height: 480 },
+        // multiplier: 0.75}
+        ();
       const pose = await this.net.estimateSinglePose(this.$refs.webcam);
-      const poses = this.cal.getData(pose);
+      const data = this.cal.getData(pose);
+      this.poses.push(pose);
 
       let motionCircle = [
         -51.47224073047192,
@@ -146,14 +159,14 @@ export default {
         !this.counted&&
         !this.start &&
         this.ready &&
-        poses.leftUpperarm < motionCircle[0] + 20 &&
-        poses.leftUpperarm > motionCircle[0] - 20 &&
-        poses.leftForearm < motionCircle[1] + 20 &&
-        poses.leftForearm > motionCircle[1] - 20 &&
-        poses.rightUpperarm < motionCircle[2] + 20 &&
-        poses.rightUpperarm > motionCircle[2] - 20 &&
-        poses.rightForearm < motionCircle[3] + 20 &&
-        poses.rightForearm > motionCircle[3] - 20
+        data.leftUpperarm < motionCircle[0] + 20 &&
+        data.leftUpperarm > motionCircle[0] - 20 &&
+        data.leftForearm < motionCircle[1] + 20 &&
+        data.leftForearm > motionCircle[1] - 20 &&
+        data.rightUpperarm < motionCircle[2] + 20 &&
+        data.rightUpperarm > motionCircle[2] - 20 &&
+        data.rightForearm < motionCircle[3] + 20 &&
+        data.rightForearm > motionCircle[3] - 20
       ) {
         // this.start = true;
         // let d = new Date();
@@ -174,12 +187,16 @@ export default {
         if (timing >= this.videoData.length) {
           timing = this.videoData.length - 1;
         }
-        for (let key in poses) {
-          if (Math.abs(poses[key]) != 180 && poses[key] != 0) {
+        for (let key in data) {
+          if (
+            Math.abs(data[key]) != 180 &&
+            data[key] != 0 &&
+            Math.abs(this.videoData[timing][key]) != 180 &&
+            this.videoData[timing][key] != 0
+          ) {
             tmp =
               100 -
-              (this.cal.distance(poses[key], this.videoData[timing][key]) /
-                180) *
+              (this.cal.distance(data[key], this.videoData[timing][key]) / 90) *
                 100;
             if (tmp < 0) tmp = 0;
             score += tmp;
@@ -187,15 +204,19 @@ export default {
           }
         }
 
-        this.danceData.push({ time, score: tmp });
         tmp = 0;
         if (cnt != 0) {
           tmp = 0;
           if (score != 0) tmp = score / cnt;
           this.totalScore += tmp;
           this.finalCount += 1;
+          this.danceData.time.push(time / 1000);
+          this.danceData.score.push(tmp);
         }
         console.log(tmp + "%");
+      } else {
+        console.log("asdf");
+        this.draw(pose);
       }
       if (!this.ended)
         this.loop = window.requestAnimationFrame(this.webcamReady);
@@ -253,21 +274,37 @@ export default {
         })
       }
     },
-
-    // 페이지 넘기기
-    apply(){
-      let score=this.finalScore;
-      let cid=this.cid;
+    draw: function(pose) {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      var points = pose.keypoints;
+      for (var key = 0; key < points.length; key++) {
+        if (points[key].score > 0.6) {
+          this.ctx.beginPath();
+          this.ctx.arc(
+            points[key].position.x,
+            points[key].position.y,
+            10,
+            0,
+            Math.PI * 2
+          );
+          this.ctx.fill();
+          this.ctx.stroke();
+          this.ctx.closePath();
+        }
+      }
+      this.ctx.fillStyle = "#0095DD";
+    },
+    apply() {
+      let score = this.finalScore;
+      // let cid = this.cid;
       this.$router.push({
-        path:`/auditionapply/${cid}/${score}`
+        path: `/auditionapply/${this.id}/${score}`
       });
     }
   }
 };
 </script>
 <style>
-
-
 /* html, body {
         overflow: hidden;
         width:100%;
@@ -279,9 +316,6 @@ export default {
 #container {
   width: 100%;
   height: 100%;
-}
-#canvas {
-  position: relative;
 }
 #webCam {
   position: fixed;
@@ -390,71 +424,70 @@ body .btn-bg.bg-1 .btn-1 button:active {
   font-size: 20px;
 }
 
+#canvas {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 25%;
+  height: 40%;
+  border: 1px solid;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  z-index: 100001;
+}
+/* 
+#result_title {
+  margin-left: 50px;
+}
+#result_score {
+  margin-left: 96px;
+}
 
-  #result_title{
-        margin-left: 50px;
-    }
+#left_content {
+  margin-top: 70px;
+}
+#result_ranking {
+  margin-top: 20px;
+}
+#result_container {
+  width: 100%;
+  margin-top: 50px;
+  border: 1px sollid gray;
+}
+#result_left {
+  width: 45%;
+  height: 400px;
+  display: inline-block;
+  border: 10px solid gray;
+}
+#result_graph {
+  margin-left: 10%;
+  background: #d3d3d3;
+  width: 80%;
+  height: 50px;
+}
+#result_right {
+  width: 45%;
+  height: 400px;
+  display: inline-block;
+  vertical-align: top;
+  border: 10px solid gray;
+} */
 
-    #result_score{
-        margin-left: 96px;
-    }
-    
-    #left_content{
-      margin-top:70px
-    }
+/* #replay_btn {
+  position: absolute;
+  right: 170px;
+  bottom: 10px;
+}
+.modal_end_btn {
+  position: absolute;
+  height: 30px;
+  width: 80px;
+  right: 10px;
+  bottom: 10px;
+} */
 
-    #result_ranking{
-        margin-top: 20px;
-    }
-    #result_container{
-        width: 100%;
-        margin-top: 50px;
-        border: 1px sollid gray;
-        
-    }
-    #result_left{
-        width:48%;
-        height: 400px;
-        display: inline-block;
-        border:10px solid gray;
-    }
-
-    #result_graph{
-        
-        margin-left: 10%;
-        background: #d3d3d3;
-        width: 80%;
-        height: 50px;
-    }
-
-
-    #result_right{
-        width:48%;
-        height: 400px;
-        right:0;
-        display: inline-block;
-        vertical-align: top;
-        border:10px solid gray;
-    }
-
-    #btn-radios-1{
-        width: 80%;
-    }
-
-    #ranking_title{
-        margin-top: 30px;
-    }
-
-    #button_area{
-        width: 100%;
-        margin-top:5%;
-    }
-
-    .resultbutton{
-        width:30%;
-        
-        vertical-align: top;
-    }
 
 #count{
   position:fixed;

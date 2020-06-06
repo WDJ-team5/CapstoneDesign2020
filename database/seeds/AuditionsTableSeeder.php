@@ -17,7 +17,7 @@ class AuditionsTableSeeder extends Seeder
             'end_date' => '2020-05-25',
             'aud_image' => 'auditon_image/01.jpg',
             'rank' => 'A',
-            'video' => '나중에 집어넣어',
+            'video' => 'audition_sample01',
             'user_id' => 19,
         ]);
         App\Audition::create([
@@ -25,7 +25,7 @@ class AuditionsTableSeeder extends Seeder
             'content' => 'JYP는 언제나 당신의 도전을 환영합니다.',
             'end_date' => '2020-05-23',
             'aud_image' => 'auditon_image/02.jpg',
-            'rank' => 'A',
+            'rank' => 'B',
             'video' => '나중에 집어넣어',
             'user_id' => 20,
         ]);
@@ -43,7 +43,7 @@ class AuditionsTableSeeder extends Seeder
             'content' => 'audition_content_4',
             'end_date' => '2020-05-15',
             'aud_image' => 'auditon_image/04.jpg',
-            'rank' => 'A',
+            'rank' => 'B',
             'video' => '나중에 집어넣어',
             'user_id' => 20,
         ]);
@@ -62,7 +62,7 @@ class AuditionsTableSeeder extends Seeder
             'content' => 'audition_content_6',
             'end_date' => '2020-05-10',
             'aud_image' => 'auditon_image/06.jpg',
-            'rank' => 'A',
+            'rank' => 'B',
             'video' => '나중에 집어넣어',
             'user_id' => 20,
         ]);
