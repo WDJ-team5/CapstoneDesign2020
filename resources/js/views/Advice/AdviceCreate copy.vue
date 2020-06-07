@@ -20,10 +20,28 @@
 
                         <label class="video">
                             <label>첨부영상 : </label>
+                            <div class="video-form file is-info has-name">
+                                <label class="file-label">
+                                    <input class="file-input" type="file" ref="file" name="file" @change="addFile()">
+                                    <span class="file-cta">
+                                        <span class="file-icon">
+                                            <i class="fa fa-upload"></i>
+                                        </span>
+                                        <span class="file-label">
+                                            파일업로드
+                                        </span>
+                                    </span>
+                                    <span class="file-name" v-if="attachment.name" v-html="attachment.name"></span>
+                                </label>
+                            </div>
+                        </label>
+
+                        <!-- <label class="video">
+                            <label>첨부영상 : </label>
                             <div class="video-form">
                                 <b-form-input id="video" v-model="feedbackData.video" placeholder="링크를 입력하세요"></b-form-input>
                             </div>
-                        </label>
+                        </label> -->
 
                     </div>
 
@@ -51,19 +69,8 @@
 
                         <label class="video">
                             <label>첨부영상 : </label>
-                            <div class="video-form file is-info has-name">
-                                <label class="file-label">
-                                    <input class="file-input" type="file" ref="file" name="file" @change="addFile()">
-                                    <span class="file-cta">
-                                        <span class="file-icon">
-                                            <i class="fa fa-upload"></i>
-                                        </span>
-                                        <span class="file-label">
-                                            파일업로드
-                                        </span>
-                                    </span>
-                                    <span class="file-name" v-if="attachment.name" v-html="attachment.name"></span>
-                                </label>
+                            <div class="video-form">
+                                <b-form-input id="video" v-model="feedbackData.video" placeholder="링크를 입력하세요"></b-form-input>
                             </div>
                         </label>
                     </div>
@@ -135,7 +142,7 @@ export default {
             let formData=new FormData();
             formData.append('title',this.feedbackData.title);
             formData.append('content',this.feedbackData.content);
-            formData.append('file', this.attachment);
+            formData.append('video',this.feedbackData.video);
             formData.append('answer',null);
             formData.append('answer_date',null);
             formData.append('expert_id',this.$route.params.contentId);
