@@ -1,7 +1,12 @@
 <template>
   <div id="container">
     <!-- <b-table striped hover :items="items" :fields="fields" @row-clicked="rowClick"></b-table> -->
+    <b-dropdown id="dropdown-text" text="장르선택" class="m-2">
+        <b-dropdown-item-button @click="idol()">아이돌</b-dropdown-item-button>
+        <b-dropdown-item-button @click="pop()">팝핀</b-dropdown-item-button>
+    </b-dropdown>
     <div>
+        
         <b-list-group id="lecture-all" >
 
             <b-list-group-item id="lecture-set" href="#" active class="flex-column align-items-start" @click="rowClick(lecture)" v-for="(lecture,index) in paginatedData" :key="index">
@@ -48,6 +53,11 @@ export default {
         return {
             pageNum: 0,
             lectures:[],
+            lecturesa:[],
+            lecturesb:[],
+            lecturesc:[],
+            lecturesidol:[],
+            lecturespop:[],
             lectureData:{
                 title:'',
                 content:'',
@@ -73,7 +83,20 @@ export default {
                 const response=await lectureService.loadLecture();
                 // this.lectures.unshift(response.data);
                 this.lectures=response.data;
-                console.log(...this.lectures);
+                // console.log(...this.lectures);
+                // console.log(this.lectures[0].genre_id);
+
+
+                for(var i=0;i<this.lectures.length;i++){
+                // 아이돌 장르
+                if(this.lectures[i].genre_id==1){
+                    this.lecturesidol.push(this.lectures[i]);
+                // 팝핀 장르
+                }else{
+                    this.lecturespop.push(this.lectures[i]);
+                }
+            }
+
             }catch(error){
                 this.flashMessage.error({
                     message: '에러가 발생했습니다!',
@@ -92,6 +115,12 @@ export default {
         prevPage () {
         this.pageNum -= 1;
         },
+        idol(){
+        this.lectures=this.lecturesidol;
+        },
+        pop(){
+        this.lectures=this.lecturespop;
+        },
     },
 
     computed:{
@@ -109,7 +138,7 @@ export default {
         paginatedData () {
         const start = this.pageNum * this.pageSize,
                 end = start + this.pageSize;
-        console.log(this.lectures.slice(start, end)); 
+        // console.log(this.lectures.slice(start, end)); 
         return this.lectures.slice(start, end);
         },
     }
