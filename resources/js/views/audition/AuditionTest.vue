@@ -15,22 +15,20 @@
     ></video>
 
     <video ref="webcam" id="webCam" width="800" height="600" autoplay v-on:play="bindPage()"></video>
-    <canvas id="canvas" width="800" height="600" />
+    <!-- <canvas id="canvas" width="800" height="600"> -->
+    <div id="count">3</div>
     <div id="pannel">
       <div id="pannel_content">
         <p>테스트를 시작하기전 자신의 모습이 인식이 잘 되는지 확인해주세요.</p>
         <p>주변에 옷이나 인식에 방해되는 요소를 제거해 주세요.</p>
-        <hr />
+        <hr/>
+        <p>시험 응시 횟수는 무제한입니다.</p>
         <p>@댄스설명@</p>
-        <p>노력은 배신하지 않습니다~!</p>
+        <p>서얾엉</p>
       </div>
       <div class="btn-bg bg-1">
         <div class="btn btn-1">
-          <button
-            id="preview_btn"
-            type="button"
-            v-on:click="modeChange()"
-          >{{computedModeChangeHtml}}</button>
+          <button id="preview_btn" type="button" v-on:click="modeChange()">{{computedModeChangeHtml}}</button>
           <!-- <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button> -->
           <!-- <button id="end-btn" type="button">끝내기</button> -->
           <router-link to="/lecture" class="nav-link" exact>
@@ -40,47 +38,13 @@
         </div>
       </div>
     </div>
-    <div id="modal" v-bind:style="{display:computedDisplay}">
-      <div class="modal_content">
-        <div id="result_left">
-          <div id="left_content">
-            <h2 id="result_title">참 잘했어용! ! !</h2>
-            <h2 id="result_score">{{computedFinalScore}}점</h2>
-            <b-progress id="result_graph" :value="78" variant="success" striped :animated="animate"></b-progress>
-          </div>
-        </div>
-        <div id="result_right">
-          <img
-            src="images/logo.jpg"
-            width="200px"
-            height="41px"
-            style="margin-top:50px;margin-left:60px;margin-bottom:30px"
-          />
-          <button id="result_replay" type="button" v-on:click="modalChange()">다시하기</button>
-
-          <button id="result_end" style="margin-top:5px;" v-on:click="apply()">지원하기</button>
-        </div>
-      </div>
-
-      <!-- <div class="modal_content">
-        <h2>이거맞나</h2>
-        <p>{{computedFinalScore}}</p>
-        <button type="button" id="replay_btn" v-on:click="modalChange()">다시하ㅇㅇ기</button>
-        <router-link to="/lecture" class="nav-link" exact>
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <button id="end_btn">끝내기</button>
-        </router-link>
-      </div>-->
-
-      <div class="modal_layer"></div>
-    </div>
   </div>
 </template>
 <script>
 // import * as lectureService from "../../services/lecture_service";
 import * as auditionService from "../../services/audition_service";
 import axios from "axios";
-import chartjs from "chart.js";
+import Swal from 'sweetalert2';
 export default {
   name: "LecturePlay",
   data() {
@@ -97,7 +61,6 @@ export default {
       videoData: null,
       data: null,
       webcam: "",
-      modalDisplay: "none",
       videoControls: false,
       ready: true,
       net: null,
@@ -110,17 +73,8 @@ export default {
       cal: cal,
       finalScore: 0,
       ended: false,
-      ctx: null,
-      canvas: null,
-      poses: []
-      // data:{
-      //     'title' => '매우쉬운 아이돌 댄스',
-      //     'content' => '이거슨 쉬운 아이돌 댄스입니다잉',
-      //     'video' => 'sample',
-      //     'image' => 'LectureImg/01.jpg',
-      //     'genre_id' => 1,
-      //     'level_id' => 1,
-      // }
+      counted:false,
+      startCnt:3,
     };
   },
   mounted() {
@@ -141,9 +95,6 @@ export default {
     this.loadLectureData();
   },
   computed: {
-    computedDisplay: function() {
-      return this.modalDisplay;
-    },
     computedVideoControls: function() {
       return this.videoControls;
     },
@@ -168,13 +119,6 @@ export default {
           .then(response => (this.videoData = response.data));
       } catch (err) {
         console.error(err);
-      }
-    },
-    modalChange: function() {
-      if (this.modalDisplay == "none") {
-        this.modalDisplay = "block";
-      } else {
-        this.modalDisplay = "none";
       }
     },
     modeChange: function() {
@@ -212,6 +156,7 @@ export default {
         -53.90398220226736
       ];
       if (
+        !this.counted&&
         !this.start &&
         this.ready &&
         data.leftUpperarm < motionCircle[0] + 20 &&
@@ -223,11 +168,13 @@ export default {
         data.rightForearm < motionCircle[3] + 20 &&
         data.rightForearm > motionCircle[3] - 20
       ) {
-        this.start = true;
-        let d = new Date();
-        this.startTime = d.getTime();
-        this.canvas.style.display = "none";
-        this.$refs.video.play();
+        // this.start = true;
+        // let d = new Date();
+        // this.startTime = d.getTime();
+        // this.$refs.video.play();
+        this.counted = true;
+        document.getElementById('count').style.display = 'block';
+        this.playCounting();
       }
       if (this.start) {
         let score = 0;
@@ -274,8 +221,19 @@ export default {
       if (!this.ended)
         this.loop = window.requestAnimationFrame(this.webcamReady);
     },
-    saveVideo: function() {
-      var canvas = document.createElement("canvas");
+    playCounting: function(){
+      document.getElementById('count').innerHTML = this.startCnt;
+      console.log(this.startCnt)
+      if(this.startCnt > 0){
+        this.startCnt--;
+        setTimeout(this.playCounting, 1000);
+      }else{
+        document.getElementById('count').style.display = "none";
+        this.start = true;
+        let d = new Date();
+        this.startTime = d.getTime();
+        this.$refs.video.play();
+      }
     },
     endedVideo: async function() {
       if (this.start) {
@@ -287,31 +245,33 @@ export default {
         // console.log(...formData);
         this.finalScore = tmp.toFixed(2);
         window.cancelAnimationFrame(this.loop);
-        this.modalChange();
 
+        /* 데이터 저장 */
         try {
           const res = await lectureService.createScore(formData);
-          // const res = await lectureService.createScore();
           console.log(res);
           console.log("플레이 데이터 저장 성공");
-          // this.flashMessage.success({
-          //   message: "Category stored successfully!",
-          //   time: 5000
-          // });
         } catch (error) {
           console.log(error);
-          // switch (error.response.status) {
-          //   case 422:
-          //     this.errors = error.response.data.errors;
-          //     break;
-          //   default:
-          //     this.flashMessage.error({
-          //       message: "Some error occurred, Please try again!",
-          //       time: 5000
-          //     });
-          //     break;
-          // }
         }
+        
+        /* 모달  */
+        Swal.fire({
+          title:'정확도 : '+this.finalScore+'%',
+          html:
+          '<p>해당 점수로 지원하시겠습니까?</p>',
+          timerProgressBar: true,
+          icon: 'success',
+          showCancelButton: true,
+          confirmButtonText: '지원하기',
+          cancelButtonText: '다시하기',
+          allowOutsideClick:false,
+          allowEscapeKey:false,
+        }).then((result)=>{
+          if(result.value){
+            this.apply();
+          }
+        })
       }
     },
     draw: function(pose) {
@@ -378,6 +338,13 @@ export default {
   background-color: black;
   z-index: 100000;
 }
+
+footer{
+  display: none;
+  }
+.swal2-container{
+  z-index:100001;
+}
 /* #canvas{ */
 #pannel {
   position: fixed;
@@ -385,8 +352,9 @@ export default {
   bottom: 0;
   width: 25%;
   height: 60%;
+  z-index: 100000;
 }
-#pannel #pannel_content {
+#pannel #pannel_content{
   padding: 20px;
 }
 
@@ -405,36 +373,55 @@ export default {
   width: 120px;
   height: 50px;
 }
-#modal {
-  position: relative;
+#replay_btn{
+  position: absolute;
+  right: 170px;
+  bottom: 10px;
+}
+body .btn-bg {
+  position: absolute;
   width: 100%;
-  height: 100%;
-  z-index: 100002;
-  display: none;
+  height: 15%;
+  bottom:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
-#modal button {
-  display: inline-block;
-  width: 100px;
-  margin-left: calc(100% - 100px - 10px);
+body .btn-bg.bg-1 {
+  background: #6ab1c9;
 }
-#modal .modal_content {
-  position: relative;
-  width: 800px;
-  height: 600px;
-  margin: 100px auto;
-  padding: 20px 10px;
-  background: #fff;
-  border: 2px solid #666;
+body .btn-bg.bg-1 .btn-1 button {
+  color: #c7f8f9;
+  background: transparent;
+  border: 3px solid #c7f8f9;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
-#modal .modal_layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
+body .btn-bg.bg-1 .btn-1 button a {
+  color: #c7f8f9;
+}
+body .btn-bg.bg-1 .btn-1 button:hover {
+  background: #c7f8f9;
+  color: #6ab1c9;
+  border: 3px solid #6ab1c9;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+body .btn-bg.bg-1 .btn-1 button:hover >a {
+  color: #6ab1c9;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+body .btn-bg.bg-1 .btn-1 button:active {
+  -webkit-transform: translate(5px, 5px);
+  transform: translate(5px, 5px);
+}
+#accuracy_p{
+  font-size: 20px;
 }
 
 #canvas {
@@ -449,7 +436,7 @@ export default {
   -moz-transform: rotateY(180deg);
   z-index: 100001;
 }
-
+/* 
 #result_title {
   margin-left: 50px;
 }
@@ -486,7 +473,7 @@ export default {
   display: inline-block;
   vertical-align: top;
   border: 10px solid gray;
-}
+} */
 
 /* #replay_btn {
   position: absolute;
@@ -501,49 +488,19 @@ export default {
   bottom: 10px;
 } */
 
-body .btn-bg {
-  position: absolute;
+
+#count{
+  position:fixed;
+  display:none;
+  top: 0;
+  left: 0;
+  color: white;
   width: 100%;
-  height: 15%;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-body .btn-bg.bg-1 {
-  background: #6ab1c9;
-}
-body .btn-bg.bg-1 .btn-1 button {
-  color: #c7f8f9;
-  background: transparent;
-  border: 3px solid #c7f8f9;
-  border-radius: 5px;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
-}
-body .btn-bg.bg-1 .btn-1 button a {
-  color: #c7f8f9;
-}
-body .btn-bg.bg-1 .btn-1 button:hover {
-  background: #c7f8f9;
-  color: #6ab1c9;
-  border: 3px solid #6ab1c9;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-}
-body .btn-bg.bg-1 .btn-1 button:hover > a {
-  color: #6ab1c9;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-}
-body .btn-bg.bg-1 .btn-1 button:active {
-  -webkit-transform: translate(5px, 5px);
-  transform: translate(5px, 5px);
-}
-#accuracy_p {
-  font-size: 20px;
+  height: 100%;
+  padding: 300px;
+  font-size: 200px;
+  text-align: center;
+  background: rgba(0,0,0,0.5);
+  z-index: 100002;
 }
 </style>

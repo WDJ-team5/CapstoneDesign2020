@@ -5,6 +5,7 @@ use App\User;
 use App\Career;
 use App\Expert;
 use App\Article;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 
 class feedbackController extends Controller
@@ -65,6 +66,10 @@ class feedbackController extends Controller
      */
     public function store(Request $request)
     {
+        // $this->validate($request, [
+        //     'file' => 'required|file|mimes:' . File::getAllExtensions() . '|max:' . File::getMaxSize()
+        // ]);
+
         $confirmCode = \App\Session::first();
 
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
@@ -74,7 +79,9 @@ class feedbackController extends Controller
         $article->user_id=$user->id;
         $article->title=$request->title;
         $article->content=$request->content;
-        $article->video=$request->video;
+
+        $path=$request->file('file')->store('advice_video');
+        $article->video=$path;
 
         $article->expert_id=$request->expert_id;
   
@@ -191,5 +198,11 @@ class feedbackController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function search(Request $request){
+        $search = $request->get('q');
+        return \App\User::where('name','like','%'.$search.'%')->with(array('expert'=>function($query){$query->with(array('specialty'=>function($query){$query->get();}))->with(array('company'=>function($query){$query->get();}));}))->get();
     }
 }

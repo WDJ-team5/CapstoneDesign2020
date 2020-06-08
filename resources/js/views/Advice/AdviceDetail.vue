@@ -11,7 +11,16 @@
                 <div class="name">{{feedbackDetail.name}}</div>
               </div>
           </div>      
-          <div class="content-detail-content">{{feedbackDetail.content}}</div>
+          <div class="content-detail-content">
+            <div class="video-form">
+              <!-- <video controls>
+                  <source :src="`${$store.state.serverPath}/storage/${feedbackDetail.video}`" :type="'video/' + 'mp4'">
+                  Your browser does not support the video tag.
+              </video> -->
+              <video width="600px" height="400px" controls="controls" :src="`${$store.state.serverPath}/storage/${feedbackDetail.video}`"></video>
+            </div>
+            <div>{{feedbackDetail.content}}</div>
+          </div>
         </div>    
       </b-card>
     </div>

@@ -14,6 +14,7 @@
         "
     ></video>
 
+    <div id="count">3</div>
     <video ref="webcam" id="webCam" width="800" height="600" autoplay v-on:play="bindPage()"></video>
     <canvas id="canvas" width="800" height="600"/>
     <div id="pannel">
@@ -36,25 +37,13 @@
         </div>
       </div>
     </div>
-
-    <div id="modal" v-bind:style="{display:computedDisplay}">
-      <div class="modal_content">
-        <h2>테스트 결과</h2>
-        <p id="accuracy_p">정확도 : {{computedFinalScore}}</p>
-        <canvas id="chart" width = "800" height= "500"/>
-        <button type="button" id="replay_btn" v-on:click="modalChange()">다시하기</button>
-        <router-link to="/lecture" class="modal_end_btn" exact>
-          <button id="modal_end_btn">끝내기</button>
-        </router-link>
-      </div>
-      <div class="modal_layer"></div>
-    </div>
   </div>
 </template>
 <script>
 import * as lectureService from "../../services/lecture_service";
 import axios from "axios";
 import chartjs from 'chart.js';
+import Swal from 'sweetalert2';
 export default {
   name: "LecturePlay",
   data() {
@@ -86,6 +75,9 @@ export default {
       ctx: null,
       canvas: null,
       poses:[],
+      counted:false,
+      startCnt:3,
+
       // data:{
       //     'title' => '매우쉬운 아이돌 댄스',
       //     'content' => '이거슨 쉬운 아이돌 댄스입니다잉',
@@ -194,11 +186,16 @@ export default {
         data.rightForearm < motionCircle[3] + 20 &&
         data.rightForearm > motionCircle[3] - 20
       ) {
-        this.start = true;
-        let d = new Date();
-        this.startTime = d.getTime();
-        this.canvas.style.display = 'none';
-        this.$refs.video.play();
+        // this.start = true;
+        // let d = new Date();
+        // this.startTime = d.getTime();
+        // this.canvas.style.display = 'none';
+        // this.$refs.video.play();
+
+        this.counted = true;
+        document.getElementById('count').style.display = 'block';
+        this.playCounting();
+
       }
       if (this.start) {
         let score = 0;
@@ -238,6 +235,21 @@ export default {
       if (!this.ended)
         this.loop = window.requestAnimationFrame(this.webcamReady);
     },
+    playCounting: function(){
+      document.getElementById('count').innerHTML = this.startCnt;
+      console.log(this.startCnt)
+      if(this.startCnt > 0){
+        this.startCnt--;
+        setTimeout(this.playCounting, 1000);
+      }else{
+        document.getElementById('count').style.display = "none";
+        this.start = true;
+        let d = new Date();
+        this.startTime = d.getTime();
+        this.$refs.video.play();
+      }
+    },
+
     saveVideo: function(){
       var canvas = document.createElement('canvas');
     },
@@ -255,7 +267,41 @@ export default {
         this.finalScore = tmp.toFixed(2) + "%";
         window.cancelAnimationFrame(this.loop);
         console.log(this.danceData);
-        var chartCanvas = document.getElementById('chart');
+
+        /* 데이터 저장 */
+        try { 
+          const res = await lectureService.createScore(formData);
+          console.log(res);
+          console.log("플레이 데이터 저장 성공");
+        } catch (error) {
+          console.log(error);
+        }
+
+
+//        this.modalChange();
+        /* 모달 */
+        Swal.fire({
+          title:'정확도 : '+this.finalScore,
+          html:
+          '<p>시간별 정확도 그래프</p>'+
+          '<canvas id="graph"></canvas>',
+          timerProgressBar: true,
+          icon: 'success',
+          width: '1000px',
+          hegiht: '800px',
+          showCancelButton: true,
+          confirmButtonText: '끝내기',
+          cancelButtonText: '다시하기',
+          allowOutsideClick:false,
+          allowEscapeKey:false,
+          customClass:'swal2-height'
+        }).then((result)=>{
+          if(result.value){
+            this.apply();
+          }
+        })
+
+        var chartCanvas = document.getElementById('graph').getContext('2d');
         var chart = new chartjs(chartCanvas,{
           label: '정확도',
           type: 'line',
@@ -263,6 +309,9 @@ export default {
             labels:this.danceData.time,
             datasets:[{
               data: this.danceData.score,
+              label: "정확도",
+              borderColor: "black",
+              fill:false,
             }],
 //            backgroundColor:'rgba(255,201,14,1)',
            backgroundColor:'transpartent',
@@ -282,16 +331,6 @@ export default {
             }
           }
         });
-
-        this.modalChange();
-      
-        try {
-          const res = await lectureService.createScore(formData);
-          console.log(res);
-          console.log("플레이 데이터 저장 성공");
-        } catch (error) {
-          console.log(error);
-        }
       }
     },
     draw: function(pose) {     
@@ -372,44 +411,17 @@ export default {
   width: 120px;
   height: 50px;
 }
-#modal {
+
+
+.swal2-container{
+  z-index:100001;
+}
+.swal2-height{
+  height: 700px; 
+}
+#graph{
   position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 100002;
-  display: none;
-}
-#modal h2 {
-  margin: 0;
-}
-#modal button {
-  display: inline-block;
-  width: 100px;
-  margin-left: calc(100% - 100px - 10px);
-}
-#modal .modal_content {
-  position: relative;
-  width: 800px;
-  height: 600px;
-  margin: 100px auto;
-  padding: 20px 10px;
-  background: #fff;
-  border: 2px solid #666;
-}
-#modal .modal_layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
-#chart{
-  position: absolute;
-  left:50%;
-  top:50%;
-  transform: translate(-50%,-50%);
+  left: 130px; 
   width: 700px;
   height: 300px;
 }
@@ -430,13 +442,6 @@ export default {
 #replay_btn{
   position: absolute;
   right: 170px;
-  bottom: 10px;
-}
-.modal_end_btn{
-  position: absolute;
-  height: 30px;
-  width: 80px;
-  right: 10px;
   bottom: 10px;
 }
 
@@ -485,6 +490,21 @@ body .btn-bg.bg-1 .btn-1 button:active {
 }
 #accuracy_p{
   font-size: 20px;
+}
+
+#count{
+  position:fixed;
+  display:none;
+  top: 0;
+  left: 0;
+  color: white;
+  width: 100%;
+  height: 100%;
+  padding: 300px;
+  font-size: 200px;
+  text-align: center;
+  background: rgba(0,0,0,0.5);
+  z-index: 100002;
 }
 
 </style>
