@@ -4,7 +4,7 @@
     <div>
         <b-list-group id="lecture-all" >
 
-            <b-list-group-item id="lecture-set" href="#" active class="flex-column align-items-start" @click="rowClick(lecture)" v-for="(lecture,index) in lectures" :key="index">
+            <b-list-group-item id="lecture-set" href="#" active class="flex-column align-items-start" @click="rowClick(lecture)" v-for="(lecture,index) in paginatedData" :key="index">
                 <div class="hovereffect lecture-image-box">
                     <img id="card-image" :src="`${$store.state.serverPath}/storage/${lecture.image}`" :alt="lecture.title">
                 </div>
@@ -22,6 +22,16 @@
             </b-list-group-item>
 
         </b-list-group>
+
+        <div class="btn-cover">
+          <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">
+            이전
+          </button>
+          <span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} 페이지</span>
+          <button :disabled="pageNum >= pageCount - 1" @click="nextPage" class="page-btn">
+            다음
+          </button>
+        </div>
     </div>
 
     <b-button class="lecture-add-btn" variant="dark">댄스강의 등록</b-button>
@@ -36,6 +46,7 @@ export default {
     name:'Lecture',
     data() {
         return {
+            pageNum: 0,
             lectures:[],
             lectureData:{
                 title:'',
@@ -43,6 +54,14 @@ export default {
                 image:''
             },
         };
+    },
+
+    props:{
+        pageSize: {
+        type: Number,
+        required: false,
+        default: 2
+        }
     },
     
     mounted(){
@@ -67,11 +86,32 @@ export default {
                 path: `/lecturePlay/${item.id}`
             })
         },
-        // writeContent(){
-        //     this.$router.push({
-        //         path:'/lecturecreate'
-        //     })
-        // },
+        nextPage () {
+        this.pageNum += 1;
+        },
+        prevPage () {
+        this.pageNum -= 1;
+        },
+    },
+
+    computed:{
+        // 강좌 데이터 길이 측정
+        pageCount () {
+        let listLeng = this.lectures.length,
+            listSize = this.pageSize,
+            page = Math.floor(listLeng / listSize);
+        if (listLeng % listSize > 0) page += 1;
+        
+        return page;
+        },
+
+        // 오디션 데이터 길이 나누기
+        paginatedData () {
+        const start = this.pageNum * this.pageSize,
+                end = start + this.pageSize;
+        console.log(this.lectures.slice(start, end)); 
+        return this.lectures.slice(start, end);
+        },
     }
 };
 </script>
@@ -147,6 +187,25 @@ export default {
         width:200px;
         height:60px;
         margin-top:50px;
+    }
+
+        button {
+        display: inline-block;
+        width: 152px;
+        height: 48px;
+        border: none;
+        background: #ed1c24;
+        color: #fff;
+        font-size: 16px;
+        line-height: 1;
+    }
+
+    #button_area{
+    position: relative;
+    margin-top: 30px;
+    font-size: 0;
+    line-height: 0;
+    text-align: center;
     }
     
 </style>
