@@ -60,7 +60,7 @@
       </div>
 
       <div id="button_area">
-        <button type="button" @click="writeContent">오디션 공고ssss등록</button>
+        
       </div>
     </div>
   </div>
