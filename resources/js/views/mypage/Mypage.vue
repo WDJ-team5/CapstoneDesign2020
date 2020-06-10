@@ -47,10 +47,10 @@
                             <router-link to="/mypage/lecture" class="profile_link">
                                 <span>수강강좌</span>
                             </router-link>
-                            <router-link to="/mypage/apply" class="profile_link" v-if="mypages.class != 3">
+                            <router-link to="/mypage/apply" class="profile_link">
                                 <span>지원현황</span>
                             </router-link>
-                            <router-link to="/mypage/auditionlist" class="profile_link" v-else>
+                            <router-link to="/mypage/auditionlist" class="profile_link" v-if="mypages.class == 3">
                                 <span>오디션등록내역</span>
                             </router-link>
                             <router-link to="/mypage/profileedit" class="profile_link">
@@ -160,17 +160,17 @@ a {
     height: 133px;
 }
 
-.profile_link:nth-child(1):nth-last-child(3),
-.profile_link:nth-child(1):nth-last-child(3) ~ .profile_link {
-    width: calc(100% / 3);
+.profile_link:nth-child(1):nth-last-child(4),
+.profile_link:nth-child(1):nth-last-child(4) ~ .profile_link {
+    width: calc(100% / 4);
     height: 5vh;
     display: inline-block;
     line-height: 5vh;
     overflow: hidden;
 }
-.profile_link:nth-child(1):nth-last-child(4),
-.profile_link:nth-child(1):nth-last-child(4) ~ .profile_link {
-    width: calc(100% / 4);
+.profile_link:nth-child(1):nth-last-child(5),
+.profile_link:nth-child(1):nth-last-child(5) ~ .profile_link {
+    width: calc(100% / 5);
     height: 5vh;
     display: inline-block;
     line-height: 5vh;

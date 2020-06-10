@@ -110,6 +110,11 @@ const routes=[
         name:'AdviceDetail',
         component:()=>import('./views/Advice/AdviceDetail.vue')
     },
+    {
+        path:'/mypage/applicants/:id',
+        name:'Applicant',
+        component:()=>import('./views/mypage/Applicant.vue')
+    },
     // 마이페이지
     {
         path: '/mypage',

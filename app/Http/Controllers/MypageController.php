@@ -49,7 +49,7 @@ class MypageController extends Controller
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
         $result = \App\User::orderBy('id', 'desc')->find($user->id)->resumes()
-        ->join('auditions','audition_id','=','auditions.id')->get();
+        ->get();
 
         return response()->json($result, 200);
     }
@@ -73,6 +73,34 @@ class MypageController extends Controller
             //내용내용
         ]);
 
+        return response()->json($result, 200);
+    }
+
+    public function loadApplicant($id) {
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+
+        $result = \App\Resume::where('audition_id', $id)->get();
+
+        return response()->json($result, 200);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updateApplicant(Request $request) {
+        $resume = \App\Resume::where('id', $request->applicant{'id'})->first();
+        $resume->result = $request->value;
+        $resume->save();
+        return response()->json($resume, 200);
+    }
+
+    public function searchApplicant($id, $value) {
+        $result = \App\Resume::where('audition_id', $id)->where('result', $value)->get();
         return response()->json($result, 200);
     }
 }
