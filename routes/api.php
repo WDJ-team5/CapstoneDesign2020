@@ -55,3 +55,9 @@ Route::get('/mypage/auditionlist', 'MypageController@loadMyAudition');
 Route::get('/mypage/apply', 'MypageController@loadMyResume');
 
 Route::get('/mypage/profileedit', 'MypageController@loadProfile');
+
+Route::get('/mypage/applicants/{id}', 'MypageController@loadApplicant');
+
+Route::put('/mypage/applicants/{id}/{applicant}', 'MypageController@updateApplicant');
+
+Route::get('/mypage/applicants/{id}/{applicant}', 'MypageController@searchApplicant');
