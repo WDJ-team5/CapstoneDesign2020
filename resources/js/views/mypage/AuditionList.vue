@@ -14,7 +14,9 @@
                 <div class="audition_deadline">
                     마감일: {{audition.end_date}}
                 </div>
-                <button>지원자 현황</button>
+                <button>
+                    <a href="#" @click="applyClick(audition)">지원자 현황</a>
+                </button>
             </div>
         </div>
         <hr>
@@ -47,6 +49,11 @@ export default {
                 console.log(response.data);
                 // this.auditions.push(response.data);
                 this.auditions = response.data;
+            });
+        },
+        applyClick(item, index, e) {
+            this.$router.push({
+                path: `/mypage/applicants/${item.id}`
             });
         },
     }
