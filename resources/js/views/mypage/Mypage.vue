@@ -85,7 +85,7 @@ export default {
     methods: {
         loadProfile: async function() {
             const url = 'api/mypage';
-
+            
             this.axios.get(url).then(response => {
                 console.log(response.data);
                 this.mypages = response.data;

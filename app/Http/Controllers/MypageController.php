@@ -19,7 +19,6 @@ class MypageController extends Controller
             $result = \App\User::join('ranks','rank_id','=','ranks.id')
             ->join('experts','expert_id','=','experts.id')
             ->join('specialties','specialty_id','=','specialties.id')
-            ->join('companies','expert_company_id','=','companies.id')
             ->whereConfirmCode($confirmCode->confirm_code)->first();
         } else {
             $result = \App\User::join('ranks','rank_id','=','ranks.id')
@@ -93,10 +92,10 @@ class MypageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function updateApplicant(Request $request) {
-        $resume = \App\Resume::where('id', $request->applicant{'id'})->first();
-        $resume->result = $request->value;
-        $resume->save();
-        return response()->json($resume, 200);
+        // $resume = \App\Resume::where('id', $request->applicant{'id'})->first();
+        // $resume->result = $request->value;
+        // $resume->save();
+        // return response()->json($resume, 200);
     }
 
     public function searchApplicant($id, $value) {

@@ -12,7 +12,7 @@ class Session extends Model
     ];
 
     protected $hidden = [
-        'last_login',
-        'confirm_code',
+        // 'last_login',
+        // 'confirm_code',
     ];
 }
