@@ -21,6 +21,7 @@ class ResumesTableSeeder extends Seeder
         App\User::find(3)->resumes()->create([
             'score' => 82.1,
             'message' => '저를 뽑아주세요.',
+            'result' => 2,
             'video' => null,
             'audition_id' => 1,
         ]);
@@ -28,6 +29,7 @@ class ResumesTableSeeder extends Seeder
         App\User::find(4)->resumes()->create([
             'score' => 97.7,
             'message' => '언제나 최선을 다하겠습니다.',
+            'result' => 1,
             'video' => null,
             'audition_id' => 1,
         ]);
@@ -35,6 +37,7 @@ class ResumesTableSeeder extends Seeder
         App\User::find(5)->resumes()->create([
             'score' => 95.2,
             'message' => '최고가 되겠습니다.',
+            'result' => 1,
             'video' => null,
             'audition_id' => 1,
         ]);
