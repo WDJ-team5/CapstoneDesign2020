@@ -2,7 +2,7 @@
     <div>
         <div class="profile">
             <div class="profile_contents">
-                <img :src="`images/${profiles.rank_name}.png`" :alt="profiles.rank_name">
+                <img :src="`../images/${profiles.rank_name}.png`" :alt="profiles.rank_name">
             </div>
             <div class="table_flex">
                 <table class="table_margin">
@@ -70,12 +70,17 @@ export default {
     },
     methods: {
         loadProfile: async function() {
-            const url = 'api/mypage/profile';
+            console.log('loadProfile Profile.vue 메서드입니다');
+            const url = '/api/mypage/profile';
 
-            this.axios.get(url).then(response => {
-                console.log(response.data);
-                this.profiles = response.data;
-            });
+            try {
+                this.axios.get(url).then(response => {
+                    console.log(response.data);
+                    this.profiles = response.data;
+                });
+            } catch(error) {
+                console.log(error);
+            }
         },
     }
 }

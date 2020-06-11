@@ -43,7 +43,7 @@ export default {
     },
     methods: {
         loadMyAudition: async function() {
-            const url = 'api/mypage/auditionlist';
+            const url = '/api/mypage/auditionlist';
 
             this.axios.get(url).then(response => {
                 console.log(response.data);

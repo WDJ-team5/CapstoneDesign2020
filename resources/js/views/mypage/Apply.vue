@@ -44,7 +44,7 @@ export default {
     },
     methods: {
         loadMyResume: async function() {
-            const url = 'api/mypage/apply';
+            const url = '/api/mypage/apply';
 
             this.axios.get(url).then(response => {
                 console.log(response.data);

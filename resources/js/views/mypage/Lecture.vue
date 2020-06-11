@@ -40,7 +40,7 @@ export default {
     },
     methods: {
         loadLecture: async function() {
-            const url = 'api/mypage/lecture';
+            const url = '/api/mypage/lecture';
 
             this.axios.get(url).then(response => {
                 console.log(response.data);
