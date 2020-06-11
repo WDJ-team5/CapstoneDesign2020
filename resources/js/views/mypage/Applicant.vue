@@ -83,7 +83,7 @@ export default {
             console.log(this.editApplicantData);
         },
         loadApplyData: async function() {
-            const url = `api/mypage/applicants/${this.id}`;
+            const url = `/api/mypage/applicants/${this.id}`;
 
             this.axios.get(url).then(response => {
                 this.applicants = response.data;
@@ -93,7 +93,7 @@ export default {
 
         passApplicant: async function() {
             try {
-                this.axios.put(`api/mypage/applicants/${this.id}/` + this.editApplicantData, {value:2, applicant:this.editApplicantData}).then(response => {
+                this.axios.put(`/api/mypage/applicants/${this.id}/` + this.editApplicantData, {value:2, applicant:this.editApplicantData}).then(response => {
                     console.log(response);
                     this.applicants.map(applicant => {
                         if (applicant.id == response.data.id) {
@@ -110,7 +110,7 @@ export default {
 
         failApplicant: async function() {
             try {
-                this.axios.put(`api/mypage/applicants/${this.id}/` + this.editApplicantData, {value:1, applicant:this.editApplicantData}).then(response => {
+                this.axios.put(`/api/mypage/applicants/${this.id}/` + this.editApplicantData, {value:1, applicant:this.editApplicantData}).then(response => {
                     console.log(response);
                     this.applicants.map(applicant => {
                         if (applicant.id == response.data.id) {
