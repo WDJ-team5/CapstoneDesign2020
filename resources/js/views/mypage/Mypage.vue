@@ -84,12 +84,17 @@ export default {
     },
     methods: {
         loadProfile: async function() {
-            const url = 'api/mypage';
-            
-            this.axios.get(url).then(response => {
-                console.log(response.data);
-                this.mypages = response.data;
-            });
+            console.log('loadProfile Mypage.vue 메서드입니다.');
+            const url = '/api/mypage';
+
+            try {
+                this.axios.get(url).then(response => {
+                    console.log(response.data);
+                    this.mypages = response.data;
+                });
+            } catch(error) {
+                console.log(error);
+            }
         },
     }
 }

@@ -53,25 +53,25 @@ export default {
     },
     methods: {
         searchConsideration: function(value) {
-            this.axios.get(`api/mypage/applicants/${this.id}/` + value, {value}).then(response => {
+            this.axios.get(`/api/mypage/applicants/${this.id}/` + value, {value}).then(response => {
                 this.applicants = response.data;
                 console.log(response);
             });
         },
         searchPassed: function(value) {
-            this.axios.get(`api/mypage/applicants/${this.id}/` + value, {value}).then(response => {
+            this.axios.get(`/api/mypage/applicants/${this.id}/` + value, {value}).then(response => {
                 this.applicants = response.data;
                 console.log(response);
             });
         },
         searchFailed: function(value) {
-            this.axios.get(`api/mypage/applicants/${this.id}/` + value, {value}).then(response => {
+            this.axios.get(`/api/mypage/applicants/${this.id}/` + value, {value}).then(response => {
                 this.applicants = response.data;
                 console.log(response);
             });
         },
         searchAll: function() {
-            const url = `api/mypage/applicants/${this.id}`;
+            const url = `/api/mypage/applicants/${this.id}`;
 
             this.axios.get(url).then(response => {
                 this.applicants = response.data;
