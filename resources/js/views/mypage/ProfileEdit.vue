@@ -89,7 +89,7 @@ export default {
     },
     methods: {
         loadProfile: async function() {
-            const url = 'api/mypage/profileedit';
+            const url = '/api/mypage/profileedit';
 
             this.axios.get(url).then(response => {
                 console.log(response.data);

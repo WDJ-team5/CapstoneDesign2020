@@ -61,7 +61,7 @@ export default {
     },
     methods: {
         loadCompanyInfo: async function() {
-            const url = 'api/mypage/companyinfo';
+            const url = '/api/mypage/companyinfo';
 
             this.axios.get(url).then(response => {
                 console.log(response.data);
