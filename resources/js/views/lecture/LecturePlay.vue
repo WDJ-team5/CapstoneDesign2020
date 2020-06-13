@@ -7,11 +7,6 @@
       v-on:ended="endedVideo()"
       v-bind:controls="computedVideoControls"
       crossorigin="anonymous"
-      style=" -moz-transform: scaleX(1);
-        -o-transform: scaleX(1);
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1);
-        "
     ></video>
 
     <div id="count">3</div>
@@ -77,7 +72,7 @@ export default {
       poses:[],
       counted:false,
       startCnt:3,
-
+      viewData:{videoImg:[],webcamImg:[],score:[],time:[]},
       // data:{
       //     'title' => '매우쉬운 아이돌 댄스',
       //     'content' => '이거슨 쉬운 아이돌 댄스입니다잉',
@@ -164,9 +159,9 @@ export default {
         // inputResolution: { width: 640, height: 480 },
         // multiplier: 0.75}
       );
-      const pose = await this.net.estimateSinglePose(this.$refs.webcam);
+      var webcam = this.$refs.webcam;
+      const pose = await this.net.estimateSinglePose(webcam);
       const data = this.cal.getData(pose);
-      this.poses.push(pose);
 
       let motionCircle = [
         -51.47224073047192,
@@ -177,6 +172,7 @@ export default {
       if (
         !this.start &&
         this.ready &&
+        !this.counted &&
         data.leftUpperarm < motionCircle[0] + 20 &&
         data.leftUpperarm > motionCircle[0] - 20 &&
         data.leftForearm < motionCircle[1] + 20 &&
@@ -189,7 +185,7 @@ export default {
         // this.start = true;
         // let d = new Date();
         // this.startTime = d.getTime();
-        // this.canvas.style.display = 'none';
+        this.canvas.style.display = 'none';
         // this.$refs.video.play();
 
         this.counted = true;
@@ -208,15 +204,22 @@ export default {
         if (timing >= this.videoData.length) {
           timing = this.videoData.length - 1;
         }
+
+
+        var scoreJson = {};
+        scoreJson.score = [];
         for (let key in data) {
           if (Math.abs(data[key]) != 180 && data[key] != 0 && Math.abs(this.videoData[timing][key]) != 180 && this.videoData[timing][key] != 0) {
             tmp = 100 - (this.cal.distance(data[key], this.videoData[timing][key]) / 90) * 100;
             if (tmp < 0) tmp = 0;
+            scoreJson.score.push(tmp);
             score += tmp;
             cnt++;
+          }else{
+            scoreJson.score.push("감지X");
           }
         }
-
+  
         tmp = 0;
         if (cnt != 0) {
           tmp = 0;
@@ -227,6 +230,28 @@ export default {
           this.danceData.score.push( tmp );
 
         }
+
+        // test-01
+        var capture = document.createElement('canvas')
+        var can = capture.getContext('2d');
+        can.drawImage(webcam, 0, 0, 300, 160);
+        var img = new Image();
+        img.src = capture.toDataURL("image/png");
+        this.viewData.webcamImg.push(img);
+
+        var video = document.getElementById('source-video');
+        capture = document.createElement('canvas');
+        can = capture.getContext('2d');
+        can.drawImage(video , 0, 0, 300, 160);
+        img = new Image();
+        img.src = capture.toDataURL("image/png");      
+        this.viewData.videoImg.push(img);
+        scoreJson.total = tmp+"%";
+        this.viewData.score.push(scoreJson);
+        this.viewData.time.push(time);
+        this.poses.push(pose);
+        console.log(this.viewData);
+
         console.log(tmp + "%");
       }else{
         console.log('asdf');
@@ -259,6 +284,7 @@ export default {
         this.finalScore = Math.round(tmp*100)/100;
         this.ended = true;
         // console.log(this.finalScore);
+        var data = this.viewData;
 
         let formData = new FormData();
         formData.append("accuracy", this.finalScore);
@@ -284,11 +310,11 @@ export default {
           title:'정확도 : '+this.finalScore,
           html:
           '<p>시간별 정확도 그래프</p>'+
+          '<button id="viewer-btn">자세히보기</button>'+
           '<canvas id="graph"></canvas>',
           timerProgressBar: true,
           icon: 'success',
           width: '1000px',
-          hegiht: '800px',
           showCancelButton: true,
           confirmButtonText: '끝내기',
           cancelButtonText: '다시하기',
@@ -300,7 +326,55 @@ export default {
             this.apply();
           }
         })
+        document.getElementById('viewer-btn').onclick = function(){
+          Swal.close();
+          Swal.fire({
+            title:'사진사진',
+            html:
+//            '<table id="viewer-list"></table>'+
+            '<div id="imgs-div"></div>'+
+            '<input type="range" min="0" max="0" value="0" id="seekbar">',
+            width: '1200px',
+            customClass:'swal2-height',
+            allowOutsideClick:false,
+            allowEscapeKey:false,
+          });
+          var seekbar = document.getElementById('seekbar');
+          var viewer = document.getElementById('imgs-div');
 
+          seekbar.max = data.score.length-1;
+          for(var key in data.videoImg){
+            var div = document.createElement('div');
+            div.classList.add('img-div');
+            data.videoImg[key].style.width = '480px';
+            data.videoImg[key].style.height = '320px';
+            data.videoImg[key].style.padding = '1px';
+            data.webcamImg[key].style.width = '480px';
+            data.webcamImg[key].style.height = '320px';
+            data.webcamImg[key].style.padding = '1px';
+            div.appendChild(data.videoImg[key]);
+            div.appendChild(data.webcamImg[key]);
+            var p = document.createElement('p');
+            p.innerHTML = data.score[key].total;
+            div.appendChild(p);
+            p = document.createElement('p');
+            p.innerHTML = " 어깨 : " + data.score[key].score[0]+" 왼팔 안쪽 : " + data.score[key].score[1]+" 왼팔 바깥쪽 : " + data.score[key].score[2]+" 오른팔 안쪽 : " + data.score[key].score[3]+" 오른팔 바깥쪽 : " + data.score[key].score[4]+" 왼쪽 몸 : " + data.score[key].score[5]+" 오른쪽 몸 : " + data.score[key].score[6]+"</br>"+" 엉덩이 : " + data.score[key].score[7]+" 왼쪽 허벅지 : " + data.score[key].score[8]+" 왼쪽 종아리 : " + data.score[key].score[9]+" 오른쪽 허벅지 : " + data.score[key].score[10]+" 오른쪽 종아리 : " + data.score[key].score[11];
+            div.appendChild(p);
+            if( key!=0)
+              div.style.display='none';
+            viewer.appendChild(div);
+          }
+
+          var lists = document.querySelectorAll('.img-div');
+          seekbar.addEventListener('change', function(){
+            var index = this.value;
+            for(var i = 0; i < lists.length; i++){
+              lists[i].style.display= 'none';
+            }
+            lists[index].style.display = 'block';
+              console.log(data.score[index]);
+          },false);
+        }
         var chartCanvas = document.getElementById('graph').getContext('2d');
         var chart = new chartjs(chartCanvas,{
           label: '정확도',
@@ -330,7 +404,7 @@ export default {
               }]
             }
           }
-        });
+        });        
       }
     },
     draw: function(pose) {     
@@ -340,6 +414,7 @@ export default {
         if(points[key].score > 0.6){
           this.ctx.beginPath();
           this.ctx.arc(points[key].position.x,points[key].position.y,10,0,Math.PI*2);
+          this.ctx.fillStyle = "#000000"
           this.ctx.fill()
           this.ctx.stroke();
           this.ctx.closePath();
@@ -347,6 +422,13 @@ export default {
       }
         this.ctx.fillStyle = "#0095DD";
     },
+    apply() {
+      let score = this.finalScore;
+      // let cid = this.cid;
+      this.$router.push({
+        path: `/lecture`
+      });
+    }
   }
 };
 </script>
@@ -417,7 +499,7 @@ export default {
   z-index:100001;
 }
 .swal2-height{
-  height: 700px; 
+  height: 800px; 
 }
 #graph{
   position: relative;
@@ -506,5 +588,14 @@ body .btn-bg.bg-1 .btn-1 button:active {
   background: rgba(0,0,0,0.5);
   z-index: 100002;
 }
-
+#seekbar{
+  -webkit-appearance: none;
+  width:800px;
+  height:20px;
+  background:#d3d3d3;
+  outline:none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
 </style>

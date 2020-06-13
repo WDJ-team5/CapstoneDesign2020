@@ -15,7 +15,7 @@
     ></video>
 
     <video ref="webcam" id="webCam" width="800" height="600" autoplay v-on:play="bindPage()"></video>
-    <!-- <canvas id="canvas" width="800" height="600"> -->
+    <canvas id="canvas" width="800" height="600"></canvas>
     <div id="count">3</div>
     <div id="pannel">
       <div id="pannel_content">
@@ -75,6 +75,20 @@ export default {
       ended: false,
       counted:false,
       startCnt:3,
+      poses:[],
+      scoreBoard:{
+        "shoulder": 7,
+        "leftUpperarm":15,
+        "leftForearm":15,
+        "rightUpperarm":15,
+        "rightForearm":15,
+        "leftTrunk":3,
+        "rightTrunk":3,
+        "hip":3,
+        "leftThigh":6,
+        "leftShin":6,
+        "rightThigh":6,
+        "rightShin":6 },
     };
   },
   mounted() {
@@ -174,6 +188,7 @@ export default {
         // this.$refs.video.play();
         this.counted = true;
         document.getElementById('count').style.display = 'block';
+        this.canvas.style.display = 'none';
         this.playCounting();
       }
       if (this.start) {
