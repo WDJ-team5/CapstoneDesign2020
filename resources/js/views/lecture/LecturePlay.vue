@@ -32,6 +32,7 @@
         </div>
       </div>
     </div>
+    <div id="toast"></div>
   </div>
 </template>
 <script>
@@ -73,6 +74,7 @@ export default {
       counted:false,
       startCnt:3,
       viewData:{videoImg:[],webcamImg:[],score:[],time:[]},
+      removeToast:null,
       // data:{
       //     'title' => '매우쉬운 아이돌 댄스',
       //     'content' => '이거슨 쉬운 아이돌 댄스입니다잉',
@@ -121,9 +123,9 @@ export default {
         const response = await lectureService.loadLectureData(this.id);
         this.content = response.data.content;
         this.filename = response.data.video;
-        this.video = "videos/" + this.filename + ".mp4";
+        this.video = "/videos/" + this.filename + ".mp4";
         axios
-          .get("videoDatas/" + this.filename + ".json")
+          .get("/videoDatas/" + this.filename + ".json")
           .then(response => (this.videoData = response.data));
       } catch (err) {
         console.error(err);
@@ -212,7 +214,7 @@ export default {
           if (Math.abs(data[key]) != 180 && data[key] != 0 && Math.abs(this.videoData[timing][key]) != 180 && this.videoData[timing][key] != 0) {
             tmp = 100 - (this.cal.distance(data[key], this.videoData[timing][key]) / 90) * 100;
             if (tmp < 0) tmp = 0;
-            scoreJson.score.push(tmp);
+            scoreJson.score.push(Math.round(tmp*100)/100);
             score += tmp;
             cnt++;
           }else{
@@ -246,13 +248,15 @@ export default {
         img = new Image();
         img.src = capture.toDataURL("image/png");      
         this.viewData.videoImg.push(img);
-        scoreJson.total = tmp+"%";
+        scoreJson.total = Math.round(tmp*100)/100+"%";
         this.viewData.score.push(scoreJson);
         this.viewData.time.push(time);
         this.poses.push(pose);
         console.log(this.viewData);
 
         console.log(tmp + "%");
+        if(tmp<50)
+          this.toast("정확도가 50% 이하입니다.");
       }else{
         console.log('asdf');
         this.draw(pose);
@@ -360,6 +364,11 @@ export default {
             p = document.createElement('p');
             p.innerHTML = " 어깨 : " + data.score[key].score[0]+" 왼팔 안쪽 : " + data.score[key].score[1]+" 왼팔 바깥쪽 : " + data.score[key].score[2]+" 오른팔 안쪽 : " + data.score[key].score[3]+" 오른팔 바깥쪽 : " + data.score[key].score[4]+" 왼쪽 몸 : " + data.score[key].score[5]+" 오른쪽 몸 : " + data.score[key].score[6]+"</br>"+" 엉덩이 : " + data.score[key].score[7]+" 왼쪽 허벅지 : " + data.score[key].score[8]+" 왼쪽 종아리 : " + data.score[key].score[9]+" 오른쪽 허벅지 : " + data.score[key].score[10]+" 오른쪽 종아리 : " + data.score[key].score[11];
             div.appendChild(p);
+            // table = document.createElement('table');
+            // var tr = document.createElement('tr');
+            // var td = document.createElement('td');
+            // td.innerHTML = "어깨"
+            // var td = document.createElement('td');
             if( key!=0)
               div.style.display='none';
             viewer.appendChild(div);
@@ -406,6 +415,19 @@ export default {
           }
         });        
       }
+    },
+    toast:  function(string){
+      const toast = document.getElementById("toast");
+      toast.classList.contains("reveal") ?
+          (clearTimeout(this.removeToast), this.removeToast = setTimeout(function () {
+              document.getElementById("toast").classList.remove("reveal")
+          }, 1000)) :
+          this.removeToast = setTimeout(function () {
+              document.getElementById("toast").classList.remove("reveal")
+          }, 1000)
+      toast.classList.add("reveal"),
+          toast.innerText = string
+
     },
     draw: function(pose) {     
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -474,7 +496,9 @@ export default {
   width: 25%;
   height: 60%;
 }
-#pannel #pannel_content{
+#pannel{
+  background-color: black;
+  border: 1px solid white;
   padding: 20px;
 }
 
@@ -489,7 +513,7 @@ export default {
 #end_btn {
   position: absolute;
   bottom: 10px;
-  right: 20px;
+  right: 50px;
   width: 120px;
   height: 50px;
 }
@@ -538,9 +562,9 @@ body .btn-bg {
   align-items: center;
   justify-content: center;
 }
-body .btn-bg.bg-1 {
+/* body .btn-bg.bg-1 {
   background: #6ab1c9;
-}
+} */
 body .btn-bg.bg-1 .btn-1 button {
   color: #c7f8f9;
   background: transparent;
@@ -597,5 +621,35 @@ body .btn-bg.bg-1 .btn-1 button:active {
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
+}
+
+#pannel #pannel_content{
+  color: white;
+}
+
+
+
+/* toasting */
+#toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    padding: 15px 20px;
+    transform: translate(-50%, 10px);
+    border-radius: 30px;
+    overflow: hidden;
+    font-size: 1.6rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s, visibility .5s, transform .5s;
+    background: rgba(0, 0, 0, .35);
+    color: #fff;
+    z-index: 100002;
+}
+
+#toast.reveal {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0)
 }
 </style>
