@@ -301,6 +301,8 @@ class UsersTableSeeder extends Seeder
         ]);
 
         //기업용
+
+        //19
         App\User::create([
             'userid' => 'company_01',
             'password' => bcrypt('1234'),
@@ -318,6 +320,7 @@ class UsersTableSeeder extends Seeder
             'expert_id' => null,
         ]);
 
+        //20
         App\User::create([
             'userid' => 'company_02',
             'password' => bcrypt('1234'),
@@ -335,5 +338,238 @@ class UsersTableSeeder extends Seeder
             'expert_id' => null,
         ]);
 
+        //21
+        App\User::create([
+            'userid' => 'company_03',
+            'password' => bcrypt('1234'),
+            'name' => '장대리',
+            'image' => null,
+            'birthday' => '1986-08-10',
+            'gender' => 1,
+            'address' => '부산광역시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 장대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 3,
+            'expert_id' => null,
+        ]);
+
+        //22
+        App\User::create([
+            'userid' => 'company_04',
+            'password' => bcrypt('1234'),
+            'name' => '방대리',
+            'image' => null,
+            'birthday' => '1976-08-10',
+            'gender' => 1,
+            'address' => '울산광역시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 방대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 4,
+            'expert_id' => null,
+        ]);
+
+        //23
+        App\User::create([
+            'userid' => 'company_05',
+            'password' => bcrypt('1234'),
+            'name' => '봉대리',
+            'image' => null,
+            'birthday' => '1976-08-10',
+            'gender' => 1,
+            'address' => '서울특별시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 봉대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 5,
+            'expert_id' => null,
+        ]);
+
+        //24
+        App\User::create([
+            'userid' => 'company_06',
+            'password' => bcrypt('1234'),
+            'name' => '풍대리',
+            'image' => null,
+            'birthday' => '1976-08-10',
+            'gender' => 1,
+            'address' => '서울특별시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 풍대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 6,
+            'expert_id' => null,
+        ]);
+
+        //25
+        App\User::create([
+            'userid' => 'company_07',
+            'password' => bcrypt('1234'),
+            'name' => '풍대리',
+            'image' => null,
+            'birthday' => '1976-08-10',
+            'gender' => 1,
+            'address' => '서울특별시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 풍대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 7,
+            'expert_id' => null,
+        ]);
+
+        //26
+        App\User::create([
+            'userid' => 'company_08',
+            'password' => bcrypt('1234'),
+            'name' => '김대리',
+            'image' => null,
+            'birthday' => '1976-08-10',
+            'gender' => 1,
+            'address' => '서울특별시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 김대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 8,
+            'expert_id' => null,
+        ]);
+
+        //27
+        App\User::create([
+            'userid' => 'company_09',
+            'password' => bcrypt('1234'),
+            'name' => '금대리',
+            'image' => null,
+            'birthday' => '1976-08-10',
+            'gender' => 1,
+            'address' => '서울특별시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 금대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 9,
+            'expert_id' => null,
+        ]);
+        
+        //28
+        App\User::create([
+            'userid' => 'company_10',
+            'password' => bcrypt('1234'),
+            'name' => '금대리',
+            'image' => null,
+            'birthday' => '1976-08-10',
+            'gender' => 1,
+            'address' => '서울특별시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 금대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 10,
+            'expert_id' => null,
+        ]);
+
+        //29
+        App\User::create([
+            'userid' => 'company_11',
+            'password' => bcrypt('1234'),
+            'name' => '붕대리',
+            'image' => null,
+            'birthday' => '1976-08-10',
+            'gender' => 1,
+            'address' => '서울특별시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 붕대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 11,
+            'expert_id' => null,
+        ]);
+
+        //30
+        App\User::create([
+            'userid' => 'company_12',
+            'password' => bcrypt('1234'),
+            'name' => '훅대리',
+            'image' => null,
+            'birthday' => '1976-08-10',
+            'gender' => 1,
+            'address' => '서울특별시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 훅대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 12,
+            'expert_id' => null,
+        ]);
+
+        //31
+        App\User::create([
+            'userid' => 'company_13',
+            'password' => bcrypt('1234'),
+            'name' => '송대리',
+            'image' => null,
+            'birthday' => '1976-08-10',
+            'gender' => 1,
+            'address' => '서울특별시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 송대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 13,
+            'expert_id' => null,
+        ]);
+
+        //32
+        App\User::create([
+            'userid' => 'company_14',
+            'password' => bcrypt('1234'),
+            'name' => '안대리',
+            'image' => null,
+            'birthday' => '1976-08-10',
+            'gender' => 1,
+            'address' => '서울특별시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 안대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 14,
+            'expert_id' => null,
+        ]);
+
+        //33
+        App\User::create([
+            'userid' => 'company_15',
+            'password' => bcrypt('1234'),
+            'name' => '장장대리',
+            'image' => null,
+            'birthday' => '1976-08-10',
+            'gender' => 1,
+            'address' => '서울특별시',
+            'call_number' => '010-0000-0000',
+            'introduction' => '안녕 저는 장장대리입니다.',
+            'image' => 'user_images/20.jpg',
+            'class' => 3,
+            'rank_id'=> 1,
+            'company_id' => 15,
+            'expert_id' => null,
+        ]);
     }
 }

@@ -86931,7 +86931,7 @@ var routes = [{
   path: '/auditiontest/:contentId',
   name: 'AuditionTest',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(28), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/audition/AuditionTest.vue */ "./resources/js/views/audition/AuditionTest.vue"));
   }
 }, // 어플라이 페이지로
 {
@@ -86951,7 +86951,7 @@ var routes = [{
   path: '/lecturePlay/:id',
   name: 'LecturePlay',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(28), __webpack_require__.e(3), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/lecture/LecturePlay.vue */ "./resources/js/views/lecture/LecturePlay.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/lecture/LecturePlay.vue */ "./resources/js/views/lecture/LecturePlay.vue"));
   }
 }, {
   path: '/expert/list',
@@ -87256,8 +87256,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
