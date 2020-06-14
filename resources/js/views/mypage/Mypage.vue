@@ -84,7 +84,6 @@ export default {
     },
     methods: {
         loadProfile: async function() {
-            console.log('loadProfile Mypage.vue 메서드입니다.');
             const url = '/api/mypage';
 
             try {
@@ -186,7 +185,11 @@ a {
     background-color: #f5f5f5;
     transition:all 0.8s ease;
 }
-.profile_link:visited {
+.profile_link.router-link-exact-active.router-link-active {
     background-color: #f5f5f5;
+}
+.profile_link.router-link-exact-active.router-link-active > span {
+    color: #f86941;
+    font-weight: 700;
 }
 </style>
