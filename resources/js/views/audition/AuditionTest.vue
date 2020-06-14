@@ -127,9 +127,9 @@ export default {
         // this.content = response.data.content;
         console.log(response.data);
         this.filename = response.data[0].video;
-        this.video = "videos/" + this.filename + ".mp4";
+        this.video = "/videos/" + this.filename + ".mp4";
         axios
-          .get("videoDatas/" + this.filename + ".json")
+          .get("/videoDatas/" + this.filename + ".json")
           .then(response => (this.videoData = response.data));
       } catch (err) {
         console.error(err);

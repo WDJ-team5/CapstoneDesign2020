@@ -11,7 +11,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(apply, index) in applies" :key="index">
-                        <td>{{apply.title}}</td>
+                        <td>{{apply.audition.title}}</td>
                         <td>{{apply.message}}</td>
                         <td>{{apply.score}}</td>
                         <td v-if="apply.result == 0">심사중</td>
@@ -47,6 +47,7 @@ export default {
             const url = '/api/mypage/apply';
 
             this.axios.get(url).then(response => {
+                console.log("00000000000000000000000000000");
                 console.log(response.data);
                 // this.applies.push(response.data);
                 this.applies = response.data;
