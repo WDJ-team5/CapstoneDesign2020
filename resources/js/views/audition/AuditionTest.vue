@@ -344,6 +344,9 @@ export default {
   -moz-transform: rotateY(180deg);
   z-index: 100000;
 }
+p{
+  color:black;
+}
 #source-video {
   position: fixed;
   left: 0;
