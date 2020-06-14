@@ -2177,7 +2177,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "session",
@@ -49175,7 +49174,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#header {\r\n  width: 100%;\r\n  height: auto;\r\n  box-sizing: border-box;\r\n  z-index: 5;\r\n  display: block;\n}\n.LoginNav {\r\n  height: 35px;\r\n  font-size: 13px;\r\n  color: #6c738a;\r\n  z-index: 4;\r\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\r\n  margin-right: 140px;\r\n  display: flex;\r\n  float: right;\n}\n.ServiceNav {\r\n  margin-top: 10px;\r\n  width: 100%;\r\n  position: relative;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: .5rem 1rem;\n}\n.LogoImg {\r\n  margin-left: 120px;\r\n  margin-top: 10px;\n}\n.ServiceNavGroup {\r\n  margin-top:8px;\r\n  margin-right: 120px;\r\n  display: flex;\r\n  float: right;\r\n  list-style: none;\n}\n.ServiceNabGroup {\r\n  margin-left : 35px;\n}\nli > a {\r\n  color: black;\r\n  text-decoration: none;\r\n  transition: color .9s;\n}\n.NavLink {\r\n  display: flex;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n.NavLink:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\n}\n#logout_div {\n}\n#logout {\r\n  color: #007bff;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n#logout:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\r\n  cursor: pointer;\n}\r\n", ""]);
+exports.push([module.i, "\n#header {\r\n  width: 100%;\r\n  height: auto;\r\n  box-sizing: border-box;\r\n  z-index: 5;\r\n  display: block;\n}\n.LoginNav {\r\n  height: 35px;\r\n  font-size: 13px;\r\n  color: #6c738a;\r\n  z-index: 4;\r\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\r\n  margin-right: 140px;\r\n  display: flex;\r\n  float: right;\n}\n.ServiceNav {\r\n  margin-top: 10px;\r\n  width: 100%;\r\n  position: relative;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: .5rem 1rem;\n}\n.LogoImg {\r\n  margin-left: 120px;\r\n  margin-top: 10px;\n}\n.ServiceNavGroup {\r\n  margin-top:8px;\r\n  margin-right: 120px;\r\n  display: flex;\r\n  float: right;\r\n  list-style: none;\n}\n.ServiceNabGroup {\r\n  margin-left : 35px;\n}\nli > a {\r\n  color: black;\r\n  text-decoration: none;\r\n  transition: color .9s;\n}\n.NavLink {\r\n  display: flex;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n.NavLink:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\n}\n#logout_div {\n}\n#logout {\r\n  color: #007bff;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n#logout:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\r\n  cursor: pointer;\n}\n.feedback-letter{\r\n  margin-right:10px;\n}\r\n", ""]);
 
 // exports
 
@@ -69743,25 +69742,23 @@ var render = function() {
               [
                 _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                 _vm._v(" "),
-                _c("span", [_vm._v("피드백")]),
+                _c("span", { staticClass: "feedback-letter" }, [
+                  _vm._v("피드백")
+                ]),
                 _vm._v(" "),
                 _c("ul", { staticClass: "navbar-nav ml-auto ml-md-0" }, [
                   _c("li", { staticClass: "nav-item dropdown" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "dropdown-toggle",
-                        attrs: {
-                          id: "userDropdown",
-                          href: "#",
-                          role: "button",
-                          "data-toggle": "dropdown",
-                          "aria-haspopup": "true",
-                          "aria-expanded": "false"
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-user fa-fw" })]
-                    ),
+                    _c("a", {
+                      staticClass: "dropdown-toggle",
+                      attrs: {
+                        id: "userDropdown",
+                        href: "#",
+                        role: "button",
+                        "data-toggle": "dropdown",
+                        "aria-haspopup": "true",
+                        "aria-expanded": "false"
+                      }
+                    }),
                     _vm._v(" "),
                     _c(
                       "div",

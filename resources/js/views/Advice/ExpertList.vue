@@ -1,7 +1,7 @@
 <template>
   <div class="expert">
 
-    <div class="col-md-8">
+    <div class="expert-search">
       <div class="input-group">
         <input type="text" v-model="search" class="form-control">
         <div class="input-group-prepend">
@@ -203,4 +203,19 @@ export default {
     color:#575757;
   }
 
+  .expert-search{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top:15px;
+    margin-bottom:80px;
+    margin-left:10px;
+  }
+
+  .input-group{
+    width:500px;
+  }
+
 </style>
+
+

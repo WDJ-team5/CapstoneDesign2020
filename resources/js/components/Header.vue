@@ -37,7 +37,7 @@
         <li>
           <router-link to="/expert/list" class="NavLink" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>피드백</span>
+            <span class=feedback-letter>피드백</span>
             <ul class="navbar-nav ml-auto ml-md-0">
               <li class="nav-item dropdown">
                 <a
@@ -49,7 +49,6 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <i class="fas fa-user fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                   <router-link to="/advice/list" class="dropdown-item" exact>내 피드백 활동
@@ -236,5 +235,9 @@ li > a {
   text-decoration: none;
   transition:all 0.5s ease;
   cursor: pointer;
+}
+
+.feedback-letter{
+  margin-right:10px;
 }
 </style>

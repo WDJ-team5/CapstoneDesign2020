@@ -31,7 +31,9 @@
         <div class="content content-reply">
           <div class="content-null">
             <h1>작성된 피드백이 없습니다.</h1>
+            <div v-if="loginUser.name==expertDetail.name">
             <b-button class="update-btn" @click="updateFeedback(cid,eid)">피드백 작성하기</b-button>
+            </div>
           </div>
         </div>
       </b-card>
@@ -68,6 +70,7 @@ export default {
     const contentId = this.propsdata[0];
     const expertId = this.propsdata[1];
     return {
+      loginUser:[],
       feedbackDetail:[],
       expertDetail:[],
       cid: contentId,
@@ -87,10 +90,13 @@ export default {
                 this.feedbackDetail=response.data[0]; 
                 this.expertDetail.unshift(response.data[1]);
                 this.expertDetail=response.data[1]; 
+                this.loginUser.unshift(response.data[2]);
+                this.loginUser=response.data[2]; 
 
 
-                console.log("데이터가 잘 들어갔는가 : ",this.feedbackDetail);
-                console.log("데이터가 잘 들어갔는가 : ",this.expertDetail);
+                // console.log("데이터가 잘 들어갔는가 : ",this.feedbackDetail);
+                // console.log("데이터가 잘 들어갔는가 : ",this.expertDetail);
+                console.log("지금 로그인한 유저 정보 : ",this.loginUser);
 
 
             }catch(error){
