@@ -19,6 +19,7 @@ class CreateAuditionsTable extends Migration
             $table->text('content');//오디션 내용
             $table->date('end_date');//오디션 마감일
             $table->string('aud_image');//이미지
+            $table->string('object'); // 모집대상
             $table->string('rank');//제한랭크
             $table->string('video')->nullable();//영상과제
             $table->timestamps();
