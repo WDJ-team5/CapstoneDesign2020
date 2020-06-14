@@ -15,12 +15,12 @@
 
             <h3 style="margin-top:10%;margin-left:30%;">장르선택</h3>
             <ul>
-                <li @click="idol()">아이돌</li>
+                <li @click="idol()">남자아이돌 </li>
+                <li @click="widol()">여자아이돌 </li>
+                <li @click="hiphop()">힙합댄스 </li>
+                <li @click="bboy()">비보잉</li>
+                <li @click="breakd()">왁킹댄스</li>
                 <li @click="pop()">팝핀</li>
-                <li>팝핀</li>
-                <li>비보잉</li>
-                <li>브레이크댄스</li>
-                <li>힙합댄스</li>
             </ul>
 
             
@@ -42,8 +42,13 @@
                         <img v-else style="width:230px" src="/images/45.png">
                     </div>
                     <div id="genre_box" class="box">
-                        <img v-if="lecture.genre.genre_name=='idol'" style="width:200px;height:100px;"  src="/images/idol.jpg">
-                        <img v-if="lecture.genre.genre_name=='poppin'" style="width:200px;height:100px;" src="/images/poppin.png">
+                        <img v-if="lecture.genre.genre_name=='man_idol'" style="width:220px;height:160px;"  src="/images/kpop.png">
+                        <img v-if="lecture.genre.genre_name=='girl_idol'" style="width:220px;height:160px;"  src="/images/kpop2.jpg">
+                        <img v-if="lecture.genre.genre_name=='poppin'" style="width:220px;height:160px;" src="/images/poppin.png">
+                        <img v-if="lecture.genre.genre_name=='b-boying'" style="width:200px;height:100px;" src="/images/bboy.png">
+                        <img v-if="lecture.genre.genre_name=='hiphop'" style="width:220px;height:160px;" src="/images/hiphop.png">
+                        <img v-if="lecture.genre.genre_name=='waaking'" style="width:220px;height:160px;" src="/images/waak.png">
+
                     </div>
                     
                 </div>
@@ -77,7 +82,11 @@ export default {
             lecturesb:[],
             lecturesc:[],
             lecturesidol:[],
+            lectureswidol:[],
             lecturespop:[],
+            lecturesbboy:[],
+            lectureship:[],
+            lecturesbreak:[],
             lectureData:{
                 title:'',
                 content:'',
@@ -120,15 +129,26 @@ export default {
 
                 
 
-
                 // 장르 분류
                 for(var i=0;i<this.lectures.length;i++){
                 // 아이돌 장르
                 if(this.lectures[i].genre_id==1){
                     this.lecturesidol.push(this.lectures[i]);
                 // 팝핀 장르
-                }else{
+                }else if(this.lectures[i].genre_id==2){
                     this.lecturespop.push(this.lectures[i]);
+                // 비보이
+                }else if(this.lectures[i].genre_id==3){
+                    this.lecturesbboy.push(this.lectures[i]);
+                // 힙합
+                }else if(this.lectures[i].genre_id==4){
+                    this.lectureship.push(this.lectures[i]);
+                // 브레이크댄스
+                }else if(this.lectures[i].genre_id==5){
+                    this.lecturesbreak.push(this.lectures[i]);
+                // 여자아이돌
+                }else if(this.lectures[i].genre_id==6){
+                    this.lectureswidol.push(this.lectures[i]);
                 }
             }
 
@@ -152,6 +172,18 @@ export default {
         },
         idol(){
         this.lectures=this.lecturesidol;
+        },
+        widol(){
+        this.lectures=this.lectureswidol;
+        },
+        hiphop(){
+        this.lectures=this.lectureship;    
+        },
+        bboy(){
+        this.lectures=this.lecturesbboy;    
+        },
+        breakd(){
+        this.lectures=this.lecturesbreak;  
         },
         pop(){
         this.lectures=this.lecturespop;

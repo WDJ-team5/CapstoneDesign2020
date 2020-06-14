@@ -23,7 +23,7 @@ class ResumesTableSeeder extends Seeder
             'message' => '저를 뽑아주세요.',
             'result' => 2,
             'video' => null,
-            'audition_id' => 1,
+            'audition_id' => 12,
         ]);
 
         App\User::find(4)->resumes()->create([
@@ -31,7 +31,7 @@ class ResumesTableSeeder extends Seeder
             'message' => '언제나 최선을 다하겠습니다.',
             'result' => 1,
             'video' => null,
-            'audition_id' => 1,
+            'audition_id' => 12,
         ]);
 
         App\User::find(5)->resumes()->create([
@@ -39,14 +39,14 @@ class ResumesTableSeeder extends Seeder
             'message' => '최고가 되겠습니다.',
             'result' => 1,
             'video' => null,
-            'audition_id' => 1,
+            'audition_id' => 12,
         ]);
 
         App\User::find(6)->resumes()->create([
             'score' => 88.8,
             'message' => '저를 선택하는 것은 후회없는 선택 이십니다.',
             'video' => null,
-            'audition_id' => 1,
+            'audition_id' => 12,
         ]);
     }
 }

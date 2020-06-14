@@ -31,7 +31,7 @@
           <button id="preview_btn" type="button" v-on:click="modeChange()">{{computedModeChangeHtml}}</button>
           <!-- <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button> -->
           <!-- <button id="end-btn" type="button">끝내기</button> -->
-          <router-link to="/lecture" class="nav-link" exact>
+          <router-link to="/audition" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <button id="end_btn">끝내기</button>
           </router-link>
@@ -127,9 +127,9 @@ export default {
         // this.content = response.data.content;
         console.log(response.data);
         this.filename = response.data[0].video;
-        this.video = "videos/" + this.filename + ".mp4";
+        this.video = "/videos/" + this.filename + ".mp4";
         axios
-          .get("videoDatas/" + this.filename + ".json")
+          .get("/videoDatas/" + this.filename + ".json")
           .then(response => (this.videoData = response.data));
       } catch (err) {
         console.error(err);
@@ -343,6 +343,9 @@ export default {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   z-index: 100000;
+}
+p{
+  color:black;
 }
 #source-video {
   position: fixed;

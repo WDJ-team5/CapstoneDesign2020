@@ -30,6 +30,11 @@
                                     <td>메가폰 엔터테인먼트</td>
                   </tr>-->
                   <tr>
+                    <th>모집대상</th>
+                    <td>{{audition.object}}</td>
+                  </tr>
+
+                  <tr>
                     <th>마감일</th>
                     <td>{{audition.end_date}} 까지</td>
                   </tr>
@@ -101,7 +106,7 @@ export default {
     pageSize: {
       type: Number,
       required: false,
-      default: 2
+      default: 5
     }
   },
 
@@ -187,6 +192,18 @@ export default {
 </script>
     
 <style>
+p{
+  color:white;
+}
+
+.select_box{
+  width: 100%;
+  height: 100px;
+  background: #222;
+  margin-top: 1%;
+}
+
+
 div,
 h2,
 ul {
@@ -348,7 +365,7 @@ ul {
   margin-top: 60px;
 }
 
-button {
+.btn-cover > button {
     display: inline-block;
     width: 152px;
     height: 48px;
@@ -385,5 +402,9 @@ button {
 }
 .btn-cover .page-count {
   padding: 0 1rem;
+}
+
+#dropdown-text{
+  margin-left:130px;
 }
 </style>

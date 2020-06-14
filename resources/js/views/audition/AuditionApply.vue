@@ -234,6 +234,7 @@ p {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    color:black;
 }
 
 

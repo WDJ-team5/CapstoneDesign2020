@@ -70,7 +70,6 @@ export default {
     },
     methods: {
         loadProfile: async function() {
-            console.log('loadProfile Profile.vue 메서드입니다');
             const url = '/api/mypage/profile';
 
             try {
