@@ -61,10 +61,10 @@
       <div id="button_area">
         <button type="button" @click="applyAudition">오디션 보기</button>
       </div>
-      <div id="button_area">
+      <!-- <div id="button_area">
       <b-button variant="primary" v-on:click="editAudition(auditions)">수정</b-button>
       <b-button variant="primary" style="margin-left:5px;" v-on:click="deleteAudition(auditions)">삭제</b-button>
-      </div>
+      </div> -->
     </div>
     
   </div>

@@ -28,12 +28,12 @@
             <span>댄스강좌</span>
           </router-link>
         </li>
-        <li>
+        <!-- <li>
           <router-link to="/#" class="NavLink" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>댄스경연</span>
           </router-link>
-        </li>
+        </li> -->
         <li>
           <router-link to="/expert/list" class="NavLink" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>

@@ -69736,22 +69736,6 @@ var render = function() {
           [
             _c(
               "router-link",
-              { staticClass: "NavLink", attrs: { to: "/#", exact: "" } },
-              [
-                _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
-                _vm._v(" "),
-                _c("span", [_vm._v("댄스경연")])
-              ]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          [
-            _c(
-              "router-link",
               {
                 staticClass: "NavLink",
                 attrs: { to: "/expert/list", exact: "" }
