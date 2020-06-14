@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             'introduction' => '안녕하세요. 삼성 라이온즈 응원단장 김상헌입니다.',
             'image' => 'user_images/01.jpg',
             'class' => 1,   //1: 연습생, 2: 전문가, 3:기업
-            'rank_id'=> 1,  //1: C, 2: B, 3: A
+            'rank_id'=> 2,  //1: C, 2: B, 3: A
             'company_id' => null,//기업용회원외래키
             'expert_id' => null,//전문가용외래키
         ]);

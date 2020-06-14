@@ -14,7 +14,7 @@ class LecturesTableSeeder extends Seeder
 
         App\Lecture::create([
             'title' => '트와이스 TT로 배우는 강의',
-            'content' => '아이돌 댄스 기초강의입니다.',
+            'content' => '트와이스 TT로 배우는 아이돌 댄스 기초강의입니다.',
             'video' => 'lecture_sample01',
             'image' => 'LectureImg/21.jpg',
             'genre_id' => 6,
