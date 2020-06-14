@@ -2429,8 +2429,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2441,10 +2439,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       contents: [],
-      audition: [],
-      article: [],
-      contest: [],
-      lecture: [],
+      auditions: [],
+      lectures: [],
       contentData: {
         name: ""
       },
@@ -2477,7 +2473,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }]
       },
-      slides: ["images/dance_main1.png", "images/dance_main2.png", "images/dance_main3.png", "images/dance_main4.png", "images/dance_main5.png", "images/dance_main6.png", "images/dance_main7.png"] // vue-agile
+      slides: ["http://localhost:8000/storage/lectureimg/01.jpg", "http://localhost:8000/storage/lectureimg/02.jpg", "http://localhost:8000/storage/lectureimg/03.jpg", "http://localhost:8000/storage/lectureimg/04.jpg", "http://localhost:8000/storage/lectureimg/05.jpg", "http://localhost:8000/storage/lectureimg/06.jpg", "http://localhost:8000/storage/lectureimg/07.jpg"] // vue-agile
 
     };
   },
@@ -2500,20 +2496,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 response = _context.sent;
-                // [0] : audition
-                // [1] : article
-                // [2] : contest
-                // [3] : lecture
+                // [0] : auditions
+                // [1] : lectures
                 console.log("response: ", response.data);
-                this.audition = response.data[0];
-                this.article = response.data[1];
-                this.contest = response.data[2];
-                this.lecture = response.data[3];
-                _context.next = 15;
+                this.auditions = response.data[0];
+                this.lectures = response.data[1];
+                _context.next = 13;
                 break;
 
-              case 11:
-                _context.prev = 11;
+              case 9:
+                _context.prev = 9;
                 _context.t0 = _context["catch"](0);
                 console.log(_context.t0);
                 this.flashMessage.success({
@@ -2521,12 +2513,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   time: 3000
                 });
 
-              case 15:
+              case 13:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[0, 11]]);
+        }, _callee, this, [[0, 9]]);
       }));
 
       function loadHomeContents() {
@@ -70128,73 +70120,37 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("h4", [_vm._v("댄스강좌")]),
       _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _c("div", { attrs: { id: "popular" } }, [
         _c("div", { attrs: { id: "popularMain" } }, [
           _c("a", { attrs: { href: "/" } }, [
-            _c("img", { attrs: { src: "images/dance1.jpg", alt: "x" } })
+            _c("img", {
+              attrs: { src: "http://localhost:8000/storage/lectureimg/08.jpg" }
+            })
           ])
         ]),
         _vm._v(" "),
         _c("div", { attrs: { id: "popularSub" } }, [
           _c("div", { staticClass: "popular-sub-child" }, [
             _c("a", { attrs: { href: "#" } }, [
-              _c("img", { attrs: { src: "images/dance2.jpg", alt: "x" } })
+              _c("img", {
+                attrs: {
+                  src: "http://localhost:8000/storage/lectureimg/09.jpg"
+                }
+              })
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "popular-sub-child" }, [
             _c("a", { attrs: { href: "#" } }, [
-              _c("img", { attrs: { src: "images/dance3.jpg", alt: "x" } })
+              _c("img", {
+                attrs: {
+                  src: "http://localhost:8000/storage/lectureimg/10.jpg"
+                }
+              })
             ])
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("h4", [_vm._v("댄스경연")]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "home_list" }, [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance4.jpg", alt: "x" } })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance5.jpg", alt: "x" } })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance6.jpg", alt: "x" } })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance7.jpg", alt: "x" } })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("h4", [_vm._v("피드백")]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "home_list" }, [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance8.jpg", alt: "x" } })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance9.jpg", alt: "x" } })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance10.jpg", alt: "x" } })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance11.jpg", alt: "x" } })
         ])
       ]),
       _vm._v(" "),
@@ -70206,20 +70162,85 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "home_list" }, [
         _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance1.jpg", alt: "x" } })
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/01.jpg" }
+          })
         ]),
         _vm._v(" "),
         _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance2.jpg", alt: "x" } })
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/02.jpg" }
+          })
         ]),
         _vm._v(" "),
         _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance3.jpg", alt: "x" } })
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/03.jpg" }
+          })
         ]),
         _vm._v(" "),
         _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance4.jpg", alt: "x" } })
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/04.jpg" }
+          })
         ])
+      ]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("div", { staticClass: "home_list" }, [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/05.jpg" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/06.jpg" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/07.jpg" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/08.jpg" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("div", { staticClass: "home_list" }, [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/09.jpg" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/10.jpg" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/11.jpg" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/12.jpg" }
+          })
+        ]),
+        _vm._v(">\n        ")
       ]),
       _vm._v(" "),
       _c("br")
@@ -87269,13 +87290,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
 __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> ahn
 
 
 /***/ })

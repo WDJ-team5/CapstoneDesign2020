@@ -1,3 +1,4 @@
+  
 <template>
     <div class="homeContainer">
         <!-- <br> -->
@@ -54,45 +55,42 @@
         <div class="homeContainerChild">
             <hr />
             <h4>댄스강좌</h4>
+            <hr>
             <div id="popular">
                 <div id="popularMain">
-                    <a href="/"><img src="images/dance1.jpg" alt="x"/></a>
+                    <a href="/"><img src="http://localhost:8000/storage/lectureimg/08.jpg"/></a>
                 </div>
                 <div id="popularSub">
                     <div class="popular-sub-child">
-                        <a href="#"><img src="images/dance2.jpg" alt="x"/></a>
+                        <a href="#"><img src="http://localhost:8000/storage/lectureimg/09.jpg"/></a>
                     </div>
                     <div class="popular-sub-child">
-                        <a href="#"><img src="images/dance3.jpg" alt="x"/></a>
+                        <a href="#"><img src="http://localhost:8000/storage/lectureimg/10.jpg"/></a>
                     </div>
                 </div>
-            </div>
-            <hr />
-            <h4>댄스경연</h4>
-            <hr />
-            <div class="home_list">
-                <a href="#"><img src="images/dance4.jpg" alt="x"/></a>
-                <a href="#"><img src="images/dance5.jpg" alt="x"/></a>
-                <a href="#"><img src="images/dance6.jpg" alt="x"/></a>
-                <a href="#"><img src="images/dance7.jpg" alt="x"/></a>
-            </div>
-            <hr />
-            <h4>피드백</h4>
-            <hr />
-            <div class="home_list">
-                <a href="#"><img src="images/dance8.jpg" alt="x"/></a>
-                <a href="#"><img src="images/dance9.jpg" alt="x"/></a>
-                <a href="#"><img src="images/dance10.jpg" alt="x"/></a>
-                <a href="#"><img src="images/dance11.jpg" alt="x"/></a>
             </div>
             <hr />
             <h4>오디션</h4>
             <hr />
             <div class="home_list">
-                <a href="#"><img src="images/dance1.jpg" alt="x"/></a>
-                <a href="#"><img src="images/dance2.jpg" alt="x"/></a>
-                <a href="#"><img src="images/dance3.jpg" alt="x"/></a>
-                <a href="#"><img src="images/dance4.jpg" alt="x"/></a>
+                <a href="#"><img src="http://localhost:8000/storage/auditon_image/01.jpg"/></a>
+                <a href="#"><img src="http://localhost:8000/storage/auditon_image/02.jpg"/></a>
+                <a href="#"><img src="http://localhost:8000/storage/auditon_image/03.jpg"/></a>
+                <a href="#"><img src="http://localhost:8000/storage/auditon_image/04.jpg"/></a>
+            </div>
+            <hr />
+            <div class="home_list">
+                <a href="#"><img src="http://localhost:8000/storage/auditon_image/05.jpg"/></a>
+                <a href="#"><img src="http://localhost:8000/storage/auditon_image/06.jpg"/></a>
+                <a href="#"><img src="http://localhost:8000/storage/auditon_image/07.jpg"/></a>
+                <a href="#"><img src="http://localhost:8000/storage/auditon_image/08.jpg"/></a>
+            </div>
+            <hr />
+            <div class="home_list">
+                <a href="#"><img src="http://localhost:8000/storage/auditon_image/09.jpg"/></a>
+                <a href="#"><img src="http://localhost:8000/storage/auditon_image/10.jpg"/></a>
+                <a href="#"><img src="http://localhost:8000/storage/auditon_image/11.jpg"/></a>
+                <a href="#"><img src="http://localhost:8000/storage/auditon_image/12.jpg"/></a>>
             </div>
             <br />
         </div>
@@ -111,10 +109,8 @@ export default {
     data() {
         return {
             contents: [],
-            audition: [],
-            article: [],
-            contest: [],
-            lecture: [],
+            auditions: [],
+            lectures: [],
             contentData: {
                 name: ""
             },
@@ -152,13 +148,13 @@ export default {
                 ]
             },
             slides: [
-                "images/dance_main1.png",
-                "images/dance_main2.png",
-                "images/dance_main3.png",
-                "images/dance_main4.png",
-                "images/dance_main5.png",
-                "images/dance_main6.png",
-                "images/dance_main7.png"
+                "http://localhost:8000/storage/lectureimg/01.jpg",
+                "http://localhost:8000/storage/lectureimg/02.jpg",
+                "http://localhost:8000/storage/lectureimg/03.jpg",
+                "http://localhost:8000/storage/lectureimg/04.jpg",
+                "http://localhost:8000/storage/lectureimg/05.jpg",
+                "http://localhost:8000/storage/lectureimg/06.jpg",
+                "http://localhost:8000/storage/lectureimg/07.jpg",
             ]
             // vue-agile
         };
@@ -172,15 +168,11 @@ export default {
         loadHomeContents: async function() {
             try {
                 const response = await homeService.loadHomeContents();
-                // [0] : audition
-                // [1] : article
-                // [2] : contest
-                // [3] : lecture
+                // [0] : auditions
+                // [1] : lectures
                 console.log("response: ", response.data);
-                this.audition = response.data[0];
-                this.article = response.data[1];
-                this.contest = response.data[2];
-                this.lecture = response.data[3];
+                this.auditions = response.data[0];
+                this.lectures = response.data[1];
             } catch (error) {
                 console.log(error);
                 this.flashMessage.success({
