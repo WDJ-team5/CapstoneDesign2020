@@ -144,7 +144,7 @@ class AuditionsTableSeeder extends Seeder
             'content' => 'SHOWHIP크루와 함께하실 전속 힙합댄서 모집중입니다.',
             'end_date' => '2020-05-25',
             'aud_image' => 'auditon_image/53.jpg',
-            'rank' => 'A',
+            'rank' => 'B',
             'object' => '힙합댄서',
             'video' => 'audition_sample01',
             'user_id' => 20,
