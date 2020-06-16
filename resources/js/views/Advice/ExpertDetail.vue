@@ -7,9 +7,9 @@
         <p class="name">
             <span class="korean">{{propsdata.name}}</span>
         </p>
-        <div class="close">
+        <!-- <div class="close">
             <button class="closeBtn" type="button">닫기</button>
-        </div>
+        </div> -->
       </div>
 
       <div class="profile_info">

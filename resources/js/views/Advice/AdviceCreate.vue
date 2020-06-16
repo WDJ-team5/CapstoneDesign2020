@@ -18,12 +18,12 @@
                             <label>{{editFeedbackData.name}}</label>
                         </label>
 
-                        <label class="video">
+                        <!-- <label class="video">
                             <label>첨부영상 : </label>
                             <div class="video-form">
                                 <b-form-input id="video" v-model="feedbackData.video" placeholder="링크를 입력하세요"></b-form-input>
                             </div>
-                        </label>
+                        </label> -->
 
                     </div>
 
@@ -251,10 +251,6 @@ export default {
         float:left;
         margin-top:8px;
         margin-left:5px;
-    }
-
-    .feedback-title{
-        height: 60px;
     }
 
     .feedback-btn {

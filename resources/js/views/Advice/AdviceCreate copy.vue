@@ -67,12 +67,12 @@
                             <label>{{this.$route.params.contentName}}</label>
                         </label>
 
-                        <label class="video">
+                        <!-- <label class="video">
                             <label>첨부영상 : </label>
                             <div class="video-form">
                                 <b-form-input id="video" v-model="feedbackData.video" placeholder="링크를 입력하세요"></b-form-input>
                             </div>
-                        </label>
+                        </label> -->
                     </div>
 
                     <b-form-textarea id="textarea-rows" v-model="feedbackData.content" placeholder="내용을 입력해주세요" rows="22"></b-form-textarea>
