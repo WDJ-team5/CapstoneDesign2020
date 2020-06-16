@@ -3,7 +3,7 @@
     <div class="common_contentbox">
       <hr>
       <h2 class="title">오디션</h2>
-      <b-dropdown id="dropdown-text" text="랭크선택" class="m-2">
+      <b-dropdown id="dropdown-text" text="랭크선택" class="m-2 drop">
         <b-dropdown-item-button @click="aRank()">A랭크이상</b-dropdown-item-button>
         <b-dropdown-item-button @click="bRank()">B랭크이상</b-dropdown-item-button>
       </b-dropdown>
@@ -405,7 +405,8 @@ ul {
   padding: 0 1rem;
 }
 
-#dropdown-text{
-  margin-left:130px;
+.common_contentbox > .m-2{
+  margin-top: 2% !important;
+  margin-left: 5% !important;
 }
 </style>
