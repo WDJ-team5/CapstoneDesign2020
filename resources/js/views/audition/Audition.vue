@@ -1,6 +1,7 @@
 <template>
   <div id="container">
     <div class="common_contentbox">
+      <hr>
       <h2 class="title">오디션</h2>
       <b-dropdown id="dropdown-text" text="랭크선택" class="m-2">
         <b-dropdown-item-button @click="aRank()">A랭크이상</b-dropdown-item-button>
