@@ -13,9 +13,18 @@ class LecturesTableSeeder extends Seeder
     {
 
         App\Lecture::create([
+            'title' => '리듬트레이닝 1탄 바운스 보면서 따라하기',
+            'content' => '바운스 어떻게 연습해야 할지 모르겠으면 그냥 따라하세요 !!\n리듬을 타는 3가지 방법!!',
+            'video' => 'lecture_sample01',
+            'image' => 'LectureImg/21.jpg',
+            'genre_id' => 6,
+            'level_id' => 3,
+        ]);
+
+        App\Lecture::create([
             'title' => '트와이스 TT로 배우는 강의',
             'content' => '트와이스 TT로 배우는 아이돌 댄스 기초강의입니다.',
-            'video' => 'lecture_sample01',
+            'video' => 'lecture_sample02',
             'image' => 'LectureImg/21.jpg',
             'genre_id' => 6,
             'level_id' => 3,

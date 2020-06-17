@@ -49,7 +49,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('1234'),
             'name' => '리아킴',
             'birthday' => '1996-08-10',
-            'gender' => 1,~
+            'gender' => 1,
             'address' => '대구광역시',
             'call_number' => '010-0000-0000',
             'introduction' => '안녕하세요. 안무연구가 리아킴입니다.',

@@ -179,8 +179,8 @@ class AuditionsTableSeeder extends Seeder
             'aud_image' => 'auditon_image/01.jpg',
             'rank' => 'B',
             'object' => '아이돌댄서',
-            'video' => '나중에 집어넣어',
-            'user_id' => 22,
+            'video' => 'audition_sample01',
+            'user_id' => 20,
         ]);
 
     }
