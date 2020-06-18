@@ -16,7 +16,7 @@ class LecturesTableSeeder extends Seeder
             'title' => '리듬트레이닝 1탄 바운스 보면서 따라하기',
             'content' => '바운스 어떻게 연습해야 할지 모르겠으면 그냥 따라하세요 !!\n리듬을 타는 3가지 방법!!',
             'video' => 'lecture_sample01',
-            'image' => 'LectureImg/21.jpg',
+            'image' => 'LectureImg/23.jpg',
             'genre_id' => 6,
             'level_id' => 3,
         ]);
