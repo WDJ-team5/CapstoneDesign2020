@@ -12,7 +12,7 @@
                     </div>
                     <div class="lecture_info">
                         <div>정확도 : {{lecture.accuracy}}</div>
-                        <div>날짜 : {{lecture.created_at}}</div>
+                        <div>날짜 : {{String(lecture.created_at).substr(0, 10)}}</div>
                     </div>
                 </div>
             </div>

@@ -75,6 +75,9 @@
             <div class="home_list">
                 <a href="#"><img src="http://localhost:8000/storage/auditon_image/01.jpg"/></a>
                 <a href="#"><img src="http://localhost:8000/storage/auditon_image/02.jpg"/></a>
+            </div>
+            <hr />
+            <div class="home_list">
                 <a href="#"><img src="http://localhost:8000/storage/auditon_image/03.jpg"/></a>
                 <a href="#"><img src="http://localhost:8000/storage/auditon_image/04.jpg"/></a>
             </div>
@@ -82,15 +85,6 @@
             <div class="home_list">
                 <a href="#"><img src="http://localhost:8000/storage/auditon_image/05.jpg"/></a>
                 <a href="#"><img src="http://localhost:8000/storage/auditon_image/06.jpg"/></a>
-                <a href="#"><img src="http://localhost:8000/storage/auditon_image/07.jpg"/></a>
-                <a href="#"><img src="http://localhost:8000/storage/auditon_image/08.jpg"/></a>
-            </div>
-            <hr />
-            <div class="home_list">
-                <a href="#"><img src="http://localhost:8000/storage/auditon_image/09.jpg"/></a>
-                <a href="#"><img src="http://localhost:8000/storage/auditon_image/10.jpg"/></a>
-                <a href="#"><img src="http://localhost:8000/storage/auditon_image/11.jpg"/></a>
-                <a href="#"><img src="http://localhost:8000/storage/auditon_image/12.jpg"/></a>>
             </div>
             <br />
         </div>
@@ -149,12 +143,12 @@ export default {
             },
             slides: [
                 "http://localhost:8000/storage/lectureimg/01.jpg",
-                "http://localhost:8000/storage/lectureimg/02.jpg",
+                "http://localhost:8000/storage/lectureimg/08.jpg",
                 "http://localhost:8000/storage/lectureimg/03.jpg",
-                "http://localhost:8000/storage/lectureimg/04.jpg",
+                "http://localhost:8000/storage/lectureimg/09.jpg",
                 "http://localhost:8000/storage/lectureimg/05.jpg",
                 "http://localhost:8000/storage/lectureimg/06.jpg",
-                "http://localhost:8000/storage/lectureimg/07.jpg",
+                "http://localhost:8000/storage/lectureimg/11.jpg",
             ]
             // vue-agile
         };
@@ -173,6 +167,7 @@ export default {
                 console.log("response: ", response.data);
                 this.auditions = response.data[0];
                 this.lectures = response.data[1];
+                console.log(this.lectures[0].image);
             } catch (error) {
                 console.log(error);
                 this.flashMessage.success({
