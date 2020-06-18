@@ -2422,12 +2422,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2472,7 +2466,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }]
       },
-      slides: ["http://localhost:8000/storage/lectureimg/01.jpg", "http://localhost:8000/storage/lectureimg/02.jpg", "http://localhost:8000/storage/lectureimg/03.jpg", "http://localhost:8000/storage/lectureimg/04.jpg", "http://localhost:8000/storage/lectureimg/05.jpg", "http://localhost:8000/storage/lectureimg/06.jpg", "http://localhost:8000/storage/lectureimg/07.jpg"] // vue-agile
+      slides: ["http://localhost:8000/storage/lectureimg/01.jpg", "http://localhost:8000/storage/lectureimg/08.jpg", "http://localhost:8000/storage/lectureimg/03.jpg", "http://localhost:8000/storage/lectureimg/09.jpg", "http://localhost:8000/storage/lectureimg/05.jpg", "http://localhost:8000/storage/lectureimg/06.jpg", "http://localhost:8000/storage/lectureimg/11.jpg"] // vue-agile
 
     };
   },
@@ -2500,11 +2494,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 console.log("response: ", response.data);
                 this.auditions = response.data[0];
                 this.lectures = response.data[1];
-                _context.next = 13;
+                console.log(this.lectures[0].image);
+                _context.next = 14;
                 break;
 
-              case 9:
-                _context.prev = 9;
+              case 10:
+                _context.prev = 10;
                 _context.t0 = _context["catch"](0);
                 console.log(_context.t0);
                 this.flashMessage.success({
@@ -2512,12 +2507,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   time: 3000
                 });
 
-              case 13:
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[0, 9]]);
+        }, _callee, this, [[0, 10]]);
       }));
 
       function loadHomeContents() {
@@ -49195,7 +49190,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#header {\r\n  width: 100%;\r\n  height: auto;\r\n  box-sizing: border-box;\r\n  z-index: 5;\r\n  display: block;\n}\n.LoginNav {\r\n  height: 35px;\r\n  font-size: 13px;\r\n  color: #6c738a;\r\n  z-index: 4;\r\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\r\n  margin-right: 140px;\r\n  display: flex;\r\n  float: right;\n}\n.ServiceNav {\r\n  margin-top: 10px;\r\n  width: 100%;\r\n  position: relative;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: .5rem 1rem;\n}\n.LogoImg {\r\n  margin-left: 120px;\r\n  margin-top: 10px;\n}\n.ServiceNavGroup {\r\n  margin-top:8px;\r\n  margin-right: 120px;\r\n  display: flex;\r\n  float: right;\r\n  list-style: none;\n}\n.ServiceNabGroup {\r\n  margin-left : 35px;\n}\nli > a {\r\n  color: black;\r\n  text-decoration: none;\r\n  transition: color .9s;\n}\n.NavLink {\r\n  display: flex;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n.NavLink:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\n}\n#logout_div {\n}\n#logout {\r\n  color: #007bff;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n#logout:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\r\n  cursor: pointer;\n}\n.feedback-letter{\r\n  margin-right:10px;\n}\r\n", ""]);
+exports.push([module.i, "\n#header {\r\n  width: 100%;\r\n  height: auto;\r\n  box-sizing: border-box;\r\n  z-index: 5;\r\n  display: block;\n}\n.LoginNav {\r\n  height: 35px;\r\n  font-size: 13px;\r\n  color: #6c738a;\r\n  z-index: 4;\r\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\r\n  margin-right: 140px;\r\n  display: flex;\r\n  float: right;\n}\n.ServiceNav {\r\n  margin-top: 10px;\r\n  width: 100%;\r\n  position: relative;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: .5rem 1rem;\n}\n.LogoImg {\r\n  margin-left: 120px;\r\n  margin-top: 10px;\n}\n.ServiceNavGroup {\r\n  margin-top:8px;\r\n  margin-right: 120px;\r\n  display: flex;\r\n  float: right;\r\n  list-style: none;\n}\n.ServiceNabGroup {\r\n  margin-left : 35px;\n}\nli > a {\r\n  color: black;\r\n  text-decoration: none;\r\n  transition: color .9s;\n}\n.NavLink {\r\n  display: flex;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n.NavLink:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\n}\n#logout_div {\n}\n#logout {\r\n  color: #007bff;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n#logout:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\r\n  cursor: pointer;\n}\n.feedback-letter{\r\n  margin-right:10px;\n}\n.NavLink.router-link-exact-active.router-link-active {\r\n  color: #f86941;\n}\r\n", ""]);
 
 // exports
 
@@ -70168,8 +70163,12 @@ var staticRenderFns = [
           _c("img", {
             attrs: { src: "http://localhost:8000/storage/auditon_image/02.jpg" }
           })
-        ]),
-        _vm._v(" "),
+        ])
+      ]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("div", { staticClass: "home_list" }, [
         _c("a", { attrs: { href: "#" } }, [
           _c("img", {
             attrs: { src: "http://localhost:8000/storage/auditon_image/03.jpg" }
@@ -70196,48 +70195,7 @@ var staticRenderFns = [
           _c("img", {
             attrs: { src: "http://localhost:8000/storage/auditon_image/06.jpg" }
           })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "http://localhost:8000/storage/auditon_image/07.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "http://localhost:8000/storage/auditon_image/08.jpg" }
-          })
         ])
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "home_list" }, [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "http://localhost:8000/storage/auditon_image/09.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "http://localhost:8000/storage/auditon_image/10.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "http://localhost:8000/storage/auditon_image/11.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "http://localhost:8000/storage/auditon_image/12.jpg" }
-          })
-        ]),
-        _vm._v(">\n        ")
       ]),
       _vm._v(" "),
       _c("br")
@@ -87287,8 +87245,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> ahn
 
 
 /***/ })
