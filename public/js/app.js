@@ -87272,6 +87272,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! C:\teamProject\git2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\teamProject\git2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 
+
 /***/ })
 
 /******/ });

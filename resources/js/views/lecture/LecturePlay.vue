@@ -236,15 +236,17 @@ export default {
         // test-01
         var capture = document.createElement('canvas')
         var can = capture.getContext('2d');
-        can.drawImage(webcam, 0, 0, 300, 160);
+        can.drawImage(webcam, 0, 0, 300, 150);
         var img = new Image();
         img.src = capture.toDataURL("image/png");
+        img.style.transform= 'scaleX(-1)';
+
         this.viewData.webcamImg.push(img);
 
         var video = document.getElementById('source-video');
         capture = document.createElement('canvas');
         can = capture.getContext('2d');
-        can.drawImage(video , 0, 0, 300, 160);
+        can.drawImage(video , 0, 0, 300, 150);
         img = new Image();
         img.src = capture.toDataURL("image/png");      
         this.viewData.videoImg.push(img);
@@ -436,7 +438,7 @@ export default {
         if(points[key].score > 0.6){
           this.ctx.beginPath();
           this.ctx.arc(points[key].position.x,points[key].position.y,10,0,Math.PI*2);
-          this.ctx.fillStyle = "#000000"
+          this.ctx.fillStyle = "#ff0000"
           this.ctx.fill()
           this.ctx.stroke();
           this.ctx.closePath();
