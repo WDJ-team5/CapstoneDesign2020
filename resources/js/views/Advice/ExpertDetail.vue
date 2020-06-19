@@ -7,9 +7,9 @@
         <p class="name">
             <span class="korean">{{propsdata.name}}</span>
         </p>
-        <div class="close">
+        <!-- <div class="close">
             <button class="closeBtn" type="button">닫기</button>
-        </div>
+        </div> -->
       </div>
 
       <div class="profile_info">
@@ -62,6 +62,9 @@
                     <div class="typeinfo">
                         <div class="feedback-star-font-box">
                             <span class="feedback-star-font">피드백 별점</span>
+                        </div>
+                        <div class="rate">
+                            <img src="/images/rate.png" height=150px/>
                         </div>
                         <div class="feedbackBtnBox">
                             <button class="feedbackBtn" @click="writeFeedback(propsdata.expert_id, propsdata.name)">피드백 신청하기</button>
@@ -235,8 +238,12 @@ export default {
     .feedback-star-font-box {
         color:white;
         text-align: center;
-        height:200px;
         margin-top:14px;
+    }
+
+    .rate {
+        margin-top: 25px;
+        margin-bottom: 25px;
     }
 
 </style>

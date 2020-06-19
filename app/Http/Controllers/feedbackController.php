@@ -123,7 +123,7 @@ class feedbackController extends Controller
         $result1 = \App\Article::join('users','user_id','=','users.id')->find($cid);
         $result2 = \App\User::where('expert_id', '=', $eid)->firstOrFail();
 
-        return response()->json([$result1,$result2], 200);
+        return response()->json([$result1,$result2,$user], 200);
     }
 
     /**

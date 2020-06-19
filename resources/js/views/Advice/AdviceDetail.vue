@@ -17,9 +17,11 @@
                   <source :src="`${$store.state.serverPath}/storage/${feedbackDetail.video}`" :type="'video/' + 'mp4'">
                   Your browser does not support the video tag.
               </video> -->
-              <video width="600px" height="400px" controls="controls" :src="`${$store.state.serverPath}/storage/${feedbackDetail.video}`"></video>
+              <div>
+                <video width="600px" height="400px" controls="controls" :src="`${$store.state.serverPath}/storage/${feedbackDetail.video}`"></video>
+              </div>
             </div>
-            <div>{{feedbackDetail.content}}</div>
+            <div class="feedback-content">{{feedbackDetail.content}}</div>
           </div>
         </div>    
       </b-card>
@@ -31,7 +33,9 @@
         <div class="content content-reply">
           <div class="content-null">
             <h1>작성된 피드백이 없습니다.</h1>
+            <div v-if="loginUser.name==expertDetail.name">
             <b-button class="update-btn" @click="updateFeedback(cid,eid)">피드백 작성하기</b-button>
+            </div>
           </div>
         </div>
       </b-card>
@@ -68,6 +72,7 @@ export default {
     const contentId = this.propsdata[0];
     const expertId = this.propsdata[1];
     return {
+      loginUser:[],
       feedbackDetail:[],
       expertDetail:[],
       cid: contentId,
@@ -87,10 +92,13 @@ export default {
                 this.feedbackDetail=response.data[0]; 
                 this.expertDetail.unshift(response.data[1]);
                 this.expertDetail=response.data[1]; 
+                this.loginUser.unshift(response.data[2]);
+                this.loginUser=response.data[2]; 
 
 
-                console.log("데이터가 잘 들어갔는가 : ",this.feedbackDetail);
-                console.log("데이터가 잘 들어갔는가 : ",this.expertDetail);
+                // console.log("데이터가 잘 들어갔는가 : ",this.feedbackDetail);
+                // console.log("데이터가 잘 들어갔는가 : ",this.expertDetail);
+                console.log("지금 로그인한 유저 정보 : ",this.loginUser);
 
 
             }catch(error){
@@ -157,8 +165,8 @@ export default {
 }
 
 .content-detail-content {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  /* margin-top: 1rem; */
+  /* padding-top: 1rem; */
   height:auto;
   min-height: 300px;
   font-size: 2em;
@@ -193,4 +201,17 @@ export default {
 .update-btn {
   margin-top:20px;
 }
+
+.video-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+
+.feedback-content{
+  margin-bottom: 55px;
+}
+
 </style>

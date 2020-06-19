@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             'introduction' => '안녕하세요. 삼성 라이온즈 응원단장 김상헌입니다.',
             'image' => 'user_images/01.jpg',
             'class' => 1,   //1: 연습생, 2: 전문가, 3:기업
-            'rank_id'=> 1,  //1: C, 2: B, 3: A
+            'rank_id'=> 2,  //1: C, 2: B, 3: A
             'company_id' => null,//기업용회원외래키
             'expert_id' => null,//전문가용외래키
         ]);
@@ -47,12 +47,12 @@ class UsersTableSeeder extends Seeder
         App\User::create([
             'userid' => 'idol_01',
             'password' => bcrypt('1234'),
-            'name' => '김상수',
+            'name' => '리아킴',
             'birthday' => '1996-08-10',
             'gender' => 1,
             'address' => '대구광역시',
             'call_number' => '010-0000-0000',
-            'introduction' => '대한민국 최고의 댄서입니당',
+            'introduction' => '안녕하세요. 안무연구가 리아킴입니다.',
             'image' => 'user_images/03.jpg',
             'class' => 2,
             'rank_id'=> 3,

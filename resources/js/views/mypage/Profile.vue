@@ -27,7 +27,7 @@
                     </tr>
                     <tr>
                         <th>가입일</th>
-                        <td>{{String(profiles.created_at)}}</td>
+                        <td>{{String(profiles.created_at).substr(0, 10)}}</td>
                     </tr>
                     <tr>
                         <th>랭킹</th>

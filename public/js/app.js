@@ -2177,7 +2177,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "session",
@@ -2423,14 +2422,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2441,10 +2432,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       contents: [],
-      audition: [],
-      article: [],
-      contest: [],
-      lecture: [],
+      auditions: [],
+      lectures: [],
       contentData: {
         name: ""
       },
@@ -2477,7 +2466,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }]
       },
-      slides: ["images/dance_main1.png", "images/dance_main2.png", "images/dance_main3.png", "images/dance_main4.png", "images/dance_main5.png", "images/dance_main6.png", "images/dance_main7.png"] // vue-agile
+      slides: ["http://localhost:8000/storage/lectureimg/01.jpg", "http://localhost:8000/storage/lectureimg/08.jpg", "http://localhost:8000/storage/lectureimg/03.jpg", "http://localhost:8000/storage/lectureimg/09.jpg", "http://localhost:8000/storage/lectureimg/05.jpg", "http://localhost:8000/storage/lectureimg/06.jpg", "http://localhost:8000/storage/lectureimg/11.jpg"] // vue-agile
 
     };
   },
@@ -2500,20 +2489,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 response = _context.sent;
-                // [0] : audition
-                // [1] : article
-                // [2] : contest
-                // [3] : lecture
+                // [0] : auditions
+                // [1] : lectures
                 console.log("response: ", response.data);
-                this.audition = response.data[0];
-                this.article = response.data[1];
-                this.contest = response.data[2];
-                this.lecture = response.data[3];
-                _context.next = 15;
+                this.auditions = response.data[0];
+                this.lectures = response.data[1];
+                console.log(this.lectures[0].image);
+                _context.next = 14;
                 break;
 
-              case 11:
-                _context.prev = 11;
+              case 10:
+                _context.prev = 10;
                 _context.t0 = _context["catch"](0);
                 console.log(_context.t0);
                 this.flashMessage.success({
@@ -2521,12 +2507,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   time: 3000
                 });
 
-              case 15:
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[0, 11]]);
+        }, _callee, this, [[0, 10]]);
       }));
 
       function loadHomeContents() {
@@ -49204,7 +49190,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#header {\r\n  width: 100%;\r\n  height: auto;\r\n  box-sizing: border-box;\r\n  z-index: 5;\r\n  display: block;\n}\n.LoginNav {\r\n  height: 35px;\r\n  font-size: 13px;\r\n  color: #6c738a;\r\n  z-index: 4;\r\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\r\n  margin-right: 140px;\r\n  display: flex;\r\n  float: right;\n}\n.ServiceNav {\r\n  margin-top: 10px;\r\n  width: 100%;\r\n  position: relative;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: .5rem 1rem;\n}\n.LogoImg {\r\n  margin-left: 120px;\r\n  margin-top: 10px;\n}\n.ServiceNavGroup {\r\n  margin-top:8px;\r\n  margin-right: 120px;\r\n  display: flex;\r\n  float: right;\r\n  list-style: none;\n}\n.ServiceNabGroup {\r\n  margin-left : 35px;\n}\nli > a {\r\n  color: black;\r\n  text-decoration: none;\r\n  transition: color .9s;\n}\n.NavLink {\r\n  display: flex;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n.NavLink:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\n}\n#logout_div {\n}\n#logout {\r\n  color: #007bff;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n#logout:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\r\n  cursor: pointer;\n}\r\n", ""]);
+exports.push([module.i, "\n#header {\r\n  width: 100%;\r\n  height: auto;\r\n  box-sizing: border-box;\r\n  z-index: 5;\r\n  display: block;\n}\n.LoginNav {\r\n  height: 35px;\r\n  font-size: 13px;\r\n  color: #6c738a;\r\n  z-index: 4;\r\n  border-bottom: 1px solid rgb(157, 156, 156);\n}\n.LoginNavGroup {\r\n  margin-right: 140px;\r\n  display: flex;\r\n  float: right;\n}\n.ServiceNav {\r\n  margin-top: 10px;\r\n  width: 100%;\r\n  position: relative;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: .5rem 1rem;\n}\n.LogoImg {\r\n  margin-left: 120px;\r\n  margin-top: 10px;\n}\n.ServiceNavGroup {\r\n  margin-top:8px;\r\n  margin-right: 120px;\r\n  display: flex;\r\n  float: right;\r\n  list-style: none;\n}\n.ServiceNabGroup {\r\n  margin-left : 35px;\n}\nli > a {\r\n  color: black;\r\n  text-decoration: none;\r\n  transition: color .9s;\n}\n.NavLink {\r\n  display: flex;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n.NavLink:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\n}\n#logout_div {\n}\n#logout {\r\n  color: #007bff;\r\n  padding: 0.5rem 1rem;\r\n  font-weight: 700;\r\n  font-size: 2vh;\n}\n#logout:hover {\r\n  color: #f86941;\r\n  text-decoration: none;\r\n  transition:all 0.5s ease;\r\n  cursor: pointer;\n}\n.feedback-letter{\r\n  margin-right:10px;\n}\n.NavLink.router-link-exact-active.router-link-active {\r\n  color: #f86941;\n}\r\n", ""]);
 
 // exports
 
@@ -69772,25 +69758,23 @@ var render = function() {
               [
                 _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                 _vm._v(" "),
-                _c("span", [_vm._v("피드백")]),
+                _c("span", { staticClass: "feedback-letter" }, [
+                  _vm._v("피드백")
+                ]),
                 _vm._v(" "),
                 _c("ul", { staticClass: "navbar-nav ml-auto ml-md-0" }, [
                   _c("li", { staticClass: "nav-item dropdown" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "dropdown-toggle",
-                        attrs: {
-                          id: "userDropdown",
-                          href: "#",
-                          role: "button",
-                          "data-toggle": "dropdown",
-                          "aria-haspopup": "true",
-                          "aria-expanded": "false"
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-user fa-fw" })]
-                    ),
+                    _c("a", {
+                      staticClass: "dropdown-toggle",
+                      attrs: {
+                        id: "userDropdown",
+                        href: "#",
+                        role: "button",
+                        "data-toggle": "dropdown",
+                        "aria-haspopup": "true",
+                        "aria-expanded": "false"
+                      }
+                    }),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -70128,73 +70112,37 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("h4", [_vm._v("댄스강좌")]),
       _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _c("div", { attrs: { id: "popular" } }, [
         _c("div", { attrs: { id: "popularMain" } }, [
           _c("a", { attrs: { href: "/" } }, [
-            _c("img", { attrs: { src: "images/dance1.jpg", alt: "x" } })
+            _c("img", {
+              attrs: { src: "http://localhost:8000/storage/lectureimg/08.jpg" }
+            })
           ])
         ]),
         _vm._v(" "),
         _c("div", { attrs: { id: "popularSub" } }, [
           _c("div", { staticClass: "popular-sub-child" }, [
             _c("a", { attrs: { href: "#" } }, [
-              _c("img", { attrs: { src: "images/dance2.jpg", alt: "x" } })
+              _c("img", {
+                attrs: {
+                  src: "http://localhost:8000/storage/lectureimg/09.jpg"
+                }
+              })
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "popular-sub-child" }, [
             _c("a", { attrs: { href: "#" } }, [
-              _c("img", { attrs: { src: "images/dance3.jpg", alt: "x" } })
+              _c("img", {
+                attrs: {
+                  src: "http://localhost:8000/storage/lectureimg/10.jpg"
+                }
+              })
             ])
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("h4", [_vm._v("댄스경연")]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "home_list" }, [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance4.jpg", alt: "x" } })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance5.jpg", alt: "x" } })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance6.jpg", alt: "x" } })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance7.jpg", alt: "x" } })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("h4", [_vm._v("피드백")]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "home_list" }, [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance8.jpg", alt: "x" } })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance9.jpg", alt: "x" } })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance10.jpg", alt: "x" } })
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance11.jpg", alt: "x" } })
         ])
       ]),
       _vm._v(" "),
@@ -70206,19 +70154,47 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "home_list" }, [
         _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance1.jpg", alt: "x" } })
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/01.jpg" }
+          })
         ]),
         _vm._v(" "),
         _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance2.jpg", alt: "x" } })
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/02.jpg" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("div", { staticClass: "home_list" }, [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/03.jpg" }
+          })
         ]),
         _vm._v(" "),
         _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance3.jpg", alt: "x" } })
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/04.jpg" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("div", { staticClass: "home_list" }, [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/05.jpg" }
+          })
         ]),
         _vm._v(" "),
         _c("a", { attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "images/dance4.jpg", alt: "x" } })
+          _c("img", {
+            attrs: { src: "http://localhost:8000/storage/auditon_image/06.jpg" }
+          })
         ])
       ]),
       _vm._v(" "),
@@ -87269,8 +87245,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\teamProject\git2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\teamProject\git2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+
 
 
 /***/ })
