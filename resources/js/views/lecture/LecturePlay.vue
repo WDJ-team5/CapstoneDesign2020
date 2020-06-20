@@ -284,34 +284,10 @@ export default {
     saveVideo: function(){
       var canvas = document.createElement('canvas');
     },
-    endedVideo: async function() {
-      if (this.start) {
-        let tmp = this.totalScore / this.finalCount;
-        this.finalScore = Math.round(tmp*100)/100;
-        this.ended = true;
-        // console.log(this.finalScore);
+    openModal: function(){
+              /* 모달 */
         var data = this.viewData;
 
-        let formData = new FormData();
-        formData.append("accuracy", this.finalScore);
-        formData.append("lecture_id", this.id);
-        // console.log(...formData);
-        this.finalScore = tmp.toFixed(2) + "%";
-        window.cancelAnimationFrame(this.loop);
-        console.log(this.danceData);
-
-        /* 데이터 저장 */
-        try { 
-          const res = await lectureService.createScore(formData);
-          console.log(res);
-          console.log("플레이 데이터 저장 성공");
-        } catch (error) {
-          console.log(error);
-        }
-
-
-//        this.modalChange();
-        /* 모달 */
         Swal.fire({
           title:'정확도 : '+this.finalScore,
           html:
@@ -332,18 +308,22 @@ export default {
             this.apply();
           }
         })
+        var returned = this.openModal;
         document.getElementById('viewer-btn').onclick = function(){
           Swal.close();
           Swal.fire({
-            title:'사진사진',
+            title:'세부 데이터',
             html:
-//            '<table id="viewer-list"></table>'+
             '<div id="imgs-div"></div>'+
             '<input type="range" min="0" max="0" value="0" id="seekbar">',
             width: '1200px',
             customClass:'swal2-height',
             allowOutsideClick:false,
             allowEscapeKey:false,
+          }).then((result)=>{
+            if(result.value){
+              return returned();
+            }
           });
           var seekbar = document.getElementById('seekbar');
           var viewer = document.getElementById('imgs-div');
@@ -360,17 +340,49 @@ export default {
             data.webcamImg[key].style.padding = '1px';
             div.appendChild(data.videoImg[key]);
             div.appendChild(data.webcamImg[key]);
+
             var p = document.createElement('p');
             p.innerHTML = data.score[key].total;
             div.appendChild(p);
-            p = document.createElement('p');
-            p.innerHTML = " 어깨 : " + data.score[key].score[0]+" 왼팔 안쪽 : " + data.score[key].score[1]+" 왼팔 바깥쪽 : " + data.score[key].score[2]+" 오른팔 안쪽 : " + data.score[key].score[3]+" 오른팔 바깥쪽 : " + data.score[key].score[4]+" 왼쪽 몸 : " + data.score[key].score[5]+" 오른쪽 몸 : " + data.score[key].score[6]+"</br>"+" 엉덩이 : " + data.score[key].score[7]+" 왼쪽 허벅지 : " + data.score[key].score[8]+" 왼쪽 종아리 : " + data.score[key].score[9]+" 오른쪽 허벅지 : " + data.score[key].score[10]+" 오른쪽 종아리 : " + data.score[key].score[11];
-            div.appendChild(p);
-            // table = document.createElement('table');
-            // var tr = document.createElement('tr');
-            // var td = document.createElement('td');
-            // td.innerHTML = "어깨"
-            // var td = document.createElement('td');
+
+            var label = ["어깨","왼팔 안쪽","왼팔 바깥쪽","오른팔 안쪽","오른팔 바깥쪽","왼쪽 몸","오른쪽 몸","엉덩이","왼쪽 허벅지","왼쪽 종아리","오른쪽 허벅지","오른쪽 종아리"];
+            var table = document.createElement('table');
+            table.style.position = 'relative';
+            table.style.left = '50px';
+            table.style.margin = '30px';
+            var tr = document.createElement('tr');
+            var td = document.createElement('td');
+            var cnt = 0;
+            for(var i = 0; i < 3 ; i++){
+                tr = document.createElement('tr');
+                for(var j = 0; j < 8; j++){
+                    td = document.createElement('td');
+                    if(j%2 == 0){
+                      td.innerHTML = label[cnt];
+                      td.width = '150px';
+                    }
+                    else{
+                      if(data.score[key].score[cnt] < 50) td.style.color = 'red';
+                      td.innerHTML = data.score[key].score[cnt++];
+                      td.width = '100px';
+                    }
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+            div.appendChild(table);
+
+
+
+
+
+
+
+            // p = document.createElement('p');
+            // p.innerHTML = " 어깨 : " + data.score[key].score[0]+" 왼팔 안쪽 : " + data.score[key].score[1]+" 왼팔 바깥쪽 : " + data.score[key].score[2]+" 오른팔 안쪽 : " + data.score[key].score[3]+" 오른팔 바깥쪽 : " + data.score[key].score[4]+" 왼쪽 몸 : " + data.score[key].score[5]+" 오른쪽 몸 : " + data.score[key].score[6]+"</br>"+" 엉덩이 : " + data.score[key].score[7]+" 왼쪽 허벅지 : " + data.score[key].score[8]+" 왼쪽 종아리 : " + data.score[key].score[9]+" 오른쪽 허벅지 : " + data.score[key].score[10]+" 오른쪽 종아리 : " + data.score[key].score[11];
+            // div.appendChild(p);
+
+
             if( key!=0)
               div.style.display='none';
             viewer.appendChild(div);
@@ -415,7 +427,36 @@ export default {
               }]
             }
           }
-        });        
+        });
+    },
+    endedVideo: async function() {
+      if (this.start) {
+        let tmp = this.totalScore / this.finalCount;
+        this.finalScore = Math.round(tmp*100)/100;
+        this.ended = true;
+        // console.log(this.finalScore);
+
+        let formData = new FormData();
+        formData.append("accuracy", this.finalScore);
+        formData.append("lecture_id", this.id);
+        // console.log(...formData);
+        this.finalScore = tmp.toFixed(2) + "%";
+        window.cancelAnimationFrame(this.loop);
+        console.log(this.danceData);
+
+        /* 데이터 저장 */
+        try { 
+          const res = await lectureService.createScore(formData);
+          console.log(res);
+          console.log("플레이 데이터 저장 성공");
+        } catch (error) {
+          console.log(error);
+        }
+
+        this.openModal();
+
+//        this.modalChange();
+        
       }
     },
     toast:  function(string){
