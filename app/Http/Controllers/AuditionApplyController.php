@@ -45,9 +45,13 @@ class AuditionApplyController extends Controller
 
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
 
+        $path=$request->file('video')->store('video');
+
+        
         $result = \App\User::find($user->id)->resumes()->create([
             'score' => $request->score,
             'message' => $request->text,
+            'video' => $path,
             // 'result' => ,
             'audition_id' => $request->audition_id,
         ]);

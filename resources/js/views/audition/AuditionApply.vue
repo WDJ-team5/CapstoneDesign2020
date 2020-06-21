@@ -6,7 +6,7 @@
                 <p class="text">오디션 신청</p>
             </div>
 
-            <p class="auditiondetails_recruitment">YG태양이 지지않는 밤 오디션</p>
+            <!-- <p class="auditiondetails_recruitment">{{this.name}}</p> -->
             <form v-on:submit.prevent="createAudition">
                 <div class="auditiondetails_content_ingap">
                     <hr class="hr_line">
@@ -124,13 +124,22 @@
                         max-rows="6"
                         ></b-form-textarea>
 
-                        <p class="auditiondetails_title02">영상링크 첨부</p>
+
+                        <label class="video">
+                            <label>첨부영상 : </label>
+                            <div class="video-form file is-info has-name">
+                                <label class="file-label">
+                                    <input class="file-input" type="file" ref="file" name="file" @change="addVideo()">
+                                </label>
+                            </div>
+                        </label>
+                        <!-- <p class="auditiondetails_title02">영상링크 첨부</p>
                         <b-form-input
                         id="video_link"
                         v-model="video"
                         required
                         placeholder="영상링크를 입력해주세요"
-                        ></b-form-input>
+                        ></b-form-input> -->
                     </div>
                 
                 </div>
@@ -163,6 +172,12 @@ export default {
     },
 
     methods:{
+
+    addVideo() {
+        this.video = this.$refs.file.files[0];
+        console.log(this.video);
+    },
+
     // 유저 데이터 로드
     applyAudition: async function() {
       try {
