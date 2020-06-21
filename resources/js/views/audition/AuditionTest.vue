@@ -211,7 +211,7 @@ export default {
           ) {
             tmp =
               100 -
-              (this.cal.distance(data[key], this.videoData[timing][key]) / 90) *
+              (this.cal.distance(data[key], this.videoData[timing][key]) / 180) *
                 100;
             if (tmp < 0) tmp = 0;
             score += tmp;
@@ -344,8 +344,8 @@ export default {
   -moz-transform: rotateY(180deg);
   z-index: 100000;
 }
-p{
-  color:black;
+  #pannel_content p{
+  color:white;
 }
 #source-video {
   position: fixed;
@@ -370,6 +370,8 @@ footer{
   bottom: 0;
   width: 25%;
   height: 60%;
+  border: 1px solid white;
+  background-color: black;
   z-index: 100000;
 }
 #pannel #pannel_content{
@@ -405,9 +407,6 @@ body .btn-bg {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-body .btn-bg.bg-1 {
-  background: #6ab1c9;
 }
 body .btn-bg.bg-1 .btn-1 button {
   color: #c7f8f9;
