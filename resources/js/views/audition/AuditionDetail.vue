@@ -56,7 +56,8 @@
               v-bind:src="auditionData.video"
               allowfullscreen
       ></b-embed> -->
-      <iframe width="1000" height="500" src="https://www.youtube.com/watch?v=Am17ol5broQ&feature=youtu.be" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <!-- <iframe width="1000" height="500" src="https://www.youtube.com/watch?v=Am17ol5broQ&feature=youtu.be" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+      <video width="600px" height="400px" controls="controls" :src="`${$store.state.serverPath}/storage/auditon_image/02.mp4`"></video>
       <hr class="hr_line">
       <div id="button_area">
         <button type="button" @click="applyAudition">오디션 보기</button>
