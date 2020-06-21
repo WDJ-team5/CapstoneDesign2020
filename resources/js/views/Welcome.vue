@@ -18,9 +18,13 @@
                                 :key="index"
                                 :class="`slide--${index}`"
                             >
-                                <a href="#">
+                                <router-link :to="slidesUrl[index]">
+                                    <div id="slideBox">
+                                        <div id="slideBoxTitle">{{slidesTitle[index]}}</div>
+                                        <div id="slideBoxContent">{{slidesContent[index]}}</div>
+                                    </div>
                                     <img :src="slide" />
-                                </a>
+                                </router-link>
                             </div>
                         </agile>
                     </div>
@@ -54,37 +58,32 @@
 
         <div class="homeContainerChild">
             <hr />
-            <h4>댄스강좌</h4>
+            <h4>전문가</h4>
             <hr>
             <div id="popular">
                 <div id="popularMain">
-                    <a href="/"><img src="http://localhost:8000/storage/lectureimg/08.jpg"/></a>
+                    <a href="#">
+                        <img :src="`${$store.state.serverPath}/storage/${expertsImage[0]}`"/>
+                    </a>
                 </div>
                 <div id="popularSub">
                     <div class="popular-sub-child">
-                        <a href="#"><img src="http://localhost:8000/storage/lectureimg/09.jpg"/></a>
+                        <a href="#">
+                            <img :src="`${$store.state.serverPath}/storage/${expertsImage[1]}`"/>
+                        </a>
                     </div>
                     <div class="popular-sub-child">
-                        <a href="#"><img src="http://localhost:8000/storage/lectureimg/10.jpg"/></a>
+                        <a href="#">
+                            <img :src="`${$store.state.serverPath}/storage/${expertsImage[2]}`"/>
+                        </a>
                     </div>
                 </div>
             </div>
             <hr />
             <h4>오디션</h4>
             <hr />
-            <div class="home_list">
-                <a href="#"><img src="http://localhost:8000/storage/auditon_image/01.jpg"/></a>
-                <a href="#"><img src="http://localhost:8000/storage/auditon_image/02.jpg"/></a>
-            </div>
-            <hr />
-            <div class="home_list">
-                <a href="#"><img src="http://localhost:8000/storage/auditon_image/03.jpg"/></a>
-                <a href="#"><img src="http://localhost:8000/storage/auditon_image/04.jpg"/></a>
-            </div>
-            <hr />
-            <div class="home_list">
-                <a href="#"><img src="http://localhost:8000/storage/auditon_image/05.jpg"/></a>
-                <a href="#"><img src="http://localhost:8000/storage/auditon_image/06.jpg"/></a>
+            <div class="home_list" v-for="(audition, index) in auditions" :key="index">
+                <router-link :to="auditionsUrl[index]"><img :src="`${$store.state.serverPath}/storage/${audition.aud_image}`"/></router-link>
             </div>
             <br />
         </div>
@@ -105,6 +104,7 @@ export default {
             contents: [],
             auditions: [],
             lectures: [],
+            experts: [],
             contentData: {
                 name: ""
             },
@@ -149,6 +149,58 @@ export default {
                 "http://localhost:8000/storage/lectureimg/05.jpg",
                 "http://localhost:8000/storage/lectureimg/06.jpg",
                 "http://localhost:8000/storage/lectureimg/11.jpg",
+            ],
+            slidesTitle: [
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+            ],
+            slidesContent: [
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+            ],
+            slidesUrl: [
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+            ],
+            auditionsUrl: [
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+            ],
+            expertsImage: [
+                "test",
+                "test",
+                "test",
+            ],
+            expertsName: [
+                "test",
+                "test",
+                "test",
+            ],
+            expertsIntro: [
+                "test",
+                "test",
+                "test",
             ]
             // vue-agile
         };
@@ -166,14 +218,42 @@ export default {
                 // [1] : lectures
                 console.log("response: ", response.data);
                 this.auditions = response.data[0];
+                this.auditionsUrl = [];
+                for(var i = 0; i < this.auditions.length; i ++){
+                    this.auditionsUrl.push(`/auditiondetail/${this.auditions[i].id}`);
+                }
+
                 this.lectures = response.data[1];
-                console.log(this.lectures[0].image);
+                this.slides = [];
+                this.slidesTitle = [];
+                this.slidesContent = [];
+                this.slidesUrl = [];
+                for(var i = 0; i < this.lectures.length; i ++){
+                    this.slides.push(`http://localhost:8000/storage/${this.lectures[i].image}`);
+                    this.slidesTitle.push(this.lectures[i].title);
+                    this.slidesContent.push(this.lectures[i].content)
+                    this.slidesUrl.push(`/lecturePlay/${this.lectures[i].id}`);
+                }
+
+                this.experts = response.data[2];
+                console.log(this.experts);
+                this.expertsImage = [];
+                this.expertsName = [];
+                this.expertsIntro = [];
+                for(var i = 0; i < this.experts.length; i ++){
+                    this.expertsImage.push(this.experts[i].image);
+                    this.expertsName.push(this.experts[i].name);
+                    this.expertsIntro.push(this.experts[i].introduction);
+                }
+                console.log(this.expertsImage);
+                console.log(this.expertsName);
+                console.log(this.expertsIntro);
             } catch (error) {
-                console.log(error);
-                this.flashMessage.success({
-                    message: "에러발생...여긴...Read...",
-                    time: 3000
-                });
+                // console.log(error);
+                // this.flashMessage.success({
+                //     message: "에러발생...여긴...Read...",
+                //     time: 3000
+                // });
             }
         }
         // CRUD : Create
@@ -253,12 +333,12 @@ div > a > img {
 }
 .home_list > a > img {
     transition: 0.5s;
-    filter: grayscale(100%);
+    /* filter: grayscale(100%); */
 }
 .home_list > a > img:hover {
-    /* opacity: 0.75; */
+    opacity: 0.75;
     transition: 0.5s;
-    filter: none;
+    /* filter: none; */
 }
 
 /* ===== carousel css ===== */
@@ -363,5 +443,20 @@ div > a > img {
 .slide:hover {
     transition: opacity 0.3s;
     opacity: 0.75;
+}
+
+#slideBox {
+    background-color: rgba(50, 50, 50, 0.8);
+    position: absolute;
+    bottom: 5%;
+    right: 0%;
+    width: 60%;
+    height: 15%;
+    color: white;
+}
+
+#slideBoxTitle {
+    font-size: 125%;
+    font-weight: 700;
 }
 </style>

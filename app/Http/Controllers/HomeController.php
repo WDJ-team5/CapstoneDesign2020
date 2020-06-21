@@ -14,9 +14,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $auditions = \App\Audition::orderBy('created_at', 'desc')->get();
-        $lectures = \App\Lecture::orderBy('created_at', 'desc')->get();
-        return response()->json([$auditions, $lectures]);
+        $auditions = \App\Audition::orderBy('created_at', 'desc')->take(8)->get();
+        $lectures = \App\Lecture::orderBy('created_at', 'desc')->take(7)->get();
+        $experts = \App\User::whereClass(2)->with(array('expert'=>function($query){$query->with(array('specialty'=>function($query){$query->get();}))->with(array('company'=>function($query){$query->get();}));}))->take(3)->get();
+        return response()->json([$auditions, $lectures, $experts]);
     }
 
     /**

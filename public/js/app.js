@@ -2421,7 +2421,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2434,6 +2433,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       contents: [],
       auditions: [],
       lectures: [],
+      experts: [],
       contentData: {
         name: ""
       },
@@ -2466,7 +2466,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }]
       },
-      slides: ["http://localhost:8000/storage/lectureimg/01.jpg", "http://localhost:8000/storage/lectureimg/08.jpg", "http://localhost:8000/storage/lectureimg/03.jpg", "http://localhost:8000/storage/lectureimg/09.jpg", "http://localhost:8000/storage/lectureimg/05.jpg", "http://localhost:8000/storage/lectureimg/06.jpg", "http://localhost:8000/storage/lectureimg/11.jpg"] // vue-agile
+      slides: ["http://localhost:8000/storage/lectureimg/01.jpg", "http://localhost:8000/storage/lectureimg/08.jpg", "http://localhost:8000/storage/lectureimg/03.jpg", "http://localhost:8000/storage/lectureimg/09.jpg", "http://localhost:8000/storage/lectureimg/05.jpg", "http://localhost:8000/storage/lectureimg/06.jpg", "http://localhost:8000/storage/lectureimg/11.jpg"],
+      slidesTitle: ["test", "test", "test", "test", "test", "test", "test"],
+      slidesContent: ["test", "test", "test", "test", "test", "test", "test"],
+      slidesUrl: ["test", "test", "test", "test", "test", "test", "test"],
+      auditionsUrl: ["test", "test", "test", "test", "test", "test", "test", "test"],
+      expertsImage: ["test", "test", "test"],
+      expertsName: ["test", "test", "test"],
+      expertsIntro: ["test", "test", "test"] // vue-agile
 
     };
   },
@@ -2478,7 +2485,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     loadHomeContents: function () {
       var _loadHomeContents = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var response;
+        var response, i;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -2493,26 +2500,53 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 // [1] : lectures
                 console.log("response: ", response.data);
                 this.auditions = response.data[0];
+                this.auditionsUrl = [];
+
+                for (i = 0; i < this.auditions.length; i++) {
+                  this.auditionsUrl.push("/auditiondetail/".concat(this.auditions[i].id));
+                }
+
                 this.lectures = response.data[1];
-                console.log(this.lectures[0].image);
-                _context.next = 14;
+                this.slides = [];
+                this.slidesTitle = [];
+                this.slidesContent = [];
+                this.slidesUrl = [];
+
+                for (i = 0; i < this.lectures.length; i++) {
+                  this.slides.push("http://localhost:8000/storage/".concat(this.lectures[i].image));
+                  this.slidesTitle.push(this.lectures[i].title);
+                  this.slidesContent.push(this.lectures[i].content);
+                  this.slidesUrl.push("/lecturePlay/".concat(this.lectures[i].id));
+                }
+
+                this.experts = response.data[2];
+                console.log(this.experts);
+                this.expertsImage = [];
+                this.expertsName = [];
+                this.expertsIntro = [];
+
+                for (i = 0; i < this.experts.length; i++) {
+                  this.expertsImage.push(this.experts[i].image);
+                  this.expertsName.push(this.experts[i].name);
+                  this.expertsIntro.push(this.experts[i].introduction);
+                }
+
+                console.log(this.expertsImage);
+                console.log(this.expertsName);
+                console.log(this.expertsIntro);
+                _context.next = 27;
                 break;
 
-              case 10:
-                _context.prev = 10;
+              case 25:
+                _context.prev = 25;
                 _context.t0 = _context["catch"](0);
-                console.log(_context.t0);
-                this.flashMessage.success({
-                  message: "에러발생...여긴...Read...",
-                  time: 3000
-                });
 
-              case 14:
+              case 27:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[0, 10]]);
+        }, _callee, this, [[0, 25]]);
       }));
 
       function loadHomeContents() {
@@ -49209,7 +49243,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.homeContainer {\r\n    width: 100%;\n}\n.homeContainerChild {\r\n    width: 70%;\r\n    margin: 0 auto;\n}\ndiv > a > img {\r\n    width: 100%;\r\n    height: 100%;\r\n    transition: transform 0.5s;\n}\n#popular {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n#popularMain {\r\n    width: 65vw;\r\n    overflow: hidden;\n}\n#popularMain > a > img {\r\n    transition: 0.5s;\r\n    -webkit-filter: grayscale(100%);\r\n            filter: grayscale(100%);\n}\n#popularMain > a > img:hover {\r\n    transition: 0.5s;\r\n    /* opacity: 0.9; */\r\n    -webkit-filter: none;\r\n            filter: none;\r\n    transform: translateZ(0);\n}\n#popularSub {\r\n    width: 35vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 0;\r\n    padding: 0;\n}\n.popular-sub-child {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\n}\n.popular-sub-child > a > img {\r\n    transition: 0.5s;\r\n    -webkit-filter: grayscale(100%);\r\n            filter: grayscale(100%);\n}\n.popular-sub-child > a > img:hover {\r\n    transition: 0.5s;\r\n    -webkit-filter: none;\r\n            filter: none;\r\n    /* opacity: 0.75; */\r\n    transform: translateZ(0);\n}\n.home_list {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n.home_list > a {\r\n    overflow: hidden;\n}\n.home_list > a > img {\r\n    transition: 0.5s;\r\n    -webkit-filter: grayscale(100%);\r\n            filter: grayscale(100%);\n}\n.home_list > a > img:hover {\r\n    /* opacity: 0.75; */\r\n    transition: 0.5s;\r\n    -webkit-filter: none;\r\n            filter: none;\n}\r\n\r\n/* ===== carousel css ===== */\n.fas fa-chevron-left {\r\n    visibility: visible;\n}\n.fas fa-chevron-right {\r\n    visibility: visible;\n}\n.col-xs-12 {\r\n    width: 100%;\n}\n.section--demo-4 .main {\r\n    margin-bottom: 30px;\n}\n.section--demo-4 .thumbnails {\r\n    margin: 0 -5px;\r\n    width: calc(100% + 10px);\n}\n.section--demo-4 .agile__actions {\r\n    position: static;\n}\n.section--demo-4 .agile__nav-button {\r\n    background: transparent;\r\n    border: none;\r\n    color: #ccc;\r\n    cursor: pointer;\r\n    font-size: 24px;\r\n    transition-duration: 0.3s;\n}\n.section--demo-4 .agile__nav-button:hover {\r\n    color: #888;\n}\n.section--demo-4 .agile__dot {\r\n    margin: 0 10px;\n}\n.section--demo-4 .agile__dot button {\r\n    background-color: #eee;\r\n    border: none;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    display: block;\r\n    height: 10px;\r\n    font-size: 0;\r\n    line-height: 0;\r\n    margin: 0;\r\n    padding: 0;\r\n    transition-duration: 0.3s;\r\n    width: 10px;\n}\n.section--demo-4 .agile__dot--current button,\r\n.section--demo-4 .agile__dot:hover button {\r\n    background-color: #888;\n}\n.section--demo-4 .thumbnails .agile__nav-button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\n}\n.section--demo-4 .thumbnails .agile__nav-button--prev {\r\n    left: -45px;\n}\n.section--demo-4 .thumbnails .agile__nav-button--next {\r\n    right: -45px;\n}\n.section--demo-4 .slide {\r\n    align-items: center;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    display: flex;\r\n    height: 550px;\r\n    justify-content: center;\n}\n.section--demo-4 .slide--thumbniail {\r\n    cursor: pointer;\r\n    height: 100px;\r\n    padding: 0 5px;\r\n    transition: opacity 0.3s;\n}\n.section--demo-4 .slide--thumbniail:hover {\r\n    opacity: 0.75;\n}\n.section--demo-4 .slide img {\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: center;\r\n       object-position: center;\r\n    width: 100%;\n}\n.slide:hover {\r\n    transition: opacity 0.3s;\r\n    opacity: 0.75;\n}\r\n", ""]);
+exports.push([module.i, "\n.homeContainer {\r\n    width: 100%;\n}\n.homeContainerChild {\r\n    width: 70%;\r\n    margin: 0 auto;\n}\ndiv > a > img {\r\n    width: 100%;\r\n    height: 100%;\r\n    transition: transform 0.5s;\n}\n#popular {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n#popularMain {\r\n    width: 65vw;\r\n    overflow: hidden;\n}\n#popularMain > a > img {\r\n    transition: 0.5s;\r\n    -webkit-filter: grayscale(100%);\r\n            filter: grayscale(100%);\n}\n#popularMain > a > img:hover {\r\n    transition: 0.5s;\r\n    /* opacity: 0.9; */\r\n    -webkit-filter: none;\r\n            filter: none;\r\n    transform: translateZ(0);\n}\n#popularSub {\r\n    width: 35vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 0;\r\n    padding: 0;\n}\n.popular-sub-child {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\n}\n.popular-sub-child > a > img {\r\n    transition: 0.5s;\r\n    -webkit-filter: grayscale(100%);\r\n            filter: grayscale(100%);\n}\n.popular-sub-child > a > img:hover {\r\n    transition: 0.5s;\r\n    -webkit-filter: none;\r\n            filter: none;\r\n    /* opacity: 0.75; */\r\n    transform: translateZ(0);\n}\n.home_list {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n.home_list > a {\r\n    overflow: hidden;\n}\n.home_list > a > img {\r\n    transition: 0.5s;\r\n    /* filter: grayscale(100%); */\n}\n.home_list > a > img:hover {\r\n    opacity: 0.75;\r\n    transition: 0.5s;\r\n    /* filter: none; */\n}\r\n\r\n/* ===== carousel css ===== */\n.fas fa-chevron-left {\r\n    visibility: visible;\n}\n.fas fa-chevron-right {\r\n    visibility: visible;\n}\n.col-xs-12 {\r\n    width: 100%;\n}\n.section--demo-4 .main {\r\n    margin-bottom: 30px;\n}\n.section--demo-4 .thumbnails {\r\n    margin: 0 -5px;\r\n    width: calc(100% + 10px);\n}\n.section--demo-4 .agile__actions {\r\n    position: static;\n}\n.section--demo-4 .agile__nav-button {\r\n    background: transparent;\r\n    border: none;\r\n    color: #ccc;\r\n    cursor: pointer;\r\n    font-size: 24px;\r\n    transition-duration: 0.3s;\n}\n.section--demo-4 .agile__nav-button:hover {\r\n    color: #888;\n}\n.section--demo-4 .agile__dot {\r\n    margin: 0 10px;\n}\n.section--demo-4 .agile__dot button {\r\n    background-color: #eee;\r\n    border: none;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    display: block;\r\n    height: 10px;\r\n    font-size: 0;\r\n    line-height: 0;\r\n    margin: 0;\r\n    padding: 0;\r\n    transition-duration: 0.3s;\r\n    width: 10px;\n}\n.section--demo-4 .agile__dot--current button,\r\n.section--demo-4 .agile__dot:hover button {\r\n    background-color: #888;\n}\n.section--demo-4 .thumbnails .agile__nav-button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\n}\n.section--demo-4 .thumbnails .agile__nav-button--prev {\r\n    left: -45px;\n}\n.section--demo-4 .thumbnails .agile__nav-button--next {\r\n    right: -45px;\n}\n.section--demo-4 .slide {\r\n    align-items: center;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    display: flex;\r\n    height: 550px;\r\n    justify-content: center;\n}\n.section--demo-4 .slide--thumbniail {\r\n    cursor: pointer;\r\n    height: 100px;\r\n    padding: 0 5px;\r\n    transition: opacity 0.3s;\n}\n.section--demo-4 .slide--thumbniail:hover {\r\n    opacity: 0.75;\n}\n.section--demo-4 .slide img {\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: center;\r\n       object-position: center;\r\n    width: 100%;\n}\n.slide:hover {\r\n    transition: opacity 0.3s;\r\n    opacity: 0.75;\n}\n#slideBox {\r\n    background-color: rgba(50, 50, 50, 0.8);\r\n    position: absolute;\r\n    bottom: 5%;\r\n    right: 0%;\r\n    width: 60%;\r\n    height: 15%;\r\n    color: white;\n}\n#slideBoxTitle {\r\n    font-size: 125%;\r\n    font-weight: 700;\n}\r\n", ""]);
 
 // exports
 
@@ -70037,10 +70071,25 @@ var render = function() {
                       class: "slide--" + index
                     },
                     [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("img", { attrs: { src: slide } })
-                      ])
-                    ]
+                      _c(
+                        "router-link",
+                        { attrs: { to: _vm.slidesUrl[index] } },
+                        [
+                          _c("div", { attrs: { id: "slideBox" } }, [
+                            _c("div", { attrs: { id: "slideBoxTitle" } }, [
+                              _vm._v(_vm._s(_vm.slidesTitle[index]))
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { attrs: { id: "slideBoxContent" } }, [
+                              _vm._v(_vm._s(_vm.slidesContent[index]))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("img", { attrs: { src: slide } })
+                        ]
+                      )
+                    ],
+                    1
                   )
                 }),
                 0
@@ -70099,109 +70148,92 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(0)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "homeContainerChild" }, [
-      _c("hr"),
-      _vm._v(" "),
-      _c("h4", [_vm._v("댄스강좌")]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "popular" } }, [
-        _c("div", { attrs: { id: "popularMain" } }, [
-          _c("a", { attrs: { href: "/" } }, [
-            _c("img", {
-              attrs: { src: "http://localhost:8000/storage/lectureimg/08.jpg" }
-            })
-          ])
-        ]),
+    _c(
+      "div",
+      { staticClass: "homeContainerChild" },
+      [
+        _c("hr"),
         _vm._v(" "),
-        _c("div", { attrs: { id: "popularSub" } }, [
-          _c("div", { staticClass: "popular-sub-child" }, [
+        _c("h4", [_vm._v("전문가")]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "popular" } }, [
+          _c("div", { attrs: { id: "popularMain" } }, [
             _c("a", { attrs: { href: "#" } }, [
               _c("img", {
                 attrs: {
-                  src: "http://localhost:8000/storage/lectureimg/09.jpg"
+                  src:
+                    _vm.$store.state.serverPath +
+                    "/storage/" +
+                    _vm.expertsImage[0]
                 }
               })
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "popular-sub-child" }, [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", {
-                attrs: {
-                  src: "http://localhost:8000/storage/lectureimg/10.jpg"
-                }
-              })
+          _c("div", { attrs: { id: "popularSub" } }, [
+            _c("div", { staticClass: "popular-sub-child" }, [
+              _c("a", { attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src:
+                      _vm.$store.state.serverPath +
+                      "/storage/" +
+                      _vm.expertsImage[1]
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "popular-sub-child" }, [
+              _c("a", { attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src:
+                      _vm.$store.state.serverPath +
+                      "/storage/" +
+                      _vm.expertsImage[2]
+                  }
+                })
+              ])
             ])
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("h4", [_vm._v("오디션")]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "home_list" }, [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "http://localhost:8000/storage/auditon_image/01.jpg" }
-          })
         ]),
         _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "http://localhost:8000/storage/auditon_image/02.jpg" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "home_list" }, [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "http://localhost:8000/storage/auditon_image/03.jpg" }
-          })
-        ]),
+        _c("hr"),
         _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "http://localhost:8000/storage/auditon_image/04.jpg" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("div", { staticClass: "home_list" }, [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "http://localhost:8000/storage/auditon_image/05.jpg" }
-          })
-        ]),
+        _c("h4", [_vm._v("오디션")]),
         _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "http://localhost:8000/storage/auditon_image/06.jpg" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("br")
-    ])
-  }
-]
+        _c("hr"),
+        _vm._v(" "),
+        _vm._l(_vm.auditions, function(audition, index) {
+          return _c(
+            "div",
+            { key: index, staticClass: "home_list" },
+            [
+              _c("router-link", { attrs: { to: _vm.auditionsUrl[index] } }, [
+                _c("img", {
+                  attrs: {
+                    src:
+                      _vm.$store.state.serverPath +
+                      "/storage/" +
+                      audition.aud_image
+                  }
+                })
+              ])
+            ],
+            1
+          )
+        }),
+        _vm._v(" "),
+        _c("br")
+      ],
+      2
+    )
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
