@@ -3,16 +3,16 @@ require_once 'ConnectDate.php';
 
 $obj = new ConnectDate();
 
-$id = $_GET["id"];
-$get_res = $_GET["res"];
-$audition_id = $_GET["audition_id"];
+$article_id = $_GET["article_id"];
+$expert_id = $_GET["expert_id"];
+$answer = $_GET["answer"];
 
-$query1 = "update resumes set result = " . $get_res . " where id = " . $id;
+$query1 = "update articles set answer = " . $answer . " where id = " . $article_id;
 
-$query2 = "select re.id,us.image,us.userid,us.name,re.result
-from resumes AS re
-join users AS us ON re.user_id = us.id
-where re.audition_id = " . $audition_id;
+$query2 = "select articles.id, users.name, articles.title, articles.created_at, articles.answer
+from articles
+join users ON articles.user_id = users.id
+where articles.expert_id = " . $expert_id;
 
 $con = mysqli_connect($obj->ip, $obj->id, $obj->password, $obj->database);
 
@@ -38,11 +38,10 @@ $res = mysqli_query($con, $query2);
 
 while($row = mysqli_fetch_array($res)) {
     $result['id'] = $row["id"];
-    $result['image'] = $row["image"];
-    $result['userid'] = $row["userid"];
     $result['name'] = $row["name"];
-    $result['result'] = $row["result"];
-    $result['tmp'] = $resko;
+    $result['title'] = $row["title"];
+    $result['date'] = $row["created_at"];
+    $result['answer'] = $row["answer"];
     $arr["result"][] = $result;
 }
 
