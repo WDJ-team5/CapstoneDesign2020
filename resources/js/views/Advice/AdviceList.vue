@@ -41,7 +41,7 @@
                   </td>
    
                   <td v-b-toggle="'collapse-'+index">
-                    <div class="cell_padding">{{feedbackList.created_at}}</div>
+                    <div class="cell_padding">{{String(feedbackList.created_at).substr(0, 10)}}</div>
                   </td>
                 
                   <td v-b-toggle="'collapse-'+index">

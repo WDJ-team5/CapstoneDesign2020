@@ -17,9 +17,7 @@
                   <source :src="`${$store.state.serverPath}/storage/${feedbackDetail.video}`" :type="'video/' + 'mp4'">
                   Your browser does not support the video tag.
               </video> -->
-              <div>
                 <video width="600px" height="400px" controls="controls" :src="`${$store.state.serverPath}/storage/${feedbackDetail.video}`"></video>
-              </div>
             </div>
             <div class="feedback-content">{{feedbackDetail.content}}</div>
           </div>
@@ -165,8 +163,6 @@ export default {
 }
 
 .content-detail-content {
-  /* margin-top: 1rem; */
-  /* padding-top: 1rem; */
   height:auto;
   min-height: 300px;
   font-size: 2em;
