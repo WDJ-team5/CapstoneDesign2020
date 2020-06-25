@@ -24,7 +24,7 @@
         <hr/>
         <p>시험 응시 횟수는 무제한입니다.</p>
         <p>@댄스설명@</p>
-        <p>서얾엉</p>
+        <p>BTS 작은 것들을 위한 시 하이라이트 입니다.</p>
       </div>
       <div class="btn-bg bg-1">
         <div class="btn btn-1">
