@@ -5,7 +5,7 @@ $obj = new ConnectDate();
 
 $id = $_GET["id"];
 
-$query = "select resumes.id, users.image, users.name, users.userid, users.gender, users.address, users.call_number, ranks.rank_name, resumes.score, resumes.message, resumes.result, resumes.audition_id
+$query = "select resumes.id, users.image, users.name, users.userid, users.gender, users.address, users.call_number, ranks.rank_name, resumes.score, resumes.message, resumes.result, resumes.audition_id, resumes.video
 from resumes
 join users ON resumes.user_id = users.id
 join ranks ON users.rank_id = ranks.id
@@ -34,6 +34,7 @@ while($row = mysqli_fetch_array($res)) {
     $result['message'] = $row["message"];
     $result['result'] = $row["result"];
     $result['audition_id'] = $row["audition_id"];
+    $result['video'] = $row["video"];
     $arr["result"][] = $result;
 }
 
