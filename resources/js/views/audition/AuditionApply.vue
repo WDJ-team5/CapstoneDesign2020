@@ -125,14 +125,7 @@
                         ></b-form-textarea>
 
 
-                        <label class="video">
-                            <label>첨부영상 : </label>
-                            <div class="video-form file is-info has-name">
-                                <label class="file-label">
-                                    <input class="file-input" type="file" ref="file" name="file" @change="addVideo()">
-                                </label>
-                            </div>
-                        </label>
+                       
                         <!-- <p class="auditiondetails_title02">영상링크 첨부</p>
                         <b-form-input
                         id="video_link"
