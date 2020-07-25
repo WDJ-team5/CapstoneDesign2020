@@ -152,7 +152,7 @@ export default {
     data(){
         return{
             text:'',
-            video:'',
+            // video:'',
             auditions: [],
             aid:'',
             score:''
@@ -166,10 +166,10 @@ export default {
 
     methods:{
 
-    addVideo() {
-        this.video = this.$refs.file.files[0];
-        console.log(this.video);
-    },
+    // addVideo() {
+    //     this.video = this.$refs.file.files[0];
+    //     console.log(this.video);
+    // },
 
     // 유저 데이터 로드
     applyAudition: async function() {
@@ -193,7 +193,7 @@ export default {
             formData.append('call_number',this.auditions.call_number);
             formData.append('score',this.score);
             formData.append('text',this.text);
-            formData.append('video',this.video);
+            // formData.append('video',this.video);
             formData.append('audition_id',this.aid);
             console.log(...formData);
             this.$router.push({

@@ -14,12 +14,12 @@ class UsersTableSeeder extends Seeder
         App\User::create([
             'userid' => 'sample_01',
             'password' => bcrypt('1234'),
-            'name' => '김상헌',
+            'name' => '박수진',
             'birthday' => '1999-06-10',
-            'gender' => 0,  //0: 남, 1: 여
+            'gender' => 1,  //0: 남, 1: 여
             'address' => '대구광역시',
             'call_number' => '010-0000-0000',
-            'introduction' => '안녕하세요. 삼성 라이온즈 응원단장 김상헌입니다.',
+            'introduction' => '안녕하세요! 아이돌지망생 박수진입니다.',
             'image' => 'user_images/01.jpg',
             'class' => 1,   //1: 연습생, 2: 전문가, 3:기업
             'rank_id'=> 2,  //1: C, 2: B, 3: A

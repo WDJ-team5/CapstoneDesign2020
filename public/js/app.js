@@ -87277,25 +87277,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-__webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
-
-=======
 __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> jhh
-=======
-__webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\dwg04\Desktop\캡스톤몇번쨰\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> 3ea428615e5961032bbc29bb671112f98e933832
-=======
-__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> jhh
 
 
 /***/ })
