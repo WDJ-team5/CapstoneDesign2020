@@ -2421,6 +2421,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2466,7 +2468,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }]
       },
-      slides: ["http://localhost:8000/storage/lectureimg/01.jpg", "http://localhost:8000/storage/lectureimg/08.jpg", "http://localhost:8000/storage/lectureimg/03.jpg", "http://localhost:8000/storage/lectureimg/09.jpg", "http://localhost:8000/storage/lectureimg/05.jpg", "http://localhost:8000/storage/lectureimg/06.jpg", "http://localhost:8000/storage/lectureimg/11.jpg"],
+      slides: ["test", "test", "test", "test", "test", "test", "test"],
       slidesTitle: ["test", "test", "test", "test", "test", "test", "test"],
       slidesContent: ["test", "test", "test", "test", "test", "test", "test"],
       slidesUrl: ["test", "test", "test", "test", "test", "test", "test"],
@@ -49243,7 +49245,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.homeContainer {\r\n    width: 100%;\n}\n.homeContainerChild {\r\n    width: 70%;\r\n    margin: 0 auto;\n}\ndiv > a > img {\r\n    width: 100%;\r\n    height: 100%;\r\n    transition: transform 0.5s;\n}\n#popular {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n#popularMain {\r\n    width: 65vw;\r\n    overflow: hidden;\n}\n#popularMain > a > img {\r\n    transition: 0.5s;\r\n    -webkit-filter: grayscale(100%);\r\n            filter: grayscale(100%);\n}\n#popularMain > a > img:hover {\r\n    transition: 0.5s;\r\n    /* opacity: 0.9; */\r\n    -webkit-filter: none;\r\n            filter: none;\r\n    transform: translateZ(0);\n}\n#popularSub {\r\n    width: 35vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 0;\r\n    padding: 0;\n}\n.popular-sub-child {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\n}\n.popular-sub-child > a > img {\r\n    transition: 0.5s;\r\n    -webkit-filter: grayscale(100%);\r\n            filter: grayscale(100%);\n}\n.popular-sub-child > a > img:hover {\r\n    transition: 0.5s;\r\n    -webkit-filter: none;\r\n            filter: none;\r\n    /* opacity: 0.75; */\r\n    transform: translateZ(0);\n}\n.home_list {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n.home_list > a {\r\n    overflow: hidden;\n}\n.home_list > a > img {\r\n    transition: 0.5s;\r\n    /* filter: grayscale(100%); */\n}\n.home_list > a > img:hover {\r\n    opacity: 0.75;\r\n    transition: 0.5s;\r\n    /* filter: none; */\n}\r\n\r\n/* ===== carousel css ===== */\n.fas fa-chevron-left {\r\n    visibility: visible;\n}\n.fas fa-chevron-right {\r\n    visibility: visible;\n}\n.col-xs-12 {\r\n    width: 100%;\n}\n.section--demo-4 .main {\r\n    margin-bottom: 30px;\n}\n.section--demo-4 .thumbnails {\r\n    margin: 0 -5px;\r\n    width: calc(100% + 10px);\n}\n.section--demo-4 .agile__actions {\r\n    position: static;\n}\n.section--demo-4 .agile__nav-button {\r\n    background: transparent;\r\n    border: none;\r\n    color: #ccc;\r\n    cursor: pointer;\r\n    font-size: 24px;\r\n    transition-duration: 0.3s;\n}\n.section--demo-4 .agile__nav-button:hover {\r\n    color: #888;\n}\n.section--demo-4 .agile__dot {\r\n    margin: 0 10px;\n}\n.section--demo-4 .agile__dot button {\r\n    background-color: #eee;\r\n    border: none;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    display: block;\r\n    height: 10px;\r\n    font-size: 0;\r\n    line-height: 0;\r\n    margin: 0;\r\n    padding: 0;\r\n    transition-duration: 0.3s;\r\n    width: 10px;\n}\n.section--demo-4 .agile__dot--current button,\r\n.section--demo-4 .agile__dot:hover button {\r\n    background-color: #888;\n}\n.section--demo-4 .thumbnails .agile__nav-button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\n}\n.section--demo-4 .thumbnails .agile__nav-button--prev {\r\n    left: -45px;\n}\n.section--demo-4 .thumbnails .agile__nav-button--next {\r\n    right: -45px;\n}\n.section--demo-4 .slide {\r\n    align-items: center;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    display: flex;\r\n    height: 550px;\r\n    justify-content: center;\n}\n.section--demo-4 .slide--thumbniail {\r\n    cursor: pointer;\r\n    height: 100px;\r\n    padding: 0 5px;\r\n    transition: opacity 0.3s;\n}\n.section--demo-4 .slide--thumbniail:hover {\r\n    opacity: 0.75;\n}\n.section--demo-4 .slide img {\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: center;\r\n       object-position: center;\r\n    width: 100%;\n}\n.slide:hover {\r\n    transition: opacity 0.3s;\r\n    opacity: 0.75;\n}\n#slideBox {\r\n    background-color: rgba(50, 50, 50, 0.8);\r\n    position: absolute;\r\n    bottom: 5%;\r\n    right: 0%;\r\n    width: 60%;\r\n    height: 15%;\r\n    color: white;\n}\n#slideBoxTitle {\r\n    font-size: 125%;\r\n    font-weight: 700;\n}\r\n", ""]);
+exports.push([module.i, "\n.homeContainer {\r\n    width: 100%;\n}\n.homeContainerChild {\r\n    width: 70%;\r\n    margin: 0 auto;\n}\ndiv > a > img {\r\n    width: 100%;\r\n    height: 100%;\r\n    transition: transform 0.5s;\n}\n#popular {\r\n    width: 75%;\r\n    display: flex;\r\n    flex-direction: row;\r\n    margin: 0 auto;\n}\n#popularMain {\r\n    width: 65vw;\r\n    overflow: hidden;\n}\n#popularMain > a > img {\r\n    transition: 0.5s;\r\n    -webkit-filter: grayscale(100%);\r\n            filter: grayscale(100%);\n}\n#popularMain > a > img:hover {\r\n    transition: 0.5s;\r\n    /* opacity: 0.9; */\r\n    -webkit-filter: none;\r\n            filter: none;\r\n    transform: translateZ(0);\n}\n#popularSub {\r\n    width: 35vw;\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin: 0;\r\n    padding: 0;\n}\n.popular-sub-child {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\n}\n.popular-sub-child > a > img {\r\n    transition: 0.5s;\r\n    -webkit-filter: grayscale(100%);\r\n            filter: grayscale(100%);\n}\n.popular-sub-child > a > img:hover {\r\n    transition: 0.5s;\r\n    -webkit-filter: none;\r\n            filter: none;\r\n    /* opacity: 0.75; */\r\n    transform: translateZ(0);\n}\n.home_list {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: row;\n}\n.home_list > a {\r\n    overflow: hidden;\n}\n.home_list > a > img {\r\n    transition: 0.5s;\r\n    /* filter: grayscale(100%); */\n}\n.home_list > a > img:hover {\r\n    opacity: 0.75;\r\n    transition: 0.5s;\r\n    /* filter: none; */\n}\r\n\r\n/* ===== carousel css ===== */\n.fas fa-chevron-left {\r\n    visibility: visible;\n}\n.fas fa-chevron-right {\r\n    visibility: visible;\n}\n.col-xs-12 {\r\n    width: 100%;\n}\n.section--demo-4 .main {\r\n    margin-bottom: 30px;\n}\n.section--demo-4 .thumbnails {\r\n    margin: 0 -5px;\r\n    width: calc(100% + 10px);\n}\n.section--demo-4 .agile__actions {\r\n    position: static;\n}\n.section--demo-4 .agile__nav-button {\r\n    background: transparent;\r\n    border: none;\r\n    color: #ccc;\r\n    cursor: pointer;\r\n    font-size: 24px;\r\n    transition-duration: 0.3s;\n}\n.section--demo-4 .agile__nav-button:hover {\r\n    color: #888;\n}\n.section--demo-4 .agile__dot {\r\n    margin: 0 10px;\n}\n.section--demo-4 .agile__dot button {\r\n    background-color: #eee;\r\n    border: none;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    display: block;\r\n    height: 10px;\r\n    font-size: 0;\r\n    line-height: 0;\r\n    margin: 0;\r\n    padding: 0;\r\n    transition-duration: 0.3s;\r\n    width: 10px;\n}\n.section--demo-4 .agile__dot--current button,\r\n.section--demo-4 .agile__dot:hover button {\r\n    background-color: #888;\n}\n.section--demo-4 .thumbnails .agile__nav-button {\r\n    position: absolute;\r\n    top: 50%;\r\n    transform: translateY(-50%);\n}\n.section--demo-4 .thumbnails .agile__nav-button--prev {\r\n    left: -45px;\n}\n.section--demo-4 .thumbnails .agile__nav-button--next {\r\n    right: -45px;\n}\n.section--demo-4 .slide {\r\n    align-items: center;\r\n    box-sizing: border-box;\r\n    color: #fff;\r\n    display: flex;\r\n    height: 550px;\r\n    justify-content: center;\n}\n.section--demo-4 .slide--thumbniail {\r\n    cursor: pointer;\r\n    height: 100px;\r\n    padding: 0 5px;\r\n    transition: opacity 0.3s;\n}\n.section--demo-4 .slide--thumbniail:hover {\r\n    opacity: 0.75;\n}\n.section--demo-4 .slide img {\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    -o-object-position: center;\r\n       object-position: center;\r\n    width: 100%;\n}\n.slide:hover {\r\n    transition: opacity 0.3s;\r\n    opacity: 0.75;\n}\n#slideBox {\r\n    background-color: rgba(50, 50, 50, 0.8);\r\n    position: absolute;\r\n    bottom: 5%;\r\n    right: 0%;\r\n    width: 60%;\r\n    height: 15%;\r\n    color: white;\n}\n#slideBoxTitle {\r\n    font-size: 125%;\r\n    font-weight: 700;\n}\r\n", ""]);
 
 // exports
 
@@ -70128,15 +70130,15 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("template", { slot: "prevButton" }, [
-                    _c("i", { staticClass: "fas fa-angle-left" }, [
-                      _vm._v(" < ")
-                    ])
+                    _vm._v(
+                      "\n                            <\n                            "
+                    )
                   ]),
                   _vm._v(" "),
                   _c("template", { slot: "nextButton" }, [
-                    _c("i", { staticClass: "fas fa-angle-left" }, [
-                      _vm._v(" > ")
-                    ])
+                    _vm._v(
+                      "\n                            >\n                            "
+                    )
                   ])
                 ],
                 2
@@ -87277,8 +87279,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\AhnHeeGun\gitCode\capstone2\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> ahn
 
 
 /***/ })

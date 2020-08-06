@@ -7,39 +7,39 @@
 
           <router-link to="/audition" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>오디션</span>
+            <span>オーディション</span>
           </router-link>
 
           <router-link to="/lecture" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>댄스강좌</span>
+            <span>ダンス講座</span>
           </router-link>
 
           <router-link to="/categories" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>카테고리</span>
+            <span>カテゴリ</span>
           </router-link>
 
           <router-link to="/userlist" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>사용자 관리</span>
+            <span>ユーザー管理</span>
           </router-link>
 
           <router-link to="/expert/list" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>피드백 전문가</span>
+            <span>専門家のフィードバック</span>
           </router-link>
 
           <router-link to="/advice/list" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>내 피드백 활동</span>
+            <span>私のフィードバック活動</span>
           </router-link>
 
           <router-link to="/mypage/profile" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>마이페이지</span>
+            <span>マイページ</span>
           </router-link>
-          
+
         </div>
       </div>
       

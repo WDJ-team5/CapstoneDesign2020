@@ -12,60 +12,60 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>이름</th>
+                            <th>名前</th>
                             <td>{{profiles.name}}</td>
                         </tr>
                         <tr>
-                            <th>성별</th>
-                            <td v-if="profiles.gender == false">남자</td>
-                            <td v-else>여자</td>
+                            <th>性別</th>
+                            <td v-if="profiles.gender == false">男性</td>
+                            <td v-else>女性</td>
                         </tr>
                         <tr>
-                            <th>등급</th>
+                            <th>等級</th>
                             <td v-if="profiles.class == 1">ARTIST</td>
                             <td v-else-if="profiles.class == 2">EXPERT</td>
                             <td v-else>PRODUCER</td>
                         </tr>
                         <tr>
-                            <th>아이디</th>
+                            <th>アイディ</th>
                             <td>{{profiles.userid}}</td>
                         </tr>
                         <tr>
-                            <th>가입일</th>
+                            <th>加入日</th>
                             <td>{{profiles.created_at}}</td>
                         </tr>
                         <tr>
-                            <th>수정일</th>
+                            <th>修正日</th>
                             <td>{{profiles.updated_at}}</td>
                         </tr>
                         <tr>
-                            <th>랭크</th>
+                            <th>ランク</th>
                             <td>{{profiles.rank_name}}</td>
                         </tr>
                         <tr>
-                            <th>생년월일</th>
+                            <th>生年月日</th>
                             <td>{{profiles.birthday}}</td>
                         </tr>
                         <tr>
-                            <th>연락처</th>
+                            <th>連絡先</th>
                             <td><input type="text"></td>
                         </tr>
                         <tr>
-                            <th>소속사</th>
+                            <th>所属事務所</th>
                             <td><input type="text"></td>
                         </tr>
                         <tr>
-                            <th>자기소개</th>
+                            <th>自己紹介</th>
                             <td><input type="textarea"></td>
                         </tr>
                         <tr v-if="profiles.class == 3">
-                            <th>회사명</th>
+                            <th>社名</th>
                             <td><input type="text" :value="`${profiles.company_name}`"></td>
                         </tr>
                     </thead>
                 </table>
             </div>
-                <button>저장하기</button>
+                <button>貯蔵</button>
         </div>
     </div>
 </template>
