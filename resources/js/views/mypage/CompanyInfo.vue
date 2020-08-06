@@ -6,38 +6,38 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>이름</th>
+                            <th>名前</th>
                             <td>{{companies.company_name}}</td>
                         </tr>
                         <tr>
-                            <th>성별</th>
+                            <th>性別</th>
                             <td></td>
                         </tr>
                         <tr>
-                            <th>키</th>
+                            <th>身長</th>
                         </tr>
                         <tr>
-                            <th>아이디</th>
+                            <th>アイディ</th>
                         </tr>
                         <tr>
-                            <th>닉네임</th>
+                            <th>ニックネーム</th>
                         </tr>
                         <tr>
-                            <th>가입일</th>
+                            <th>加入日</th>
                         </tr>
                         <tr>
-                            <th>이메일</th>
+                            <th>メール</th>
                         </tr>
                         <tr>
-                            <th>소속사</th>
+                            <th>所属事務所</th>
                         </tr>
                         <tr>
-                            <th>분야</th>
+                            <th>分野</th>
                         </tr>
                     </thead>
                 </table>
             </div>
-                <button>저장하기</button>
+                <button>貯蔵</button>
         </div>
     </div>
 </template>

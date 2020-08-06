@@ -7,34 +7,34 @@
             <div class="table_flex">
                 <table class="table_margin">
                     <tr>
-                        <th>사용자ID</th>
+                        <th>ユーザーID</th>
                         <td>{{profiles.userid}}</td>
                     </tr>
                     <tr>
-                        <th>성별</th>
-                        <td v-if="profiles.gender == true">여성</td>
-                        <td v-else>남성</td>
+                        <th>性別</th>
+                        <td v-if="profiles.gender == true">女性</td>
+                        <td v-else>男性</td>
                     </tr>
                     <tr>
-                        <th>등급</th>
+                        <th>等級</th>
                         <td v-if="profiles.class == 1">ARTIST</td>
                         <td v-else-if="profiles.class == 2">EXPERT</td>
                         <td v-else>PRODUCER</td>
                     </tr>
                     <tr>
-                        <th>소개</th>
+                        <th>自己紹介</th>
                         <td>{{profiles.introduction}}</td>
                     </tr>
                     <tr>
-                        <th>가입일</th>
+                        <th>加入日</th>
                         <td>{{String(profiles.created_at).substr(0, 10)}}</td>
                     </tr>
                     <tr>
-                        <th>랭킹</th>
+                        <th>ランキング</th>
                         <td>{{profiles.rank_name}}</td>
                     </tr>
                     <tr v-if="profiles.class == 3">
-                        <th>기업명</th>
+                        <th>企業名</th>
                         <td>{{profiles.company_name}}</td>
                     </tr>
                 </table>
@@ -42,7 +42,7 @@
         </div>
         <div class="score">
             <div>
-                <img src="http://placehold.it/500x250" alt="">
+                <!-- <img src="http://placehold.it/500x250" alt=""> -->
             </div>
             <div>
                 
