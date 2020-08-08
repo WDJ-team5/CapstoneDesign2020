@@ -1,29 +1,28 @@
 <template>
     <div id="applicant_container">
         <div id="search_button">
-            <button class="search_button_content" type="submit" v-on:click="searchAll">전체 조회</button>
-            <button class="search_button_content" type="submit" v-on:click="searchConsideration(0)">검토중 조회</button>
-            <button class="search_button_content" type="submit" v-on:click="searchPassed(2)">합격 조회</button>
-            <button class="search_button_content" type="submit" v-on:click="searchFailed(1)">불합격 조회</button>
+            <button class="search_button_content" type="submit" v-on:click="searchAll">全体検索</button>
+            <button class="search_button_content" type="submit" v-on:click="searchConsideration(0)">検討中検索</button>
+            <button class="search_button_content" type="submit" v-on:click="searchPassed(2)">合格検索</button>
+            <button class="search_button_content" type="submit" v-on:click="searchFailed(1)">不合格検索</button>
         </div>
         <br>
         <div class="applicant_wrapper" v-for="(applicant, index) in applicants" :key="index">
-            <!-- <div id='profileImg'><img :src="`${$store.state.serverPath}/storage/${applicant.image}`"></div> -->
             <div class="applicant">
-                <div>점수: {{applicant.score}}</div>
-                <div>메시지: {{applicant.message}}</div>
-                <div>신청일: {{applicant.created_at}}</div>
-                <div class="applicant_result">결과: 
-                    <div v-if="applicant.result == 0">검토중</div>
-                    <div v-else-if="applicant.result == 1">불합격</div>
-                    <div v-else>합격</div>
+                <div>点数: {{applicant.score}}</div>
+                <div>メッセージ: {{applicant.message}}</div>
+                <div>申し込み日: {{String(applicant.created_at).substr(0, 10)}}</div>
+                <div class="applicant_result">結果: 
+                    <div v-if="applicant.result == 0">検討中</div>
+                    <div v-else-if="applicant.result == 1">不合格</div>
+                    <div v-else>合格</div>
                 </div>
                 <div class="applicant_button" v-if="applicant.result == 0">
                     <form v-on:submit.prevent="passApplicant">
-                        <button class="applicant_button_pass" type="submit" v-on:click="chosenId(applicant)">합격</button>
+                        <button class="applicant_button_pass" type="submit" v-on:click="chosenId(applicant)">合格</button>
                     </form>
                     <form v-on:submit.prevent="failApplicant">
-                        <button class="applicant_button_fail" type="submit" v-on:click="chosenId(applicant)">불합격</button>
+                        <button class="applicant_button_fail" type="submit" v-on:click="chosenId(applicant)">不合格</button>
                     </form>
                 </div>
             </div>
@@ -55,19 +54,19 @@ export default {
         searchConsideration: function(value) {
             this.axios.get(`/api/mypage/applicants/${this.id}/` + value, {value}).then(response => {
                 this.applicants = response.data;
-                console.log(response);
+                console.log('searchConsideration: ', response);
             });
         },
         searchPassed: function(value) {
             this.axios.get(`/api/mypage/applicants/${this.id}/` + value, {value}).then(response => {
                 this.applicants = response.data;
-                console.log(response);
+                console.log('searchPassed: ', response);
             });
         },
         searchFailed: function(value) {
             this.axios.get(`/api/mypage/applicants/${this.id}/` + value, {value}).then(response => {
                 this.applicants = response.data;
-                console.log(response);
+                console.log('searchFailed: ', response);
             });
         },
         searchAll: function() {
@@ -75,26 +74,26 @@ export default {
 
             this.axios.get(url).then(response => {
                 this.applicants = response.data;
-                console.log(this.applicants);
+                console.log('searchAll: ', response);
             });
         },
         chosenId: function(applicant) {
             this.editApplicantData = {...applicant};
-            console.log(this.editApplicantData);
+            console.log('chosenId: ', this.editApplicantData);
         },
         loadApplyData: async function() {
             const url = `/api/mypage/applicants/${this.id}`;
 
             this.axios.get(url).then(response => {
                 this.applicants = response.data;
-                console.log(this.applicants);
+                console.log('loadApplyData: ', response);
             });
         },
 
         passApplicant: async function() {
             try {
                 this.axios.put(`/api/mypage/applicants/${this.id}/` + this.editApplicantData, {value:2, applicant:this.editApplicantData}).then(response => {
-                    console.log(response);
+                    console.log('passApplicant: ', response);
                     this.applicants.map(applicant => {
                         if (applicant.id == response.data.id) {
                             for(let key in response.data) {
@@ -111,7 +110,7 @@ export default {
         failApplicant: async function() {
             try {
                 this.axios.put(`/api/mypage/applicants/${this.id}/` + this.editApplicantData, {value:1, applicant:this.editApplicantData}).then(response => {
-                    console.log(response);
+                    console.log('failApplicant: ', response);
                     this.applicants.map(applicant => {
                         if (applicant.id == response.data.id) {
                             for(let key in response.data) {
@@ -164,6 +163,7 @@ export default {
 }
 .search_button_content {
     background-color: #fff;
+    color: black;
     border: none;
 }
 .applicant_button {

@@ -13,9 +13,9 @@ class ExpertsTableSeeder extends Seeder
     {
         App\Specialty::find(1)->experts()->create([//idol 전문가1호
             'sns' => '@liakimhappy',
-            'career_01' => '2006년 락킹부문 우승',
-            'career_02' => '2007년 세계팝핀대회 준우승',
-            'career_03' => 'Soul Party 팝핀 부문 우승',
+            'career_01' => '2006年ラッキング部門優勝',
+            'career_02' => '2007年世界ポッピン大会準優勝',
+            'career_03' => 'Soul Partyポッピン部門優勝',
             'company_id' => 1,
         ]);
 

@@ -11,8 +11,8 @@
                         <h5>{{lecture.title}}</h5>
                     </div>
                     <div class="lecture_info">
-                        <div>정확도 : {{lecture.accuracy}}</div>
-                        <div>날짜 : {{String(lecture.created_at).substr(0, 10)}}</div>
+                        <div>正確度 : {{lecture.accuracy}}</div>
+                        <div>日付 : {{String(lecture.created_at).substr(0, 10)}}</div>
                     </div>
                 </div>
             </div>
