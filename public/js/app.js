@@ -49205,7 +49205,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n#layoutSidenav_content {\n  margin-top:40px;\n}\n", ""]);
+exports.push([module.i, "\n#layoutSidenav_content {\n  margin-top:0px;\n}\n", ""]);
 
 // exports
 
@@ -87277,8 +87277,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\새 폴더\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\새 폴더\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

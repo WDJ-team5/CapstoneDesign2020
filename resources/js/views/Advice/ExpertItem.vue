@@ -34,10 +34,10 @@ export default {
     .expert-item {
       min-width: 250px;
       min-height: 300px;
-      border: 1px solid #ced4da;
+      border: 1px solid #2c2c2c;
       padding: 0 0 0 0;
       border-radius: 5px;
-      margin : 30px;
+      margin : 20px;
     }
 
     .img-box {
@@ -65,8 +65,8 @@ export default {
       left: 0;
       right: 0;
       width: 250px;
-      height: 40px;
-      padding-top: 11px;
+      height: 60px;
+      padding-top: 20px;
       box-sizing: border-box;
       background: rgba(20, 20, 20, 0.7);
       color: #fff;
