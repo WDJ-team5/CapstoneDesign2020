@@ -69926,7 +69926,7 @@ var render = function() {
                 [
                   _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                   _vm._v(" "),
-                  _c("span", [_vm._v("오디션")])
+                  _c("span", [_vm._v("オーディション")])
                 ]
               ),
               _vm._v(" "),
@@ -69939,7 +69939,7 @@ var render = function() {
                 [
                   _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                   _vm._v(" "),
-                  _c("span", [_vm._v("댄스강좌")])
+                  _c("span", [_vm._v("ダンス講座")])
                 ]
               ),
               _vm._v(" "),
@@ -69952,7 +69952,7 @@ var render = function() {
                 [
                   _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                   _vm._v(" "),
-                  _c("span", [_vm._v("카테고리")])
+                  _c("span", [_vm._v("カテゴリ")])
                 ]
               ),
               _vm._v(" "),
@@ -69965,7 +69965,7 @@ var render = function() {
                 [
                   _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                   _vm._v(" "),
-                  _c("span", [_vm._v("사용자 관리")])
+                  _c("span", [_vm._v("ユーザー管理")])
                 ]
               ),
               _vm._v(" "),
@@ -69978,7 +69978,7 @@ var render = function() {
                 [
                   _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                   _vm._v(" "),
-                  _c("span", [_vm._v("피드백 전문가")])
+                  _c("span", [_vm._v("専門家のフィードバック")])
                 ]
               ),
               _vm._v(" "),
@@ -69991,7 +69991,7 @@ var render = function() {
                 [
                   _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                   _vm._v(" "),
-                  _c("span", [_vm._v("내 피드백 활동")])
+                  _c("span", [_vm._v("私のフィードバック活動")])
                 ]
               ),
               _vm._v(" "),
@@ -70004,7 +70004,7 @@ var render = function() {
                 [
                   _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                   _vm._v(" "),
-                  _c("span", [_vm._v("마이페이지")])
+                  _c("span", [_vm._v("マイページ")])
                 ]
               )
             ],
@@ -70156,7 +70156,7 @@ var render = function() {
       [
         _c("hr"),
         _vm._v(" "),
-        _c("h4", [_vm._v("전문가")]),
+        _c("h4", [_vm._v("専門家")]),
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
@@ -70205,7 +70205,7 @@ var render = function() {
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
-        _c("h4", [_vm._v("오디션")]),
+        _c("h4", [_vm._v("オーディション")]),
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
@@ -87279,9 +87279,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\새 폴더\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\새 폴더\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
