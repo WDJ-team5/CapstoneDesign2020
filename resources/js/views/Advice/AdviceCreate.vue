@@ -6,27 +6,36 @@
 
 
                 <form v-if="aid > 0" v-on:submit.prevent="updateFeedback">
-                    <div class="feedback-title-form">
-                        <!-- <b-form-input class="feedback-title" placeholder="RE : {{feedbackData.title}}"></b-form-input> -->
-                        <label class="feedback-title">RE : {{editFeedbackData.title}}</label>
-                    </div>
 
-                    <div class="feedback-info">
-                        <label class="receiver">
-                            <label>연습생 : </label>
-                            <label>{{editFeedbackData.name}}</label>
-                        </label>
+                    <div class="row">
 
-                        <!-- <label class="video">
-                            <label>첨부영상 : </label>
-                            <div class="video-form">
-                                <b-form-input id="video" v-model="feedbackData.video" placeholder="링크를 입력하세요"></b-form-input>
+                        <div class="col-lg-4">
+
+                            <h4>연습생 {{editFeedbackData.name}} 님에게</h4>
+                            <h6>피드백을 해주세요</h6>
+
+                            <hr />
+
+                            <h5>첨부영상 </h5>
+                            <div class="img-box">
+                                <video class="preview" controls width="300px" height="200px" :src="`${$store.state.serverPath}/storage/${editFeedbackData.video}`" type="video/mp4">
+                                </video>
                             </div>
-                        </label> -->
 
+                        </div>
+
+
+                        <div class="col-lg-8">
+
+                            <div class="feedback-title-form">
+                                <label class="feedback-title">RE : {{editFeedbackData.title}}</label>
+                            </div>
+
+                            <b-form-textarea id="textarea-rows" v-model="editFeedbackData.answer" placeholder="내용을 입력해주세요" rows="15"></b-form-textarea>
+
+                        </div>
+                        
                     </div>
-
-                    <b-form-textarea id="textarea-rows" v-model="editFeedbackData.answer" placeholder="내용을 입력해주세요" rows="22"></b-form-textarea>
 
                     <div class="feedback-btn">
                         <b-button class="feedback-send-btn" type="submit" variant="primary">보내기</b-button>
