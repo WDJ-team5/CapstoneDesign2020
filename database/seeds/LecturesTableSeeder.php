@@ -13,8 +13,8 @@ class LecturesTableSeeder extends Seeder
     {
 
         App\Lecture::create([
-            'title' => '리듬트레이닝 1탄 바운스 보면서 따라하기',
-            'content' => '바운스 어떻게 연습해야 할지 모르겠으면 그냥 따라하세요 !!리듬을 타는 3가지 방법!!',
+            'title' => 'リズムトレーニング1番目のバウンスを見ながら真似。',
+            'content' => 'バウンスの練習方法が分からなければ、ただ真似してください。リズムに乗る3つの方法！',
             'video' => 'lecture_sample01',
             'image' => 'LectureImg/23.jpg',
             'genre_id' => 6,
@@ -22,7 +22,7 @@ class LecturesTableSeeder extends Seeder
         ]);
 
         App\Lecture::create([
-            'title' => '트와이스 TT로 배우는 강의',
+            'title' => 'TWICE TTで学ぶ講義。',
             'content' => '트와이스 TT로 배우는 아이돌 댄스 기초강의입니다.',
             'video' => 'lecture_sample02',
             'image' => 'LectureImg/21.jpg',
@@ -31,7 +31,7 @@ class LecturesTableSeeder extends Seeder
         ]);
 
         App\Lecture::create([
-            'title' => '왁킹 입문자를 위한 왁킹댄스 스텝기초',
+            'title' => 'ワクキング入門者のためのワクキングダンスステップ基礎',
             'content' => '왁킹댄스 스텝기초강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/19.jpg',
@@ -40,7 +40,7 @@ class LecturesTableSeeder extends Seeder
         ]);
 
         App\Lecture::create([
-            'title' => '댄서MENSY와 함께 배우는 걸스힙합 고급',
+            'title' => 'ダンサーMENSYと一緒に学ぶガールズヒップホップ高級',
             'content' => '걸스힙합 고급강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/09.jpg',
@@ -49,7 +49,7 @@ class LecturesTableSeeder extends Seeder
         ]);
 
         App\Lecture::create([
-            'title' => 'EXO LOVESHOT 안무강의',
+            'title' => 'EXO LOVESHOT振り付け講義',
             'content' => 'EXO LOVESHOT 안무강의입니다.',
             'video' => '나중에 넣어',
             'video' => 'lecture_sample02',
@@ -59,7 +59,7 @@ class LecturesTableSeeder extends Seeder
         ]);
 
         App\Lecture::create([
-            'title' => '트와이스 FANCY를 따라추며 배우는 기본강의',
+            'title' => 'TWICE FANCYを踊りながら学ぶ基本講義',
             'content' => '아이돌 댄스 기초강의입니다.',
             'video' => 'lecture_sample01',
             'image' => 'LectureImg/11.jpg',
@@ -69,7 +69,7 @@ class LecturesTableSeeder extends Seeder
 
 
         App\Lecture::create([
-            'title' => '방탄소년단 IDOL 댄스 기초강의',
+            'title' => 'BTS IDOLダンス基礎講義',
             'content' => '아이돌 댄스 기초강의입니다.',
             'video' => 'lecture_sample01',
             'image' => 'LectureImg/01.jpg',
@@ -78,7 +78,7 @@ class LecturesTableSeeder extends Seeder
         ]);
 
         App\Lecture::create([
-            'title' => '힙합스텝 중급',
+            'title' => 'ヒップホップステップ中級',
             'content' => '힙합스텝 중급강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/02.jpg',
@@ -87,7 +87,7 @@ class LecturesTableSeeder extends Seeder
         ]);
 
         App\Lecture::create([
-            'title' => '비보잉 풍차돌리기',
+            'title' => 'ビーボーイング風車回し',
             'content' => '비보잉 풍차돌리기 강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/03.jpg',
@@ -96,7 +96,7 @@ class LecturesTableSeeder extends Seeder
         ]);
 
         App\Lecture::create([
-            'title' => '왁킹댄스 스텝고급',
+            'title' => 'ワクキングダンスステップ高級',
             'content' => '왁킹댄스 스텝고급강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/04.jpg',
@@ -107,7 +107,7 @@ class LecturesTableSeeder extends Seeder
 
 
         App\Lecture::create([
-            'title' => '팝핀현준과 함께배우는 팝핀댄스 기초스텝강의',
+            'title' => 'ポッピンヒョンジュンと一緒に学ぶポッピンダンス基礎ステップ講義',
             'content' => '팝핀 댄스 기초강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/07.jpg',
@@ -119,7 +119,7 @@ class LecturesTableSeeder extends Seeder
         
 
         App\Lecture::create([
-            'title' => '남자아이돌 댄스 고급스텝강의',
+            'title' => '男子アイドルダンス高級ステップ講義',
             'content' => '남자아이돌 댄스 고급스텝강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/22.jpg',
@@ -130,7 +130,7 @@ class LecturesTableSeeder extends Seeder
         
 
         App\Lecture::create([
-            'title' => '레드벨벳댄스로 배우는 중급강의',
+            'title' => 'Red Velvetダンスで学ぶ中級講義',
             'content' => '아이돌 댄스 중급강의입니다.',
             'video' => 'lecture_sample01',
             'image' => 'LectureImg/12.jpg',
@@ -139,7 +139,7 @@ class LecturesTableSeeder extends Seeder
         ]);
 
         App\Lecture::create([
-            'title' => '팝핀 댄스 관절꺾기강의',
+            'title' => 'ポッピンダンス関節曲げ講義',
             'content' => '팝핀 댄스 관절꺾기 중급강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/14.jpg',
@@ -150,7 +150,7 @@ class LecturesTableSeeder extends Seeder
        
 
         App\Lecture::create([
-            'title' => '비보잉 기본기',
+            'title' => 'ビーボーイング基本器',
             'content' => '비보잉 기초강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/15.jpg',
@@ -164,7 +164,7 @@ class LecturesTableSeeder extends Seeder
         
 
         App\Lecture::create([
-            'title' => '팝핀 댄스 고급강의',
+            'title' => 'ポッピンダンス高級講義',
             'content' => '팝핀 댄스 고급강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/16.jpg',
@@ -176,7 +176,7 @@ class LecturesTableSeeder extends Seeder
 
 
         App\Lecture::create([
-            'title' => '힙합스텝 기초',
+            'title' => 'ヒップホップステップ基礎',
             'content' => '힙합스텝 기초강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/17.jpg',
@@ -186,7 +186,7 @@ class LecturesTableSeeder extends Seeder
 
 
         App\Lecture::create([
-            'title' => '비보잉 허리돌리기',
+            'title' => 'ビーボーイング腰回し',
             'content' => '비보잉 허리돌리기강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/18.jpg',
@@ -200,7 +200,7 @@ class LecturesTableSeeder extends Seeder
         
 
         App\Lecture::create([
-            'title' => '왁킹댄스 스텝중급',
+            'title' => 'ワクキングダンスステップ中級',
             'content' => '왁킹댄스 스텝중급강의입니다.',
             'video' => '나중에 넣어',
             'image' => 'LectureImg/20.jpg',

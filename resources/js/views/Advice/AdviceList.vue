@@ -22,10 +22,10 @@
         </colgroup> -->
         <thead>
             <tr class="top-border">
-                <td class="cell_padding right-border">번호</td>
-                <td class="cell_padding right-border">제목</td>
-                <td class="cell_padding right-border">작성일</td>
-                <td class="cell_padding">답변</td>
+                <td class="cell_padding right-border">番号</td>
+                <td class="cell_padding right-border">タイトル</td>
+                <td class="cell_padding right-border">作成日</td>
+                <td class="cell_padding">答弁</td>
             </tr>
         </thead>
         <tbody>
@@ -46,8 +46,8 @@
                 
                   <td v-b-toggle="'collapse-'+index">
                     <div class="cell_padding">
-                      <b-badge variant="secondary" v-if="feedbackList.answer==null">미답변</b-badge>
-                      <b-badge variant="primary" v-else>답변완료</b-badge>
+                      <b-badge variant="secondary" v-if="feedbackList.answer==null">答弁未完了</b-badge>
+                      <b-badge variant="primary" v-else>答弁完了</b-badge>
                     </div>     
                   </td>
             </tr>
@@ -67,7 +67,6 @@
       </table>
     </div>
 
-
     <div>
       <b-pagination
         v-model="currentPage"
@@ -81,13 +80,7 @@
       ></b-pagination>
     </div>
 
-
   </div>
-
-
-
-
-
 
 </template>
 
@@ -108,19 +101,19 @@ export default {
       fields: [
         {
           key: "id",
-          label: "번호"
+          label: "番号"
         },
         {
           key: "title",
-          label: "제목"
+          label: "タイトル"
         },
         {
           key: "created_at",
-          label: "작성일"
+          label: "作成日"
         },
         {
           key: "answer",
-          label: "답변"
+          label: "答弁"
         }
       ],
       feedbackList:[],
@@ -184,12 +177,9 @@ export default {
     AdviceDetail
   },
 };
-
 </script>
 
-
 <style scoped>
-
     .advice {
       width: 100%;
       height: auto;

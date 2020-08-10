@@ -15,19 +15,19 @@
                         <div class="table_flex">
                             <table>
                                 <tr>
-                                    <th>이름</th>
+                                    <th>名前</th>
                                     <td>{{mypages.name}}</td>
                                 </tr>
                                 <tr>
-                                    <th>생년월일</th>
+                                    <th>生年月日</th>
                                     <td>{{mypages.birthday}}</td>
                                 </tr>
                                 <tr>
-                                    <th>주소</th>
+                                    <th>住所</th>
                                     <td>{{mypages.address}}</td>
                                 </tr>
                                 <tr>
-                                    <th>연락처</th>
+                                    <th>連絡先</th>
                                     <td>{{mypages.call_number}}</td>
                                 </tr>
                             </table>
@@ -42,19 +42,19 @@
                     <div class="mypage_navigation">
                         <div class="mypage_nav_link">
                             <router-link to="/mypage/profile" class="profile_link">
-                                <span>프로필</span>
+                                <span>プロフィール</span>
                             </router-link>
                             <router-link to="/mypage/lecture" class="profile_link">
-                                <span>수강강좌</span>
+                                <span>受講講座</span>
                             </router-link>
                             <router-link to="/mypage/apply" class="profile_link">
-                                <span>지원현황</span>
+                                <span>支援状況</span>
                             </router-link>
                             <router-link to="/mypage/auditionlist" class="profile_link" v-if="mypages.class == 3">
-                                <span>오디션등록내역</span>
+                                <span>オーディションの登録内訳</span>
                             </router-link>
                             <router-link to="/mypage/profileedit" class="profile_link">
-                                <span>편집</span>
+                                <span>修整</span>
                             </router-link>
                         </div>
                         <router-view id="routerView"></router-view>

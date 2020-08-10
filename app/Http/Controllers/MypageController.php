@@ -93,14 +93,14 @@ class MypageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function updateApplicant(Request $request) {
-        // $resume = \App\Resume::where('id', $request->applicant{'id'})->first();
-        // $resume->result = $request->value;
-        // $resume->save();
-        // return response()->json($resume, 200);
+        $resume = \App\Resume::where('id', $request->applicant{'id'})->first();
+        $resume->result = $request->value;
+        $resume->save();
+        return response()->json($resume, 200);
     }
 
     public function searchApplicant($id, $value) {
-        // $result = \App\Resume::where('audition_id', $id)->where('result', $value)->get();
-        // return response()->json($result, 200);
+        $result = \App\Resume::where('audition_id', $id)->where('result', $value)->get();
+        return response()->json($result, 200);
     }
 }
