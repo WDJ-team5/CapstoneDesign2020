@@ -11,12 +11,12 @@
 
                         <div class="col-lg-4">
 
-                            <h4>연습생 {{editFeedbackData.name}} 님에게</h4>
-                            <h6>피드백을 해주세요</h6>
+                            <h4>研究生 {{editFeedbackData.name}} 様に</h4>
+                            <h6>フィードバックをお願いします</h6>
 
                             <hr />
 
-                            <h5>첨부영상 </h5>
+                            <h5>ユーザーの動画 </h5>
                             <div class="img-box">
                                 <video class="preview" controls width="300px" height="200px" :src="`${$store.state.serverPath}/storage/${editFeedbackData.video}`" type="video/mp4">
                                 </video>
@@ -31,15 +31,15 @@
                                 <label class="feedback-title">RE : {{editFeedbackData.title}}</label>
                             </div>
 
-                            <b-form-textarea id="textarea-rows" v-model="editFeedbackData.answer" placeholder="내용을 입력해주세요" rows="15"></b-form-textarea>
+                            <b-form-textarea id="textarea-rows" v-model="editFeedbackData.answer" placeholder="内容を入力してください" rows="15"></b-form-textarea>
 
                         </div>
                         
                     </div>
 
                     <div class="feedback-btn">
-                        <b-button class="feedback-send-btn" type="submit" variant="primary">보내기</b-button>
-                        <b-button variant="danger" @click="cancle">취소</b-button>
+                        <b-button class="feedback-send-btn" type="submit" variant="primary">送る</b-button>
+                        <b-button variant="danger" @click="cancle">戻る</b-button>
                     </div>
 
                 </form> 
@@ -52,12 +52,12 @@
 
                         <div class="col-lg-4">
 
-                            <h4>전문가 {{this.$route.params.contentName}} 님에게</h4>
-                            <h6>궁금한 것을 물어보세요</h6>
+                            <h4>専門家 {{this.$route.params.contentName}} 様に</h4>
+                            <h6>気になるところについて質問しましょう</h6>
 
                             <hr />
 
-                            <h5>첨부영상 업로드</h5>
+                            <h5>動画アップロード</h5>
                             <div class="img-box">
                                 <video class="preview" controls width="300px" height="200px" :src='imageData' type="video/mp4">
                                 </video>
@@ -80,11 +80,11 @@
                         <div class="col-lg-8">
 
                             <div class="feedback-title-form">
-                                <b-form-input class="feedback-title" size="lg" v-model="feedbackData.title" placeholder="제목을 입력하세요"></b-form-input>
+                                <b-form-input class="feedback-title" size="lg" v-model="feedbackData.title" placeholder="タイトルを入力してください"></b-form-input>
                             </div>
 
 
-                            <b-form-textarea id="textarea-rows" v-model="feedbackData.content" placeholder="내용을 입력해주세요" rows="15"></b-form-textarea>
+                            <b-form-textarea id="textarea-rows" v-model="feedbackData.content" placeholder="内容を入力してください" rows="15"></b-form-textarea>
 
 
                         </div>
@@ -94,8 +94,8 @@
 
 
                     <div class="feedback-btn">
-                        <b-button class="feedback-send-btn" type="submit" variant="primary">보내기</b-button>
-                        <b-button variant="danger" @click="cancle">취소</b-button>
+                        <b-button class="feedback-send-btn" type="submit" variant="primary">送る</b-button>
+                        <b-button variant="danger" @click="cancle">戻る</b-button>
                     </div>
 
             

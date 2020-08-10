@@ -20,7 +20,7 @@
         </div>
         
         <div id="tabSList" class="info">
-          <div class="expert-info-font"><span>아티스트 정보</span></div>
+          <div class="expert-info-font"><span>アーティスト情報</span></div>
             <div class="box">
                 <div id="artistinfo_detail">
 
@@ -28,15 +28,15 @@
                         <table class="tbl_infodetail">
                             <tbody>
                                 <tr>
-                                    <th>자기소개</th>
+                                    <th>自己紹介</th>
                                     <td>{{propsdata.introduction}}</td>
                                 </tr>
                                 <tr>
-                                    <th>전문분야</th>
+                                    <th>専門分野</th>
                                     <td>{{propsdata.expert.specialty.area}}</td>
                                 </tr>
                                 <tr>
-                                    <th>수상경력</th>
+                                    <th>受賞履歴</th>
                                     <td>{{propsdata.expert.career_01}}</td>
                                 </tr>
                                 <tr class="career-add" v-if="propsdata.expert.career_02!=null">
@@ -52,7 +52,7 @@
                                     <td>{{propsdata.expert.sns}}</td>
                                 </tr>
                                 <tr>
-                                    <th>소속사</th>
+                                    <th>事務所</th>
                                     <td>{{propsdata.expert.company.company_name}}</td>
                                 </tr>
                             </tbody>
@@ -61,7 +61,7 @@
 
                     <div class="typeinfo">
                         <div class="feedback-star-font-box">
-                            <span class="feedback-star-font">피드백 별점</span>
+                            <span class="feedback-star-font">フィードバック評価</span>
                         </div>
                         <div class="rate">
                             <img src="/images/rate.png" height=150px/>

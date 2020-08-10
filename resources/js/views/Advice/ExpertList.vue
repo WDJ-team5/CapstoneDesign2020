@@ -27,7 +27,7 @@
 
     <div v-if="showsearch==false">
       <div class="expert-set">
-        <h1>#아이돌 댄스</h1>
+        <h1>#アイドルダンス</h1>
         <div id="container" class="expert-imgList">
           <ExpertItem v-bind:propsdata="idolExp" v-on:active="active1" />
         </div>
@@ -38,7 +38,7 @@
 
 
       <div class="expert-set">
-        <h1>#힙합 댄스</h1>
+        <h1>#ヒップホップ</h1>
         <div id="container" class="expert-imgList">
           <ExpertItem v-bind:propsdata="hiphopExp" v-on:active="active2" />
         </div>
@@ -49,7 +49,7 @@
 
 
       <div class="expert-set">
-        <h1>#팝핀 댄스</h1>
+        <h1>#パッピン</h1>
         <div id="container" class="expert-imgList">
           <ExpertItem v-bind:propsdata="poppinExp" v-on:active="active3" />
         </div>
