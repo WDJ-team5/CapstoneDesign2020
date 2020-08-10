@@ -23,8 +23,6 @@
       <div class="btn-bg bg-1">
         <div class="btn btn-1">
           <button id="preview_btn" type="button" v-on:click="modeChange()">{{computedModeChangeHtml}}</button>
-          <!-- <button id="modal_open_btn" type="button" v-on:click="modalChange()">모달테스트</button> -->
-          <!-- <button id="end-btn" type="button">끝내기</button> -->
           <router-link to="/lecture" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <button id="end_btn">おわり</button>
