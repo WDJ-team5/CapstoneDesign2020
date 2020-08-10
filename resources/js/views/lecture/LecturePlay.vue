@@ -14,10 +14,10 @@
     <canvas id="canvas" width="800" height="600"/>
     <div id="pannel">
       <div id="pannel_content">
-        <p>테스트를 시작하기전 자신의 모습이 인식이 잘 되는지 확인해주세요.</p>
-        <p>주변에 옷이나 인식에 방해되는 요소를 제거해 주세요.</p>
+        <p>テストを開始する前は、自分の姿がちゃんと認識されているか確認してください。</p>
+        <p>周辺に服や認識に邪魔になる要素を取り除いてください。</p>
         <hr/>
-        <p>@댄스설명@</p>
+        <p>ダンスの説明</p>
         <p>{{content}}</p>
       </div>
       <div class="btn-bg bg-1">
@@ -27,7 +27,7 @@
           <!-- <button id="end-btn" type="button">끝내기</button> -->
           <router-link to="/lecture" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <button id="end_btn">끝내기</button>
+            <button id="end_btn">おわり</button>
           </router-link>
         </div>
       </div>
@@ -75,14 +75,6 @@ export default {
       startCnt:3,
       viewData:{videoImg:[],webcamImg:[],score:[],time:[]},
       removeToast:null,
-      // data:{
-      //     'title' => '매우쉬운 아이돌 댄스',
-      //     'content' => '이거슨 쉬운 아이돌 댄스입니다잉',
-      //     'video' => 'sample',
-      //     'image' => 'LectureImg/01.jpg',
-      //     'genre_id' => 1,
-      //     'level_id' => 1,
-      // }
     };
   },
   mounted() {
@@ -97,7 +89,7 @@ export default {
         this.$refs.webcam.srcObject = stream;
       })
       .catch(error => {
-        alert("웹캠을 인식할 수 없어용~!");
+        alert("cameraを見つけません！");
       });
 
     this.loadLectureData();
@@ -110,8 +102,8 @@ export default {
       return this.videoControls;
     },
     computedModeChangeHtml: function() {
-      if (this.videoControls) return "테스트";
-      else return "미리보기";
+      if (this.videoControls) return "テスト";
+      else return "動画見る";
     },
     computedFinalScore: function() {
       return this.finalScore;
@@ -258,7 +250,7 @@ export default {
 
         console.log(tmp + "%");
         if(tmp<50)
-          this.toast("정확도가 50% 이하입니다.");
+          this.toast("正確度が低いです");
       }else{
         console.log('asdf');
         this.draw(pose);
@@ -289,17 +281,17 @@ export default {
         var data = this.viewData;
 
         Swal.fire({
-          title:'정확도 : '+this.finalScore,
+          title:'正確度 : '+this.finalScore,
           html:
-          '<p>시간별 정확도 그래프</p>'+
-          '<button id="viewer-btn">자세히보기</button>'+
+          '<p>時間別精度グラフ</p>'+
+          '<button id="viewer-btn">詳しく見る</button>'+
           '<canvas id="graph"></canvas>',
           timerProgressBar: true,
           icon: 'success',
           width: '1000px',
           showCancelButton: true,
-          confirmButtonText: '끝내기',
-          cancelButtonText: '다시하기',
+          confirmButtonText: 'おわり',
+          cancelButtonText: 'やりなおし',
           allowOutsideClick:false,
           allowEscapeKey:false,
           customClass:'swal2-height'
@@ -312,7 +304,7 @@ export default {
         document.getElementById('viewer-btn').onclick = function(){
           Swal.close();
           Swal.fire({
-            title:'세부 데이터',
+            title:'細部データ',
             html:
             '<div id="imgs-div"></div>'+
             '<input type="range" min="0" max="0" value="0" id="seekbar">',
@@ -345,7 +337,8 @@ export default {
             p.innerHTML = data.score[key].total;
             div.appendChild(p);
 
-            var label = ["어깨","왼팔 안쪽","왼팔 바깥쪽","오른팔 안쪽","오른팔 바깥쪽","왼쪽 몸","오른쪽 몸","엉덩이","왼쪽 허벅지","왼쪽 종아리","오른쪽 허벅지","오른쪽 종아리"];
+//            var label = ["어깨","왼팔 안쪽","왼팔 바깥쪽","오른팔 안쪽","오른팔 바깥쪽","왼쪽 몸","오른쪽 몸","엉덩이","왼쪽 허벅지","왼쪽 종아리","오른쪽 허벅지","오른쪽 종아리"];
+            var label = ['肩','左の上腕','左の前腕','右の上腕','右の前腕','左の上体','右の上体','尻','左の大腿','左の下腿','右の大腿','右の下腿'];
             var table = document.createElement('table');
             table.style.position = 'relative';
             table.style.left = '50px';
@@ -400,13 +393,13 @@ export default {
         }
         var chartCanvas = document.getElementById('graph').getContext('2d');
         var chart = new chartjs(chartCanvas,{
-          label: '정확도',
+          label: '正確度',
           type: 'line',
           data: {
             labels:this.danceData.time,
             datasets:[{
               data: this.danceData.score,
-              label: "정확도",
+              label: "正確度",
               borderColor: "black",
               fill:false,
             }],
@@ -448,7 +441,6 @@ export default {
         try { 
           const res = await lectureService.createScore(formData);
           console.log(res);
-          console.log("플레이 데이터 저장 성공");
         } catch (error) {
           console.log(error);
         }

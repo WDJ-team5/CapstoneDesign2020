@@ -19,12 +19,12 @@
     <div id="count">3</div>
     <div id="pannel">
       <div id="pannel_content">
-        <p>테스트를 시작하기전 자신의 모습이 인식이 잘 되는지 확인해주세요.</p>
-        <p>주변에 옷이나 인식에 방해되는 요소를 제거해 주세요.</p>
+        <p>テストを開始する前は、自分の姿がちゃんと認識されているか確認してください。</p>
+        <p>周辺に服や認識に邪魔になる要素を取り除いてください。</p>
         <hr/>
-        <p>시험 응시 횟수는 무제한입니다.</p>
-        <p>@댄스설명@</p>
-        <p>BTS 작은 것들을 위한 시 하이라이트 입니다.</p>
+        <p>試験の受験回数は無制限です。</p>
+        <p>ダンスの説明</p>
+        <p>BTSの小さいもののためのハイライトです。</p>
       </div>
       <div class="btn-bg bg-1">
         <div class="btn btn-1">
@@ -33,7 +33,7 @@
           <!-- <button id="end-btn" type="button">끝내기</button> -->
           <router-link to="/audition" class="nav-link" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <button id="end_btn">끝내기</button>
+            <button id="end_btn">おわり</button>
           </router-link>
         </div>
       </div>
@@ -103,7 +103,7 @@ export default {
         this.$refs.webcam.srcObject = stream;
       })
       .catch(error => {
-        alert("웹캠을 인식할 수 없어용~!");
+        alert("cameraを見つけません！");
       });
 
     this.loadLectureData();
@@ -113,8 +113,8 @@ export default {
       return this.videoControls;
     },
     computedModeChangeHtml: function() {
-      if (this.videoControls) return "테스트";
-      else return "미리보기";
+      if (this.videoControls) return "テスト";
+      else return "動画見る";
     },
     computedFinalScore: function() {
       return this.finalScore;
@@ -265,21 +265,20 @@ export default {
         try {
           const res = await lectureService.createScore(formData);
           console.log(res);
-          console.log("플레이 데이터 저장 성공");
         } catch (error) {
           console.log(error);
         }
         
         /* 모달  */
         Swal.fire({
-          title:'정확도 : '+this.finalScore+'%',
+          title:'正確度 : '+this.finalScore+'%',
           html:
-          '<p>해당 점수로 지원하시겠습니까?</p>',
+          '<p>この点数で受けますか？</p>',
           timerProgressBar: true,
           icon: 'success',
           showCancelButton: true,
-          confirmButtonText: '지원하기',
-          cancelButtonText: '다시하기',
+          confirmButtonText: 'うける',
+          cancelButtonText: 'やりなおし',
           allowOutsideClick:false,
           allowEscapeKey:false,
         }).then((result)=>{
