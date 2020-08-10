@@ -2,13 +2,13 @@
   <div id="content">
     <div id="auditiondetails_boxtit">
       <p class="text">
-        오디션 상세보기
+        オーディションを詳しく見る
       </p>
     </div>
     <p class="auditiondetails_recruitment">{{auditions.title}}</p>
     <div id="auditiondetails_dayimg">
       <img v-if="state" :src="`${$store.state.serverPath}/storage/${auditions.aud_image}`" :alt="auditions.title">
-      <p class="text">채용시 마감</p>
+      <p class="text">採用時締め切り</p>
     </div>
     <hr class="hr_line">
     <div id="detail_box">
@@ -20,36 +20,36 @@
           <col />
         </colgroup>
         <tbody>
-          <p class="auditiondetails_total">오디션 정보</p>
+          <p class="auditiondetails_total">オーディションの情報</p>
           <tr>
-            <th>모집랭크</th>
-            <td>{{auditions.rank}} 랭크이상</td>
-            <th>오디션 기간</th>
-            <td>{{auditions.end_date}} 까지</td>
+            <th>募集ランク</th>
+            <td>{{auditions.rank}} ランク以上</td>
+            <th>オーディションの期間</th>
+            <td>{{auditions.end_date}} まで</td>
           </tr>
           <tr>
-            <th>담당자 이름</th>
+            <th>担当者の名前</th>
             <td>{{auditions.user.name}}</td>
-            <th>담당자 연락처</th>
+            <th>担当者の連絡先</th>
             <td>{{auditions.user.call_number}}</td>
           </tr>
           <tr>
-            <th>회사 명</th>
+            <th>会社名</th>
             <td>{{auditions.user.company.company_name}}</td>
-            <th>회사 위치</th>
+            <th>会社の位置</th>
             <td>{{auditions.user.address}}</td>
           </tr>
         </tbody>
       </table>
       <hr class="hr_line">
       <dl class="auditiondetails_introduction">
-          <dt>오디션 소개</dt>
+          <dt>採用時締め切り</dt>
           <dd>
             {{auditions.content}}<br>
           </dd>
       </dl>
       <hr class="hr_line">
-      <p id="video_result" class="auditiondetails_total">영상과제</p>
+      <p id="video_result" class="auditiondetails_total">動画課題</p>
       <!-- <b-embed
               type="iframe"
               aspect="16by9"
@@ -60,7 +60,7 @@
       <video width="600px" height="400px" controls="controls" :src="`${$store.state.serverPath}/storage/auditon_image/02.mp4`"></video>
       <hr class="hr_line">
       <div id="button_area">
-        <button type="button" @click="applyAudition">오디션 보기</button>
+        <button type="button" @click="applyAudition">オーディションを見る</button>
       </div>
       <!-- <div id="button_area">
       <b-button variant="primary" v-on:click="editAudition(auditions)">수정</b-button>
