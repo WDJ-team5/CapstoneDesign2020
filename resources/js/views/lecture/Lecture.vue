@@ -6,21 +6,21 @@
                 <b-dropdown-item-button @click="idol()">아이돌</b-dropdown-item-button>
                 <b-dropdown-item-button @click="pop()">팝핀</b-dropdown-item-button>
             </b-dropdown> -->
-            <h3 style="margin-top:12%;margin-left:25%;">난이도선택</h3>
+            <h3 style="margin-top:12%;margin-left:25%;">難易度選択</h3>
             <ul>
-                <li @click="leva()">A랭크</li>
-                <li @click="levb()">B랭크</li>
-                <li @click="levc()">C랭크</li>
+                <li @click="leva()">Aランク</li>
+                <li @click="levb()">Bランク</li>
+                <li @click="levc()">Cランク</li>
             </ul>
 
-            <h3 style="margin-top:10%;margin-left:30%;">장르선택</h3>
+            <h3 style="margin-top:10%;margin-left:30%;">ジャンル選択</h3>
             <ul>
-                <li @click="idol()">남자아이돌 </li>
-                <li @click="widol()">여자아이돌 </li>
-                <li @click="hiphop()">힙합댄스 </li>
-                <li @click="bboy()">비보잉</li>
-                <li @click="breakd()">왁킹댄스</li>
-                <li @click="pop()">팝핀</li>
+                <li @click="idol()">男子アイドル </li>
+                <li @click="widol()">女子アイドル </li>
+                <li @click="hiphop()">ヒップホップダンス</li>
+                <li @click="bboy()">ストリートダンス</li>
+                <li @click="breakd()">ワクキングダンス</li>
+                <li @click="pop()">パッピン</li>
             </ul>
 
             
@@ -58,11 +58,11 @@
 
         <div class="btn-cover">
           <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">
-            이전
+            前のページ
           </button>
-          <span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} 페이지</span>
+          <span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} ページ</span>
           <button :disabled="pageNum >= pageCount - 1" @click="nextPage" class="page-btn">
-            다음
+            次のページ
           </button>
         </div>
   </div>

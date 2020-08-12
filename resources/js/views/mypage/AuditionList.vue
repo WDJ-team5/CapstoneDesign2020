@@ -12,10 +12,10 @@
             </div>
             <div class="list_side">
                 <div class="audition_deadline">
-                    마감일: {{audition.end_date}}
+                    締切日: {{audition.end_date}}
                 </div>
                 <button>
-                    <a href="#" @click="applyClick(audition)">지원자 현황</a>
+                    <a href="#" @click="applyClick(audition)">志願者の現況</a>
                 </button>
             </div>
         </div>

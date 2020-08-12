@@ -5,7 +5,7 @@
       <div class="input-group">
         <input type="text" v-model="search" class="form-control">
         <div class="input-group-prepend">
-          <button @click.prevent="searchExpert()" class="btn btn-primary"><i class="fa fa-search"></i></button>
+          <button @click.prevent="searchExpert()" class="btn search"><i class="fa fa-search"></i></button>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
 
     <div v-if="showsearch==false">
       <div class="expert-set">
-        <h1>#아이돌 댄스</h1>
+        <h1>#アイドルダンス</h1>
         <div id="container" class="expert-imgList">
           <ExpertItem v-bind:propsdata="idolExp" v-on:active="active1" />
         </div>
@@ -38,7 +38,7 @@
 
 
       <div class="expert-set">
-        <h1>#힙합 댄스</h1>
+        <h1>#ヒップホップ</h1>
         <div id="container" class="expert-imgList">
           <ExpertItem v-bind:propsdata="hiphopExp" v-on:active="active2" />
         </div>
@@ -49,7 +49,7 @@
 
 
       <div class="expert-set">
-        <h1>#팝핀 댄스</h1>
+        <h1>#パッピン</h1>
         <div id="container" class="expert-imgList">
           <ExpertItem v-bind:propsdata="poppinExp" v-on:active="active3" />
         </div>
@@ -177,8 +177,10 @@ export default {
     display: block;
     width: 100%;
     height: auto;
-    margin-bottom:30px;
+    padding-bottom:50px;
+    background-color:#2c2c2c;
   }
+  
 
   .expert-set{
     margin-bottom: 50px;
@@ -197,23 +199,33 @@ export default {
   }
   
   h1{
-    margin-left:10%;
+    margin-left:15.7%;
     font-size: 28px;
     font-weight: bold;
-    color:#575757;
+    color:white;
   }
 
   .expert-search{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top:15px;
-    margin-bottom:80px;
+    margin-bottom:20px;
     margin-left:10px;
   }
 
+
   .input-group{
-    width:500px;
+    margin-top:60px;
+    margin-left:850px;
+    width:260px;
+  }
+
+  .input-group-prepend{
+    background-color:tomato;
+  }
+
+  .search{
+    color:white;
   }
 
 </style>

@@ -13,43 +13,43 @@ class CompaniesTableSeeder extends Seeder
     {
         //1
         App\Company::create([
-            'company_name' => 'YG 엔터테인먼트',
+            'company_name' => 'YG Entertainment',
             'business_number' => '28199210'
         ]);
         
         //2
         App\Company::create([
-            'company_name' => 'SHOWHIP크루',
+            'company_name' => 'SHOWHIP Crew',
             'business_number' => '39019281'
         ]);
 
         //3
         App\Company::create([
-            'company_name' => 'Kboy팀',
+            'company_name' => 'Kboy Team',
             'business_number' => '39012281'
         ]);
 
         //4
         App\Company::create([
-            'company_name' => '빅히트엔터먼트',
+            'company_name' => 'Big Hit Entertainment',
             'business_number' => '39022281'
         ]);
 
         //5
         App\Company::create([
-            'company_name' => 'DGBBOY크루',
+            'company_name' => 'DGBBOY Crew',
             'business_number' => '39022282'
         ]);
 
         //6
         App\Company::create([
-            'company_name' => '풍차돌리기 팀',
+            'company_name' => '風車回しTeam',
             'business_number' => '39022282'
         ]);
 
         //7
         App\Company::create([
-            'company_name' => 'WEASG왁킹크루',
+            'company_name' => 'WEASG Waxing Crew',
             'business_number' => '39022283'
         ]);
 
@@ -61,7 +61,7 @@ class CompaniesTableSeeder extends Seeder
 
         //9
         App\Company::create([
-            'company_name' => '왁킹협회',
+            'company_name' => 'Waxing Association',
             'business_number' => '39022285'
         ]);
 
@@ -73,13 +73,13 @@ class CompaniesTableSeeder extends Seeder
 
         //11
         App\Company::create([
-            'company_name' => 'YoungWave크루',
+            'company_name' => 'YoungWaveCrew',
             'business_number' => '39022286'
         ]);
 
         //12
         App\Company::create([
-            'company_name' => '부산광역시 살사협회',
+            'company_name' => 'Busan Salsa Association',
             'business_number' => '39022287'
         ]);
 
@@ -91,13 +91,13 @@ class CompaniesTableSeeder extends Seeder
 
         //14
         App\Company::create([
-            'company_name' => '스트릿댄스협회',
+            'company_name' => 'Streetdance Association',
             'business_number' => '39022289'
         ]);
 
         //15
         App\Company::create([
-            'company_name' => '장엔터테인먼트',
+            'company_name' => 'Jang Entertainment',
             'business_number' => '39022290'
         ]);
         

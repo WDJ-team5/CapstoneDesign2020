@@ -100,7 +100,7 @@ class MypageController extends Controller
     }
 
     public function searchApplicant($id, $value) {
-        // $result = \App\Resume::where('audition_id', $id)->where('result', $value)->get();
-        // return response()->json($result, 200);
+        $result = \App\Resume::where('audition_id', $id)->where('result', $value)->get();
+        return response()->json($result, 200);
     }
 }

@@ -18,24 +18,6 @@
                             <label>{{editFeedbackData.name}}</label>
                         </label>
 
-                        <label class="video">
-                            <label>첨부영상 : </label>
-                            <div class="video-form file is-info has-name">
-                                <label class="file-label">
-                                    <input class="file-input" type="file" ref="file" name="file" @change="addFile()">
-                                    <span class="file-cta">
-                                        <span class="file-icon">
-                                            <i class="fa fa-upload"></i>
-                                        </span>
-                                        <span class="file-label">
-                                            파일업로드
-                                        </span>
-                                    </span>
-                                    <span class="file-name" v-if="attachment.name" v-html="attachment.name"></span>
-                                </label>
-                            </div>
-                        </label>
-
                         <!-- <label class="video">
                             <label>첨부영상 : </label>
                             <div class="video-form">
@@ -58,7 +40,7 @@
 
                 <form v-else v-on:submit.prevent="createFeedback">
                     <div class="feedback-title-form">
-                        <b-form-input class="feedback-title" v-model="feedbackData.title" placeholder="제목을 입력하세요"></b-form-input>
+                        <b-form-input class="feedback-title" size="lg" v-model="feedbackData.title" placeholder="제목을 입력하세요"></b-form-input>
                     </div>
 
                     <div class="feedback-info">
@@ -67,12 +49,23 @@
                             <label>{{this.$route.params.contentName}}</label>
                         </label>
 
-                        <!-- <label class="video">
+                        <label class="video">
                             <label>첨부영상 : </label>
-                            <div class="video-form">
-                                <b-form-input id="video" v-model="feedbackData.video" placeholder="링크를 입력하세요"></b-form-input>
+                            <div class="video-form file is-info has-name">
+                                <label class="file-label">
+                                    <input class="file-input" type="file" ref="file" name="file" @change="addFile()">
+                                    <span class="file-cta">
+                                        <span class="file-icon">
+                                            <i class="fa fa-upload"></i>
+                                        </span>
+                                        <span class="file-label">
+                                            파일업로드
+                                        </span>
+                                    </span>
+                                    <span class="file-name" v-if="attachment.name" v-html="attachment.name"></span>
+                                </label>
                             </div>
-                        </label> -->
+                        </label>
                     </div>
 
                     <b-form-textarea id="textarea-rows" v-model="feedbackData.content" placeholder="내용을 입력해주세요" rows="22"></b-form-textarea>
@@ -142,7 +135,7 @@ export default {
             let formData=new FormData();
             formData.append('title',this.feedbackData.title);
             formData.append('content',this.feedbackData.content);
-            formData.append('video',this.feedbackData.video);
+            formData.append('file', this.attachment);
             formData.append('answer',null);
             formData.append('answer_date',null);
             formData.append('expert_id',this.$route.params.contentId);
@@ -237,6 +230,11 @@ export default {
 
     .feedback-title-form {
         margin-bottom: 20px;
+    
+    }
+
+    .form-control{
+        background-color:#f5f5f5;
     }
 
     .feedback-info {
@@ -258,10 +256,6 @@ export default {
         float:left;
         margin-top:8px;
         margin-left:5px;
-    }
-
-    .feedback-title{
-        height: 60px;
     }
 
     .feedback-btn {

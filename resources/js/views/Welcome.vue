@@ -45,10 +45,12 @@
                                 <img :src="slide" />
                             </div>
                             <template slot="prevButton">
-                                <i class="fas fa-angle-left"> &lt; </i>
+                                &lt;
+                                <!-- <i class="fas fa-angle-left">  </i> -->
                             </template>
                             <template slot="nextButton">
-                                <i class="fas fa-angle-left"> &gt; </i>
+                                &gt;
+                                <!-- <i class="fas fa-angle-left">  </i> -->
                             </template>
                         </agile>
                     </div>
@@ -58,7 +60,7 @@
 
         <div class="homeContainerChild">
             <hr />
-            <h4>전문가</h4>
+            <h4>専門家</h4>
             <hr>
             <div id="popular">
                 <div id="popularMain">
@@ -80,7 +82,7 @@
                 </div>
             </div>
             <hr />
-            <h4>오디션</h4>
+            <h4>オーディション</h4>
             <hr />
             <div class="home_list" v-for="(audition, index) in auditions" :key="index">
                 <router-link :to="auditionsUrl[index]"><img :src="`${$store.state.serverPath}/storage/${audition.aud_image}`"/></router-link>
@@ -142,13 +144,13 @@ export default {
                 ]
             },
             slides: [
-                "http://localhost:8000/storage/lectureimg/01.jpg",
-                "http://localhost:8000/storage/lectureimg/08.jpg",
-                "http://localhost:8000/storage/lectureimg/03.jpg",
-                "http://localhost:8000/storage/lectureimg/09.jpg",
-                "http://localhost:8000/storage/lectureimg/05.jpg",
-                "http://localhost:8000/storage/lectureimg/06.jpg",
-                "http://localhost:8000/storage/lectureimg/11.jpg",
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
+                "test",
             ],
             slidesTitle: [
                 "test",
@@ -283,9 +285,10 @@ div > a > img {
     transition: transform 0.5s;
 }
 #popular {
-    width: 100%;
+    width: 75%;
     display: flex;
     flex-direction: row;
+    margin: 0 auto;
 }
 #popularMain {
     width: 65vw;

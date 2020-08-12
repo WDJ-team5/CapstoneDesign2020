@@ -2,8 +2,8 @@
   <div id="container">
     <div class="common_contentbox">
       <hr>
-      <h2 class="title">오디션</h2>
-      <b-dropdown id="dropdown-text" text="랭크선택" class="m-2 drop">
+      <h2 class="title">オーディション</h2>
+      <b-dropdown id="dropdown-text" text="ランク選択" class="m-2 drop">
         <b-dropdown-item-button @click="aRank()">A랭크이상</b-dropdown-item-button>
         <b-dropdown-item-button @click="bRank()">B랭크이상</b-dropdown-item-button>
       </b-dropdown>
@@ -14,7 +14,7 @@
               <img id="card-image" :src="`${$store.state.serverPath}/storage/${audition.aud_image}`" :alt="audition.title">
             </div>
             <div class="d_dayinfo">
-              <p class="day">{{audition.rank}}랭크이상</p>
+              <p class="day">{{audition.rank}}ランク以上</p>
               <table class="info">
                 <colgroup>
                   <col style="width:100px;" />
@@ -31,20 +31,20 @@
                                     <td>메가폰 엔터테인먼트</td>
                   </tr>-->
                   <tr>
-                    <th>모집대상</th>
+                    <th>募集対象</th>
                     <td>{{audition.object}}</td>
                   </tr>
 
                   <tr>
-                    <th>마감일</th>
-                    <td>{{audition.end_date}} 까지</td>
+                    <th>締め切り</th>
+                    <td>{{audition.end_date}} まで</td>
                   </tr>
                   <!--                                        <tr>
                                     <th>주연</th>
                                     <td>이준혁, 장동곤, 이창범</td>
                   </tr>-->
                   <tr>
-                    <th>기업명</th>
+                    <th>会社名</th>
                     <td>{{ audition.user.company.company_name }}</td>
                   </tr>
                 </tbody>
@@ -56,11 +56,11 @@
       </ul>
       <div class="btn-cover">
           <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">
-            이전
+            前のページ
           </button>
-          <span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} 페이지</span>
+          <span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} ページ</span>
           <button :disabled="pageNum >= pageCount - 1" @click="nextPage" class="page-btn">
-            다음
+            次のページ
           </button>
         
       </div>

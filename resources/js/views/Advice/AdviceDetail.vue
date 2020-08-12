@@ -203,6 +203,7 @@ export default {
   flex-direction: row;
   justify-content: center;
   margin-bottom: 25px;
+  width: inherit;
 }
 
 

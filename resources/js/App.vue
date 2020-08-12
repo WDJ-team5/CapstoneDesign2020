@@ -35,6 +35,6 @@ export default {
 
 <style>
     #layoutSidenav_content {
-      margin-top:40px;
+      margin-top:0px;
     }
 </style>

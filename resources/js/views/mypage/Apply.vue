@@ -4,19 +4,19 @@
         <div class="apply_container">
             <table id="apply_table">
                 <thead>
-                    <th>오디션명</th>
-                    <th>기타메세지</th>
-                    <th>과제점수</th>
-                    <th>합격여부</th>
+                    <th>オーディション名</th>
+                    <th>その他のメッセージ</th>
+                    <th>課題点数</th>
+                    <th>合格・不合格</th>
                 </thead>
                 <tbody>
                     <tr v-for="(apply, index) in applies" :key="index">
                         <td>{{apply.audition.title}}</td>
                         <td>{{apply.message}}</td>
                         <td>{{apply.score}}</td>
-                        <td v-if="apply.result == 0">심사중</td>
-                        <td v-else-if="apply.result == 1">합격</td>
-                        <td v-else>불합격</td>
+                        <td v-if="apply.result == 0">検討中</td>
+                        <td v-else-if="apply.result == 1">合格</td>
+                        <td v-else>不合格</td>
                     </tr>
                 </tbody>
             </table>
