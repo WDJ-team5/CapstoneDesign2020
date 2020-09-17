@@ -67,7 +67,7 @@
                             <img src="/images/rate.png" height=150px/>
                         </div>
                         <div class="feedbackBtnBox">
-                            <button class="feedbackBtn" @click="writeFeedback(propsdata.expert_id, propsdata.name)">피드백 신청하기</button>
+                            <button class="feedbackBtn" @click="writeFeedback(propsdata.expert_id, propsdata.name)">問い合わせる</button>
                         </div>
                     </div>
                 </div>

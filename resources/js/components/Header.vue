@@ -5,10 +5,10 @@
       <div class="LoginNavGroup">
 
         <div v-if="sessionData.state">
-          <router-link to="/login" class="NavLink" exact>로그인</router-link>
+          <router-link to="/login" class="NavLink" exact>ログイン</router-link>
         </div>
         <div v-if="!sessionData.state" id="logout_div">
-          <a class="NavLink" id="logout" v-on:click="deleteSession">로그아웃</a>
+          <a class="NavLink" id="logout" v-on:click="deleteSession">ログアウト</a>
         </div>
       </div>    
     </div>
@@ -25,7 +25,7 @@
         <li>
           <router-link to="/lecture" class="NavLink" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>댄스강좌</span>
+            <span>ダンス講座</span>
           </router-link>
         </li>
         <!-- <li>
@@ -37,7 +37,7 @@
         <li>
           <router-link to="/expert/list" class="NavLink" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span class=feedback-letter>피드백</span>
+            <span class=feedback-letter>フィードバック</span>
             <ul class="navbar-nav ml-auto ml-md-0">
               <li class="nav-item dropdown">
                 <a
@@ -51,7 +51,7 @@
                 >
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                  <router-link to="/advice/list" class="dropdown-item" exact>내 피드백 활동
+                  <router-link to="/advice/list" class="dropdown-item" exact>マイフィードバック
                   </router-link>
                 </div>
               </li>
@@ -61,13 +61,13 @@
         <li>
           <router-link to="/audition" class="NavLink" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>오디션</span>
+            <span>オーディション</span>
           </router-link>
         </li>
         <li v-if="!sessionData.state">
           <router-link to="/mypage/profile" class="NavLink" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>마이페이지</span>
+            <span>マイページ</span>
           </router-link>
         </li>
       </ul>

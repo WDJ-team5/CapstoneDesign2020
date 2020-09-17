@@ -52,8 +52,8 @@
 
                         <div class="col-lg-4">
 
-                            <h4>専門家 {{this.$route.params.contentName}} 様に</h4>
-                            <h6>気になるところについて質問しましょう</h6>
+                            <h4>専門家 {{this.$route.params.contentName}} に</h4>
+                            <h6>アドバイスをもらいましょう</h6>
 
                             <hr />
 
@@ -306,6 +306,7 @@ export default {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        margin-bottom: 30px;
     }
 
     .feedback-send-btn {

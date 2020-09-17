@@ -22,10 +22,10 @@
         </colgroup> -->
         <thead>
             <tr class="top-border">
-                <td class="cell_padding right-border">番号</td>
+                <td class="cell_padding right-border">No</td>
                 <td class="cell_padding right-border">タイトル</td>
                 <td class="cell_padding right-border">作成日</td>
-                <td class="cell_padding">答弁</td>
+                <td class="cell_padding">返信</td>
             </tr>
         </thead>
         <tbody>
@@ -46,8 +46,8 @@
                 
                   <td v-b-toggle="'collapse-'+index">
                     <div class="cell_padding">
-                      <b-badge variant="secondary" v-if="feedbackList.answer==null">答弁未完了</b-badge>
-                      <b-badge variant="primary" v-else>答弁完了</b-badge>
+                      <b-badge variant="secondary" v-if="feedbackList.answer==null">未開掛</b-badge>
+                      <b-badge variant="primary" v-else>返信完了</b-badge>
                     </div>     
                   </td>
             </tr>

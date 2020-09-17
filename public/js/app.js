@@ -69723,7 +69723,7 @@ var render = function() {
                     staticClass: "NavLink",
                     attrs: { to: "/login", exact: "" }
                   },
-                  [_vm._v("로그인")]
+                  [_vm._v("ログイン")]
                 )
               ],
               1
@@ -69739,7 +69739,7 @@ var render = function() {
                   attrs: { id: "logout" },
                   on: { click: _vm.deleteSession }
                 },
-                [_vm._v("로그아웃")]
+                [_vm._v("ログアウト")]
               )
             ])
           : _vm._e()
@@ -69775,7 +69775,7 @@ var render = function() {
               [
                 _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                 _vm._v(" "),
-                _c("span", [_vm._v("댄스강좌")])
+                _c("span", [_vm._v("ダンス講座")])
               ]
             )
           ],
@@ -69795,7 +69795,7 @@ var render = function() {
                 _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                 _vm._v(" "),
                 _c("span", { staticClass: "feedback-letter" }, [
-                  _vm._v("피드백")
+                  _vm._v("フィードバック")
                 ]),
                 _vm._v(" "),
                 _c("ul", { staticClass: "navbar-nav ml-auto ml-md-0" }, [
@@ -69825,7 +69825,7 @@ var render = function() {
                             staticClass: "dropdown-item",
                             attrs: { to: "/advice/list", exact: "" }
                           },
-                          [_vm._v("내 피드백 활동\n                ")]
+                          [_vm._v("マイフィードバック\n                ")]
                         )
                       ],
                       1
@@ -69847,7 +69847,7 @@ var render = function() {
               [
                 _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                 _vm._v(" "),
-                _c("span", [_vm._v("오디션")])
+                _c("span", [_vm._v("オーディション")])
               ]
             )
           ],
@@ -69867,7 +69867,7 @@ var render = function() {
                   [
                     _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                     _vm._v(" "),
-                    _c("span", [_vm._v("마이페이지")])
+                    _c("span", [_vm._v("マイページ")])
                   ]
                 )
               ],

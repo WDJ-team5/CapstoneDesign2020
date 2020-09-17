@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
         App\User::create([
             'userid' => 'sample_01',
             'password' => bcrypt('1234'),
-            'name' => 'パク・スジン',
+            'name' => 'シンデレラ',
             'birthday' => '1999-06-10',
             'gender' => 1,  //0: 남, 1: 여
             'address' => 'Dae-gu',
@@ -52,7 +52,7 @@ class UsersTableSeeder extends Seeder
             'gender' => 1,
             'address' => 'Dae-gu',
             'call_number' => '010-0000-0000',
-            'introduction' => 'こんにちは。振付研究家のリアキです。',
+            'introduction' => 'こんにちは。振付研究家のリアキムです。',
             'image' => 'user_images/03.jpg',
             'class' => 2,
             'rank_id'=> 3,

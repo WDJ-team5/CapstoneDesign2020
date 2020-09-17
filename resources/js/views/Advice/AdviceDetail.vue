@@ -130,6 +130,7 @@ export default {
 
 .content-reply {
   background-color:rgb(233, 233, 233);
+  padding: 20px;
 }
 
 .content-detail-content-info {
@@ -138,7 +139,7 @@ export default {
 }
 
 .content-detail-content-info-left {
-  width: 190px;
+  width: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -160,6 +161,8 @@ export default {
 .name{
   font-size:20px;
   margin-bottom:10px;
+  margin-left: 15px;
+  
 }
 
 .content-detail-content {
