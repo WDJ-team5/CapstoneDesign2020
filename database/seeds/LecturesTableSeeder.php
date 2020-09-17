@@ -11,16 +11,6 @@ class LecturesTableSeeder extends Seeder
      */
     public function run()
     {
-
-        App\Lecture::create([
-            'title' => 'リズムトレーニング1番目のバウンスを見ながら真似。',
-            'content' => 'バウンスの練習方法が分からなければ、ただ真似してください。リズムに乗る3つの方法！',
-            'video' => 'lecture_sample01',
-            'image' => 'LectureImg/23.jpg',
-            'genre_id' => 6,
-            'level_id' => 3,
-        ]);
-
         App\Lecture::create([
             'title' => 'TWICE TTで学ぶ講義。',
             'content' => 'TWICE TTで学ぶアイドルダンスの基礎講義です。',
@@ -104,7 +94,14 @@ class LecturesTableSeeder extends Seeder
             'level_id' => 3,
         ]);
 
-
+        App\Lecture::create([
+            'title' => 'リズムトレーニング1番目のバウンスを見ながら真似。',
+            'content' => 'バウンスの練習方法が分からなければ、ただ真似してください。リズムに乗る3つの方法！',
+            'video' => 'lecture_sample01',
+            'image' => 'LectureImg/23.jpg',
+            'genre_id' => 1,
+            'level_id' => 3,
+        ]);
 
         App\Lecture::create([
             'title' => 'ポッピンヒョンジュンと一緒に学ぶポッピンダンス基礎ステップ講義',
