@@ -69723,7 +69723,11 @@ var render = function() {
                     staticClass: "NavLink",
                     attrs: { to: "/login", exact: "" }
                   },
+<<<<<<< HEAD
                   [_vm._v("ログイン")]
+=======
+                  [_vm._v("Login")]
+>>>>>>> b213878237b1615274e8cf5641b27b5d57a403ff
                 )
               ],
               1
@@ -69739,7 +69743,11 @@ var render = function() {
                   attrs: { id: "logout" },
                   on: { click: _vm.deleteSession }
                 },
+<<<<<<< HEAD
                 [_vm._v("ログアウト")]
+=======
+                [_vm._v("Logout")]
+>>>>>>> b213878237b1615274e8cf5641b27b5d57a403ff
               )
             ])
           : _vm._e()
@@ -69775,7 +69783,11 @@ var render = function() {
               [
                 _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
                 _vm._v(" "),
+<<<<<<< HEAD
                 _c("span", [_vm._v("ダンス講座")])
+=======
+                _c("span", [_vm._v("ダンスレッスン")])
+>>>>>>> b213878237b1615274e8cf5641b27b5d57a403ff
               ]
             )
           ],
@@ -87279,8 +87291,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\새 폴더\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\SUJIN\COLLEGE\학습자료\2020\1학기\캡스톤\새 폴더\프론트엔드 작업\MINA\최신\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\world\project\CapstoneDesign2020\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

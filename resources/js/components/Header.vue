@@ -5,10 +5,17 @@
       <div class="LoginNavGroup">
 
         <div v-if="sessionData.state">
+<<<<<<< HEAD
           <router-link to="/login" class="NavLink" exact>ログイン</router-link>
         </div>
         <div v-if="!sessionData.state" id="logout_div">
           <a class="NavLink" id="logout" v-on:click="deleteSession">ログアウト</a>
+=======
+          <router-link to="/login" class="NavLink" exact>Login</router-link>
+        </div>
+        <div v-if="!sessionData.state" id="logout_div">
+          <a class="NavLink" id="logout" v-on:click="deleteSession">Logout</a>
+>>>>>>> b213878237b1615274e8cf5641b27b5d57a403ff
         </div>
       </div>    
     </div>
@@ -25,7 +32,11 @@
         <li>
           <router-link to="/lecture" class="NavLink" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
+<<<<<<< HEAD
             <span>ダンス講座</span>
+=======
+            <span>ダンスレッスン</span>
+>>>>>>> b213878237b1615274e8cf5641b27b5d57a403ff
           </router-link>
         </li>
         <!-- <li>
