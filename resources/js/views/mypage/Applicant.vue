@@ -191,9 +191,12 @@ export default {
 }
 
 .applicant_button_pass {
-    background-color:#007bff
+    background-color:#f86941;
+    border: solid 2px #f86941;
+    color: #fff;
 }
 .applicant_button_fail {
-    background-color: #ed1c24;
+    border: solid 2px #f86941;
+    background-color: none;
 }
 </style>

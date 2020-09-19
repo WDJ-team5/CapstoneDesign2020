@@ -230,6 +230,8 @@ export default {
           this.finalCount += 1;
           this.danceData.time.push( time / 1000 );
           this.danceData.score.push( tmp );
+          console.log(this.danceData.time);
+          console.log(this.danceData.score);
 
         }
 

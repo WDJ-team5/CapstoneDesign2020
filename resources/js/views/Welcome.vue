@@ -218,7 +218,6 @@ export default {
                 const response = await homeService.loadHomeContents();
                 // [0] : auditions
                 // [1] : lectures
-                console.log("response: ", response.data);
                 this.auditions = response.data[0];
                 this.auditionsUrl = [];
                 for(var i = 0; i < this.auditions.length; i ++){
@@ -238,7 +237,6 @@ export default {
                 }
 
                 this.experts = response.data[2];
-                console.log(this.experts);
                 this.expertsImage = [];
                 this.expertsName = [];
                 this.expertsIntro = [];
@@ -247,9 +245,6 @@ export default {
                     this.expertsName.push(this.experts[i].name);
                     this.expertsIntro.push(this.experts[i].introduction);
                 }
-                console.log(this.expertsImage);
-                console.log(this.expertsName);
-                console.log(this.expertsIntro);
             } catch (error) {
                 // console.log(error);
                 // this.flashMessage.success({

@@ -48,7 +48,7 @@ Route::resource('auditionApply', 'AuditionApplyController');
 
 Route::get('mypage', 'MypageController@loadProfile');
 
-Route::get('mypage/profile', 'MypageController@loadProfile');
+Route::get('mypage/profile', 'MypageController@loadUserProfile');
 
 Route::get('/mypage/lecture', 'MypageController@loadMyLecture');
 
