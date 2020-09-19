@@ -41,7 +41,8 @@
                     </div>
                     <div class="mypage_navigation">
                         <div class="mypage_nav_link">
-                            <router-link to="/mypage/profile" class="profile_link">
+                            <!-- <router-link to="/mypage/profile" class="profile_link"> -->
+                            <router-link :to="{name:'Profile', params: {data: mypages}}" class="profile_link">
                                 <span>プロフィール</span>
                             </router-link>
                             <router-link to="/mypage/lecture" class="profile_link">
@@ -67,7 +68,8 @@
 
 <script>
 export default {
-    name: 'mypage',
+    name: 'Mypage',
+
     data() {
         return {
             mypages: [],
@@ -88,14 +90,13 @@ export default {
 
             try {
                 this.axios.get(url).then(response => {
-                    console.log(response.data);
                     this.mypages = response.data;
                 });
             } catch(error) {
                 console.log(error);
             }
         },
-    }
+    },
 }
 </script>
 

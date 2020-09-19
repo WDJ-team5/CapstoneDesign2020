@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Welcome from './views/Welcome.vue';
+import Profile from './views/mypage/Profile.vue';
 
 Vue.use(Router);
 
@@ -118,42 +119,54 @@ const routes=[
     // 마이페이지
     {
         path: '/mypage',
-        name: 'mypage',
+        name: 'Mypage',
         component:()=>import('./views/mypage/Mypage.vue'),
         
         children: [
             {
                 path: 'profile',
-                component:()=>import('./views/mypage/Profile.vue'),
-                props: true
+                name: 'Profile',
+                // component:()=>import('./views/mypage/Profile.vue'),
+                component: Profile,
+                props: true,
             },
             {
                 path: 'lecture',
-                component:()=>import('./views/mypage/Lecture.vue')
+                name: 'Lecture',
+                component:()=>import('./views/mypage/Lecture.vue'),
+                props: true,
             },
             {
                 path: 'apply',
-                component:()=>import('./views/mypage/Apply.vue')
+                name: 'Apply',
+                component:()=>import('./views/mypage/Apply.vue'),
+                props: true
             },
             {
                 path: 'companyinfo',
-                component:()=>import('./views/mypage/CompanyInfo.vue')
+                name: 'Companyinfo',
+                component:()=>import('./views/mypage/CompanyInfo.vue'),
+                props: true
             },
             {
                 path: 'auditionlist',
-                component:()=>import('./views/mypage/AuditionList.vue')
+                name: 'Auditionlist',
+                component:()=>import('./views/mypage/AuditionList.vue'),
+                props: true
             },
             {
                 path: 'profileedit',
-                component:()=>import('./views/mypage/ProfileEdit.vue')
+                name: 'Profileedit',
+                component:()=>import('./views/mypage/ProfileEdit.vue'),
+                props: true
             }
         ]
     },
 ]
 
-const router=new Router({
+const router = new Router({
     mode: 'history',
-    routes:routes
+    routes: routes,
 });
 
 export default router;

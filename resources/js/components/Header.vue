@@ -5,17 +5,10 @@
       <div class="LoginNavGroup">
 
         <div v-if="sessionData.state">
-<<<<<<< HEAD
-          <router-link to="/login" class="NavLink" exact>ログイン</router-link>
-        </div>
-        <div v-if="!sessionData.state" id="logout_div">
-          <a class="NavLink" id="logout" v-on:click="deleteSession">ログアウト</a>
-=======
           <router-link to="/login" class="NavLink" exact>Login</router-link>
         </div>
         <div v-if="!sessionData.state" id="logout_div">
           <a class="NavLink" id="logout" v-on:click="deleteSession">Logout</a>
->>>>>>> b213878237b1615274e8cf5641b27b5d57a403ff
         </div>
       </div>    
     </div>
@@ -32,11 +25,7 @@
         <li>
           <router-link to="/lecture" class="NavLink" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
-<<<<<<< HEAD
-            <span>ダンス講座</span>
-=======
             <span>ダンスレッスン</span>
->>>>>>> b213878237b1615274e8cf5641b27b5d57a403ff
           </router-link>
         </li>
         <!-- <li>
@@ -62,7 +51,7 @@
                 >
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                  <router-link to="/advice/list" class="dropdown-item" exact>マイフィードバック
+                  <router-link to="/advice/list" class="dropdown-item" exact>私のフィードバックの活動
                   </router-link>
                 </div>
               </li>
@@ -76,7 +65,7 @@
           </router-link>
         </li>
         <li v-if="!sessionData.state">
-          <router-link to="/mypage/profile" class="NavLink" exact>
+          <router-link to="/mypage" class="NavLink" exact>
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>マイページ</span>
           </router-link>
@@ -233,8 +222,6 @@ li > a {
   transition:all 0.5s ease;
 }
 
-#logout_div {
-}
 #logout {
   color: #007bff;
   padding: 0.5rem 1rem;

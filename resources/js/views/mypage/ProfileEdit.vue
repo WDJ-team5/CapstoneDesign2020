@@ -65,7 +65,7 @@
                     </thead>
                 </table>
             </div>
-                <button>貯蔵</button>
+                <button class='editButton'>貯蔵</button>
         </div>
     </div>
 </template>
@@ -113,5 +113,8 @@ export default {
 table {
     border-collapse: separate;
     border-spacing: 2vh;
+}
+.editButton {
+    border: solid 1px #f86941;
 }
 </style>

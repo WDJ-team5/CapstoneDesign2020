@@ -11,7 +11,7 @@ class MypageController extends Controller
         $confirmCode = \App\Session::first();
 
         $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
-
+        
         if($user->class == 1) {
             $result = \App\User::join('ranks','rank_id','=','ranks.id')
             ->whereConfirmCode($confirmCode->confirm_code)->first();
@@ -27,6 +27,36 @@ class MypageController extends Controller
         }
 
         return response()->json($result, 200);
+        
+    }
+
+    public function loadUserProfile()
+    {
+        $confirmCode = \App\Session::first();
+
+        $user = \App\User::whereConfirmCode($confirmCode->confirm_code)->first();
+        
+        if($user->class == 1) {
+            $result = \App\User::join('ranks','rank_id','=','ranks.id')
+            ->whereConfirmCode($confirmCode->confirm_code)->first();
+        } else if($user->class == 2) {
+            $result = \App\User::join('ranks','rank_id','=','ranks.id')
+            ->join('experts','expert_id','=','experts.id')
+            ->join('specialties','specialty_id','=','specialties.id')
+            ->whereConfirmCode($confirmCode->confirm_code)->first();
+        } else {
+            $result = \App\User::join('ranks','rank_id','=','ranks.id')
+            ->join('companies','company_id','=','companies.id')
+            ->whereConfirmCode($confirmCode->confirm_code)->first();           
+        }
+        
+        $result2 = \App\LectureUser::join('lectures','lecture_id','=','lectures.id')
+        ->whereUserId($user->id)->get();
+
+        $result3 = \App\Resume::orderBy('id','desc')->whereUserId($user->id)
+        ->with(array('audition'=>function($query){$query->get();}))->get();
+
+        return response()->json([$result, $result2, $result3, 200]);
         
     }
 
